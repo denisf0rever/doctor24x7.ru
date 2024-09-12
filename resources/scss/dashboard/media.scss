@@ -1,0 +1,151 @@
+@media (max-width: 960px) {
+  .header{
+    &__menu-button{
+      display: block;
+    }
+  }
+  .wrapper{
+    &__menu{
+      display: none;
+    }
+    &__main{
+      width: 100%;
+    }
+    &__menu-mobile{
+      display: block;
+    }
+  }
+  .menu-mobile{
+    &__hide{
+      transform: translateX(-100%);
+    }
+    &__wrapper{
+      position: absolute;
+      width: 30%;
+      min-width: 200px;
+      height: 100%;
+      z-index: 11;
+      top: 0;
+      left: 0;
+      background-color: #2f343a;
+      color: #fff;
+      padding: 20px;
+      transition: all .2s linear;
+    }
+    &__list{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &__link{
+      overflow-wrap: break-word;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .info{
+    &__wrapper{
+      flex-direction: column;
+      gap: 20px;
+    }
+    &__element{
+      width: 100%;
+    }
+  }
+  .pages{
+    &__inner{
+      overflow-y: hidden;
+      overflow-x: auto;
+    }
+    &__item{
+      min-width: 400px;
+    }
+    &__icons{
+      gap: 10px;
+    }
+  }
+  .main{
+    &__blocks{
+      justify-content: center;
+    }
+  }
+  .color-block{
+    &__wrapper{
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+    }
+    &__img{
+      width: 20px;
+      height: 20px;
+      padding: 3px;
+    }
+    &__big-text{
+      font-size: 14px;
+    }
+    &__title{
+      font-size: 12px;
+    }
+    &__small-text{
+      font-size: 10px;
+    }
+  }
+  
+}
+
+@media (max-width: 540px) {
+  .form{
+    &__inner{
+      flex-direction: column;
+    }
+    &__tabs{
+      width: 100%;
+    }
+    &__label-photo{
+      display: flex;
+      justify-content: center;
+    }
+    &__status-wrapper{
+      margin:0;
+      width: 100%;
+      margin-top: 30px;
+    }
+    &__select-wrapper{
+      margin: 0 auto;
+    }
+  }
+  .pages{
+    &__title-name{
+      font-size: 14px;      
+      width: 40%;
+    }
+    &__title-number{
+      font-size: 14px;
+      width: 25%;
+    }
+    &__title-options{
+      width: 15%;
+    }
+    &__name{
+      font-size: 14px;
+      width: 40%;
+    }
+    &__views-number{
+      font-size: 14px;
+      width: 25%;
+    }
+    &__list{
+      min-width: 500px;
+    }
+    &__titles{
+      min-width: 500px;
+    }
+    &__icons{
+      width: 15%;
+    }
+  }
+}
