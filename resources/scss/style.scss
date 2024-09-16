@@ -3,7 +3,6 @@
 @import "../../node_modules/swiper/modules/pagination.scss";
 @import "fonts.scss";
 @import "colors.scss";
-@import "components/news.scss";
 
 *,
 *:before,
@@ -34,8 +33,27 @@ h1{
   overflow: hidden;
 }
 
+ul{
+  margin: 0;
+}
+
+.container{
+  margin: 0 auto;
+  position: relative;
+  max-width: 1176px;
+  padding: 0 10px;
+}
+
+body {
+  color: var(--main-text);
+  font-family: "Roboto", tahoma;
+  font-weight: 400;
+  font-size: 14px;
+}
 
 
+@import "components/news.scss";
+@import "components/header.scss";
 
 @import "media.scss";
 

@@ -1,8 +1,9 @@
 :root {
-  --main-color: #3498db;
-  --secondary-color: #2ecc71;
+  --main-text: #001f31;
+  --secondary-text: #8c8f94;
+  --dark-text: #152242;
+  --link-text: #365bc2;
+  --link-text-green: #53b374;
+  --active-button: rgba(0, 0, 0, 0.07);
 }
 
-body {
-  background-color: var(--main-color);
-}

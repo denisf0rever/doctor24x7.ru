@@ -1,0 +1,101 @@
+.header{
+  &__wrapper{
+    padding: 10px;
+  }
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo-img{
+    width: 200px;
+    height: 40px;
+    background: url('/images/svg/logo.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+  &__title{
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--secondary-text);
+    font-weight: 400;
+  }
+  &__nav-link{
+    font-size: 13px;
+    color: var(--link-text);
+    &:hover{
+      color: var(--link-text-green);
+    }
+  }
+  &__experts{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__expert{
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    & + &{
+      margin-left: -20px;
+    }
+  }
+  &__expert-img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: block;
+  }
+  &__experts-titles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 16px;
+  }
+  &__experts-title{
+    font-weight: 700;
+    letter-spacing: normal;
+    line-height: 20px;
+    font-size: 16px;
+    color: var(--dark-text);
+  }
+  &__experts-subtitle{
+    display: block;
+    color: var(--secondary-text);
+  }
+  &__bottom{
+    margin-top: 15px;
+  }
+  &__bottom-nav-list{
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__bottom-nav-item-active{
+    margin-right: auto;
+  }
+  &__bottom-nav-item-link{
+    border-radius: 18px;
+    line-height: 36px;
+    padding-right: 16px;
+    padding-left: 16px;
+    transition: background-color 0.15s ease 0s;
+    display: flex;
+    font-size: 16px;
+    &:hover{
+      opacity: .8;
+      background: var(--active-button);
+    }
+  }  
+  &__bottom-nav-item-active{
+    a{
+      opacity: .8;
+      background: var(--active-button);
+      border-radius: 18px;
+      line-height: 36px;
+      padding-right: 16px;
+      padding-left: 16px;
+      transition: background-color 0.15s ease 0s;
+      display: flex;
+    }
+  }
+}
