@@ -1,0 +1,17 @@
+.description{
+  p{
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+  }
+
+  a{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--link-text);
+    &:hover{
+      color: var(--dark-text);
+    }
+  }
+}

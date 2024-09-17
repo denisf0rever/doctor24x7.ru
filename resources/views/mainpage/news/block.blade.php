@@ -1,5 +1,5 @@
 <section class="main__news news">
-  <div class="news__wrapper">
+  <div class="news__wrapper section-wrapper">
     <div class="news__top">
       <span class="news__title">Статьи по офтальмологии</span>
       <div class="news__filter">
