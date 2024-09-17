@@ -40,7 +40,7 @@
         <nav class="header__bottom-nav">
           <ul class="header__bottom-nav-list">
             <li class="header__bottom-nav-item header__bottom-nav-item-active">
-              <a href="/" class="header__bottom-nav-item-link">Задать вопрос</a>
+              <a href="{{ route('consult.form') }}" class="header__bottom-nav-item-link">Задать вопрос</a>
             </li>
             <li class="header__bottom-nav-item">
               <a href="/" class="header__bottom-nav-item-link">Завершенные консультации</a>

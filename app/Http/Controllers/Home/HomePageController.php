@@ -10,7 +10,10 @@ class HomePageController extends Controller
 {
     public function index()
 	{
-		$articles = Post::all();
+		$articles = Post::query()
+			->orderBy('created_at')
+            ->take(10)
+            ->get();
 				
 		return view('mainpage', compact('articles'));
 	}

@@ -12,9 +12,9 @@
       </div>
       <div class="header__buttons">
         <div class="header__button-icon">
-          <img src="/storage/avatar/webp/{{ Auth::user()->webp_avatar }}" alt="" class="header__button-img">
+          <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8aa4be3c764a85a461d66418ef14e88d2f1da208.jpg" alt="" class="header__button-img">
         </div>
-        <div class="header__button"><a href="{{ route('logout') }}">{{ Auth::user()->name }} Выйти</a></div>
+        <div class="header__button"><a href="{{ route('logout') }}">Выйти</a></div>
       </div>
     </div>
   </header>

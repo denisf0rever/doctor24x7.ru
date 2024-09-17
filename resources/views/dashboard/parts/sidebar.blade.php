@@ -11,7 +11,7 @@
               <a href="{{ route('dashboard.user') }}" class="menu__link">Пользователи</a>
             </li>
 			<li class="menu__item">
-              <a href="{{ route('dashboard.consultations') }}" class="menu__link">Консультации</a>
+              <a href="{{ route('dashboard.consultation') }}" class="menu__link">Консультации</a>
             </li>
           </ul>
         </div>
@@ -29,7 +29,7 @@
               <a href="{{ route('dashboard.user') }}" class="menu-mobile__link">Пользователи</a>
             </li>
 			<li class="menu-mobile__item">
-              <a href="{{ route('dashboard.consultations') }}" class="menu-mobile__link">Консультации</a>
+              <a href="{{ route('dashboard.consultation') }}" class="menu-mobile__link">Консультации</a>
             </li>
           </ul>
         </div>

@@ -23,7 +23,7 @@
               href="{{ route('articles.item', $article->id) }}">{{ $article->h1 }}</a></a><span
               class="news-item__comment">
               <img src="images/bubble.svg" alt="" class="news-item__comment-img">
-              <span class="news-item__comment-number">{{ $article->views }}</span>
+              <span class="news-item__comment-number">{{ $article->hits }}</span>
             </span></span>
         </div>
       </li>
