@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: var(--main-bg);
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -51,9 +55,50 @@ body {
   font-size: 14px;
 }
 
+p{
+  margin: 0;
+}
 
-@import "components/news.scss";
+* {
+  scrollbar-width: none; /* Скрывает скроллбар в Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Скрывает скроллбар в Chrome и Safari */
+}
+
+*::-webkit-scrollbar-button {
+display: none; /* Скрывает кнопки-стрелки на скроллбаре */
+}
+
+.section-wrapper{
+  background: #fff;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
+  border-radius: .5em;
+  padding: 15px;
+}  
+
+.main{
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+  }
+  &__content{
+    width: calc(100% - 320px);
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+  }
+  &__sidebar{
+    width: 300px;
+  }
+}
+
 @import "components/header.scss";
+@import "components/main-page/description.scss";
+@import "components/main-page/consultation-sidebar.scss";
+@import "components/main-page/news.scss";
+@import "components/footer.scss";
 
 @import "media.scss";
-

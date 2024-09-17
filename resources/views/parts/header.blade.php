@@ -35,6 +35,9 @@
             <span class="header__experts-subtitle">работает на сайте</span>
           </div>
         </a>
+        <div class="header__burger">
+          <img src="" alt="" class="header__burger-img">
+        </div>
       </div>
       <div class="header__bottom">
         <nav class="header__bottom-nav">
@@ -53,3 +56,15 @@
       </div>
     </div>
   </header>
+
+  <div class="mobile-header-nav">
+    <div class="mobile-header-nav__wrapper">
+      <ul class="mobile-header-nav__list">
+        <li class="mobile-header-nav__item">
+          <a href="" class="mobile-header-nav__link">
+            Консультации
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
