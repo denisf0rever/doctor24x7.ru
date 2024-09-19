@@ -5,7 +5,7 @@
     <div class="header__wrapper container">
       <div class="header__top">
         <a href="/" class="header__logo">
-          <img src="/" alt="" class="header__logo-img">
+          <img src="{{ asset('storage/app/public/images/logo.svg') }}" alt="" class="header__logo-img">
           <h1 class="header__title">КОНСУЛЬТАЦИИ ВРАЧЕЙ</h1>
         </a>
         <nav class="header__nav">
