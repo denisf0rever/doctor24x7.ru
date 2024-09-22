@@ -160,6 +160,8 @@
     border-radius: 10px 10px 0 0;
     padding: 16px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   &__title-wrapper{
     display: flex;
@@ -179,6 +181,10 @@
       width: 100%;
       height: 100%;
     }
+  }
+  &__tubs{
+    overflow-y: auto;
+    flex-grow: 1;
   }
   &__tub-buttons{
     display: flex;
@@ -248,7 +254,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 70px;
   }
   &__link {
     display: grid;
@@ -275,7 +280,7 @@
     text-decoration: none;
   }
   &__item-back {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   &__avatar {
     grid-column: 1/2;
@@ -288,11 +293,13 @@
   &__fullname {
     grid-column: 2/3;
     grid-row: 1/2;
+    align-self: center;
   }
   &__caption {
     grid-column: 2/3;
     grid-row: 2/3;
     font-size: 12px;
+    align-self: center;
   }
   &__hide {
     display: none;

@@ -402,11 +402,11 @@
       </div>
     </div>
     <div class="mobile-panel-top__tub-buttons">
-      <div class="mobile-panel-top__tub-button mobile-panel-top__tub-button-active" id="to-mobile-tub-1">Основное</div>
-      <div class="mobile-panel-top__tub-button" id="to-mobile-tub-2">Консультанты</div>
+      <div class="mobile-panel-top__tub-button mobile-panel-top__tub-button-active" data-tab="tab-1">Основное</div>
+      <div class="mobile-panel-top__tub-button" data-tab="tab-2">Консультанты</div>
     </div>
     <div class="mobile-panel-top__tubs">
-      <div class="mobile-panel-top__tub" id="mobile-tub-1">
+      <div class="mobile-panel-top__tub" data-tab="tab-1">
         <ul class="mobile-panel-top__list">
           <li class="mobile-panel-top__item">
             <a href="/" class="mobile-panel-top__link">
@@ -428,7 +428,7 @@
           </li>
         </ul>
       </div>
-      <div class="mobile-panel-top__tub" id="mobile-tub-2">
+      <div class="mobile-panel-top__tub" data-tab="tab-2" style="display: none">
         <div class="employees">
           <div class="employees__item-back employees__hide">
             <div class="employees__category">
@@ -447,13 +447,13 @@
 <div class="mobile-panel-bottom">
   <div class="mobile-panel-bottom__wrapper">
     <ul class="mobile-panel-bottom__list">
-      <li class="mobile-panel-bottom__item">
+      <li class="mobile-panel-bottom__item" id="doctors">
         <a href="/" class="mobile-panel-bottom__link">
           <img src="/" alt="" class="mobile-panel-bottom__img">
           <span class="mobile-panel-bottom__title">Врачи</span>
         </a>
       </li>
-      <li class="mobile-panel-bottom__item">
+      <li class="mobile-panel-bottom__item" id="psychologists">
         <a href="/" class="mobile-panel-bottom__link">
           <img src="/" alt="" class="mobile-panel-bottom__img">
           <span class="mobile-panel-bottom__title">Психологи</span>
