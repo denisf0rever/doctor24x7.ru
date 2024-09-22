@@ -8,6 +8,7 @@ use App\Models\Consultation\ConsultationCategory as Category;
 use App\Http\Requests\ConsultationRequest;
 use App\Services\ConsultationService;
 use Illuminate\Http\Request;
+use App\Events\ConsultationCreated;
 
 class ConsultationController extends Controller
 {
@@ -50,10 +51,9 @@ class ConsultationController extends Controller
 	
 	public function create(ConsultationRequest $request, ConsultationService $service)
     {
-		
-		$consultation = $service->create($request->validated());
-		
-		dump($consultation);
+		//$consultation = $service->create($request->validated());
+		ConsultationCreated::dispatch('String');
+		//dump($consultation);
     }
 
 	// Просмотр консультации в паблике

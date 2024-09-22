@@ -1,5 +1,2 @@
 User-agent: *
-
-Disallow: /
-
-Host: https://doctor24x7.ru
+Disallow:
