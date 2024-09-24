@@ -79,10 +79,13 @@ display: none; /* Скрывает кнопки-стрелки на скролл
 }  
 
 .main{
-  &__wrapper{
+  &__wrapper-main{
     display: flex;
     justify-content: space-between;
     padding: 30px 0;
+  }
+  &__wrapper{
+    padding: 30px 0;  
   }
   &__content{
     width: calc(100% - 320px);
@@ -100,10 +103,13 @@ display: none; /* Скрывает кнопки-стрелки на скролл
 
 @media (max-width: 930px) {
   .main{
-    &__wrapper{
+    &__wrapper-main{
       flex-direction: column;
       margin: 0 10px;
       gap: 40px;
+    }
+    &__wrapper{
+      margin: 0 10px;
     }
     &__content{
       width: 100%;

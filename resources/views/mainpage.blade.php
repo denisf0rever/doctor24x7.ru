@@ -8,7 +8,7 @@
 
 
 <main class="main">
-  <div class="main__wrapper container">
+  <div class="main__wrapper-main container">
     <div class="main__content">
       <section class="main__description description">
         <div class="description__wrapper section-wrapper">
