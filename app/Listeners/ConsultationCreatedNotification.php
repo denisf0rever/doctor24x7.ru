@@ -6,20 +6,22 @@ use App\Events\ConsultationCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\WelcomeEmail;
+use App\Mail\ConsultationAdded;
 
 class ConsultationCreatedNotification
 {
-    /**
-     * Handle the event.
-     */
     public function handle(ConsultationCreated $event): void
     {
 		$details = [
-    'name' => 'John Doe'
-];
-		//Mail::to($event->email)->send(new WelcomeEmail($details));
+			'name' => $event->name,
+			'email' => $event->email,
+			'consultation_id' => $event->consultation_id,
+			'app_url' => config('app.url'),
+			'app_name' => config('app.name'),
+			'app_phone' => env('custom_phone'),
+			'app_support' => env('custom_support'),
+		];
 		
-		echo $event->email;
+		Mail::to($event->email)->send(new ConsultationAdded($details));
     }
 }

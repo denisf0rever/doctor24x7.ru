@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Queue\SerializesModels;
 
-class WelcomeEmail extends Mailable
+class ConsultationAdded extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -23,7 +23,7 @@ class WelcomeEmail extends Mailable
 
 	public function build()
     {
-        return $this->view('emails.welcome');
+        return $this->view('emails.ConsultationAdded');
     }
 	
     /**
@@ -34,7 +34,7 @@ class WelcomeEmail extends Mailable
         return new Envelope(
 			from: new Address('notify@doctor24x7.ru', 'Доктор 24x7'),
 			//replyTo: [new Address('hello@okuoku.ru', 'OkuOku')],
-			subject: 'Вы успешно зарегистрированы',
+			subject: 'Ваш вопрос успешно добавлен',
 		);
     }
 
@@ -44,7 +44,7 @@ class WelcomeEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.welcome',
+            view: 'emails.ConsultationAdded',
         );
     }
 

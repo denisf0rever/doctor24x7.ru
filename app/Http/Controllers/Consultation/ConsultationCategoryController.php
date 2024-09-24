@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class ConsultationCategory extends Controller
 {
-    
+	public function getCaterogy()
+	{
+	}
 }

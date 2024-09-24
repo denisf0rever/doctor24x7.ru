@@ -9,6 +9,8 @@ use App\Http\Requests\ConsultationRequest;
 use App\Services\ConsultationService;
 use Illuminate\Http\Request;
 use App\Events\ConsultationCreated;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeEmail;
 
 class ConsultationController extends Controller
 {
@@ -51,9 +53,15 @@ class ConsultationController extends Controller
 	
 	public function create(ConsultationRequest $request, ConsultationService $service)
     {
-		//$consultation = $service->create($request->validated());
-		ConsultationCreated::dispatch('String');
-		//dump($consultation);
+		$consultation = $service->create($request->validated());
+
+		$data = [
+			'name' => $request->username,
+			'email' => $request->email,
+			'consultation_id' => $consultation->id
+		];
+				
+		ConsultationCreated::dispatch($data);
     }
 
 	// Просмотр консультации в паблике

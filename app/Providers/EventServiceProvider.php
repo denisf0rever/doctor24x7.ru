@@ -21,10 +21,9 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 		
-		ConsultationCreated::class => [
-			ConsultationCreatedNotification::class
-		],
-		
+		//ConsultationCreated::class => [
+			//ConsultationCreatedNotification::class,
+		//],
     ];
 
     /**
@@ -32,7 +31,10 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+		Event::listen(
+			ConsultationCreated::class,
+			ConsultationCreatedNotification::class,
+		);
     }
 
     /**

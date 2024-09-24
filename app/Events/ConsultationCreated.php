@@ -3,7 +3,6 @@
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -12,12 +11,17 @@ use Illuminate\Queue\SerializesModels;
 
 class ConsultationCreated
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
-
-	public $email;
+    use Dispatchable, SerializesModels;
 	
-    public function __construct($email) 
-	{
-		$this->email = $email;
+	public $name;
+    public $email;
+    public $consultation_id;
+	
+    public function __construct(
+		public array $array
+	) {
+		$this->name = $array['name'];
+		$this->email = $array['email'];
+		$this->consultation_id = $array['consultation_id'];
 	}
 }
