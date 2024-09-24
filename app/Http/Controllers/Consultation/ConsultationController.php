@@ -41,14 +41,14 @@ class ConsultationController extends Controller
 	
     public function index()
     {
-		return view('consult.list');
+		return view('consultation.list');
     }
 
     public function form()
     {
 		$categories = Category::all();
 		
-		return view('consult.form', compact('categories'));
+		return view('consultation.form', compact('categories'));
     } 
 	
 	public function create(ConsultationRequest $request, ConsultationService $service)
@@ -68,13 +68,13 @@ class ConsultationController extends Controller
 	
     public function consultation(string $id)
     {
-		$consulta = Post::query()
+		$consultation = Consultation::query()
             ->where('id', $id)
             ->firstOrFail();
 			
-		$this->incrementView($id);
+		//$this->incrementView($id);
 		
-		return view('articles.item', compact('article', 'date'));
+		return view('consultation.item', compact('consultation'));
     }
 
     public function edit(string $id)

@@ -18,8 +18,8 @@ class ConsultationCreatedNotification
 			'consultation_id' => $event->consultation_id,
 			'app_url' => config('app.url'),
 			'app_name' => config('app.name'),
-			'app_phone' => env('custom_phone'),
-			'app_support' => env('custom_support'),
+			'app_phone' => env('CUSTOM_PHONE'),
+			'app_support' => env('CUSTOM_SUPPORT'),
 		];
 		
 		Mail::to($event->email)->send(new ConsultationAdded($details));

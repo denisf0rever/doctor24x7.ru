@@ -31,7 +31,7 @@ Route::get('/home', function () {
 	// Консультации
 	Route::get('/consultation', [ConsultationController::class, 'index'])->name('consult.list');
 	Route::get('/consultation/comment', [ConsultationController::class, 'form'])->name('consult.form');
-	Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'show'])->name('consultation.item');
+	Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'consultation'])->name('consultation.item');
 	Route::post('/consultation/post', [ConsultationController::class, 'create'])->name('consult.create');
 	
 	// Оплата консультаций
