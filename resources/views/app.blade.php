@@ -16,14 +16,14 @@
 	
 	<meta property="og:title" content="@yield('title')">
 	<meta property="og:description" content="@yield('description')">
-	<meta property="og:image" content="{{ config('app.url') }}images/logoimage.jpg">
+	<meta property="og:image" content="/images/logoimage.jpg">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ config('app.url') }}@yield('canonical')">
 	<meta property="og:site_name" content="Онлайн сервис медицинских консультаций: педиатр и гинеколог, а также другие врачи">
 	
 	<meta name="theme-color" content="#fff">
 	
-	<link rel="image_src" href="{{ config('app.url') }}@yield('canonical')images/logoimage.jpg" />
+	<link rel="image_src" href="/images/logoimage.jpg" />
 	<link rel="icon" href="/images/favicon/favicon.svg" type="svg+xml" >
 	<link rel="manifest" href="/images/favicon/site.webmanifest">
 
