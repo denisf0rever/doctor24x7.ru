@@ -9,7 +9,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
-use App\Http\Controllers\Consultation\BookingController;
+use App\Http\Controllers\Consultation\BookingControllers;
 
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
@@ -99,7 +99,7 @@ Route::middleware(['guest'])->group(function () {
 	Route::post('/dashboard/consultation/delete/{id}', [ConsultationController::class, 'destroy'])->name('dashboard.consultation.destroy');
 	
 	// Букинг
-	Route::post('/dashboard/fetch/booking/{id}', [BookingController::class, 'makeRequest'])->name('dashboard.consultation.booking');
+	Route::get('/dashboard/fetch/booking/{id}', [BookingControllers::class, 'makeRequest'])->name('dashboard.consultation.booking');
 	
 	// Чат: оператор
 	Route::get('/dashboard/chat', [\App\Http\Controllers\Chat\ChatController::class, 'index'])->name('dashboard.chat');

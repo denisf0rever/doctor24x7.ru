@@ -2,8 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Главная страница</title>
-  @include('dashboard.settings')
+	<title>Главная страница</title>
+	@include('dashboard.settings')
 </head>
 
 <body>

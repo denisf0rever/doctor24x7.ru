@@ -27,7 +27,7 @@ class Post extends Model
         'content',
         'full_text',
         'thumb',
-		'views',
+		'hits',
 	];
 
 	public function category()

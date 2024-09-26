@@ -99,8 +99,8 @@
                   <li class="pages__item">
                     <span class="pages__views-id">{{ $article->id }}</span>
                     <a class="pages__name" href="{{ route('articles.item', $article->id)}}"
-                      target="_blank"><span>{{ $article->h1 }}</span></a>
-                    <span class="pages__views-number">{{ $article->views }}</span>
+                      target="_blank"><span>{{ $article->title }}</span></a>
+                    <span class="pages__views-number">{{ $article->hits }}</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
                         <a href="{{ route('dashboard.article.edit', $article->id)}}" target="_blank">

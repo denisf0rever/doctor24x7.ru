@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Consultation;
 
+use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\ConsultationCategory as Category;
+use App\Models\Consultation\ConsultationComment as Comment;
 use App\Http\Requests\ConsultationRequest;
 use App\Services\ConsultationService;
-use Illuminate\Http\Request;
 use App\Events\ConsultationCreated;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\WelcomeEmail;
 
 class ConsultationController extends Controller
 {
@@ -36,7 +36,13 @@ class ConsultationController extends Controller
             ->where('id', $id)
             ->firstOrFail();
 		
-		return view('dashboard.consultation.item', compact('consultation'));
+		$comments = Comment::query()
+			->where('comment_id', $id)
+            ->where('to_answer_id', null)
+			->orderBy('created_at', 'desc')
+			->get();
+			
+		return view('dashboard.consultation.item', compact('consultation', 'comments'));
     }
 	
     public function index()
