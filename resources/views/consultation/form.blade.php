@@ -123,7 +123,7 @@
           <div class="consultation-form__tubs">
             <div class="consultation-form__tub consultation-form__tub-active" data-step="1">
               <div class="consultation-form__select-wrapper custom-select">
-                <span class="consultation-form__rubric-input-span" for="status">Сомневаюсь с выбором</span>
+                <span class="consultation-form__rubric-input-span" for="rubric_id">Сомневаюсь с выбором</span>
                 <input type="hidden" name="rubric_id" id="rubric_id" class="consultation-form__rubric-input" value="28">
                 <img src="/images/svg/elements/selector/expand-more.svg" alt=""
                   class="consultation-form__status-arrow custom-select__arrow">
@@ -140,12 +140,9 @@
               <div class="consultation-form__subtitle">Выберите категорию </div>
             </div>
             <div class="consultation-form__tub" data-step="2">
-
-
               <label class="consultation-form__tub-title" for="title">Заголовок вопроса</label>
-              <input class="consultation-form__input-title" type="text" id="username" name="title"
+              <input class="consultation-form__input-title" type="text" id="title" name="title"
                 value="{{ old('title') }}">
-
               <ul class="consultation-form__title-list">
                 <li class="consultation-form__title-item">
                   Вы получите подробный <strong>ответ</strong> от содержательного заголовка
@@ -154,16 +151,43 @@
                   противозачаточных и цикла», «Бросил курить, набрал вес, как быстро похудеть?»
                 </li>
               </ul>
-
-
-
-
-
-
             </div>
             <div class="consultation-form__tub" data-step="3">
-              3
+
+              <div class="consultation-form__tub-wrapper">
+                <div class="consultation-form__tub-item">
+                  <label class="consultation-form__tub-title" for="description">Текст вашего вопроса
+                  </label>
+                  <textarea class="consultation-form__description-textarea" id="description"
+                    name="description">{{ old('description') }}</textarea>
+                </div>
+                <div class="consultation-form__tub-item">
+                  <label class="consultation-form__tub-title" for="age">Возраст пациента</label>
+                  <input class="consultation-form__age-input" type="number" id="age" name="age"
+                    value="{{ old('age') }}">
+                </div>
+                <div class="consultation-form__tub-item">
+                  <label class="consultation-form__tub-title">Снимки, анализы (необязательно)
+                  </label>
+                  <label class="form__label-photo" for="file-upload">
+                    <img src="/images/dashboard/#.svg" alt="" class="form__input-photo-img">
+                    <span class="form__input-photo-text">Загрузить фото</span>
+                  </label>
+                  <input class="form__input-photo @error('image')input-error @enderror" type="file" id="file-upload"
+                    name="image">
+                </div>
+              </div>
             </div>
+
+
+
+
+
+
+
+
+
+
             <div class="consultation-form__tub " data-step="4">
               4
             </div>
