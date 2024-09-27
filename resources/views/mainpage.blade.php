@@ -1,7 +1,9 @@
 @extends('app')
 @section('title', 'ПузКарапуз — журнал о материнстве, воспитание детей, беременность и роды. Сайт для родителей')
-@section('description', 'Сайт посвящен волнующим вопросам, которые возникают у молодых родителей. Здесь каждый из Вас найдет совет, благодаря которому Вы благополучно родите и воспитаете своего наследника')
-@section('keywords', 'воспитание детей, сайт для родителей, советы родителям, портал для детей и родителей, карапуз, беременность, роды')
+@section('description', 'Сайт посвящен волнующим вопросам, которые возникают у молодых родителей. Здесь каждый из Вас
+найдет совет, благодаря которому Вы благополучно родите и воспитаете своего наследника')
+@section('keywords', 'воспитание детей, сайт для родителей, советы родителям, портал для детей и родителей, карапуз,
+беременность, роды')
 @section('canonical', '')
 
 @section('content')
@@ -233,10 +235,11 @@
         </div>
       </section>
       <section class="form-select">
-        <div class="form-select__select-wrapper section-wrapper">
+        <div class="form-select__select-wrapper custom-select section-wrapper">
           <span class="form-select__status-title" for="status">Специализации</span>
-          <img src="/images/svg/elements/selector/expand-more.svg" alt="" class="form-select__status-arrow">
-          <div class="form-select__status-select-wrapper form-select__status-hide">
+          <img src="/images/svg/elements/selector/expand-more.svg" alt=""
+            class="form-select__status-arrow custom-select__arrow">
+          <div class="form-select__status-select-wrapper custom-select__wrapper custom-select__hide">
             <ul id="status" class="form-select__status-select">
               <li class="form-select__status-option" value="allergology"><a href="/consultation/allergology/"
                   class="form-select__link">Аллерголог</a></li>

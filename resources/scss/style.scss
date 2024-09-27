@@ -78,6 +78,15 @@ display: none; /* Скрывает кнопки-стрелки на скролл
   padding: 15px;
 }  
 
+.custom-select{
+  &__hide{
+    display: none;
+  }
+  &__rotate-arrow{
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
 .main{
   &__wrapper-main{
     display: flex;
@@ -133,6 +142,7 @@ display: none; /* Скрывает кнопки-стрелки на скролл
 @import "components/main-page/blog-sidebar.scss";
 @import "components/consultation-comments/text-service.scss";
 @import "components/consultation-comments/consultation-slider.scss";
+@import "components/consultation-comments/consultation-form.scss";
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "media.scss";

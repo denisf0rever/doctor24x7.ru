@@ -108,9 +108,75 @@
     </section>
 
 
+    <section class="main__consultation-form consultation-form">
+      <div class="consultation-form__wrapper">
+        <h2 class="consultation-form__title">Задать вопрос врачам онлайн </h2>
+        <div class="consultation-form__timeline-wrapper">
+          <span class="consultation-form__timeline-text">Шаг <span id="step">1</span> из 4</span>
+          <div class="consultation-form__timeline">
+            <div class="consultation-form__timeline-active">
+
+            </div>
+          </div>
+        </div>
+        <form action="" class="consultation-form__form">
+          <div class="consultation-form__tubs">
+            <div class="consultation-form__tub consultation-form__tub-active" data-step="1">
+              <div class="consultation-form__select-wrapper custom-select">
+                <span class="consultation-form__rubric-input-span" for="status">Сомневаюсь с выбором</span>
+                <input type="hidden" name="rubric_id" id="rubric_id" class="consultation-form__rubric-input" value="28">
+                <img src="/images/svg/elements/selector/expand-more.svg" alt=""
+                  class="consultation-form__status-arrow custom-select__arrow">
+                <div class="consultation-form__status-select-wrapper custom-select__wrapper custom-select__hide">
+                  <ul class="custom-select__list consultation-form__list">
+                    @foreach($categories as $category)
+                    <li class="consultation-form__option" value="{{ $category->id ? $category->id : old('category') }}">
+                      {{ $category->short_title }}
+                    </li>
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+              <div class="consultation-form__subtitle">Выберите категорию </div>
+            </div>
+            <div class="consultation-form__tub" data-step="2">
 
 
-    <section class="main__form form">
+              <label class="consultation-form__tub-title" for="title">Заголовок вопроса</label>
+              <input class="consultation-form__input-title" type="text" id="username" name="title"
+                value="{{ old('title') }}">
+
+              <ul class="consultation-form__title-list">
+                <li class="consultation-form__title-item">
+                  Вы получите подробный <strong>ответ</strong> от содержательного заголовка
+                </li>
+                <li class="consultation-form__title-item">Опишите вопрос подробно. Например, «Вопрос врачу по поводу
+                  противозачаточных и цикла», «Бросил курить, набрал вес, как быстро похудеть?»
+                </li>
+              </ul>
+
+
+
+
+
+
+            </div>
+            <div class="consultation-form__tub" data-step="3">
+              3
+            </div>
+            <div class="consultation-form__tub " data-step="4">
+              4
+            </div>
+          </div>
+          <div class="consultation-form__buttons">
+            <div class="consultation-form__btn consultation-form__btn-prev" id="consultation-form-prev">Назад</div>
+            <div class="consultation-form__btn consultation-form__btn-next" id="consultation-form-next">Продолжить</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- <section class="main__form form">
       <div class="content-block__wrapper">
         <h1 class="content-block__header">Заявка на онлайн консультацию</h1>
         <div class="content-block__subtitle-wrapper">
@@ -168,7 +234,7 @@
           </form>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </main>
 
