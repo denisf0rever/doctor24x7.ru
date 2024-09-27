@@ -91,13 +91,12 @@
           </section>
 		  <br /><br />
 		  
-		   @foreach($comments as $comment)
+		   @foreach($consultation->comments as $comment)
                 <div style="display:flex;margin-bottom: 40px;padding:15px;border-radius: 8px;background:#fff">
                 <div> {{ $comment->description }}</div>
                 <div> Ответить</div>
                 <div> Удалить</div>
                 </div>
-				@include('dashboard.consultation.childcomment', ['comments' => $comment->children])
             @endforeach
 			
 			<script>

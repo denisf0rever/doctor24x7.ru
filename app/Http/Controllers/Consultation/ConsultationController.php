@@ -34,15 +34,14 @@ class ConsultationController extends Controller
     {
         $consultation = Consultation::query()
             ->where('id', $id)
+			->with(['comments' => function($query) {
+				$query->where('to_answer_id', null)
+				->orderBy('created_at', 'desc');}])
             ->firstOrFail();
 		
-		$comments = Comment::query()
-			->where('comment_id', $id)
-            ->where('to_answer_id', null)
-			->orderBy('created_at', 'desc')
-			->get();
+		
 			
-		return view('dashboard.consultation.item', compact('consultation', 'comments'));
+		return view('dashboard.consultation.item', compact('consultation'));
     }
 	
     public function index()
