@@ -122,38 +122,43 @@
         <form action="" class="consultation-form__form">
           <div class="consultation-form__tubs">
             <div class="consultation-form__tub consultation-form__tub-active" data-step="1">
-              <div class="consultation-form__select-wrapper custom-select">
-                <span class="consultation-form__rubric-input-span" for="rubric_id">Сомневаюсь с выбором</span>
-                <input type="hidden" name="rubric_id" id="rubric_id" class="consultation-form__rubric-input" value="28">
-                <img src="/images/svg/elements/selector/expand-more.svg" alt=""
-                  class="consultation-form__status-arrow custom-select__arrow">
-                <div class="consultation-form__status-select-wrapper custom-select__wrapper custom-select__hide">
-                  <ul class="custom-select__list consultation-form__list">
-                    @foreach($categories as $category)
-                    <li class="consultation-form__option" value="{{ $category->id ? $category->id : old('category') }}">
-                      {{ $category->short_title }}
-                    </li>
-                    @endforeach
-                  </ul>
+              <div class="consultation-form__tub-wrapper">
+                <div class="consultation-form__select-wrapper custom-select">
+                  <span class="consultation-form__rubric-input-span" for="rubric_id">Сомневаюсь с выбором</span>
+                  <input type="hidden" name="rubric_id" id="rubric_id" class="consultation-form__rubric-input"
+                    value="28">
+                  <img src="/images/svg/elements/selector/expand-more.svg" alt=""
+                    class="consultation-form__status-arrow custom-select__arrow">
+                  <div class="consultation-form__status-select-wrapper custom-select__wrapper custom-select__hide">
+                    <ul class="custom-select__list consultation-form__list">
+                      @foreach($categories as $category)
+                      <li class="consultation-form__option"
+                        value="{{ $category->id ? $category->id : old('category') }}">
+                        {{ $category->short_title }}
+                      </li>
+                      @endforeach
+                    </ul>
+                  </div>
                 </div>
+                <div class="consultation-form__subtitle">Выберите категорию </div>
               </div>
-              <div class="consultation-form__subtitle">Выберите категорию </div>
             </div>
             <div class="consultation-form__tub" data-step="2">
-              <label class="consultation-form__tub-title" for="title">Заголовок вопроса</label>
-              <input class="consultation-form__input-title" type="text" id="title" name="title"
-                value="{{ old('title') }}">
-              <ul class="consultation-form__title-list">
-                <li class="consultation-form__title-item">
-                  Вы получите подробный <strong>ответ</strong> от содержательного заголовка
-                </li>
-                <li class="consultation-form__title-item">Опишите вопрос подробно. Например, «Вопрос врачу по поводу
-                  противозачаточных и цикла», «Бросил курить, набрал вес, как быстро похудеть?»
-                </li>
-              </ul>
+              <div class="consultation-form__tub-wrapper">
+                <label class="consultation-form__tub-title" for="title">Заголовок вопроса</label>
+                <input class="consultation-form__standart-input" type="text" id="title" name="title"
+                  value="{{ old('title') }}">
+                <ul class="consultation-form__title-list">
+                  <li class="consultation-form__title-item">
+                    Вы получите подробный <strong>ответ</strong> от содержательного заголовка
+                  </li>
+                  <li class="consultation-form__title-item">Опишите вопрос подробно. Например, «Вопрос врачу по поводу
+                    противозачаточных и цикла», «Бросил курить, набрал вес, как быстро похудеть?»
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="consultation-form__tub" data-step="3">
-
               <div class="consultation-form__tub-wrapper">
                 <div class="consultation-form__tub-item">
                   <label class="consultation-form__tub-title" for="description">Текст вашего вопроса
@@ -178,21 +183,23 @@
                 </div>
               </div>
             </div>
-
-
-
-
-
-
-
-
-
-
             <div class="consultation-form__tub " data-step="4">
-
-              <label class="consultation-form__tub-title" for="city">Ваш город</label>
-              <input class="consultation-form__city-input" type="text" id="city" name="city_id" value="5633">
-
+              <div class="consultation-form__tub-wrapper">
+                <div class="consultation-form__tub-item">
+                  <label class="consultation-form__tub-title" for="city">Ваш город</label>
+                  <input class="consultation-form__standart-input" type="text" id="city" name="city_id" value="5633">
+                </div>
+                <div class="consultation-form__tub-item">
+                  <label class="consultation-form__tub-title" for="username">Как к вам обращаться?</label>
+                  <input class="consultation-form__standart-input" type="text" id="username" name="username"
+                    value="{{ old('username') }}">
+                </div>
+                <div class="consultation-form__tub-item">
+                  <label class="consultation-form__tub-title" for="email">Ваш email</label>
+                  <input class="consultation-form__standart-input" type="text" id="email" name="email"
+                    value="{{ old('email') }}">
+                </div>
+              </div>
             </div>
           </div>
           <div class="consultation-form__buttons">
