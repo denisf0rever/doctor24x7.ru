@@ -169,12 +169,12 @@
                 <div class="consultation-form__tub-item">
                   <label class="consultation-form__tub-title">Снимки, анализы (необязательно)
                   </label>
-                  <label class="form__label-photo" for="file-upload">
-                    <img src="/images/dashboard/#.svg" alt="" class="form__input-photo-img">
-                    <span class="form__input-photo-text">Загрузить фото</span>
+                  <label class="consultation-form__photo-wrapper" for="file-upload">
+                    <img src="/images/dashboard/#.svg" alt="" class="consultation-form__input-photo-img">
+                    <span class="consultation-form__input-photo-text">Загрузить фото</span>
                   </label>
-                  <input class="form__input-photo @error('image')input-error @enderror" type="file" id="file-upload"
-                    name="image">
+                  <input class="consultation-form__input-photo @error('image')input-error @enderror" type="file"
+                    id="file-upload" name="image">
                 </div>
               </div>
             </div>
@@ -189,7 +189,10 @@
 
 
             <div class="consultation-form__tub " data-step="4">
-              4
+
+              <label class="consultation-form__tub-title" for="city">Ваш город</label>
+              <input class="consultation-form__city-input" type="text" id="city" name="city_id" value="5633">
+
             </div>
           </div>
           <div class="consultation-form__buttons">
