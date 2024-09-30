@@ -1,0 +1,13 @@
+.consultation{
+
+}
+
+.booking{
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__button{
+    color: #000;
+  }
+}

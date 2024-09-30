@@ -628,4 +628,11 @@ body{
   }
 }
 
+.white-block{
+  background-color: #fff;
+  padding: 25px 20px;
+  border-radius: 15px;
+}
+
+@import "consultation.scss";
 @import 'media';
