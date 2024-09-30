@@ -140,4 +140,33 @@ window.onload = () => {
     setTimeout(hideToast, 5000);
   }
 
+  /* КАСТОМНЫЙ СЕЛЕКТОР */
+  const selectWrappers = document.querySelectorAll('.custom-select');
+
+  if (selectWrappers.length > 0) {
+    selectWrappers.forEach(selectWrapper => {
+      const select = selectWrapper.querySelector('.custom-select__wrapper');
+      const selectArrow = selectWrapper.querySelector('.custom-select__arrow');
+
+      selectWrapper.onclick = (e) => {
+        e.stopPropagation(); // предотвращаем всплытие клика
+        if (selectArrow) {
+          selectArrow.classList.toggle('custom-select__rotate-arrow');
+        }
+        select.classList.toggle('custom-select__hide');
+      };
+
+      document.addEventListener('click', (e) => {
+        if (!selectWrapper.contains(e.target)) {
+          if (selectArrow) {
+            selectArrow.classList.remove('custom-select__rotate-arrow');
+          }
+          select.classList.add('custom-select__hide');
+        }
+      });
+    });
+  }
+
+  /* КАСТОМНЫЙ СЕЛЕКТОР */
+
 }

@@ -632,6 +632,24 @@ body{
   background-color: #fff;
   padding: 25px 20px;
   border-radius: 15px;
+  border: 1px solid rgba(47,43,67,.15);
+}
+
+.red-button{
+  color: #fff;
+  cursor: pointer;
+  background-color: #ef3124;
+  padding: 7px 20px;
+  border-radius: 7px;
+}
+
+.custom-select{
+  &__hide{
+    display: none;
+  }
+  &__rotate-arrow{
+    transform: translateY(-50%) rotate(180deg);
+  }
 }
 
 @import "consultation.scss";
