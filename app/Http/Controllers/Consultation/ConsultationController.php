@@ -34,9 +34,8 @@ class ConsultationController extends Controller
     {
         $consultation = Consultation::query()
             ->where('id', $id)
-			->with(['comments' => function($query) {
-				$query->where('to_answer_id', null)
-				->orderBy('created_at', 'desc');}])
+			->with(['comments' => function($comments) {
+				$comments->where('to_answer_id', null);}])
             ->firstOrFail();
 		
 		

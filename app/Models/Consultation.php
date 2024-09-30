@@ -28,6 +28,6 @@ class Consultation extends Model
 	
 	public function comments()
     {
-        return $this->hasMany(ConsultationComment::class, 'comment_id');
+        return $this->hasMany(ConsultationComment::class, 'comment_id')->orderBy('created_at', 'asc');
     }
 }

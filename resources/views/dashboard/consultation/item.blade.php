@@ -97,6 +97,7 @@
                 <div> Ответить</div>
                 <div> Удалить</div>
                 </div>
+				@include('dashboard.consultation.childcomment', ['comments' => $comment->children])
             @endforeach
 			
 			<script>

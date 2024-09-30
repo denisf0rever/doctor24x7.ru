@@ -26,4 +26,9 @@ class ConsultationComment extends Model
         return $this->hasMany(self::class, 'to_answer_id', 'id');
     }
 	
+	public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+	
 }
