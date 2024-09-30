@@ -133,6 +133,25 @@ display: none; /* Скрывает кнопки-стрелки на скролл
   }
 }
 
+.hide-text {
+  position: relative;
+}
+
+.hide-text.active {
+  overflow: hidden;
+  height: 60px;
+}
+
+.hide-text.active:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: .7;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+  background: linear-gradient (rgba(255, 255, 255, 0), #fff);
+}
+
 @import "components/header.scss";
 @import "components/main-page/description.scss";
 @import "components/main-page/consultation-sidebar.scss";
@@ -143,6 +162,14 @@ display: none; /* Скрывает кнопки-стрелки на скролл
 @import "components/consultation-comments/text-service.scss";
 @import "components/consultation-comments/consultation-slider.scss";
 @import "components/consultation-comments/consultation-form.scss";
+@import "components/consultation-detail/question.scss";
+@import "components/consultation-detail/ask-question.scss";
+@import "components/consultation-detail/experts-list.scss";
+@import "components/consultation-detail/comment.scss";
+@import "components/consultation-detail/comments.scss";
+@import "components/consultation-detail/comment-menu.scss";
+@import "components/consultation-detail/full-form.scss";
+@import "components/consultation-detail/paid-ansver.scss";
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "media.scss";

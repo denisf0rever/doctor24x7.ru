@@ -1,0 +1,55 @@
+.experts-list{
+  &__title{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: .98;
+    letter-spacing: -1px;
+    margin-bottom: 2rem;
+  }
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__expert{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+  }
+  &__expert-img{
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  &__expert-fullname{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 500;
+    color: var(--link-text);
+    &:hover{
+      color: var(--main-text);
+    }
+  }
+  &__expert-status{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    color: #8c8f94;
+    font-size: 13px;
+    line-height: 15px;
+    color: var(--secondary-text);
+  }
+  &__anchor{
+    width: 15px;
+    height: 15px;
+  }
+  &__anchor-img{
+    width: 100%;
+    height: 100%;
+  }
+}

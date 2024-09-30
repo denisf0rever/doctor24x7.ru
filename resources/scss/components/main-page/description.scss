@@ -14,4 +14,9 @@
       color: var(--dark-text);
     }
   }
+  & &__small{
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+  }
 }

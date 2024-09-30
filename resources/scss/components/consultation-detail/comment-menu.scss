@@ -1,0 +1,130 @@
+.comment-menu {
+  &__wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 23px 16px 90px;
+    position: relative;
+  }
+
+  &__hide-button {
+    z-index: 50;
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  &__header {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__button-img {
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    background-color: #f4f4f5;
+    border-radius: 10px;
+  }
+
+  &__button-text {
+    font-size: 12px;
+    max-width: 70px;
+    word-break: break-word;
+    text-align: center;
+  }
+
+  &__contact-item {
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      width: calc(100% - 32px);
+      height: 1px;
+      background-color: #e6e4e4;
+      right: 16px;
+      bottom: 0;
+      opacity: 0.5;
+    }
+  }
+
+  &__contact-list-last {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  &__contact-list {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    overflow: auto;
+    border-radius: 16px;
+  }
+
+  &__contact-link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #f4f4f5;
+    border: 1px solid #f4f4f5;
+    padding: 16px;
+    justify-content: flex-start;
+  }
+
+  &__contact-text {
+    font-weight: bold;
+  }
+
+  &__contact-img {
+    width: 27px;
+    height: 27px;
+  }
+
+  &__hide {
+    transform: translateY(150%);
+  }
+
+  @media (max-width: 600px) {
+    &__button-img {
+      width: 31px;
+      height: 30px;
+      padding: 11px;
+    }
+
+    &__button-text {
+      font-size: 12px;
+      max-width: 56px;
+    }
+    &__button-text {
+      font-size: 10px;
+    }
+    
+    &__contact-link {
+      justify-content: space-between;
+    }
+  }
+}
+

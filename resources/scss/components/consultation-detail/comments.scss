@@ -1,0 +1,14 @@
+.comments{
+  &__wrapper{
+    background-color:#fff;padding:20px;box-shadow:0 5px 20px -4px rgb(17 12 46 / 10%), 0 20px 40px -30px rgb(17 12 46 / 20%);border-radius:.5em;
+  }
+  &__form{
+    position:relative
+  }
+  &__textarea-fake{
+    box-sizing:border-box; width:100%;height:40px;background-color:#f7f7f7;border:none;border-radius:10px;padding:10px;outline:none;border:1px solid #efefef;resize:none
+  }
+  &__list{
+    margin-top:25px;display:flex;flex-direction:column;gap:20px
+  }
+}

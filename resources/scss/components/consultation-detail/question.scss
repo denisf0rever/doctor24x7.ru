@@ -1,0 +1,50 @@
+.question{
+  &__title{
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 30px;
+    word-wrap: break-word;
+    margin-bottom: 12px;
+  }
+  &__text{
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  &__icons{
+    display: flex;
+  }
+  &__icon{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    &:first-child{
+      border-right: 1px solid #eee;
+    }
+  }
+  &__icon-doc-img{
+    width: 25px;
+    height: 30px;
+    margin: 0 auto;
+  }
+  &__icon-calendar-img{
+    width: 20px;
+    height: 30px;
+    margin: 0 auto;
+  }
+  &__icon-value{
+    font-size: 13px;
+  }
+  &__icon-link{
+    color: var(--link-text);
+    &:hover{
+      color: var(--main-text);
+    }
+  }
+}
