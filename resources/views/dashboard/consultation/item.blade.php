@@ -15,8 +15,7 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
-          <h1 class="main__consultation-title">Консультация №{{ $consultation->id }}</h1>
-
+          <h1 class="main__consultation-title">№{{ $consultation->id }}</h1>
           <section class="main__consultation consultation">
             <div class="consultation__wrapper white-block">
               <h2 class="consultation__title">{{ $consultation->title }}</h2>
@@ -45,12 +44,24 @@
             <div class="stats__wrapper">
               <ul class="stats__list">
                 <li class="stats__item">
-                  <div class="stats__number">37</div>
-                  <div class="stats__text">АУДИТОРИЯ</div>
+                  <div class="stats__number">{{ $consultation->payed_amount }} Р.</div>
+                  <div class="stats__text">Оплачено</div>
                 </li>
                 <li class="stats__item">
                   <div class="stats__number">1</div>
-                  <div class="stats__text">ЗВОНКИ</div>
+                  <div class="stats__text">Тариф</div>
+                </li>
+				<li class="stats__item">
+                  <div class="stats__number">1</div>
+                  <div class="stats__text">Чат</div>
+                </li>
+				 <li class="stats__item">
+                  <div class="stats__number">1</div>
+                  <div class="stats__text">Коэффицент</div>
+                </li>
+				<li class="stats__item">
+                  <div class="stats__number">1</div>
+                  <div class="stats__text">Гонорар</div>
                 </li>
               </ul>
             </div>
