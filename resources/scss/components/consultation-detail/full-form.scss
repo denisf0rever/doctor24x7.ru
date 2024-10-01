@@ -293,3 +293,231 @@
 #a_phone {
   display: none;
 }
+
+.answer-field {
+  background: #fff;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: -15px;
+  padding: 20px 15px;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 0 0 .5em .5em;
+  margin-top: 20px;
+}
+
+.answer-field__form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: space-between
+}
+
+.answer-field__form input.input-error,.answer-field__form textarea.input-error {
+  border: 1px solid #fe9797
+}
+
+.answer-field__input {
+  box-sizing: border-box;
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1
+}
+
+.answer-field__form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between
+}
+
+.answer-field__form input.input-error,.answer-field__form textarea.input-error {
+  border: 1px solid #fe9797
+}
+
+.answer-additional-fields__row textarea {
+  width: 100%;
+  resize: vertical
+}
+
+.answer_field__face {
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  min-width: 38px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-right: 15px
+}
+
+.answer_field__face img {
+  width: 100%;
+  height: 100%;
+}
+
+.answer-input__submit[disabled] {
+  color: #7f7f7f;
+  border-color: transparent;
+  background-color: #f2f2f2;
+  cursor: default;
+  border: 1px solid #f2f2f2
+}
+
+.answer-input__submit.active:hover {
+  background: #f1c519
+}
+
+.answer-additional-fields__row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%
+}
+
+.answer-additional-fields .icon-fields {
+  background: #fff;
+  border-radius: 3px;
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  margin-right: 20px;
+  box-sizing: border-box;
+  border: 1px solid #d3d9de
+}
+
+.answer-additional-fields .icon-fields img {
+  width: 100%
+}
+
+.answer-additional-fields {
+  margin-top: 10px
+}
+
+.answer-additional-fields .answer-input {
+  width: 300px
+}
+
+
+
+.answer-input {
+  padding: 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: .3rem;
+  vertical-align: middle;
+  border: 1px solid #d3d9de;
+  background: #f4f5f7
+}
+
+.answer-question-input.focused {
+  height: 80px
+}
+
+.answer-field__controls {
+  box-sizing: border-box;
+  vertical-align: top;
+  white-space: nowrap
+}
+
+.answer-field__controls label {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.answer-field__controls input[type=checkbox] {
+  opacity: 0;
+  position: absolute
+}
+
+.answer-field__controls input[type=checkbox] + label {
+  line-height: 25px;
+  position: relative;
+  padding-left: 33px
+}
+
+.answer-field__controls input[type=checkbox]:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background: #fff;
+  border: 2px solid #378fea
+}
+
+.answer-field__controls input[type=checkbox]:not(checked) + label:after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  transition: all .2s;
+  width: 40px;
+  height: 35px;
+  background: url(/images/checkmark.svg) no-repeat;
+  opacity: 0;
+  background-size: cover
+}
+
+.answer-field__controls input[type=checkbox]:checked + label:before {
+  background: #378fea
+}
+
+.answer-field__controls input[type=checkbox]:checked + label:after {
+  opacity: 1
+}
+
+#answer_form .answer-question-input {
+  height: 80px
+}
+
+.answer-input__close {
+  border: 1px solid rgba(0,0,0,.2);
+  background-color: #fff;
+  color: #001f31;
+  margin-left: 10px;
+  padding: 10px 20px;
+  vertical-align: middle;
+  border-radius: .3rem
+}
+
+.answer-input__close:hover {
+  background: #f3f3f3;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,.1)
+}
+
+.answer-input__submit {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: #001f31;
+  border: 1px solid #d3d9de;
+  background: #fff;
+  box-shadow: 0 .4rem .8rem 0 rgba(0,0,0,.07);
+  border-radius: 4px
+}
+
+.answer-input__submit.active {
+  background: #fc0;
+  color: #001f31;
+  border: 1px solid #fc0
+}
+
