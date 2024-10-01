@@ -109,7 +109,7 @@
 
 
     <section class="main__consultation-form consultation-form">
-      <div class="consultation-form__wrapper">
+      <div class="consultation-form__wrapper small-container">
         <h2 class="consultation-form__title">Задать вопрос врачам онлайн </h2>
         <div class="consultation-form__timeline-wrapper">
           <span class="consultation-form__timeline-text">Шаг <span id="step">1</span> из 4</span>
@@ -269,6 +269,79 @@
         </div>
       </div>
     </section> -->
+    <section class="main__consultation-plan consultation-plan">
+      <div class="consultation-plan__wrapper small-container">
+        <div class="consultation-plan__top">
+          <div class="consultation-plan__big-text consultation-plan__big-text-first">
+            Чтобы <strong>задать вопрос врачу онлайн</strong>, вам потребуется
+            всего несколько минут. Наши специалисты ответят в кратчайшие сроки и подскажут, как правильно поступить
+            в вашей ситуации. Доверьте решение своей проблемы квалифицированным врачам!
+          </div>
+          <img src="" alt="" class="consultation-plan__img">
+          <div class="consultation-plan__big-text consultation-plan__big-text-last">Качественные консультации
+            профессиональных врачей.</div>
+        </div>
+        <ul class="consultation-plan__list">
+          <li class="consultation-plan__item">
+            <span class="consultation-plan__title">Как работает сервис </span>
+          </li>
+          <li class="consultation-plan__item">
+            <div class="consultation-plan__item-title">
+              <div class="consultation-plan__number">1</div>
+              <span class="consultation-plan__item-title-text">Задайте вопрос</span>
+            </div>
+            <div class="consultation-plan__text">Мы получаем более 200 вопросов каждый день.
+              Задайте свой!
+            </div>
+          </li>
+          <li class="consultation-plan__item">
+            <div class="consultation-plan__item-title">
+              <div class="consultation-plan__number">2</div>
+              <span class="consultation-plan__item-title-text">Получите ответы</span>
+            </div>
+            <div class="consultation-plan__text">На вопросы отвечают врачи со всей России и Украины. Среднее время
+              ответа на сайте — 45 минут.
+            </div>
+          </li>
+          <li class="consultation-plan__item">
+            <div class="consultation-plan__item-title">
+              <div class="consultation-plan__number">3</div>
+              <span class="consultation-plan__item-title-text">Проблема решена!</span>
+            </div>
+            <div class="consultation-plan__text">95,4% пациентов остаются полностью довольны ответами и рекомендуют нас
+              друзьям.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="main__description description">
+      <div class="description__wrapper section-wrapper small-container">
+        <p>Вас <strong>консультируют практикующие врачи</strong>, которые имеют дипломы об образовании, а также
+          ежедневный опыт работ в медицине. Днем на работе, а вечером - отвечают на вопросы онлайн.</p>
+        <p>Ваш вопрос должен описывать конкретную ситуацию, а также содержать информацию о возрасте, поле, принимаемых
+          медикаментах. Если вы сдавали анализы или проводили обследования, то укажите их результаты. Чем больше у врача
+          информации о вас - тем проще ему работать с вашим вопросом и, вы сможете получить рекомендации по своей
+          проблеме.</p>
+        <p>Вы можете задать вопрос анонимно. Задавая вопрос, вы можете добавить к нему изображение (рентгенограмму,
+          результаты анализов и прочие документы). Уведомление об ответе врача-консультанта поступает автору вопроса
+          <strong>на электронную почту</strong>. Все наши консультанты являются практикующими врачами.
+        </p>
+        <p>Зачастую бывает так, что человек, у которого возникли симптомы какого-либо заболевания или происходят иные
+          изменения в организме, по каким-то причинам отказывается идти в больницу. Факторами, которые оказывают влияние
+          на такие решения могут быть различными: чувство стыда, боязнь больниц, смущение или желание оставаться
+          инкогнито. Иногда у пациента существует реальная потребность в получении дополнительной информации.
+          Консультация врача онлайн станет идеальным вариантом для каждой из этих ситуаций. Получение качественной
+          медицинской консультации по интернету абсолютно анонимно и возможно без регистрации.</p>
+        <p>Предлагаются услуги самых разных специалистов, в том числе и узких специализаций, которых просто может не
+          оказаться в населенном пункте, где находится пациент. Можно задать вопрос врачу в самых разных категориях.
+          Онлайн консультация врача поможет разобраться в спорных вопросах, определить направление лечения, получить
+          необходимую квалифицированную информационную поддержку. <strong>Обратиться к врачу можно
+            круглосуточно</strong>, без телефона и без регистрации. Предусмотрены дополнительные возможности для
+          желающих провести платную консультацию врача онлайн - ответ будет получен уже в течение часа.</p>
+      </div>
+    </section>
+
   </div>
 </main>
 

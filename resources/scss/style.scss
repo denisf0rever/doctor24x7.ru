@@ -48,6 +48,12 @@ ul{
   padding: 0 10px;
 }
 
+.small-container{
+  margin: 0 auto;
+  position: relative;
+  max-width: 1000px;
+}
+
 body {
   color: var(--main-text);
   font-family: "Roboto", tahoma;
@@ -164,6 +170,7 @@ display: none; /* Скрывает кнопки-стрелки на скролл
 @import "components/consultation-comments/text-service.scss";
 @import "components/consultation-comments/consultation-slider.scss";
 @import "components/consultation-comments/consultation-form.scss";
+@import "components/consultation-comments/consultation-plan.scss";
 @import "components/consultation-detail/question.scss";
 @import "components/consultation-detail/ask-question.scss";
 @import "components/consultation-detail/experts-list.scss";
