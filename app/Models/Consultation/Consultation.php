@@ -30,4 +30,14 @@ class Consultation extends Model
     {
         return $this->hasMany(ConsultationComment::class, 'comment_id')->orderBy('created_at', 'asc');
     }
+	
+	public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function tariff()
+    {
+        return $this->belongsTo(Tariff::class);
+    }
 }
