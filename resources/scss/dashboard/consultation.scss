@@ -17,6 +17,8 @@
   &__item{
     display: flex;
     align-items: center;
+    font-size: 15px;
+    line-height: 1.3;
   }
 
   &__name{
@@ -93,7 +95,7 @@
   &__textarea{
     box-sizing: border-box;
     width: 100%;
-    min-height: 100px;
+    min-height: 130px;
     background-color: #f7f7f7;
     border: none;
     border-radius: 10px;
@@ -157,7 +159,9 @@ font-size: 14px;
     }
   }
   &__text{
-    grid-row:2/3;grid-column:1/3;display:block;margin:15px 0 10px;font-size:16px;
+    grid-row:2/3;grid-column:1/3;display:block;margin:15px 0 10px;
+    font-size: 15px;
+    line-height: 1.3;
   }
   &__text blockquote{
     background:#fafbfc;border-left:3px solid #c8ccd1;padding:1em 25px 1em 30px;font-size:17px;line-height:24px
@@ -196,12 +200,36 @@ font-size: 14px;
   &__menu-item{
     padding: 6px 10px;
     border-radius: 6px;
-    &-active{
-      font-weight: bold;
-      background-color: #f2f2f2;
-    }
     &:hover{
       background-color: #f2f2f2;
     }
+  }
+}
+
+.stats{
+  &__wrapper{
+    margin-bottom: 20px;
+  }
+  &__list{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  &__item{
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid rgba(47,43,67,.15);
+  }
+  &__number{
+    font-size: 18px;
+    color: #383755;
+  }
+  &__text{
+    font-size: 12px;
+    color: #989aa5;
   }
 }

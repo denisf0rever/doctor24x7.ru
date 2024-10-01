@@ -1,4 +1,10 @@
 @media (max-width: 960px) {
+  .main{
+    &__wrapper{
+      padding: 20px 10px;
+      width: 100%;
+    }
+  }
   .header{
     &__menu-button{
       display: block;

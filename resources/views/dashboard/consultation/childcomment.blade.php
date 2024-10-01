@@ -10,7 +10,7 @@
       </svg>
       <div class="custom-select__wrapper custom-select__hide comment__menu">
         <ul class="comment__menu-list">
-          <li class="comment__menu-item comment__menu-item-active">Лучшие</li>
+          <li class="comment__menu-item">Лучшие</li>
           <li class="comment__menu-item">Последние</li>
         </ul>
       </div>
