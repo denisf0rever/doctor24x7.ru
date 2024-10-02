@@ -9,14 +9,11 @@ class Booking extends Model
 {
     use HasFactory;
 	
-	
-	public $timestamps = false;
+	protected $table = 'sf_consultation_comment_booking';
 	
 	protected $fillable = [
 		'user_id',
-		'comment_id',
-		'created_at',
-		'updated_at'
+		'comment_id'
 	];
 	
 	public function consultation()

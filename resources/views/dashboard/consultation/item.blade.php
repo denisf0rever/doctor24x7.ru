@@ -94,8 +94,8 @@
                 </svg>
                 <div class="custom-select__wrapper custom-select__hide comment__menu">
                   <ul class="comment__menu-list">
-                    <li class="comment__menu-item">Лучшие</li>
-                    <li class="comment__menu-item">Последние</li>
+                    <li class="comment__menu-item">Удалить</li>
+                    <li class="comment__menu-item">Редактировать</li>
                   </ul>
                 </div>
               </div>
@@ -131,8 +131,9 @@
                   'X-CSRF-TOKEN': csrfToken
                 },
                 body: JSON.stringify({
-                  'consultation_id': consultationId,
-                  'user_id': 1
+                  'consultation_id': parseInt(consultationId, 10),
+                  'user_id': 1,
+				  'token': csrfToken
                 })
               });
 

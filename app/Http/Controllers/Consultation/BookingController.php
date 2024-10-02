@@ -15,16 +15,19 @@ class BookingController extends Controller
 		//$service = $service->createBooking($request->all());
 		// , BookingService $service
 		
-		//Booking::create([
-		//	'comment_id' => 672723,
-		//	'user_id' => 1,
-			//'created_at' => '2024-09-30 14:25:40',
-		//	'updated_at' => '2024-09-30 14:25:40'
-		//]);
-			
+		//
+		
+		
+        
+        $result = Booking::query()
+                    ->create([
+                      'comment_id' => $request->consultation_id,
+                      'user_id' => 1
+                  ]);
+		
 		 if ($request->header('X-CSRF-TOKEN')) {
             // Токен присутствует
-            return response()->json(['success' => true, 'message' => 'CSRF токен передан.']);
+            return response()->json(['success' => true, 'message' => 'OK']);
 		 }
 			
       
