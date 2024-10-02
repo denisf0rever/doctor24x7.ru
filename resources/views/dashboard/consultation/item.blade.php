@@ -120,6 +120,8 @@
           const url = window.location.href; // Получаем полный URL
           const segments = url.split('/'); // Разбиваем строку URL по символу '/'
           const consultationId = segments[segments.length - 1]; // Получаем последний сегмент (ID)
+
+
           async function makeBooking() {
 
 
@@ -155,6 +157,7 @@
                   document.querySelector('.booking__text').innerHTML = 'Произошла ошибка';
                 }
                 document.querySelector('.booking__button').style.display = 'none';
+                document.querySelector('.booking__wrapper').classList.add('booking__is-taken');
               } else {
                 console.log("Запрос выполнен, но не success.");
               }

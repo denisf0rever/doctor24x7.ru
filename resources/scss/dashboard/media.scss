@@ -6,11 +6,19 @@
     }
   }
   .header{
+    background-color: #2f343a;
+    padding-bottom: 1px;
     &__menu-button{
       display: block;
     }
+    &__wrapper{
+      padding: 0 10px;
+    }
   }
   .wrapper{
+    &__wrapper{
+      padding: 0;
+    }
     &__menu{
       display: none;
     }

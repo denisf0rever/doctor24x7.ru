@@ -69,7 +69,8 @@
     content:"";position:absolute;height:100%;width:1px;background-color:#979697;top:0;left:0
   }
   &__sub-comment{
-    padding-top:20px;display:grid;grid-template-rows:auto auto auto;grid-template-columns:300px auto
+    padding-top:20px;display:grid;grid-template-rows:auto auto auto;grid-template-columns:300px auto;
+    position: relative;
   } 
   p{
     font-size: 16px;
@@ -82,6 +83,17 @@
     &:hover{
       color: var(--main-text);
     }
+  }
+  &__paid-answer{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 21px;
+    right: 20px;
+  }
+  &__paid-answer-svg{
+    width: 100%;
+    height: 100%;
   }
 }
 @media (max-width: 600px) {
