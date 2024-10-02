@@ -44,22 +44,22 @@
             <div class="stats__wrapper">
               <ul class="stats__list">
                 <li class="stats__item">
-                  <div class="stats__number">{{ $consultation->payed_amount }} Р.</div>
+                  <div class="stats__number">{{ $consultation->payed_amount }} &#8381;.</div>
                   <div class="stats__text">Оплачено</div>
                 </li>
                 <li class="stats__item">
                   <div class="stats__number">1</div>
                   <div class="stats__text">Тариф</div>
                 </li>
-				<li class="stats__item">
+                <li class="stats__item">
                   <div class="stats__number">1</div>
                   <div class="stats__text">Чат</div>
                 </li>
-				 <li class="stats__item">
+                <li class="stats__item">
                   <div class="stats__number">1</div>
                   <div class="stats__text">Коэффицент</div>
                 </li>
-				<li class="stats__item">
+                <li class="stats__item">
                   <div class="stats__number">1</div>
                   <div class="stats__text">Гонорар</div>
                 </li>
@@ -133,7 +133,7 @@
                 body: JSON.stringify({
                   'consultation_id': parseInt(consultationId, 10),
                   'user_id': 1,
-				  'token': csrfToken
+                  'token': csrfToken
                 })
               });
 
