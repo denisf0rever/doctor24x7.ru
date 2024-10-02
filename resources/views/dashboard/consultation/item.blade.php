@@ -73,6 +73,11 @@
               <div class=" booking__button red-button" onclick="makeBooking()">Войти</div>
           </section>
 
+          <section class="main__booking booking">
+            <div class="booking__wrapper white-block booking__is-taken">
+              <div class="booking__text">ТЕКСТ</div>
+          </section>
+
           <section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
               <form action="" method="POST">
@@ -149,7 +154,7 @@
               const data = await response.json();
 
               // Предполагаем, что мы ожидаем, что объект данных будет содержать поле 'success'
-              if (data.success) {
+              if (!data.success) {
                 console.log(data.message);
                 if (data.message) {
                   document.querySelector('.booking__text').innerHTML = data.message;
@@ -159,7 +164,7 @@
                 document.querySelector('.booking__button').style.display = 'none';
                 document.querySelector('.booking__wrapper').classList.add('booking__is-taken');
               } else {
-                console.log("Запрос выполнен, но не success.");
+                console.log("success");
               }
             } catch (error) {
               console.error("Ошибка при выполнении запрос: ", error);
