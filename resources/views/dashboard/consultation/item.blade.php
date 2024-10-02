@@ -66,7 +66,7 @@
               </ul>
             </div>
           </section>
-		  
+
           <section class="main__booking booking">
             <div class="booking__wrapper white-block">
               <div class="booking__text">Чтобы ответить, нажмите взять вопрос</div>
@@ -126,7 +126,7 @@
 
 
           async function makeBooking() {
-			try {
+            try {
               const response = await fetch(`{{ route('dashboard.consultation.booking', $consultation->id) }}`, {
                 method: 'POST',
                 headers: {
@@ -148,18 +148,17 @@
               // Получение данных из ответа (в формате JSON)
               const data = await response.json();
 
-              // Предполагаем, что мы ожидаем, что объект данных будет содержать поле 'success'
+              if (data.message) {
+                document.querySelector('.booking__text').innerHTML = data.message;
+              } else {
+                document.querySelector('.booking__text').innerHTML = 'Произошла ошибка';
+              }
+              document.querySelector('.booking__button').style.display = 'none';
+
               if (!data.success) {
-                console.log(data.message);
-                if (data.message) {
-                  document.querySelector('.booking__text').innerHTML = data.message;
-                } else {
-                  document.querySelector('.booking__text').innerHTML = 'Произошла ошибка';
-                }
-                document.querySelector('.booking__button').style.display = 'none';
                 document.querySelector('.booking__wrapper').classList.add('booking__is-taken');
               } else {
-                console.log("success");
+                document.querySelector('.booking__wrapper').classList.add('booking__is-free');
               }
             } catch (error) {
               console.error("Ошибка при выполнении запрос: ", error);

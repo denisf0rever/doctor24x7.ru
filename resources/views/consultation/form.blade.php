@@ -146,8 +146,10 @@
             <div class="consultation-form__tub" data-step="2">
               <div class="consultation-form__tub-wrapper">
                 <label class="consultation-form__tub-title" for="title">Заголовок вопроса</label>
-                <input class="consultation-form__standart-input" type="text" id="title" name="title"
-                  value="{{ old('title') }}">
+                <div class="consultation-form__validation-wrapper">
+                  <input class="consultation-form__standart-input" type="text" id="title" name="title"
+                    value="{{ old('title') }}">
+                </div>
                 <ul class="consultation-form__title-list">
                   <li class="consultation-form__title-item">
                     Вы получите подробный <strong>ответ</strong> от содержательного заголовка

@@ -221,6 +221,13 @@
     border-bottom: 1px solid rgba(11, 31, 53, .3);
     font-size: 13px; 
   }
+  &__input-error{
+    border-bottom-color: var(--error-color);
+  }
+  &__error-message{
+    color: var(--error-color);
+    padding-top: 7px;
+  }
 }
 
 #file-upload{
