@@ -10,32 +10,21 @@ use App\Models\Booking\Booking;
 
 class BookingController extends Controller
 {
-    public function makeRequest(Request $request, $id)
+    public function makeRequest(Request $request, $id, BookingService $service)
     {
-		//$service = $service->createBooking($request->all());
-		// , BookingService $service
-		
-		//
-		
-		
-        
-        $result = Booking::query()
-                    ->create([
-                      'comment_id' => $request->consultation_id,
-                      'user_id' => 1
-                  ]);
-		
-		 if ($request->header('X-CSRF-TOKEN')) {
-            // Токен присутствует
-            return response()->json(['success' => true, 'message' => 'OK']);
-		 }
+		try {
+			$service = $service->createBooking($request->all());
 			
-      
-			//);
-			
-			
-			
-			//return $result;
+			if ($service) {
+				return Response::json(['success' => true, 'message' => 'все ок']);
+			} else {
+				return Response::json(['success' => false, 'message' => 'Не ок']);
+			}
+        } catch (\Exception $e) {
+            return Response::json(['success' => false, 'message' => 'Error creating booking: ' . $e->getMessage()], 500);
+        }
+		
+		
 			//ConsultationCreated::dispatch($data);
       
 

@@ -9,14 +9,12 @@ final class BookingService
 {
 	public function createBooking(array $bookingData)
 	{
-		try {
-            $booking = Booking::create([
-				'comment_id' => 672723,
-				'user_id' => 1
+		$booking = Booking::create([
+			'comment_id' => $bookingData['consultation_id'],
+			'user_id' => $bookingData['user_id']
 		]);
-            return Response::json(['success' => true, 'message' => 'все ок"']);
-        } catch (\Exception $e) {
-            return Response::json(['success' => false, 'message' => 'Error creating booking: ' . $e->getMessage()], 500);
-        }
+		
+		return $booking ? true : false;
+		
     }
 }

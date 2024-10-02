@@ -44,7 +44,7 @@
             <div class="stats__wrapper">
               <ul class="stats__list">
                 <li class="stats__item">
-                  <div class="stats__number">{{ $consultation->payed_amount }} &#8381;.</div>
+                  <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
                   <div class="stats__text">Оплачено</div>
                 </li>
                 <li class="stats__item">
@@ -66,16 +66,16 @@
               </ul>
             </div>
           </section>
-
+		  
           <section class="main__booking booking">
             <div class="booking__wrapper white-block">
               <div class="booking__text">Чтобы ответить, нажмите взять вопрос</div>
-              <div class=" booking__button red-button" onclick="makeBooking()">Войти</div>
+              <div class=" booking__button red-button" onclick="makeBooking()">Взять вопрос</div>
           </section>
 
           <section class="main__booking booking">
             <div class="booking__wrapper white-block booking__is-taken">
-              <div class="booking__text">ТЕКСТ</div>
+              <div class="booking__text">На вопрос уже готовится ответ.</div>
           </section>
 
           <section class="main__consultation-textarea consultation-textarea">
@@ -113,8 +113,6 @@
               <div class="comment__text"> {{ $comment->description }}</div>
               <div class="comment__ansv">Ответить</div>
             </div>
-            <!-- <div> Ответить</div>
-            <div> Удалить</div> -->
           </div>
           @include('dashboard.consultation.childcomment', ['comments' => $comment->children])
           @endforeach
@@ -128,9 +126,7 @@
 
 
           async function makeBooking() {
-
-
-            try {
+			try {
               const response = await fetch(`{{ route('dashboard.consultation.booking', $consultation->id) }}`, {
                 method: 'POST',
                 headers: {
@@ -138,9 +134,8 @@
                   'X-CSRF-TOKEN': csrfToken
                 },
                 body: JSON.stringify({
-                  'consultation_id': parseInt(consultationId, 10),
-                  'user_id': 1,
-                  'token': csrfToken
+                  'consultation_id': +consultationId,
+                  'user_id': 1
                 })
               });
 
@@ -171,9 +166,6 @@
             }
           }
           </script>
-
-
-
         </div>
       </main>
     </div>
