@@ -165,13 +165,17 @@
                 <div class="consultation-form__tub-item">
                   <label class="consultation-form__tub-title" for="description">Текст вашего вопроса
                   </label>
-                  <textarea class="consultation-form__description-textarea" id="description"
-                    name="description">{{ old('description') }}</textarea>
+                  <div class="consultation-form__validation-wrapper">
+                    <textarea class="consultation-form__description-textarea" id="description"
+                      name="description">{{ old('description') }}</textarea>
+                  </div>
                 </div>
                 <div class="consultation-form__tub-item">
                   <label class="consultation-form__tub-title" for="age">Возраст пациента</label>
-                  <input class="consultation-form__age-input" type="number" id="age" name="age"
-                    value="{{ old('age') }}">
+                  <div class="consultation-form__validation-wrapper">
+                    <input class="consultation-form__age-input" type="number" id="age" name="age"
+                      value="{{ old('age') }}">
+                  </div>
                 </div>
                 <div class="consultation-form__tub-item">
                   <label class="consultation-form__tub-title">Снимки, анализы (необязательно)
