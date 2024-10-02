@@ -55,6 +55,11 @@
   &__text{
     grid-row:2/3;grid-column:1/3;display:block;margin:15px 0 10px;font-size:20px
   }
+  &__paywall{
+    grid-row: 2 / 3;
+    grid-column: 1 / 3; 
+    display: block;
+  }
   &__text blockquote{
     background:#fafbfc;border-left:3px solid #c8ccd1;padding:1em 25px 1em 30px;font-size:17px;line-height:24px
   }
@@ -63,7 +68,8 @@
   }
   &__text-more:hover{text-decoration:underline}
   &__sub-comments{
-    position:relative;padding-top:10px;padding-left:50px;padding-bottom:10px
+    position:relative;padding-top:10px;padding-left:50px;padding-bottom:10px;
+    margin-top: 10px;
   }
   &__sub-comments:before{
     content:"";position:absolute;height:100%;width:1px;background-color:#979697;top:0;left:0
@@ -131,6 +137,14 @@
 
     &__menu {
       width: auto;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .comment{
+    &__sub-comment{
+      grid-template-columns: 200px auto;
     }
   }
 }

@@ -303,100 +303,20 @@
 
               <div class="comment__sub-comments" id="answer300331">
 
-                <div class="block-border-inside">
-                  <div class="consultant-doctor" id="answer300331">
-                    <div class="consultant-doctor__header" id="elenamihailovna">
-                      <a href="/profile/elenamihailovna" class="consultant-doctor__photo-wrapper">
-                        <img data-src="/uploads/sfGuard/avatars/ebe21773a3e3b955b3d43312bf5f41298e000639.jpg"
-                          class="consultant-doctor__photo lazyloaded"
-                          src="/uploads/sfGuard/avatars/ebe21773a3e3b955b3d43312bf5f41298e000639.jpg">
-                      </a>
-                      <div class="consultant-doctor__info">
-                        <div class="consultant-doctor__name">
-                          <a href="/profile/elenamihailovna">
-                            Войцехович Елена Михайловна</a>
-                        </div>
-                        <div class="consultant-doctor__answers">Практикующий доктор
-                          <!--<a href="/profile/elenamihailovna" class='link-answer-doctor'>2727</a>-->
-                        </div>
-                        <div class="consultant-doctor__about">
-                          <div class="consultant-doctor__about-icon"></div>
-                          <div class="consultant-doctor__about-text">Провожу онлайн консультации в чате, по телефону, в
-                            мессенджерах. Расшифровка анализов и снимков.</div>
-                        </div>
-                        <div class="consultant-controls custom-select">
-                          <div class="consultant-controls__options">
-                            <div class="consultant-controls__btn">
-                              <span>Обратиться</span>
-                              <img src="/" class="custom-select__arrow" alt="">
-                            </div>
-                            <div class="consultant-controls__dropdown custom-select__wrapper custom-select__hide">
-                              <div class="consultant-controls__dropdown-inside">
-                                <ul>
-                                  <li><a class="consultant-controls__dropdown-inside-link"
-                                      href="/profile/elenamihailovna" onclick="fireEvent('addQ_answerDoctor'))"><span
-                                        class="icn-item"><img src="/images/svg/mail.svg"></span><span
-                                        class="text-item">Персональная консультация</span></a></li>
-                                  <li><a class="consultant-controls__dropdown-inside-link"
-                                      href="/consultation/messenger" target="_blank"><span class="icn-item"><img
-                                          src="/images/svg/messenger-icon.svg" alt=""></span><span
-                                        class="text-item">Whatsapp/Viber</span></a></li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="consultant-doctor__status">врач онлайн</div>
+                <div class="comment__paywall paywall">
+                  <div class="paywall__wrapper">
+                    <div class="paywall__title">
+                      Этот материал входит в подписку с доступом к разделу «Основной»
                     </div>
-                    <div class="consultant-doctor__body" itemprop="suggestedAnswer" itemscope=""
-                      itemtype="http://schema.org/Answer">
-                      <p><a class="consultant-doctor__underline-link" href="#answer300329">Арина </a></p>
-                      <p itemprop="text" class="hide-text active">Риск передачи гепатита С ребенку от матери во время
-                        беременности и родов составляет около 5%. Поскольку такой риск все же имеется, лучше сначала
-                        провести лечение и полностью убрать вирус, чтобы свести риск заражения к нулю. Лечение занимает
-                        от 3 до 6 месяцев, во время лечения беременеть нельзя. </p>
-                      <p>Для того чтобы увидеть весь ответ, <a rel="nofollow" class="consultant-doctor__underline-link"
-                          href="/sfConsultationPayment/paymentAll/for/dialog/comment_id/672684" target="_blank">оплатите
-                          консультацию</a>.</p>
-                    </div>
-
-                    <div class="details-controlls">
-                      <div class="details-controlls__wrapper">
-                        <a href="javascript://" onclick="javascript: usefulAnswer(300331); fireEvent('click_like')"
-                          class="details-controlls__link">
-                          <img class="details-controlls__img" src="/images/svg/thumb-up.svg">
-                          <span class="details-controlls__text">Отзыв</span>
-                        </a>
-                        <a href="#" class="details-controlls__link">
-                          <img class="details-controlls__img" src="/images/svg/comment.svg" alt="">
-                          <span class="details-controlls__text details-controlls__text-grey">Комментировать</span>
-                        </a>
-                        <div class="details-controlls__menu custom-select">
-                          <img class="details-controlls__img" src="/images/svg/more.svg">
-                          <div class="details-controlls__dropdown custom-select__wrapper custom-select__hide">
-                            <ul class="details-controlls__list">
-                              <li class="details-controlls__item"> 2024-09-29 22:32:19 </li>
-                              <li class="details-controlls__item">
-                                <img src="/images/svg/error.svg">
-                                <span class="details-controlls__error-text">В ответе ошибка?</span>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="answer-field answer-field-fake" data-id="300331">
-                    <form action="/consultation/detail/672684" method="post" class="answer-field__form">
-                      <div class="answer-additional-fields__row">
-                        <div class="answer_field__face"><img src="/images/svg/profile-comment.svg"></div>
-                        <div class="answer-field__input"><textarea type="text"
-                            class="answer-input answer-question-input" placeholder="Написать сообщение" rows="1"
-                            cols="60"></textarea></div>
-                      </div>
-                    </form>
+                    <div class="paywall__subtitle">Прочитайте этот материал, чтобы узнать:</div>
+                    <ul class="paywall__list">
+                      <li class="paywall__item">можно ли привлечь к ответственности маркетплейс за продажу контрафакта;
+                      </li>
+                      <li class="paywall__item">как взыскать убытки с торговой площадки, если она не выполняет свои
+                        обязанности по сохранности товара;</li>
+                      <li class="paywall__item">как суды относятся к возможности взыскания упущенной выгоды.</li>
+                    </ul>
+                    <a href="#" class="paywall__button">Оформить подписку</a>
                   </div>
                 </div>
 
