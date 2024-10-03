@@ -37,8 +37,8 @@
                 </div>
               </div>
             </div>
-          </section>		  
-		  
+          </section>
+
           <section class="main__stats stats">
             <div class="stats__wrapper">
               <ul class="stats__list">
@@ -46,7 +46,7 @@
                   <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
                   <div class="stats__text">Оплачено</div>
                 </li>
-				<li class="stats__item">
+                <li class="stats__item">
                   <div class="stats__number">{{ $consultation->tariff->sum }} &#8381;</div>
                   <div class="stats__text">По тарифу</div>
                 </li>
@@ -74,22 +74,22 @@
             </div>
           </section>
 
-		
 
-		
-		  
-		<section class="main__booking booking">
+
+
+
+          <section class="main__booking booking">
             <div class="booking__wrapper white-block booking__is-taken">
               <div class="booking__text">На вопрос уже готовится ответ.</div>
           </section>
-		
-		  <section class="main__booking booking">
+
+          <section class="main__booking booking">
             <div class="booking__wrapper white-block">
               <div class="booking__text">Чтобы ответить, нажмите взять вопрос</div>
               <div class=" booking__button red-button" onclick="makeBooking()">Взять вопрос</div>
           </section>
-		 
-          
+
+
           <section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
               <form action="" method="POST">
@@ -103,6 +103,13 @@
           @foreach($consultation->comments as $comment)
           <div class="comment">
             <div class="comment__wrapper white-block">
+              <div class="comment__paid-answer">
+                <svg class="comment__paid-answer-svg">
+                  <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+                  <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+                  <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+                </svg>
+              </div>
               <div class="comment__menu-btn custom-select" data-id="300330">
                 <svg class="comment__menu-btn-svg">
                   <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
