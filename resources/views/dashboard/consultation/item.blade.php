@@ -15,7 +15,7 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
-          <h1 class="main__consultation-title">№{{ $consultation->id }}</h1>
+          <h1 class="main__consultation-title">№{{ $consultation->id }}, {{ $consultation->created_at }}</h1>
           <section class="main__consultation consultation">
             <div class="consultation__wrapper white-block">
               <h2 class="consultation__title">{{ $consultation->title }}</h2>
@@ -23,7 +23,6 @@
                 <div class="consultation__item">
                   {{ $consultation->description }}
                 </div>
-                <span class="consultation__views-id">{{ $consultation->created_at }}</span>
                 <div class="consultation__icons">
                   <div class="consultation__icon">
                     <a href="{{ route('dashboard.consultation.edit', $consultation->id)}}" target="_blank">
@@ -38,8 +37,8 @@
                 </div>
               </div>
             </div>
-          </section>
-
+          </section>		  
+		  
           <section class="main__stats stats">
             <div class="stats__wrapper">
               <ul class="stats__list">
@@ -47,9 +46,17 @@
                   <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
                   <div class="stats__text">Оплачено</div>
                 </li>
+				<li class="stats__item">
+                  <div class="stats__number">{{ $consultation->tariff->sum }} &#8381;</div>
+                  <div class="stats__text">По тарифу</div>
+                </li>
                 <li class="stats__item">
-                  <div class="stats__number">1</div>
-                  <div class="stats__text">Тариф</div>
+                  <div class="stats__number">{{ $consultation->tariff->answers_count }}</div>
+                  <div class="stats__text">Ответов</div>
+                </li>
+                <li class="stats__item">
+                  <div class="stats__number">{{ $consultation->bookings->count() }}</div>
+                  <div class="stats__text">Взято</div>
                 </li>
                 <li class="stats__item">
                   <div class="stats__number">1</div>
@@ -67,17 +74,22 @@
             </div>
           </section>
 
-          <section class="main__booking booking">
+		
+
+		
+		  
+		<section class="main__booking booking">
+            <div class="booking__wrapper white-block booking__is-taken">
+              <div class="booking__text">На вопрос уже готовится ответ.</div>
+          </section>
+		
+		  <section class="main__booking booking">
             <div class="booking__wrapper white-block">
               <div class="booking__text">Чтобы ответить, нажмите взять вопрос</div>
               <div class=" booking__button red-button" onclick="makeBooking()">Взять вопрос</div>
           </section>
-
-          <section class="main__booking booking">
-            <div class="booking__wrapper white-block booking__is-taken">
-              <div class="booking__text">На вопрос уже готовится ответ.</div>
-          </section>
-
+		 
+          
           <section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
               <form action="" method="POST">

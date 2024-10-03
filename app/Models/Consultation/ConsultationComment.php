@@ -26,4 +26,13 @@ class ConsultationComment extends Model
         return $this->hasMany(self::class, 'to_answer_id', 'id');
     }
 	
+	// Вернет true если ответов нет, и false если ответы есть
+	public static function hasAnswer($consultation_id, $user_id): bool
+	{
+		return self::query()
+                ->where('comment_id', $consultation_id)
+                ->where('user_id', $user_id)
+                ->doesntExist();
+	}
+	
 }
