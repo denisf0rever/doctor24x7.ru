@@ -41,10 +41,10 @@ class ConsultationController extends Controller
             ->firstOrFail();
 		
 		$hasBooking = Consultation::hasBooking($consultation->id, 1);
-		$canBooking = Booking::canBooking($consultation->id, 1);
-		$checkStatus = 1;
+		$canBooking = Booking::canBooking($consultation->id);
+		//$checkStatus = 1;
 		
-		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'checkStatus'));
+		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking'));
     }
 	
     public function index()

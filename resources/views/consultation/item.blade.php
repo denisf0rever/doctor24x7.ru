@@ -225,13 +225,6 @@
               <div class="comment__sub-comments" id="answer300330">
 
                 <div class="comment__sub-comment" id="answer300330">
-                  <div class="comment__paid-answer">
-                    <svg class="comment__paid-answer-svg">
-                      <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
-                      <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
-                      <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
-                    </svg>
-                  </div>
                   <a href="#" class="comment__user-link">
                     <img src="/images/svg/profile-comment.svg" alt="" class="comment__avatar-sub">
                     <span class="comment__user-name">Арина </span>
@@ -268,15 +261,9 @@
 
 
 
-              <div class="comment__sub-comment" id="answer300329">
-                <div class="comment__paid-answer">
-                  <svg class="comment__paid-answer-svg">
-                    <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
-                    <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
-                    <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
-                  </svg>
-                </div>
+              <div class="comment__main-comment" id="answer300329">
                 <a href="#" class="comment__user-link">
+
                   <img src="/images/svg/profile-comment.svg" alt="" class="comment__avatar-sub">
                   <span class="comment__user-name">Арина </span>
                   <span class="comment__user-subtitle">2024-09-29 20:22:23</span>

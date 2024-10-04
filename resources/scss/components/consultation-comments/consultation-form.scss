@@ -228,6 +228,13 @@
     color: var(--error-color);
     padding-top: 7px;
   }
+  &__tub-item-double{
+    display: flex;
+    justify-content: space-between;
+    .consultation-form__tub-item{
+      width: 45%;
+    }
+  }
 }
 
 #file-upload{
@@ -238,6 +245,18 @@
   .consultation-form{
     &__wrapper{
       padding: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .consultation-form{
+    &__tub-item-double{
+      flex-direction: column;
+      .consultation-form__tub-item{
+        width: 100%;
+        gap: 25px;
+      }
     }
   }
 }

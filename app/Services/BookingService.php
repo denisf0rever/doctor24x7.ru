@@ -29,19 +29,21 @@ final class BookingService
 	public function createBooking()
 	{
 		try {
-			$canBooking = Booking::canBooking($consultation->id);
+			// Возвращает можно ли сделать бронирование, есть ли свободные слоты
+			$canBooking = Booking::canBooking($this->consultation_id);
 			
-			if(!$canBooking) {
+			if($canBooking) {
 				$result = DB::transaction(function () {
 					return Booking::create([
 						'comment_id' => $this->consultation_id,
 						'user_id' => $this->user_id
 					]);
 				});
-			return $result;
-			} else {
-				return 'К сожалению данный вопрос в работе';
+				
+				return $result;
 			}
+			
+			return false;
 		} catch (\Exception $e) {
 			return false;
 		}

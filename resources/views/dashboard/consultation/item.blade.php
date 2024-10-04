@@ -75,18 +75,19 @@
           </section>
 
 			
-		@if ($hasBooking)
-				<section class="main__booking booking">
-				<div class="booking__wrapper white-block booking__is-taken">
-				<div class="booking__text">К сожалению данный вопрос в работе.</div>
-				</section>
-		@else
-			<section class="main__booking booking">
+		@if ($canBooking)
+		<section class="main__booking booking">
             <div class="booking__wrapper white-block">
-              <div class="booking__text">Чтобы ответить, нажмите беру</div>
-              <div class=" booking__button red-button" onclick="makeBooking()">Беру</div>
+             <div class="booking__text">Чтобы ответить, нажмите беру</div>
+             <div class=" booking__button red-button" onclick="makeBooking()">Беру</div>
           </section>
+		@else
+		<section class="main__booking booking">
+			<div class="booking__wrapper white-block booking__is-taken">
+			<div class="booking__text">К сожалению, данный вопрос в работе</div>
+		</section>
 		@endif
+		
 		<section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
               <form action="" method="POST">

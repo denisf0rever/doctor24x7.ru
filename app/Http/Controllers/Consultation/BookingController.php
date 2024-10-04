@@ -19,33 +19,25 @@ class BookingController extends Controller
 
     }
 	
-	public static function checkSlot($consultation_id, $user_id)
-    {
-        $result = match (false) {
-            Booking::hasBooking($consultation_id, $user_id) => 'Вы взяли вопрос',
-            //$this->hasSlot() => 'Взять вопрос',
-            default => 'К сожалению вопрос уже занят'
-        };
-
-        return $result;
-    }
-	
     public function makeRequest(Request $request, $id)
     {
 		try {
-		$service = new BookingService($request->all());
-		$result = $service->createBooking();
+			$consultation_id = $request->consultation_id;
+			$user_id = $request->user_id;
+			
+			$service = new BookingService($consultation_id, $user_id);
+			$result = $service->createBooking();
+			
 			if ($result) {
-				return Response::json(['success' => true, 'message' => 'все ок']);
-			} else {
-				return Response::json(['success' => false, 'message' => 'Не ок']);
+				return Response::json(['success' => true, 'message' => 'Вы взяли вопрос']);
+			} 
+			
+			return Response::json(['success' => false, 'message' => 'К сожалению, данный вопрос в работе']);
+			
+			} catch (\Exception $e) {
+				return Response::json(['success' => false, 'message' => 'Error creating booking: ' . $e->getMessage()], 500);
 			}
-        } catch (\Exception $e) {
-            return Response::json(['success' => false, 'message' => 'Error creating booking: ' . $e->getMessage()], 500);
-        }
-	}
-		
-		
+	}	
 		//ConsultationCreated::dispatch($data);
    
         //return Response::json(['success' => false, 'message' => 'Ошибка при создании бронирования.']);

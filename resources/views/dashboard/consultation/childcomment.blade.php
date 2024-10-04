@@ -2,6 +2,13 @@
 @if ($comment->children)
 <div class="comment">
   <div class="comment__wrapper comment__children  white-block">
+    <div class="comment__paid-answer">
+      <svg class="comment__paid-answer-svg">
+        <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+        <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+        <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+      </svg>
+    </div>
     <div class="comment__menu-btn custom-select" data-id="300330">
       <svg class="comment__menu-btn-svg">
         <circle r="2" fill="#000" cx="50%" cy="50%"></circle>

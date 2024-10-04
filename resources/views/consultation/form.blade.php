@@ -195,15 +195,21 @@
                   <label class="consultation-form__tub-title" for="city">Ваш город</label>
                   <input class="consultation-form__standart-input" type="text" id="city" name="city_id" value="5633">
                 </div>
-                <div class="consultation-form__tub-item">
-                  <label class="consultation-form__tub-title" for="username">Как к вам обращаться?</label>
-                  <input class="consultation-form__standart-input" type="text" id="username" name="username"
-                    value="{{ old('username') }}">
-                </div>
-                <div class="consultation-form__tub-item">
-                  <label class="consultation-form__tub-title" for="email">Ваш email</label>
-                  <input class="consultation-form__standart-input" type="text" id="email" name="email"
-                    value="{{ old('email') }}">
+                <div class="consultation-form__tub-item-double">
+                  <div class="consultation-form__tub-item">
+                    <label class="consultation-form__tub-title" for="username">Как к вам обращаться?</label>
+                    <div class="consultation-form__validation-wrapper">
+                      <input class="consultation-form__standart-input" type="text" id="username" name="username"
+                        value="{{ old('username') }}">
+                    </div>
+                  </div>
+                  <div class="consultation-form__tub-item">
+                    <label class="consultation-form__tub-title" for="email">Ваш email</label>
+                    <div class="consultation-form__validation-wrapper">
+                      <input class="consultation-form__standart-input" type="text" id="email" name="email"
+                        value="{{ old('email') }}">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
