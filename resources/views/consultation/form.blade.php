@@ -119,7 +119,8 @@
             </div>
           </div>
         </div>
-        <form action="" class="consultation-form__form">
+        <form id="consultation-form" method="POST" action="{{ route('consult.create') }}" enctype="multipart/form-data"
+          class="consultation-form__form">
           <div class="consultation-form__tubs">
             <div class="consultation-form__tub consultation-form__tub-active" data-step="1">
               <div class="consultation-form__tub-wrapper">
@@ -140,8 +141,8 @@
                     </ul>
                   </div>
                 </div>
-                <div class="consultation-form__subtitle">Выберите категорию </div>
               </div>
+              <div class="consultation-form__subtitle">Выберите категорию </div>
             </div>
             <div class="consultation-form__tub" data-step="2">
               <div class="consultation-form__tub-wrapper">
@@ -172,10 +173,39 @@
                 </div>
                 <div class="consultation-form__tub-item">
                   <label class="consultation-form__tub-title" for="age">Возраст пациента</label>
-                  <div class="consultation-form__validation-wrapper">
+                  <div class="consultation-form__validation-wrapper consultation-form__age-flex">
+                    <div class="consultation-form__age-type-select-wrapper custom-select">
+                      <span class="consultation-form__age-type-input-span" for="age_type">Год/Лет</span>
+                      <input type="hidden" name="age_type" id="age_type" class="consultation-form__age-type-input"
+                        value="Год/Лет">
+                      <img src="/images/svg/elements/selector/expand-more.svg" alt=""
+                        class="consultation-form__status-arrow custom-select__arrow">
+                      <div
+                        class="consultation-form__age-type-select-list-wrapper custom-select__wrapper custom-select__hide">
+                        <ul class="custom-select__list consultation-form__age-type-list">
+                          <li class="consultation-form__age-type-option" value="Год/Лет">
+                            Год/Лет
+                          </li>
+                          <li class="consultation-form__age-type-option" value="Месяцев">
+                            Месяцев
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                     <input class="consultation-form__age-input" type="number" id="age" name="age"
                       value="{{ old('age') }}">
+
+
+
+
+
+
                   </div>
+
+
+
+
+
                 </div>
                 <div class="consultation-form__tub-item">
                   <label class="consultation-form__tub-title">Снимки, анализы (необязательно)
@@ -186,6 +216,11 @@
                   </label>
                   <input class="consultation-form__input-photo @error('image')input-error @enderror" type="file"
                     id="file-upload" name="image">
+
+                  <div class="consultation-form__additional-photos">
+
+                  </div>
+                  <span class="consultation-form__add-photo">Добавить изображение</span>
                 </div>
               </div>
             </div>
@@ -206,7 +241,7 @@
                   <div class="consultation-form__tub-item">
                     <label class="consultation-form__tub-title" for="email">Ваш email</label>
                     <div class="consultation-form__validation-wrapper">
-                      <input class="consultation-form__standart-input" type="text" id="email" name="email"
+                      <input class="consultation-form__standart-input" type="email" id="email" name="email"
                         value="{{ old('email') }}">
                     </div>
                   </div>
