@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Consultation\Consultation;
+use App\Models\Consultation\Booking;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\ConsultationComment as Comment;
-
 use App\Http\Requests\ConsultationRequest;
 use App\Services\ConsultationService;
+use App\Services\BookingService;
 use App\Events\ConsultationCreated;
 
 class ConsultationController extends Controller
@@ -38,18 +39,12 @@ class ConsultationController extends Controller
 			->with(['comments' => function($comments) {
 				$comments->where('to_answer_id', null);}])
             ->firstOrFail();
-			
-		$options = [];
 		
-		$tariff_title = $consultation->tariff->title;
+		$hasBooking = Consultation::hasBooking($consultation->id, 1);
+		$canBooking = Booking::canBooking($consultation->id, 1);
+		$checkStatus = 1;
 		
-		$answers_amount = $consultation->tariff->answers_count;
-		
-		$tariff_sum = $consultation->tariff->sum;
-		
-		$booking_amount = $consultation->bookings->count();
-				
-		return view('dashboard.consultation.item', compact('consultation'));
+		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'checkStatus'));
     }
 	
     public function index()

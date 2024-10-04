@@ -4,6 +4,7 @@ namespace App\Models\Consultation;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Consultation\Booking;
 
 class Consultation extends Model
 {
@@ -40,4 +41,13 @@ class Consultation extends Model
     {
         return $this->belongsTo(Tariff::class);
     }
+	
+	// Вернет false если брони нет, и true если бронь есть
+	public static function hasBooking($consultation_id, $user_id): bool
+	{
+		return Booking::query()
+                ->where('comment_id', $consultation_id)
+                ->where('user_id', $user_id)
+                ->exists();
+	}
 }

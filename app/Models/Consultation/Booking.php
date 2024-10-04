@@ -4,6 +4,7 @@ namespace App\Models\Consultation;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Consultation\Consultation;
 
 class Booking extends Model
 {
@@ -25,29 +26,15 @@ class Booking extends Model
     {
         return $this->belongsTo(User::class);
     }
-	
-	
-	// Вернет true если брони нет, и false если бронь есть
-	public static function hasBooking($consultation_id, $user_id): bool
-	{
-		return self::query()
-                ->where('comment_id', $consultation_id)
-                ->where('user_id', $user_id)
-                ->doesntExist();
-	}
-	
-	/*public static function checkAvailableSlots($rateId)
+		
+	public static function canBooking($consultation_id): bool
     {
-        // Получаем тариф
-        $rate = Rate::find($rateId);
-        if (!$rate) {
-            return 0; // Тариф не найден
-        }
-
-        // Количество уже забронированных ответов
-        $bookedAnswers = self::where('rate_id', $rateId)->where('is_confirmed', true)->count();
-
-        // Возвращаем доступные слоты
-        return $rate->max_answers - $bookedAnswers;
-    }*/
+		$consultation = Consultation::find($consultation_id);
+			
+		$booking_amount = $consultation->bookings->count();
+			
+		$answers_count = $consultation->tariff->answers_count;
+		
+		return $booking_amount < $answers_count ? true : false;
+    }
 }
