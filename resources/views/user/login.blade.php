@@ -28,7 +28,7 @@
           <input type="password" id="password" name="password" class="popup-form__input popup-form__password">
           <img src="images/eye-password-hide-svgrepo-com.svg" alt="" class="popup-form__password-img">
         </div>
-        <input type="submit" class="popup-form__submit popup-form__submit-disabled" disabled value="Далее">
+        <input type="submit" class="popup-form__submit popup-form__submit-disabled" <?/*disabled*/?> value="Далее">
       </form>
     </div>
   </div>

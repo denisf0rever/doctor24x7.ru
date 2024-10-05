@@ -7,18 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use App\Services\BookingService;
 use App\Models\Consultation\Booking;
-use App\Models\Consultation\ConsultationComment as Answer;
+use App\Events\ConsultationAddBooking;
 
 class BookingController extends Controller
 {
-	public static function hasButton($consultation_id, $user_id): bool
-    {
-        return //Answer::hasAnswer();
-            //&& $this->hasSlot()
-            Booking::hasBooking($consultation_id, $user_id);
-
-    }
-	
     public function makeRequest(Request $request, $id)
     {
 		try {
@@ -29,6 +21,9 @@ class BookingController extends Controller
 			$result = $service->createBooking();
 			
 			if ($result) {
+				$userId = auth()->id();
+				ConsultationAddBooking::dispatch($userId);
+				
 				return Response::json(['success' => true, 'message' => 'Вы взяли вопрос']);
 			} 
 			
@@ -38,7 +33,4 @@ class BookingController extends Controller
 				return Response::json(['success' => false, 'message' => 'Error creating booking: ' . $e->getMessage()], 500);
 			}
 	}	
-		//ConsultationCreated::dispatch($data);
-   
-        //return Response::json(['success' => false, 'message' => 'Ошибка при создании бронирования.']);
 }

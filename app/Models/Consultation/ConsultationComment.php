@@ -4,6 +4,7 @@ namespace App\Models\Consultation;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\UserMain;
 
 class ConsultationComment extends Model
 {
@@ -11,9 +12,18 @@ class ConsultationComment extends Model
 	
 	protected $table = 'sf_consultation_comment_answer';
 	
+	protected $fillable = [
+		'comment_id',
+		'to_answer_id',
+		'user_id',
+		'email',
+		'username',
+        'description',
+	];
+	
 	public function consultation()
     {
-        return $this->belongsTo(Consultation::class, 'id');
+        return $this->belongsTo(Consultation::class, 'comment_id');
     }
 	
 	public function parent()
@@ -25,6 +35,11 @@ class ConsultationComment extends Model
     {
         return $this->hasMany(self::class, 'to_answer_id', 'id');
     }
+	
+	public function user()
+	{
+		return $this->belongsTo(UserMain::class);
+	}
 	
 	// Вернет true если ответов нет, и false если ответы есть
 	public static function hasAnswer($consultation_id, $user_id): bool

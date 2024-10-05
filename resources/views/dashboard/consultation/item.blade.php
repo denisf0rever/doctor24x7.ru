@@ -74,31 +74,40 @@
             </div>
           </section>
 
-			
 		@if ($canBooking)
 		<section class="main__booking booking">
             <div class="booking__wrapper white-block">
              <div class="booking__text">Чтобы ответить, нажмите беру</div>
              <div class=" booking__button red-button" onclick="makeBooking()">Беру</div>
           </section>
+		@elseif ($hasBooking)
+		<section class="main__booking booking">
+			<div class="booking__wrapper white-block booking__is-free">
+			<div class="booking__text">Вы взяли вопрос</div>
+		</section>
 		@else
 		<section class="main__booking booking">
-			<div class="booking__wrapper white-block booking__is-taken">
-			<div class="booking__text">К сожалению, данный вопрос в работе</div>
-		</section>
+            <div class="booking__wrapper white-block booking__is-taken">
+             <div class="booking__text">К сожалению, данный вопрос в работе</div>
+          </section>
 		@endif
 		
 		<section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
-              <form action="" method="POST">
+              <form action="{{ route('dashboard.consultation.create-answer') }}" method="POST">
                 @csrf
-                <textarea class="consultation-textarea__textarea"></textarea>
-                <input class="consultation-textarea__submit red-button" type="submit" value="Войти">
+                <textarea class="consultation-textarea__textarea" name="description">{{ old('description') }}</textarea>
+                <input type="hidden" name="comment_id" value="{{ $consultation->id }}">
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                <input type="hidden" name="email" value="{{ auth()->user()->email }}">
+                <input type="hidden" name="username" value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
+                <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
               </form>
             </div>
           </section>
 
           @foreach($consultation->comments as $comment)
+			@if($comment->user_id)
           <div class="comment">
             <div class="comment__wrapper white-block">
               <div class="comment__menu-btn custom-select" data-id="300330">
@@ -109,22 +118,23 @@
                 </svg>
                 <div class="custom-select__wrapper custom-select__hide comment__menu">
                   <ul class="comment__menu-list">
-                    <li class="comment__menu-item">Удалить</li>
+                    <li class="comment__menu-item"><a href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
                     <li class="comment__menu-item">Редактировать</li>
                   </ul>
                 </div>
               </div>
-              <a href="/profile/elenamihailovna" class="comment__user-link" id="elenamihailovna">
-                <img src="/uploads/sfGuard/avatars/ebe21773a3e3b955b3d43312bf5f41298e000639.jpg"
+              <a href="{{ $comment->username }}" class="comment__user-link">
+                <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ? $comment->user->avatar : d}}"
                   class="comment__avatar-main">
-                <span class="comment__user-name">Войцехович&nbsp;Елена&nbsp;Михайловна</span>
-                <span class="comment__user-subtitle">Республика Беларусь</span>
+                <span class="comment__user-name">{{ $comment->username }}</span>
+                <span class="comment__user-subtitle">{{ $comment->user->city ? $comment->user->city : null }}</span>
               </a>
-              <div class="comment__text"> {{ $comment->description }}</div>
-              <div class="comment__ansv">Ответить</div>
+              <div class="comment__text">{{ $comment->description }}</div>
+              <div class="comment__ansv"><a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</div>
             </div>
           </div>
           @include('dashboard.consultation.childcomment', ['comments' => $comment->children])
+			@endif
           @endforeach
 
           <script>
@@ -133,6 +143,7 @@
           const url = window.location.href; // Получаем полный URL
           const segments = url.split('/'); // Разбиваем строку URL по символу '/'
           const consultationId = segments[segments.length - 1]; // Получаем последний сегмент (ID)
+          const userId = {{ Auth::id() }}; // Получаем последний сегмент (ID)
 
 
           async function makeBooking() {
@@ -145,7 +156,7 @@
                 },
                 body: JSON.stringify({
                   'consultation_id': +consultationId,
-                  'user_id': 1
+                  'user_id': +userId
                 })
               });
 

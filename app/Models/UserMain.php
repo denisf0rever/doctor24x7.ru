@@ -9,11 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 
-class User extends Authenticatable
+class UserMain extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 	
-	protected $table = 'laravel_users';
+	protected $table = 'sf_guard_user';
 	
 	protected $fillable = [
 		'email',

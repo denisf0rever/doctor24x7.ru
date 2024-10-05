@@ -19,13 +19,6 @@ final class BookingService
 		$this->user_id = $user_id;
 	}
 	
-	public function checkStatus()
-	{
-		$result = Booking::hasBooking($this->consultation_id, $this->user_id) ? true : false;
-		
-		return $result;
-	}
-	
 	public function createBooking()
 	{
 		try {

@@ -9,13 +9,10 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
+use App\Http\Controllers\Consultation\ConsultationAnswerController;
 use App\Http\Controllers\Consultation\BookingController;
 
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
-
-Route::get('/home', function () {
-    return view('dashboard.main');
-});
 
 	// Авторизирация
 	Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -51,12 +48,9 @@ Route::middleware(['guest'])->group(function () {
 	Route::get('/chat', [\App\Http\Controllers\Chat\ChatController::class, 'endPoint']);
 });
 
-// Route::middleware(['auth', 'access'])->group(function () { 	 });
-
-
-
-    Route::get('/dashboard', function () {
-		return view('dashboard.main');})->name('dashboard.main');
+Route::middleware(['auth'])->group(function () { 	 
+    Route::get('/dashboard', fn() => view('dashboard.main'))->name('dashboard.main');
+	Route::get('/home', fn() => view('dashboard.main'));
 	
 	// Статьи
 	Route::get('/dashboard/article', [PostController::class, 'index'])->name('dashboard.article');
@@ -92,17 +86,20 @@ Route::middleware(['guest'])->group(function () {
 	Route::post('/dashboard/user/{id}', [UserController::class, 'update'])->name('dashboard.user.update');
 	
 	// Консультации
-	//Route::get('/dashboard/consultations', function() {return 'ok';})->middleware('can:show')->name('dashboard.consultations');
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
-	Route::get('/dashboard/consultation/{id}/edit', [ConsultationController::class, 'edit'])->name('dashboard.consultation.edit');
 	Route::post('/dashboard/consultation/delete/{id}', [ConsultationController::class, 'destroy'])->name('dashboard.consultation.destroy');
+	Route::get('/dashboard/consultation/edit/{id}', [ConsultationController::class, 'edit'])->name('dashboard.consultation.edit');
+	Route::post('/dashboard/consultation/answer', [ConsultationAnswerController::class, 'create'])->name('dashboard.consultation.create-answer');
+	Route::get('/dashboard/consultation/answer/{id}', [ConsultationAnswerController::class, 'show'])->name('dashboard.consultation.answer');
+	Route::get('/dashboard/consultation/delete/answer/{id}', [ConsultationAnswerController::class, 'destroy'])->name('dashboard.consultation.destroy-answer');
+	Route::get('/dashboard/consultation/edit/answer/{id}', [ConsultationAnswerController::class, 'edit'])->name('dashboard.consultation.edit-answer');
 	
 	// Букинг
 	Route::post('/dashboard/fetch/booking/{id}', [BookingController::class, 'makeRequest'])->name('dashboard.consultation.booking');
 	
 	// Чат: оператор
 	Route::get('/dashboard/chat', [\App\Http\Controllers\Chat\ChatController::class, 'index'])->name('dashboard.chat');
-
+});
 
 

@@ -8,6 +8,10 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use App\Events\ConsultationCreated;
 use App\Listeners\ConsultationCreatedNotification;
+use App\Events\ConsultationAddBooking;
+use App\Listeners\ConsultationBookingdNotification;
+use App\Events\AnswerToAuthorCreated;
+use App\Listeners\AnswerNotification;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -21,9 +25,13 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 		
-		//ConsultationCreated::class => [
-			//ConsultationCreatedNotification::class,
-		//],
+		ConsultationAddBooking::class => [
+			ConsultationBookingdNotification::class,
+		],
+		
+		AnswerToAuthorCreated::class => [
+			AnswerNotification::class,
+		]
     ];
 
     /**
@@ -35,8 +43,18 @@ class EventServiceProvider extends ServiceProvider
 			ConsultationCreated::class,
 			ConsultationCreatedNotification::class,
 		);
+		
+		Event::listen(
+			ConsultationAddBooking::class,
+			ConsultationBookingdNotification::class
+		);
+		
+		Event::listen(
+			AnswerToAuthorCreated::class,
+			AnswerNotification::class
+		);
     }
-
+				
     /**
      * Determine if events and listeners should be automatically discovered.
      */
