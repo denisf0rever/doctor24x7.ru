@@ -79,16 +79,19 @@
             <div class="booking__wrapper white-block">
              <div class="booking__text">Чтобы ответить, нажмите беру</div>
              <div class=" booking__button red-button" onclick="makeBooking()">Беру</div>
+			 </div>
           </section>
 		@elseif ($hasBooking)
 		<section class="main__booking booking">
 			<div class="booking__wrapper white-block booking__is-free">
 			<div class="booking__text">Вы взяли вопрос</div>
+			</div>
 		</section>
 		@else
 		<section class="main__booking booking">
             <div class="booking__wrapper white-block booking__is-taken">
              <div class="booking__text">К сожалению, данный вопрос в работе</div>
+			 </div>
           </section>
 		@endif
 		
@@ -187,6 +190,15 @@
           }
           </script>
         </div>
+		@if (session('success'))
+      <div class="toast">
+        <div class="toast__container" id="toast">
+          <div class="toast__item">
+            {{ session('success') }}
+          </div>
+        </div>
+      </div>
+      @endif
       </main>
     </div>
   </div>
