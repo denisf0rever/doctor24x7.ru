@@ -113,7 +113,7 @@
           </section>
 
           @foreach($consultation->comments as $comment)
-          @if($comment->user_id)
+          @if($comment->user_id)--@endif
           <div class="comment">
             <div class="comment__wrapper white-block">
               <div class="comment__menu-btn custom-select" data-id="300330">
@@ -138,12 +138,11 @@
                 <span class="comment__user-subtitle">{{ $comment->user->city ? $comment->user->city : null }}</span>
               </a>
               <div class="comment__text">{{ $comment->description }}</div>
-              <div class="comment__ansv"><a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить
+              <div class="comment__ansv"><a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</a>
               </div>
             </div>
           </div>
           @include('dashboard.consultation.childcomment', ['comments' => $comment->children])
-          @endif
           @endforeach
 
         </div>

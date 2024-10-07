@@ -29,7 +29,7 @@ class ConsultationAnswerController extends Controller
 			
 			AnswerToAuthorCreated::dispatch($request->validated());
 		
-			return redirect()->back()->with('success', 'Данные добавлен!');
+			return redirect()->back()->with('success', 'Ответ добавлен');
 		}
 		
 		return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');

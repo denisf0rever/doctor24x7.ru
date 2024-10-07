@@ -14,14 +14,14 @@ class AnswerToAuthorCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $name;
+    public $username;
     public $email;
     public $consultation_id;
 	
     public function __construct(
 		public array $array
 	) {
-		$this->name = $array['username'];
+		$this->username = $array['username'];
 		$this->email = $array['email'];
 		$this->consultation_id = $array['comment_id'];
 	}

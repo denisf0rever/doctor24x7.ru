@@ -36,13 +36,11 @@ class ConsultationController extends Controller
     {
         $consultation = Consultation::query()
             ->where('id', $id)
-			->with(['comments' => function($comments) {
-				$comments->where('to_answer_id', null);}])
+			->with(['comments' => fn($comments) => $comments->where('to_answer_id', null)])
             ->firstOrFail();
 		
-		$hasBooking = Consultation::hasBooking($consultation->id, 1);
+		$hasBooking = Consultation::hasBooking($consultation->id, auth()->id());
 		$canBooking = Booking::canBooking($consultation->id);
-		//$checkStatus = 1;
 		
 		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking'));
     }
@@ -87,7 +85,11 @@ class ConsultationController extends Controller
 
     public function edit(string $id)
     {
-        //
+        $consultation = Consultation::query()
+			->where('id', $id)
+			->firstOfFail();
+			
+		return view('consultation.edit', compact('consultation'));
     }
 
     public function update(Request $request, string $id)
@@ -100,6 +102,14 @@ class ConsultationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $consultation = Consultation::query()
+            ->where('id', $id)
+            ->firstOrFail();
+		
+		$consultation->delete();
+				
+		if ($consultation) {
+			 return redirect()->back()->with('success', 'Консультация удалена');
+		}
     }
 }

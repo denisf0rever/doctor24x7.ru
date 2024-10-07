@@ -13,7 +13,7 @@ class AnswerNotification
     public function handle(AnswerToAuthorCreated $event): void
     {
         $details = [
-			'name' => 'Denis',
+			'name' => $event->username,
 			'email' => $event->email,
 			'consultation_id' => $event->consultation_id,
 			'app_url' => config('app.url'),
