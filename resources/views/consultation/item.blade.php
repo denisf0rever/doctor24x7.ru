@@ -16,6 +16,11 @@
       <section class="main__question question">
         <div class="question__wrapper section-wrapper">
           <h2 class="question__title">Возможно ли ? </h2>
+          <ul class="question__discussion-list">
+            <li class="question__discussion-item">
+              <a href="/" class="question__discussion-link">Сперма</a>
+            </li>
+          </ul>
           <div class="question__text">
             <p>
               Возможно ли заразиться? если я мыла раковину и кран без перчаток мылом без губки руками .
@@ -45,6 +50,8 @@
           </div>
         </div>
       </section>
+
+
       <section class="main__ask-question ask-question">
         <div class="ask-question__wrapper section-wrapper">
           <div class="ask-question__title">
@@ -57,6 +64,55 @@
           </a>
         </div>
       </section>
+
+      <section class="contents">
+        <div class="contents__wrapper section-wrapper">
+          <div class="contents__title">Содержание консультации</div>
+          <ul class="contents__list">
+            <li class="contents__item">
+              <span class="contents__nubmer">1.</span>
+              <a href="/" class="contents__text-link">
+                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
+              <a href="/" class="contents__delete">
+                <img src="/" alt="" class="contents__img">
+              </a>
+            </li>
+            <li class="contents__item">
+              <span class="contents__nubmer">1.</span>
+              <a href="/" class="contents__text-link">
+                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
+              <a href="/" class="contents__delete">
+                <img src="/" alt="" class="contents__img">
+              </a>
+            </li>
+            <li class="contents__item">
+              <span class="contents__nubmer">1.</span>
+              <a href="/" class="contents__text-link">
+                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
+              <a href="/" class="contents__delete">
+                <img src="/" alt="" class="contents__img">
+              </a>
+            </li>
+            <li class="contents__item">
+              <span class="contents__nubmer">1.</span>
+              <a href="/" class="contents__text-link">
+                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
+              <a href="/" class="contents__delete">
+                <img src="/" alt="" class="contents__img">
+              </a>
+            </li>
+            <li class="contents__item">
+              <span class="contents__nubmer">1.</span>
+              <a href="/" class="contents__text-link">
+                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
+              <a href="/" class="contents__delete">
+                <img src="/" alt="" class="contents__img">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <section class="main__experts-list experts-list">
         <h2 class="experts-list__title">Ответы врачей</h2>
         <div class="experts-list__wrapper section-wrapper">
@@ -258,12 +314,8 @@
 
             <li class="comments__item comment">
 
-
-
-
               <div class="comment__main-comment" id="answer300329">
                 <a href="#" class="comment__user-link">
-
                   <img src="/images/svg/profile-comment.svg" alt="" class="comment__avatar-sub">
                   <span class="comment__user-name">Арина </span>
                   <span class="comment__user-subtitle">2024-09-29 20:22:23</span>

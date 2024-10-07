@@ -47,4 +47,26 @@
       color: var(--main-text);
     }
   }
+  &__discussion-list{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  &__discussion-item{
+    display: inline-block;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 10px 0;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    font-size: 12px;
+  }
+  &__discussion-link{
+    width: 100%;
+    height: 100%;
+    color: var(--link-text);
+    &:hover{
+      color: var(--main-text);
+    }
+  }
 }
