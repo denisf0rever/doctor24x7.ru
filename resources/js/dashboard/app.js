@@ -169,4 +169,65 @@ window.onload = () => {
 
   /* КАСТОМНЫЙ СЕЛЕКТОР */
 
+  /* БРОНИРОВАНИЕ КОНСУЛЬТАЦИИ */
+
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  const userId = document.querySelector('meta[name="user-id"]').getAttribute('content');
+  const bookingUrl = document.querySelector('meta[name="booking-url"]').getAttribute('content');
+
+  const url = window.location.href; // Получаем полный URL
+  const segments = url.split('/'); // Разбиваем строку URL по символу '/'
+  const consultationId = segments[segments.length - 1]; // Получаем последний сегмент (ID)
+
+  const makeBookingBtn = document.querySelector('#makeBooking');
+
+  if (makeBookingBtn) {
+    makeBookingBtn.onclick = () => {
+      makeBooking();
+    }
+  }
+
+  async function makeBooking() {
+    try {
+      console.log(bookingUrl);
+      const response = await fetch(bookingUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': csrfToken
+        },
+        body: JSON.stringify({
+          'consultation_id': +consultationId,
+          'user_id': +userId
+        })
+      });
+
+      // Проверка успешности ответа
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // Получение данных из ответа (в формате JSON)
+      const data = await response.json();
+
+      if (data.message) {
+        document.querySelector('.booking__text').innerHTML = data.message;
+      } else {
+        document.querySelector('.booking__text').innerHTML = 'Произошла ошибка';
+      }
+      document.querySelector('.booking__button').style.display = 'none';
+
+      if (!data.success) {
+        document.querySelector('.booking__wrapper').classList.add('booking__is-taken');
+      } else {
+        document.querySelector('.booking__wrapper').classList.add('booking__is-free');
+      }
+    } catch (error) {
+      console.error("Ошибка при выполнении запрос: ", error);
+    }
+  }
+
+  /* БРОНИРОВАНИЕ КОНСУЛЬТАЦИИ */
+
+
 }

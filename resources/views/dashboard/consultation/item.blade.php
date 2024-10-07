@@ -3,6 +3,8 @@
 
 <head>
   <title>{{ $consultation->title }}</title>
+  <meta name="user-id" content="{{ Auth::id() }}">
+  <meta name="booking-url" content="{{ route('dashboard.consultation.booking', $consultation->id) }}">
   @include('dashboard.settings')
 </head>
 
@@ -37,8 +39,8 @@
                 </div>
               </div>
             </div>
-          </section>		  
-		  
+          </section>
+
           <section class="main__stats stats">
             <div class="stats__wrapper">
               <ul class="stats__list">
@@ -46,7 +48,7 @@
                   <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
                   <div class="stats__text">Оплачено</div>
                 </li>
-				<li class="stats__item">
+                <li class="stats__item">
                   <div class="stats__number">{{ $consultation->tariff->sum }} &#8381;</div>
                   <div class="stats__text">По тарифу</div>
                 </li>
@@ -74,28 +76,28 @@
             </div>
           </section>
 
-		@if ($canBooking)
-		<section class="main__booking booking">
+          @if ($canBooking)
+          <section class="main__booking booking">
             <div class="booking__wrapper white-block">
-             <div class="booking__text">Чтобы ответить, нажмите беру</div>
-             <div class=" booking__button red-button" onclick="makeBooking()">Беру</div>
-			 </div>
+              <div class="booking__text">Чтобы ответить, нажмите беру</div>
+              <div class=" booking__button red-button" id="makeBooking">Беру</div>
+            </div>
           </section>
-		@elseif ($hasBooking)
-		<section class="main__booking booking">
-			<div class="booking__wrapper white-block booking__is-free">
-			<div class="booking__text">Вы взяли вопрос</div>
-			</div>
-		</section>
-		@else
-		<section class="main__booking booking">
+          @elseif ($hasBooking)
+          <section class="main__booking booking">
+            <div class="booking__wrapper white-block booking__is-free">
+              <div class="booking__text">Вы взяли вопрос</div>
+            </div>
+          </section>
+          @else
+          <section class="main__booking booking">
             <div class="booking__wrapper white-block booking__is-taken">
-             <div class="booking__text">К сожалению, данный вопрос в работе</div>
-			 </div>
+              <div class="booking__text">К сожалению, данный вопрос в работе</div>
+            </div>
           </section>
-		@endif
-		
-		<section class="main__consultation-textarea consultation-textarea">
+          @endif
+
+          <section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
               <form action="{{ route('dashboard.consultation.create-answer') }}" method="POST">
                 @csrf
@@ -103,14 +105,15 @@
                 <input type="hidden" name="comment_id" value="{{ $consultation->id }}">
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                 <input type="hidden" name="email" value="{{ auth()->user()->email }}">
-                <input type="hidden" name="username" value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
+                <input type="hidden" name="username"
+                  value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
                 <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
               </form>
             </div>
           </section>
 
           @foreach($consultation->comments as $comment)
-			@if($comment->user_id)
+          @if($comment->user_id)
           <div class="comment">
             <div class="comment__wrapper white-block">
               <div class="comment__menu-btn custom-select" data-id="300330">
@@ -121,84 +124,38 @@
                 </svg>
                 <div class="custom-select__wrapper custom-select__hide comment__menu">
                   <ul class="comment__menu-list">
-                    <li class="comment__menu-item"><a href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
+                    <li class="comment__menu-item"><a
+                        href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
                     <li class="comment__menu-item">Редактировать</li>
                   </ul>
                 </div>
               </div>
               <a href="{{ $comment->username }}" class="comment__user-link">
-                <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ? $comment->user->avatar : d}}"
+                <img
+                  src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ? $comment->user->avatar : d}}"
                   class="comment__avatar-main">
                 <span class="comment__user-name">{{ $comment->username }}</span>
                 <span class="comment__user-subtitle">{{ $comment->user->city ? $comment->user->city : null }}</span>
               </a>
               <div class="comment__text">{{ $comment->description }}</div>
-              <div class="comment__ansv"><a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</div>
+              <div class="comment__ansv"><a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить
+              </div>
             </div>
           </div>
           @include('dashboard.consultation.childcomment', ['comments' => $comment->children])
-			@endif
+          @endif
           @endforeach
 
-          <script>
-          const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-          const url = window.location.href; // Получаем полный URL
-          const segments = url.split('/'); // Разбиваем строку URL по символу '/'
-          const consultationId = segments[segments.length - 1]; // Получаем последний сегмент (ID)
-          const userId = {{ Auth::id() }}; // Получаем последний сегмент (ID)
-
-
-          async function makeBooking() {
-            try {
-              const response = await fetch(`{{ route('dashboard.consultation.booking', $consultation->id) }}`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'X-CSRF-TOKEN': csrfToken
-                },
-                body: JSON.stringify({
-                  'consultation_id': +consultationId,
-                  'user_id': +userId
-                })
-              });
-
-
-              // Проверка успешности ответа
-              if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-              }
-
-              // Получение данных из ответа (в формате JSON)
-              const data = await response.json();
-
-              if (data.message) {
-                document.querySelector('.booking__text').innerHTML = data.message;
-              } else {
-                document.querySelector('.booking__text').innerHTML = 'Произошла ошибка';
-              }
-              document.querySelector('.booking__button').style.display = 'none';
-
-              if (!data.success) {
-                document.querySelector('.booking__wrapper').classList.add('booking__is-taken');
-              } else {
-                document.querySelector('.booking__wrapper').classList.add('booking__is-free');
-              }
-            } catch (error) {
-              console.error("Ошибка при выполнении запрос: ", error);
-            }
-          }
-          </script>
         </div>
-		@if (session('success'))
-      <div class="toast">
-        <div class="toast__container" id="toast">
-          <div class="toast__item">
-            {{ session('success') }}
+        @if (session('success'))
+        <div class="toast">
+          <div class="toast__container" id="toast">
+            <div class="toast__item">
+              {{ session('success') }}
+            </div>
           </div>
         </div>
-      </div>
-      @endif
+        @endif
       </main>
     </div>
   </div>
