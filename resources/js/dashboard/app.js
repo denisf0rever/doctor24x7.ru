@@ -287,7 +287,6 @@ window.onload = () => {
 
   /*TEXTAREA EDITOR */
 
-
   ClassicEditor
     .create(document.querySelector('.ckeditor'), {
       height: '130px',
@@ -299,6 +298,7 @@ window.onload = () => {
     })
     .then( /* ... */)
     .catch( /* ... */);
+
 
   /*TEXTAREA EDITOR */
 

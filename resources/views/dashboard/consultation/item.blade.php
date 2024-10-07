@@ -101,7 +101,8 @@
             <div class="consultation-textarea__wrapper white-block">
               <form action="{{ route('dashboard.consultation.create-answer') }}" method="POST">
                 @csrf
-                <textarea class="consultation-textarea__textarea ckeditor" name="description">{{ old('description') }}</textarea>
+                <textarea class="consultation-textarea__textarea ckeditor"
+                  name="description">{{ old('description') }}</textarea>
                 <input type="hidden" name="comment_id" value="{{ $consultation->id }}">
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                 <input type="hidden" name="email" value="{{ auth()->user()->email }}">
@@ -113,7 +114,7 @@
           </section>
 
           @foreach($consultation->comments as $comment)
-          @if($comment->user_id)--@endif
+          @if($comment->user_id) @endif
           <div class="comment">
             <div class="comment__wrapper white-block">
               <div class="comment__menu-btn custom-select" data-id="300330">
@@ -138,7 +139,8 @@
                 <span class="comment__user-subtitle">{{ $comment->user->city ? $comment->user->city : null }}</span>
               </a>
               <div class="comment__text">{{ $comment->description }}</div>
-              <div class="comment__ansv"><a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</a>
+              <div class="comment__ansv"><a
+                  href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</a>
               </div>
             </div>
           </div>

@@ -663,6 +663,10 @@ body{
   }
 }
 
+.hide{
+  display: none;
+}
+
 @import '../colors.scss';
 @import "consultation.scss";
 @import "popup.scss";

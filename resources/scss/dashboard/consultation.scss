@@ -256,6 +256,11 @@
   }
 }
 
-.ck-editor__editable_inline {
+// .ck-editor__editable_inline {
+//   min-height: 130px;
+// }
+
+.ck-editor__editable {
   min-height: 130px;
+  max-height: 230px;
 }
