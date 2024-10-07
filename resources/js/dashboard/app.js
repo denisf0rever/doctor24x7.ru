@@ -115,8 +115,7 @@ window.onload = () => {
 
   }
 
-  //TOAST
-
+  /* ТОСТ */
 
   const hideToast = () => {
     const toast = document.getElementById('toast');
@@ -140,7 +139,10 @@ window.onload = () => {
     setTimeout(hideToast, 5000);
   }
 
+  /* ТОСТ */
+
   /* КАСТОМНЫЙ СЕЛЕКТОР */
+
   const selectWrappers = document.querySelectorAll('.custom-select');
 
   if (selectWrappers.length > 0) {
@@ -167,13 +169,16 @@ window.onload = () => {
     });
   }
 
+
   /* КАСТОМНЫЙ СЕЛЕКТОР */
 
   /* БРОНИРОВАНИЕ КОНСУЛЬТАЦИИ */
 
-  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-  const userId = document.querySelector('meta[name="user-id"]').getAttribute('content');
-  const bookingUrl = document.querySelector('meta[name="booking-url"]').getAttribute('content');
+  if (document.querySelector('meta[name="csrf-token"]') && document.querySelector('meta[name="user-id"]') && document.querySelector('meta[name="booking-url"]')) {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const userId = document.querySelector('meta[name="user-id"]').getAttribute('content');
+    const bookingUrl = document.querySelector('meta[name="booking-url"]').getAttribute('content');
+  }
 
   const url = window.location.href; // Получаем полный URL
   const segments = url.split('/'); // Разбиваем строку URL по символу '/'
@@ -229,5 +234,55 @@ window.onload = () => {
 
   /* БРОНИРОВАНИЕ КОНСУЛЬТАЦИИ */
 
+
+  /* ПОДТВЕРЖДЕНИЕ УДАЛЕНИЯ */
+
+  const dashboardPopup = document.querySelector('.dashboard-popup');
+  const dashboardPopupClose = document.querySelector('.dashboard-popup__close');
+  const dashboardItem = document.querySelectorAll('.dashboard-popup__item');
+
+  const deleteLinks = document.querySelectorAll('.delete-link');
+
+  if (deleteLinks.length > 0) {
+    deleteLinks.forEach(el => {
+      el.addEventListener('click', (event) => {
+        event.preventDefault(); // Предотвращает стандартное поведение ссылки
+
+        if (dashboardPopup) {
+          dashboardPopup.classList.remove('dashboard-popup__hide');
+
+          // Закрытие попапа при клике на кнопку закрытия
+          dashboardPopupClose.onclick = () => {
+            dashboardPopup.classList.add('dashboard-popup__hide');
+          };
+
+          // Закрытие попапа при клике на элементы списка
+          dashboardItem.forEach(itemEL => {
+            itemEL.onclick = () => {
+              if (itemEL.getAttribute('popup-action') === 'resume') {
+                window.location.href = el.href;
+                dashboardPopup.classList.add('dashboard-popup__hide');
+              }
+              if (itemEL.getAttribute('popup-action') === 'cancel') {
+                dashboardPopup.classList.add('dashboard-popup__hide');
+              }
+            };
+          });
+
+          // Закрытие попапа при клике вне него
+          document.addEventListener('click', (event) => {
+            // Проверяем, был ли клик вне попапа и его дочерних элементов
+            if (!dashboardPopup.contains(event.target) && event.target !== el) {
+              dashboardPopup.classList.add('dashboard-popup__hide');
+            }
+          });
+        }
+      });
+    });
+  }
+
+
+
+  /* ПОДТВЕРЖДЕНИЕ УДАЛЕНИЯ */
 
 }

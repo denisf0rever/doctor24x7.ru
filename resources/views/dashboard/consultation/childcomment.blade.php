@@ -18,8 +18,10 @@
       </svg>
       <div class="custom-select__wrapper custom-select__hide comment__menu">
         <ul class="comment__menu-list">
-          <li class="comment__menu-item">Удалить</li>
-          <li class="comment__menu-item">Редактировать</li>
+          <li class="comment__menu-item">
+            <a href="/" class="comment__menu-item-link delete-link">Удалить</a>
+          </li>
+          <li class="comment__menu-item"><a href="/" class="comment__menu-item-link">Редактировать</a></li>
         </ul>
       </div>
     </div>
@@ -65,6 +67,7 @@
     <div class="comment__ansv">Ответить</div>
   </div>
 </div>
+
 @endif
 @include('dashboard.consultation.childcomment', ['comments' => $comment->children])
 @endif

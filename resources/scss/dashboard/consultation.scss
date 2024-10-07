@@ -215,11 +215,16 @@
     flex-direction: column;
   }
   &__menu-item{
-    padding: 6px 10px;
     border-radius: 6px;
     &:hover{
       background-color: #f2f2f2;
     }
+  }
+  &__menu-item-link{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    padding: 6px 10px;
   }
 }
 

@@ -124,9 +124,9 @@
                 </svg>
                 <div class="custom-select__wrapper custom-select__hide comment__menu">
                   <ul class="comment__menu-list">
-                    <li class="comment__menu-item"><a
+                    <li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
                         href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
-                    <li class="comment__menu-item">Редактировать</li>
+                    <li class="comment__menu-item"><a href="/" class="comment__menu-item-link">Редактировать</a></li>
                   </ul>
                 </div>
               </div>
@@ -157,5 +157,27 @@
         </div>
         @endif
       </main>
+    </div>
+  </div>
+  <div class="dashboard-popup dashboard-popup__hide">
+    <div class="dashboard-popup__wrapper">
+      <div class="dashboard-popup__close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" class="loaded">
+          <g fill="none" fill-rule="evenodd">
+            <path fill="#515151" d="M.04 21.753L21.253.54l.707.707L.747 22.46z"></path>
+            <path fill="#525252" d="M21.96 21.753L.747.54l-.707.707L21.253 22.46z"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="dashboard-popup__content">
+        <div class="dashboard-popup__item" popup-action="resume">
+          <span class="dashboard-popup__item-text"> Продолжить </span>
+          <img src="/" alt="" class="dashboard-popup__item-img">
+        </div>
+        <div class="dashboard-popup__item" popup-action="cancel">
+          <span class="dashboard-popup__item-text"> Отменить </span>
+          <img src="/" alt="" class="dashboard-popup__item-img">
+        </div>
+      </div>
     </div>
   </div>

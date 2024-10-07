@@ -19,7 +19,8 @@
           <div class="main__blocks-wrapper">
             <ul class="main__blocks">
               <li class="main__block color-block">
-                <a href="{{ route('dashboard.article.add-article') }}" class="color-block__wrapper" style="background-color: #ffe2e6">
+                <a href="{{ route('dashboard.article.add-article') }}" class="color-block__wrapper"
+                  style="background-color: #ffe2e6">
                   <img src="/images/dashboard/edit.svg" alt="" class="color-block__img"
                     style="background-color: #f9597c">
                   <div class="color-block__big-text">Добавить статью</div>
@@ -28,7 +29,8 @@
                 </a>
               </li>
               <li class="main__block color-block">
-                <a href="{{ route('dashboard.analytics') }}" class="color-block__wrapper" style="background-color: #fff4de">
+                <a href="{{ route('dashboard.analytics') }}" class="color-block__wrapper"
+                  style="background-color: #fff4de">
                   <img src="/images/dashboard/analytics-article.svg" alt="" class="color-block__img"
                     style="background-color: #fe947a">
                   <div class="color-block__big-text">Аналитика статей</div>
@@ -108,7 +110,7 @@
                         </a>
                       </div>
                       <div class="pages__icon">
-                        <a href="{{ route('dashboard.article.destroy', $article->id) }}">
+                        <a class="delete-link" href="{{ route('dashboard.article.destroy', $article->id) }}">
                           <img src="/images/dashboard/del.svg" alt="" class="pages__icon-img">
                         </a>
                       </div>
