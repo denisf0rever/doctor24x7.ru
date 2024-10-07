@@ -1,6 +1,8 @@
+import { ClassicEditor, Essentials, Bold, Italic, Font, Paragraph, BlockQuote, Link } from 'ckeditor5';
+
+import 'ckeditor5/ckeditor5.css';
+
 window.onload = () => {
-  //TUBS
-  //123
   const tubButtons = document.querySelectorAll('.form__tab-button');
   const tubs = document.querySelectorAll('.form__tab');
 
@@ -281,8 +283,23 @@ window.onload = () => {
     });
   }
 
-
-
   /* ПОДТВЕРЖДЕНИЕ УДАЛЕНИЯ */
+
+  /*TEXTAREA EDITOR */
+
+
+  ClassicEditor
+    .create(document.querySelector('.ckeditor'), {
+      height: '130px',
+      plugins: [Essentials, Bold, Italic, Font, Paragraph, BlockQuote, Link],
+      toolbar: [
+        'undo', 'redo', '|', 'bold', 'italic', '|',
+        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'blockQuote', 'Link'
+      ]
+    })
+    .then( /* ... */)
+    .catch( /* ... */);
+
+  /*TEXTAREA EDITOR */
 
 }
