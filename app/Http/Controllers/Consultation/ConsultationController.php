@@ -87,7 +87,7 @@ class ConsultationController extends Controller
     {
         $consultation = Consultation::query()
 			->where('id', $id)
-			->firstOfFail();
+			->firstOrFail();
 			
 		return view('consultation.edit', compact('consultation'));
     }
