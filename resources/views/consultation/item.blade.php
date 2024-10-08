@@ -40,13 +40,46 @@
           </div>
           <div class="question__icons">
             <div class="question__icon">
-              <img src="/" alt="" class="question__icon-img question__icon-doc-img">
+              <img src="/" alt="" class="question__icon-img question__icon-small question__icon-doc-img">
               <div class="question__icon-value">4</div>
             </div>
-            <a href="" class="question__icon question__icon-link">
+            <a href="" class="question__icon question__icon-big question__icon-link">
               <img src="/" alt="" class="question__icon-img question__icon-calendar-img">
               <div class="question__icon-value">29.09.2024 20:20</div>
             </a>
+            <div class="question__icon question__icon-link question__icon-last custom-select">
+              <img src="/" alt="" class="question__icon-img question__icon-actions-img">
+              <div class="question__icon-value">Действия</div>
+              <div class="question__select-wrapper custom-select__wrapper custom-select__hide">
+                <ul class="question__select-list">
+                  <li class="question__option">
+                    <a href="/" class="question__link">
+                      Удалить
+                    </a>
+                  </li>
+                  <li class="question__option">
+                    <a href="/" class="question__link">
+                      Запросить документы
+                    </a>
+                  </li>
+                  <li class="question__option">
+                    <a href="/" class="question__link">
+                      Объединить с...
+                    </a>
+                  </li>
+                  <li class="question__option">
+                    <a href="/" class="question__link">
+                      Оплата диалога
+                    </a>
+                  </li>
+                  <li class="question__option">
+                    <a href="/" class="question__link">
+                      Редактировать
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -112,6 +145,14 @@
           </ul>
         </div>
       </section>
+
+      <div class="booking-fail">
+        <div class="booking-fail__wrapper">
+          <span class="booking-fail__text">
+            К сожалению, на этот вопрос уже готовятся ответы. Ваш ответ будет тарифицироваться согласно договоренности.
+          </span>
+        </div>
+      </div>
 
       <section class="main__experts-list experts-list">
         <h2 class="experts-list__title">Ответы врачей</h2>
@@ -381,6 +422,30 @@
       </section>
     </div>
     <aside class="main__sidebar">
+      <section class="admin-control main__admin-control">
+        <div class="admin-control__wrapper section-wrapper">
+          <ul class="admin-control__list">
+            <li class="admin-control__item">
+              <a href="/" class="admin-control__link">Требует вашего внимания: (1)</a>
+            </li>
+            <li class="admin-control__item">
+              <a href="/" class="admin-control__link"><b>Архив консультаций</b></a>
+            </li>
+            <li class="admin-control__item">
+              <a href="/" class="admin-control__link">Неотвеченые вопросы (2093) </a>
+            </li>
+            <li class="admin-control__item">
+              <a href="/" class="admin-control__link">Панель </a>
+            </li>
+            <li class="admin-control__item">
+              <a href="/" class="admin-control__link">Сбросить кеш </a>
+            </li>
+            <li class="admin-control__item">
+              <a href="/" class="admin-control__link">Выйти </a>
+            </li>
+          </ul>
+        </div>
+      </section>
       <section class="main__consultation-sidebar consultation-sidebar">
         <div class="consultation-sidebar__wrapper section-wrapper">
           <div class="consultation-sidebar__top">

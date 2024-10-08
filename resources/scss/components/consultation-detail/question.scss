@@ -1,4 +1,7 @@
 .question{
+  &__wrapper{
+    padding-bottom: 3px;
+  }
   &__title{
     font-size: 22px;
     font-weight: 500;
@@ -19,12 +22,12 @@
     display: flex;
   }
   &__icon{
-    width: 50%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    &:first-child{
+    &:not(:last-child){
       border-right: 1px solid #eee;
     }
   }
@@ -38,8 +41,14 @@
     height: 30px;
     margin: 0 auto;
   }
+  &__icon-actions-img{
+    width: 25px;
+    height: 30px;
+    margin: 0 auto;
+  }
   &__icon-value{
     font-size: 13px;
+    text-align: center;
   }
   &__icon-link{
     color: var(--link-text);
@@ -67,6 +76,58 @@
     color: var(--link-text);
     &:hover{
       color: var(--main-text);
+    }
+  }
+  &__select-wrapper{
+    width: 100%;
+    margin-top: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 12px 16px #0000000f;
+    background: rgba(0, 163, 225, 0.9);
+    color: #fff;
+  }
+  &__select-list{
+    overflow: auto;
+    list-style-type: none;
+    border-radius: 16px;
+    padding: 8px;
+    box-sizing: border-box;
+    max-height: 300px;
+    margin: 10px 0;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__option{
+    border-radius: 8px;
+  }
+  &__link{
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+ul.question__select-list{
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .question{
+    &__icon-big{
+      flex: 1.5;
+    }
+    &__icon-small{
+      flex: 0.9;
+    }
+    &__icon-last{
+      flex: 1.6;
     }
   }
 }
