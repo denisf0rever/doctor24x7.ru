@@ -302,4 +302,35 @@ window.onload = () => {
 
   /*TEXTAREA EDITOR */
 
+  /*РАСКРЫТИЕ ФОРМЫ ОТВЕТА */
+
+  // const toAnswBtn = document.querySelectorAll('.comment__to-answ');
+  const answForm = document.querySelector('.comment__migration-form');
+  const commentsWrappers = document.querySelectorAll('.comments-wrapper');
+  const toAnswerIdInput = document.querySelector('#to_answer_id');
+
+  if (commentsWrappers.length > 0) {
+    commentsWrappers.forEach(comments => {
+      const toAnswBtn = comments.querySelectorAll('.comment__to-answ');
+      const commentId = comments.id.replace(/\D/g, '');
+      console.log(commentId);
+      if (toAnswBtn.length > 0) {
+        toAnswBtn.forEach(el => {
+          el.onclick = (event) => {
+            event.preventDefault();
+            answForm.remove();
+            el.parentNode.insertBefore(answForm, el);
+            answForm.classList.remove('hide');
+            toAnswerIdInput.value = commentId;
+            toAnswBtn.forEach(btn => {
+              btn.classList.remove('hide');
+            })
+            el.classList.add('hide');
+          }
+        })
+      }
+    })
+  }
+
+  /*РАСКРЫТИЕ ФОРМЫ ОТВЕТА */
 }

@@ -33,7 +33,7 @@
       <span class="comment__user-subtitle">{{ $comment->user->city }}</span>
     </a>
     <div class="comment__text"> {{ $comment->description }}</div>
-    <div class="comment__ansv">Ответить</div>
+    <div class="comment__ansv comment__to-answ">Ответить</div>
   </div>
 </div>
 @else
@@ -65,7 +65,7 @@
       <span class="comment__user-subtitle"></span>
     </a>
     <div class="comment__text"> {{ $comment->description }}</div>
-    <div class="comment__ansv">Ответить</div>
+    <div class="comment__ansv comment__to-answ">Ответить</div>
   </div>
 </div>
 

@@ -122,6 +122,9 @@
 }
 
 .comment{
+  &__migration-form{
+    text-align: end;
+  }
   &__wrapper{
     position: relative;
     margin-bottom: 20px;
