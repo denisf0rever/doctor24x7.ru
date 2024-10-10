@@ -102,4 +102,9 @@ class UserMain extends Authenticatable
     {
         return $this->hasMany(ConsultationComments::class);
     }
+	
+	public function settings(): HasMany
+    {
+        return $this->hasMany(UserSettings::class);
+    }
 }

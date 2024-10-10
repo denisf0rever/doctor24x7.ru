@@ -37,7 +37,7 @@ class ConsultationAnswerController extends Controller
 	
 	public function destroy(string $id)
     {
-         $comment = Comment::query()
+		$comment = Comment::query()
             ->where('id', $id)
             ->firstOrFail();
 		

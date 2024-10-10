@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User\UserSettings;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
@@ -101,5 +103,10 @@ class User extends Authenticatable
 	public function comments(): HasMany
     {
         return $this->hasMany(ConsultationComments::class);
+    }
+	
+	public function settings(): HasOne
+    {
+        return $this->hasOne(UserSettings::class);
     }
 }
