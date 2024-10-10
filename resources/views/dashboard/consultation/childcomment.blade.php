@@ -19,7 +19,8 @@
       <div class="custom-select__wrapper custom-select__hide comment__menu">
         <ul class="comment__menu-list">
           <li class="comment__menu-item">
-            <a href="/" class="comment__menu-item-link delete-link">Удалить</a>
+            <a href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}"
+              class="comment__menu-item-link delete-link">Удалить</a>
           </li>
           <li class="comment__menu-item"><a href="/" class="comment__menu-item-link">Редактировать</a></li>
         </ul>
