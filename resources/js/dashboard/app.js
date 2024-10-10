@@ -9,7 +9,6 @@ window.onload = () => {
   tubButtons.forEach((el, key) => {
     el.onclick = () => {
       tubButtons.forEach((innerEl, innerKey) => {
-        console.log(key, innerKey);
         if (innerKey === key) {
           tubButtons[innerKey].classList.add('form__tab-button-active');
           tubs[innerKey].classList.add('form__tab-active');
@@ -38,7 +37,6 @@ window.onload = () => {
   })
 
   selectOptions.forEach((el, key) => {
-    console.log(selectInput.value, '--', el.value)
     if (selectInput.value == el.value) {
       selectInputText.innerHTML = el.innerHTML;
     }
@@ -196,7 +194,6 @@ window.onload = () => {
 
   async function makeBooking() {
     try {
-      console.log(bookingUrl);
       const response = await fetch(bookingUrl, {
         method: 'POST',
         headers: {
@@ -304,33 +301,29 @@ window.onload = () => {
 
   /*РАСКРЫТИЕ ФОРМЫ ОТВЕТА */
 
-  // const toAnswBtn = document.querySelectorAll('.comment__to-answ');
+  const toAnswBtn = document.querySelectorAll('.comment__to-answ');
   const answForm = document.querySelector('.comment__migration-form');
-  const commentsWrappers = document.querySelectorAll('.comments-wrapper');
   const toAnswerIdInput = document.querySelector('#to_answer_id');
 
-  if (commentsWrappers.length > 0) {
-    commentsWrappers.forEach(comments => {
-      const toAnswBtn = comments.querySelectorAll('.comment__to-answ');
-      const commentId = comments.id.replace(/\D/g, '');
-      console.log(commentId);
-      if (toAnswBtn.length > 0) {
-        toAnswBtn.forEach(el => {
-          el.onclick = (event) => {
-            event.preventDefault();
-            answForm.remove();
-            el.parentNode.insertBefore(answForm, el);
-            answForm.classList.remove('hide');
-            toAnswerIdInput.value = commentId;
-            toAnswBtn.forEach(btn => {
-              btn.classList.remove('hide');
-            })
-            el.classList.add('hide');
-          }
+  if (toAnswBtn.length > 0) {
+    toAnswBtn.forEach(el => {
+      el.onclick = (event) => {
+        event.preventDefault();
+        answForm.remove();
+        el.parentNode.insertBefore(answForm, el);
+        answForm.classList.remove('hide');
+        let commentId = el.closest('.comment').getAttribute('answer-id');
+        commentId = commentId.replace(/\D/g, '');
+        toAnswerIdInput.value = commentId;
+        toAnswBtn.forEach(btn => {
+          btn.classList.remove('hide');
         })
+        el.classList.add('hide');
       }
     })
   }
+
+
 
   /*РАСКРЫТИЕ ФОРМЫ ОТВЕТА */
 }

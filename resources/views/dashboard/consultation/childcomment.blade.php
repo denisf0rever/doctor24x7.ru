@@ -1,7 +1,7 @@
 @foreach($comments as $comment)
 @if ($comment->children)
 @if($comment->user_id)
-<div class="comment">
+<div class="comment" answer-id="answer{{ $comment->id }}">
   <div class="comment__wrapper comment__children  white-block">
     <div class="comment__paid-answer">
       <svg class="comment__paid-answer-svg">
@@ -37,7 +37,7 @@
   </div>
 </div>
 @else
-<div class="comment">
+<div class="comment" answer-id="answer{{ $comment->id }}">
   <div class="comment__wrapper comment__children  white-block">
     <div class="comment__paid-answer">
       <svg class="comment__paid-answer-svg">

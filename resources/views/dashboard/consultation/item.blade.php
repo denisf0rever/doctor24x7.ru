@@ -129,41 +129,39 @@
 
           @foreach($consultation->comments as $comment)
           @if($comment->user_id) @endif
-          <div class="comments-wrapper" id="answer{{ $comment->id }}">
-            <div class="comment">
-              <div class="comment__wrapper white-block">
-                <div class="comment__menu-btn custom-select" data-id="300330">
-                  <svg class="comment__menu-btn-svg">
-                    <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
-                    <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
-                    <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
-                  </svg>
-                  <div class="custom-select__wrapper custom-select__hide comment__menu">
-                    <ul class="comment__menu-list">
-                      <li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
-                          href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
-                      <li class="comment__menu-item"><a href="/" class="comment__menu-item-link">Редактировать</a></li>
-                    </ul>
-                  </div>
+          <div class="comment" answer-id="answer{{ $comment->id }}">
+            <div class="comment__wrapper white-block">
+              <div class="comment__menu-btn custom-select" data-id="300330">
+                <svg class="comment__menu-btn-svg">
+                  <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+                  <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+                  <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+                </svg>
+                <div class="custom-select__wrapper custom-select__hide comment__menu">
+                  <ul class="comment__menu-list">
+                    <li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
+                        href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
+                    <li class="comment__menu-item"><a href="/" class="comment__menu-item-link">Редактировать</a></li>
+                  </ul>
                 </div>
-                <a href="{{ $comment->username }}" class="comment__user-link">
-                  <img
-                    src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ? $comment->user->avatar : d}}"
-                    class="comment__avatar-main">
-                  <span class="comment__user-name">{{ $comment->username }}</span>
-                  <span class="comment__user-subtitle">{{ $comment->user->city ? $comment->user->city : null }}</span>
-                </a>
-                <div class="comment__text">{{ $comment->description }}</div>
-                <div class="comment__ansv">
+              </div>
+              <a href="{{ $comment->username }}" class="comment__user-link">
+                <img
+                  src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ? $comment->user->avatar : d}}"
+                  class="comment__avatar-main">
+                <span class="comment__user-name">{{ $comment->username }}</span>
+                <span class="comment__user-subtitle">{{ $comment->user->city ? $comment->user->city : null }}</span>
+              </a>
+              <div class="comment__text">{{ $comment->description }}</div>
+              <div class="comment__ansv">
 
-                  @if (auth()->user()->settings->answer_form)
-                  <a href="/" class="comment__to-answ">Ответить</a>
-                  @else
-                  <a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</a>
-                  @endif
+                @if (auth()->user()->settings->answer_form)
+                <a href="/" class="comment__to-answ">Ответить</a>
+                @else
+                <a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</a>
+                @endif
 
 
-                </div>
               </div>
             </div>
             @include('dashboard.consultation.childcomment', ['comments' => $comment->children])
