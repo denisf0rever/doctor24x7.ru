@@ -26,7 +26,8 @@
                   <p>{{ $consultation->description }}</p>
                 </div>
                 <div class="consultation__item">
-                   <p>{{ $consultation->username }}, {{ $consultation->email }}</p>
+                  <p id="answer-fullname">{{ $consultation->username }}</p>,<p id="answer-email">
+                    {{ $consultation->email }}</p>
                 </div>
                 <div class="consultation__icons">
                   <div class="consultation__icon">
@@ -126,8 +127,8 @@
             <input type="hidden" name="comment_id" value="{{ $consultation->id }}">
             <input type="hidden" name="to_answer_id" value="" id="to_answer_id">
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-			<input type="hidden" name="author_email" value="" id="author_email">
-            <input type="hidden" name="email" value="{{ auth()->user()->email }}">
+            <input type="hidden" name="author_email" value="" id="author_email">
+            <input type="hidden" name="email" id="author_email" value="{{ auth()->user()->email }}">
             <input type="hidden" name="author_username" value="" id="author_username">
             <input type="hidden" name="username"
               value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
@@ -136,7 +137,8 @@
 
           @foreach($consultation->comments as $comment)
           @if($comment->user_id) @endif
-          <div class="comment" answer-id="{{ $comment->id }}" answer-author_username="{{ $comment->username }}" answer-author_email="{{ $comment->email }}">
+          <div class="comment" answer-id="{{ $comment->id }}" answer-author_username="{{ $comment->username }}"
+            answer-author_email="{{ $comment->email }}">
             <div class="comment__wrapper white-block">
               <div class="comment__menu-btn custom-select" data-id="300330">
                 <svg class="comment__menu-btn-svg">
@@ -149,15 +151,15 @@
                     <li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
                         href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
                     <li class="comment__menu-item"><a class="comment__menu-item-link"
-						href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
+                        href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
                     <li class="comment__menu-item"><a class="comment__menu-item-link"
-						href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a></li>
+                        href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a>
+                    </li>
                   </ul>
                 </div>
               </div>
               <a href="{{ $comment->username }}" class="comment__user-link">
-                <img
-                  src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ?? null }}"
+                <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ?? null }}"
                   class="comment__avatar-main">
                 <span class="comment__user-name">{{ $comment->username }}</span>
                 <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>

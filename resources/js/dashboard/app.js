@@ -175,61 +175,69 @@ window.onload = () => {
   /* БРОНИРОВАНИЕ КОНСУЛЬТАЦИИ */
 
   if (document.querySelector('meta[name="csrf-token"]') && document.querySelector('meta[name="user-id"]') && document.querySelector('meta[name="booking-url"]')) {
+
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     const userId = document.querySelector('meta[name="user-id"]').getAttribute('content');
     const bookingUrl = document.querySelector('meta[name="booking-url"]').getAttribute('content');
-  }
 
-  const url = window.location.href; // Получаем полный URL
-  const segments = url.split('/'); // Разбиваем строку URL по символу '/'
-  const consultationId = segments[segments.length - 1]; // Получаем последний сегмент (ID)
 
-  const makeBookingBtn = document.querySelector('#makeBooking');
+    const url = window.location.href; // Получаем полный URL
+    const segments = url.split('/'); // Разбиваем строку URL по символу '/'
+    const consultationId = segments[segments.length - 1]; // Получаем последний сегмент (ID)
 
-  if (makeBookingBtn) {
-    makeBookingBtn.onclick = () => {
-      makeBooking();
+    const makeBookingBtn = document.querySelector('#makeBooking');
+
+    if (makeBookingBtn) {
+      makeBookingBtn.onclick = () => {
+        makeBooking();
+      }
     }
-  }
 
-  async function makeBooking() {
-    try {
-      const response = await fetch(bookingUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': csrfToken
-        },
-        body: JSON.stringify({
-          'consultation_id': +consultationId,
-          'user_id': +userId
-        })
-      });
+    async function makeBooking() {
+      const answerFullname = document.querySelector('#answer-fullname');
+      const answerEmail = document.querySelector('#answer-email');
+      try {
+        const response = await fetch(bookingUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+          },
+          body: JSON.stringify({
+            'consultation_id': +consultationId,
+            'user_id': +userId,
+            'author_name': answerFullname,
+            'author_email': answerEmail
+          })
+        });
 
-      // Проверка успешности ответа
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        // Проверка успешности ответа
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Получение данных из ответа (в формате JSON)
+        const data = await response.json();
+
+        if (data.message) {
+          document.querySelector('.booking__text').innerHTML = data.message;
+        } else {
+          document.querySelector('.booking__text').innerHTML = 'Произошла ошибка';
+        }
+        document.querySelector('.booking__button').style.display = 'none';
+
+        if (!data.success) {
+          document.querySelector('.booking__wrapper').classList.add('booking__is-taken');
+        } else {
+          document.querySelector('.booking__wrapper').classList.add('booking__is-free');
+        }
+      } catch (error) {
+        console.error("Ошибка при выполнении запрос: ", error);
       }
-
-      // Получение данных из ответа (в формате JSON)
-      const data = await response.json();
-
-      if (data.message) {
-        document.querySelector('.booking__text').innerHTML = data.message;
-      } else {
-        document.querySelector('.booking__text').innerHTML = 'Произошла ошибка';
-      }
-      document.querySelector('.booking__button').style.display = 'none';
-
-      if (!data.success) {
-        document.querySelector('.booking__wrapper').classList.add('booking__is-taken');
-      } else {
-        document.querySelector('.booking__wrapper').classList.add('booking__is-free');
-      }
-    } catch (error) {
-      console.error("Ошибка при выполнении запрос: ", error);
     }
+
   }
+
 
   /* БРОНИРОВАНИЕ КОНСУЛЬТАЦИИ */
 
@@ -304,6 +312,10 @@ window.onload = () => {
   const toAnswBtn = document.querySelectorAll('.comment__to-answ');
   const answForm = document.querySelector('.comment__migration-form');
   const toAnswerIdInput = document.querySelector('#to_answer_id');
+  const toAnswerFullnameInput = document.querySelector('#author_username');
+  const toAnswerEmailInput = document.querySelector('#author_email');
+
+
 
   if (toAnswBtn.length > 0) {
     toAnswBtn.forEach(el => {
@@ -313,8 +325,12 @@ window.onload = () => {
         el.parentNode.insertBefore(answForm, el);
         answForm.classList.remove('hide');
         let commentId = el.closest('.comment').getAttribute('answer-id');
+        let commentUsername = el.closest('.comment').getAttribute('answer-author_username');
+        let commentEmail = el.closest('.comment').getAttribute('answer-author_email');
         commentId = commentId.replace(/\D/g, '');
         toAnswerIdInput.value = commentId;
+        toAnswerFullnameInput.value = commentUsername;
+        toAnswerEmailInput.value = commentEmail;
         toAnswBtn.forEach(btn => {
           btn.classList.remove('hide');
         })
