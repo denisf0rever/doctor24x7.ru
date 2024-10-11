@@ -10,6 +10,7 @@ use App\Models\Consultation\Booking;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\ConsultationComment as Comment;
 use App\Http\Requests\ConsultationRequest;
+use App\Http\Requests\ConsultationUpdateRequest;
 use App\Services\ConsultationService;
 use App\Services\BookingService;
 use App\Events\ConsultationCreated;
@@ -89,12 +90,25 @@ class ConsultationController extends Controller
 			->where('id', $id)
 			->firstOrFail();
 			
-		return view('consultation.edit', compact('consultation'));
+		return view('dashboard.consultation.edit-consultation', compact('consultation'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(ConsultationUpdateRequest $request, string $id)
     {
-        //
+        $data = $request->validated();
+	
+		$consultation = Consultation::query()
+            ->where('id', $id)
+            ->firstOrFail();
+			
+		$consultation->description = $request->input('description');
+		$consultation->save();
+		
+		if ($consultation) {
+			return redirect()->back()->with('success', 'Консультация обновлена');
+		} else {
+			return redirect()->back()->with('success', 'Возникла ошибка');
+		}
     }
 
     /**

@@ -90,10 +90,14 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
 	Route::post('/dashboard/consultation/delete/{id}', [ConsultationController::class, 'destroy'])->name('dashboard.consultation.destroy');
 	Route::get('/dashboard/consultation/edit/{id}', [ConsultationController::class, 'edit'])->name('dashboard.consultation.edit');
+	Route::post('/dashboard/consultation/update/consultation/{id}', [ConsultationController::class, 'update'])->name('dashboard.consultation.update.consultation');
+	
 	Route::post('/dashboard/consultation/answer', [ConsultationAnswerController::class, 'create'])->name('dashboard.consultation.create-answer');
 	Route::get('/dashboard/consultation/answer/{id}', [ConsultationAnswerController::class, 'show'])->name('dashboard.consultation.answer');
 	Route::get('/dashboard/consultation/delete/answer/{id}', [ConsultationAnswerController::class, 'destroy'])->name('dashboard.consultation.destroy-answer');
 	Route::get('/dashboard/consultation/edit/answer/{id}', [ConsultationAnswerController::class, 'edit'])->name('dashboard.consultation.edit-answer');
+	Route::post('/dashboard/consultation/update/answer/{id}', [ConsultationAnswerController::class, 'update'])->name('dashboard.consultation.update.answer');
+	Route::get('/dashboard/consultation/block/answer/{id}', [ConsultationAnswerController::class, 'block'])->name('dashboard.consultation.answer.block');
 	
 	// Букинг
 	Route::post('/dashboard/fetch/booking/{id}', [BookingController::class, 'makeRequest'])->name('dashboard.consultation.booking');

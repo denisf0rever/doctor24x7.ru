@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Response;
 use App\Services\BookingService;
 use App\Models\Consultation\Booking;
 use App\Events\ConsultationAddBooking;
+use App\Events\BookingAdded;
 
 class BookingController extends Controller
 {
@@ -23,6 +24,12 @@ class BookingController extends Controller
 			if ($result) {
 				$userId = auth()->id();
 				ConsultationAddBooking::dispatch($userId);
+				
+				$email = 'predlozhi@bk.ru';
+				$name = 'denis';
+				
+				$array = ['email' => $email, 'username' => $name];
+				BookingAdded::dispatch($array);
 				
 				return Response::json(['success' => true, 'message' => 'Вы взяли вопрос']);
 			} 

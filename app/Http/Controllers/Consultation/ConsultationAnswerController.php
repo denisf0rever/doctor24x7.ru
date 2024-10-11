@@ -46,5 +46,48 @@ class ConsultationAnswerController extends Controller
 		if ($comment) {
 			 return redirect()->back()->with('success', 'Ответ удален');
 		}
+    
+	}
+	
+	public function edit(string $id)
+    {
+		$comment = Comment::query()
+            ->where('id', $id)
+            ->firstOrFail();
+
+		return view('dashboard.consultation.edit-answer', compact('comment'));
+    
+	}
+	
+	public function update(CommentRequest $request, string $id)
+    {	
+        $data = $request->validated();
+		
+		$comment = Comment::query()
+            ->where('id', $id)
+            ->firstOrFail();
+			
+		$comment->description = $request->input('description');
+		$comment->save();
+		
+		if ($comment) {
+			return redirect()->back()->with('success', 'Комментарий обновлен');
+		} else {
+			return redirect()->back()->with('success', 'Возникла ошибка');
+		}
+    }
+	
+	public function block(string $id)
+    {
+		$comment = Comment::query()
+            ->where('id', $id)
+            ->firstOrFail();
+		
+		$comment->block = 1;
+		$comment->save();
+				
+		if ($comment) {
+			 return redirect()->back()->with('success', 'Ответ заблокирован');
+		}
     }
 }

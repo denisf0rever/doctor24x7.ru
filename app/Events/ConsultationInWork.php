@@ -10,19 +10,17 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class AnswerToAuthorCreated
+class ConsultationInWork
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public $username;
+ 
+	public $username;
     public $email;
-    public $consultation_id;
 	
     public function __construct(
 		public array $array
 	) {
-		$this->username = $array['author_username'];
-		$this->email = $array['author_email'];
-		$this->consultation_id = $array['comment_id'];
+		$this->username = $array['username'];
+		$this->email = $array['email'];
 	}
 }

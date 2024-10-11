@@ -23,7 +23,10 @@
               <h2 class="consultation__title">{{ $consultation->title }}</h2>
               <div class="consultation__inner">
                 <div class="consultation__item">
-                  {{ $consultation->description }}
+                  <p>{{ $consultation->description }}</p>
+                </div>
+                <div class="consultation__item">
+                   <p>{{ $consultation->username }}, {{ $consultation->email }}</p>
                 </div>
                 <div class="consultation__icons">
                   <div class="consultation__icon">
@@ -105,7 +108,9 @@
                   name="description">{{ old('description') }}</textarea>
                 <input type="hidden" name="comment_id" value="{{ $consultation->id }}">
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                <input type="hidden" name="author_email" value="{{ $consultation->email }}">
                 <input type="hidden" name="email" value="{{ auth()->user()->email }}">
+                <input type="hidden" name="author_username" value="{{ $consultation->username }}">
                 <input type="hidden" name="username"
                   value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
                 <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
@@ -121,7 +126,9 @@
             <input type="hidden" name="comment_id" value="{{ $consultation->id }}">
             <input type="hidden" name="to_answer_id" value="" id="to_answer_id">
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+			<input type="hidden" name="author_email" value="" id="author_email">
             <input type="hidden" name="email" value="{{ auth()->user()->email }}">
+            <input type="hidden" name="author_username" value="" id="author_username">
             <input type="hidden" name="username"
               value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
             <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
@@ -129,7 +136,7 @@
 
           @foreach($consultation->comments as $comment)
           @if($comment->user_id) @endif
-          <div class="comment" answer-id="answer{{ $comment->id }}">
+          <div class="comment" answer-id="{{ $comment->id }}" answer-author_username="{{ $comment->username }}" answer-author_email="{{ $comment->email }}">
             <div class="comment__wrapper white-block">
               <div class="comment__menu-btn custom-select" data-id="300330">
                 <svg class="comment__menu-btn-svg">
@@ -141,16 +148,19 @@
                   <ul class="comment__menu-list">
                     <li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
                         href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
-                    <li class="comment__menu-item"><a href="/" class="comment__menu-item-link">Редактировать</a></li>
+                    <li class="comment__menu-item"><a class="comment__menu-item-link"
+						href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
+                    <li class="comment__menu-item"><a class="comment__menu-item-link"
+						href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a></li>
                   </ul>
                 </div>
               </div>
               <a href="{{ $comment->username }}" class="comment__user-link">
                 <img
-                  src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ? $comment->user->avatar : d}}"
+                  src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ?? null }}"
                   class="comment__avatar-main">
                 <span class="comment__user-name">{{ $comment->username }}</span>
-                <span class="comment__user-subtitle">{{ $comment->user->city ? $comment->user->city : null }}</span>
+                <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
               </a>
               <div class="comment__text">{{ $comment->description }}</div>
               <div class="comment__ansv">
