@@ -292,17 +292,17 @@ window.onload = () => {
 
   /*TEXTAREA EDITOR */
 
-  ClassicEditor
-    .create(document.querySelector('.ckeditor'), {
-      height: '130px',
-      plugins: [Essentials, Bold, Italic, Font, Paragraph, BlockQuote, Link],
-      toolbar: [
-        'undo', 'redo', '|', 'bold', 'italic', '|',
-        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'blockQuote', 'Link'
-      ]
-    })
-    .then( /* ... */)
-    .catch( /* ... */);
+  if (document.querySelector('.ckeditor')) {
+    ClassicEditor
+      .create(document.querySelector('.ckeditor'), {
+        height: '130px',
+        plugins: [Essentials, Bold, Italic, Font, Paragraph, BlockQuote, Link],
+        toolbar: [
+          'undo', 'redo', '|', 'bold', 'italic', '|',
+          'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'blockQuote', 'Link'
+        ]
+      })
+  }
 
 
   /*TEXTAREA EDITOR */
@@ -339,7 +339,33 @@ window.onload = () => {
     })
   }
 
-
-
   /*РАСКРЫТИЕ ФОРМЫ ОТВЕТА */
+
+  /*РАСКРЫТИЕ НАСТРОЕК В КНОПКЕ ПРОФИЛЯ */
+
+  const headerProfileBtn = document.querySelector('.header__avatar-img');
+  const headerSettings = document.querySelector('.header-profile');
+  const headerSettingsCloseBtn = document.querySelector('.header-profile__close-btn');
+
+  if (headerProfileBtn) {
+
+    headerProfileBtn.onclick = () => {
+      headerSettings.classList.remove('hide');
+    };
+
+    headerSettingsCloseBtn.onclick = () => {
+      headerSettings.classList.add('hide');
+    };
+
+    document.addEventListener('click', (event) => {
+      if (!headerProfileBtn.contains(event.target) && !headerSettings.contains(event.target)) {
+        headerSettings.classList.add('hide');
+      }
+    });
+
+  }
+
+  /*РАСКРЫТИЕ НАСТРОЕК В КНОПКЕ ПРОФИЛЯ */
+
+
 }

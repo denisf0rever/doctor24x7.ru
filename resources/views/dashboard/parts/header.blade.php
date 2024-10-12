@@ -14,12 +14,39 @@
         </div>
       </a>
     </div>
-    <div class="header__buttons">
-      <div class="header__button-icon">
-        <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/" alt=""
-          class="header__button-img">
+    <div class="header__avatar">
+      <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/" alt="" class=" header__avatar-img">
+      <div class="header__profile header-profile hide">
+        <div class="header-profile__wrapper">
+          <div class="header-profile__close-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" class="loaded">
+              <g fill="none" fill-rule="evenodd">
+                <path fill="#515151" d="M.04 21.753L21.253.54l.707.707L.747 22.46z"></path>
+                <path fill="#525252" d="M21.96 21.753L.747.54l-.707.707L21.253 22.46z"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="header-profile__avatar">
+            <img src="/" alt="" class="header-profile__avatar-img">
+          </div>
+          <div class="header-profile__fullname">Имя Фамилия</div>
+          <div class="header-profile__subtitle">Текст</div>
+          <ul class="header-profile__list">
+            <li class="header-profile__item">
+              <a href="/" class="header-profile__link">
+                <img src="/" alt="" class="header-profile__link-img">
+                <span class="header-profile__text">Настройки</span>
+              </a>
+            </li>
+            <li class="header-profile__item">
+              <a href="{{ route('logout') }}" class="header-profile__link">
+                <img src="/" alt="" class="header-profile__link-img">
+                <span class="header-profile__text">Выйти</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="header__button"><a href="{{ route('logout') }}">Выйти</a></div>
     </div>
   </div>
 </header>
