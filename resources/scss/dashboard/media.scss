@@ -60,6 +60,29 @@
   }
 }
 
+@media (max-width: 768px) {
+  .header{
+    &__profile{
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+    }
+  }
+  .header-profile{
+    &__wrapper{
+      width: 100%;
+      height: 100%;
+    }
+    &__avatar{
+      width: 75px;
+      height: 75px;
+    }
+  }
+}
+
 @media (max-width: 720px) {
   .info{
     &__wrapper{
