@@ -267,7 +267,6 @@ body{
   &__wrapper{
     color: $grey;
     font-size: 13px;
-    
   }
   &__title{
     font-weight: 500;
@@ -326,6 +325,9 @@ body{
     display: flex;
     margin-bottom: 30px;
   }
+  &__inner-small{
+    min-height: auto;
+  }
   &__inputs{
     display: flex;
     flex-direction: column;
@@ -336,8 +338,19 @@ body{
     flex-direction: column;
     gap: 10px;
   }
+  &__input-wrapper-row{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
   &__label{
     cursor: pointer;
+  }
+  &__label-column{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 8px;
   }
   &__input{
     border-radius: 5px;
@@ -403,10 +416,11 @@ body{
     margin-top: 20px;
     color: #fff;
     cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 7px;
     background-color: #07bde2;
-    border-radius: 10px;
+    outline: none;
     border: none;
-    padding: 10px;
   }
   &__status-title{
     display: block;
@@ -482,7 +496,93 @@ body{
       background-repeat: no-repeat;
     }
   }
+  &__label-title{
+    font-weight: bold;
+    font-size: 16px;
+  }
+  &__label-text{
+    a{
+      color: var(--link-text);
+    }
+  }
+  &__switch{
+    position: relative;
+    display: inline-block;
+    min-width: 80px; /* Ширина для текста */
+    height: 34px;
+  }
 }
+
+.form-switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+
+  &__checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    font-family: sans-serif;
+    color: white;
+    font-size: 14px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+  }
+
+  /* Состояние "Включено" */
+  &__checkbox:checked + .form-switch__slider {
+    background-color: #4CAF50;
+  }
+
+  /* Перемещение ползунка при включении */
+  &__checkbox:checked + .form-switch__slider::before {
+    transform: translateX(46px);
+  }
+
+  /* Текст "Вкл/Выкл" */
+  &__on-text {
+    visibility: hidden;
+  }
+  &__off-text {
+    visibility: visible;
+  }
+
+  /* Показать текст "Вкл" и скрыть "Выкл" при включении */
+  &__checkbox:checked + .form-switch__slider .form-switch__on-text {
+    visibility: visible;
+  }
+  &__checkbox:checked + .form-switch__slider .form-switch__off-text {
+    visibility: hidden;
+  }
+}
+
 
 .pages{
   &__wrapper{
