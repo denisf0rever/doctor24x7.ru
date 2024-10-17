@@ -41,7 +41,7 @@
                                 href="/">Подробнее</a></div>
                           </label>
                           <label class="form__switch form-switch">
-                            <input type="checkbox" class="form-switch__checkbox">
+                            <input type="checkbox" id="test" class="form-switch__checkbox">
                             <span class="form-switch__slider">
                               <span class="form-switch__on-text">Вкл</span>
                               <span class="form-switch__off-text">Выкл</span>
