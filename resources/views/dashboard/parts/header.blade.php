@@ -15,7 +15,7 @@
       </a>
     </div>
     <div class="header__avatar">
-      <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/" alt="" class=" header__avatar-img">
+      <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ auth()->user()->relate->avatar }}" alt="" class=" header__avatar-img">
       <div class="header__profile header-profile hide">
         <div class="header-profile__wrapper">
           <div class="header-profile__close-btn">
@@ -27,20 +27,20 @@
             </svg>
           </div>
           <div class="header-profile__avatar">
-            <img src="/" alt="" class="header-profile__avatar-img">
+            <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ auth()->user()->relate->avatar }}" alt="" class="header-profile__avatar-img">
           </div>
-          <div class="header-profile__fullname">Имя Фамилия</div>
-          <div class="header-profile__subtitle">Текст</div>
+          <div class="header-profile__fullname">{{ auth()->user()->username }}</div>
+          <div class="header-profile__subtitle">{{ auth()->user()->relate->additional_interest }}</div>
           <ul class="header-profile__list">
             <li class="header-profile__item">
-              <a href="/" class="header-profile__link">
-                <img src="/" alt="" class="header-profile__link-img">
+              <a href="{{ route('dashboard.setting.user') }}" class="header-profile__link">
+                <img src="{{ Storage::url('dashboard/settings.svg') }}" alt="" class="header-profile__link-img">
                 <span class="header-profile__text">Настройки</span>
               </a>
             </li>
             <li class="header-profile__item">
               <a href="{{ route('logout') }}" class="header-profile__link">
-                <img src="/" alt="" class="header-profile__link-img">
+                <img src="{{ Storage::url('dashboard/logout.svg') }}" alt="" class="header-profile__link-img">
                 <span class="header-profile__text">Выйти</span>
               </a>
             </li>

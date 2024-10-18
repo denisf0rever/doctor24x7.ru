@@ -98,13 +98,19 @@ class UserMain extends Authenticatable
         return $this->hasMany(Post::class);
     }
 	
-	public function comments(): HasMany
+	public function comments()
     {
         return $this->hasMany(ConsultationComments::class);
     }
 	
-	public function settings(): HasMany
+	public function settings()
     {
-        return $this->hasMany(UserSettings::class);
+        return $this->HasMany(UserSettings::class);
     }
+	
+	public function relate()
+	{
+		return $this->belongsTo(User::class);
+	}
+	
 }

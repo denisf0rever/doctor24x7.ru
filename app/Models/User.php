@@ -105,8 +105,13 @@ class User extends Authenticatable
         return $this->hasMany(ConsultationComments::class);
     }
 	
-	public function settings(): HasOne
+	public function settings()
     {
-        return $this->hasOne(UserSettings::class);
+        return $this->HasMany(UserSettings::class);
     }
+	
+	public function relate()
+	{
+		return $this->hasOne(UserMain::class, 'id');
+	}
 }

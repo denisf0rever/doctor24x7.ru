@@ -81,7 +81,8 @@ Route::middleware(['auth'])->group(function () {
 	// Профиль
 	Route::get('/dashboard/user', [UserController::class, 'index'])->name('dashboard.user');
 	Route::get('/dashboard/user/add-user', [UserController::class, 'store'])->name('dashboard.user.add-user');
-	Route::get('/dashboard/user/setting', [SettingUserController::class, 'index'])->name('dashboard.setting.user');
+	Route::get('/dashboard/setting', [SettingUserController::class, 'index'])->name('dashboard.setting.user');
+	Route::post('/dashboard/user/setting/create', [SettingUserController::class, 'create'])->name('dashboard.setting.user.create');
 	Route::get('/dashboard/user/{id}/edit', [UserController::class, 'edit'])->name('dashboard.user.edit');
 	Route::post('/user/create', [UserController::class, 'create'])->name('dashboard.user.create-user');
 	Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.user.destroy');
