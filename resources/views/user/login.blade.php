@@ -14,11 +14,11 @@
     <div class="popup-form__wrapper">
       <h2 class="popup-form__title">Войти</h2>
       <span class="popup-form__subtitle">Введите данные для авторизации</span>
-	   <ul>
-		@foreach($errors->all() as $error)
-			<li>{{ $error }}</li>
-		@endforeach
-	  </ul>
+      <ul>
+        @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
       <form action="{{ route('authenticate') }}" method="post" class="popup-form__form">
         @csrf
         <label class="popup-form__label" for="username">Имя пользователя:</label>
@@ -28,7 +28,7 @@
           <input type="password" id="password" name="password" class="popup-form__input popup-form__password">
           <img src="images/eye-password-hide-svgrepo-com.svg" alt="" class="popup-form__password-img">
         </div>
-        <input type="submit" class="popup-form__submit popup-form__submit-disabled" <?/*disabled*/?> value="Далее">
+        <input type="submit" class="popup-form__submit popup-form__submit-disabled" disabled value="Далее">
       </form>
     </div>
   </div>

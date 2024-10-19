@@ -43,7 +43,7 @@
                 <div class="pages__titles">
                   <span class="pages__title-id">ID</span>
                   <span class="pages__title-name">Название</span>
-                  <span class="pages__title-name">Дата</span>
+                  <span class="pages__title-number-left">Дата</span>
                   <span class="pages__title-number">Просмотры</span>
                   <span class="pages__title-options">Опции</span>
                 </div>
