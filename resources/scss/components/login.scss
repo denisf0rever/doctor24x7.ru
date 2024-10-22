@@ -25,7 +25,7 @@
       background-color: rgba(15,25,55,.1);
     }
     &:last-of-type{
-      margin-bottom: 70px;
+      margin-bottom: 40px;
     }
   }
   &__input-wrapper:focus-within {
@@ -52,30 +52,31 @@
   }
   &__submit{
     font-size: 15px;
-    width: auto;
+    width: 100%;
     min-height: 40px;
-    border-radius: 10px;
+    height: 54px;
+    border-radius: 12px;
     padding: 5px 15px;
     cursor: pointer;  
     border: none;
     color: grey;
-    // background-color: #e01935;
-    background-color: #dedede;
+    background-color: #212124;
     display: block;
     margin: 0 auto 20px;
     transition: all .3s linear;
     font-weight: 600;
-    // color: #fff;
-    color: #333;
+    color: #fff;
     &:hover{
-      background-color: #bfbfbf;
+      background-color: #2f2f32;
     }
   }
   &__submit-disabled{
-    // background-color: #3276c3;
-    background-color: #ebebeb;
+    background-color: rgba(38,55,88,.06);
+    cursor: not-allowed;
+    color: rgba(5,8,29,.38);
     &:hover{
-      background-color: #ebebeb;
+      background-color: rgba(38,55,88,.06);
+      color: rgba(5,8,29,.38);
     }
   }
   &__password{
