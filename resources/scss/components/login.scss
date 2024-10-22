@@ -12,23 +12,24 @@
   &__input-wrapper{
     margin-bottom: 70px;
     position: relative;
-  }
-  &__input{
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgba($color: grey, $alpha: 0.5);
-    margin-bottom: 10px;
-    font-size: 14px;
-    &::placeholder {
-      opacity: .8;
-      font-size: 14px;
+    background-color: rgba(15,25,55,.1);
+    height: 72px;
+    border-radius: 12px;
+    &:hover{
+      background-color: rgba(15,25,55,.1);
     }
   }
   &__label{
     display: inline-block;
-    padding-bottom: 5px;
+    padding-left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &__input{
+    background-color: transparent;
+    border: none;
+    outline: none;
   }
   &__submit{
     font-size: 15px;

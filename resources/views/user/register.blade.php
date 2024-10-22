@@ -4,7 +4,7 @@
 <head>
   <title>Регистрация</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   @include('parts.settings')
 </head>
 
@@ -14,11 +14,11 @@
     <div class="popup-form__wrapper">
       <h2 class="popup-form__title">Регистрация</h2>
       <span class="popup-form__subtitle">Введите данные для регистрации</span>
-	  <ul>
-		@foreach($errors->all() as $error)
-			<li>{{ $error }}</li>
-		@endforeach
-	  </ul>
+      <ul>
+        @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
       <form action="{{ route('register.post') }}" method="post" class="popup-form__form">
         @csrf
         <label for="username" class="popup-form__label">Логин:</label>

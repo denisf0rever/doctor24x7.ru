@@ -568,12 +568,12 @@ body{
     transform: translateX(46px);
   }
 
-  /* Текст "Вкл/Выкл" */
+  /* Текст "Вкл" и "Выкл" */
   &__on-text {
-    visibility: hidden;
+    visibility: hidden; /* Скрыть по умолчанию */
   }
   &__off-text {
-    visibility: visible;
+    visibility: visible; /* Показать по умолчанию */
   }
 
   /* Показать текст "Вкл" и скрыть "Выкл" при включении */

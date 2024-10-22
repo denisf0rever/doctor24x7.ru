@@ -4,7 +4,8 @@
 <head>
   <title>Авторизация</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   @include('parts.settings')
 </head>
 
@@ -21,8 +22,10 @@
       </ul>
       <form action="{{ route('authenticate') }}" method="post" class="popup-form__form">
         @csrf
-        <label class="popup-form__label" for="username">Имя пользователя:</label>
-        <input type="text" id="username" name="username" class="popup-form__input">
+        <div class="popup-form__input-wrapper">
+          <label class="popup-form__label" for="username">Имя пользователя:</label>
+          <input type="text" id="username" name="username" class="popup-form__input">
+        </div>
         <label class="popup-form__label" for="password">Пароль от личного кабинета:</label>
         <div class="popup-form__input-wrapper">
           <input type="password" id="password" name="password" class="popup-form__input popup-form__password">

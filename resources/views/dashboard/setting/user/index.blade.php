@@ -35,16 +35,22 @@
                         <li class="form__input-wrapper-row">
                           <label class="form__label-column" for="answer_form">
                             <span class="form__label-title">Предпочительнее отвечать</span>
-                            <div class="form__label-text">Включите опцию, если вам удобно отвечать под текстом пользователя, либо выключите чтобы отвечать на отдельной странице в отдельной форме.</div>
+                            <div class="form__label-text">Включите опцию, если вам удобно отвечать под текстом
+                              пользователя, либо выключите чтобы отвечать на отдельной странице в отдельной форме.</div>
                           </label>
                           <label class="form__switch form-switch">
-                            <input type="checkbox" id="answer_form" class="form-switch__checkbox" name="answer_form">
+                            <input type="hidden" id="answer_form_hidden" value="0" name="answer_form">
+
+                            <input type="checkbox" id="answer_form" class="form-switch__checkbox" name="answer_form"
+                              {{ $settings->answer_form ? 'checked' : '' }}>
+
                             <span class="form-switch__slider">
-							@if ($settings->answer_form)
-								<span class="form-switch__on-text">Вкл</span>
-							@else
-								<span class="form-switch__off-text">Выкл</span>
-							@endif
+                              <span class="form-switch__on-text">
+                                Вкл
+                              </span>
+                              <span class="form-switch__off-text">
+                                Выкл
+                              </span>
                             </span>
                           </label>
                         </li>
