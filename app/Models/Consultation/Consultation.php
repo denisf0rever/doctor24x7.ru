@@ -26,7 +26,7 @@ class Consultation extends Model
     {
         return $this->belongsTo(ConsultationCategory::class);
     }
-	
+		
 	public function comments()
     {
         return $this->hasMany(ConsultationComment::class, 'comment_id')->orderBy('created_at', 'asc');

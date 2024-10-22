@@ -9,6 +9,7 @@ use App\Models\Consultation\Consultation;
 use App\Models\Consultation\Booking;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\ConsultationComment as Comment;
+use App\Models\Settings\UserSettings as Settings;
 use App\Http\Requests\ConsultationRequest;
 use App\Http\Requests\ConsultationUpdateRequest;
 use App\Services\ConsultationService;
@@ -32,7 +33,6 @@ class ConsultationController extends Controller
 	}
 	
 	// Просмотр консультации в панели
-	
     public function show(string $id)
     {
         $consultation = Consultation::query()
@@ -42,8 +42,9 @@ class ConsultationController extends Controller
 		
 		$hasBooking = Consultation::hasBooking($consultation->id, auth()->id());
 		$canBooking = Booking::canBooking($consultation->id);
+		$hasAnswerForm = Settings::hasAnswerForm(auth()->id());
 		
-		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking'));
+		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm'));
     }
 	
     public function index()
@@ -72,7 +73,6 @@ class ConsultationController extends Controller
     }
 
 	// Просмотр консультации в паблике
-	
     public function consultation(string $id)
     {
 		$consultation = Consultation::query()

@@ -23,18 +23,6 @@
                 <div class="consultation__item">
                   {{ $comment->description }}
                 </div>
-                <div class="consultation__icons">
-                  <div class="consultation__icon">
-                    <a href="{{ route('dashboard.consultation.edit-answer', $comment->id)}}" target="_blank">
-                      <img src="/images/dashboard/edit.svg" alt="" class="consultation__icon-img">
-                    </a>
-                  </div>
-                  <div class="consultation__icon">
-                    <a href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">
-                      <img src="/images/dashboard/del.svg" alt="" class="consultation__icon-img">
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </section>		  
@@ -45,16 +33,28 @@
                 @csrf
                 <textarea class="consultation-textarea__textarea" name="description">{{ old('description') }}</textarea>
                 <input type="hidden" name="comment_id" value="{{ $comment->consultation->id }}">
-                <input type="hidden" name="to_answer_id" value="{{ $comment->id }}">
-                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                <input type="hidden" name="email" value="{{ auth()->user()->email }}">
-                <input type="hidden" name="username" value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
-                <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
+				<input type="hidden" name="to_answer_id" value="{{ $comment->id }}" id="to_answer_id">
+				<input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+				<input type="hidden" name="author_email" value="{{ $comment->consultation->email }}" id="author_email">
+				<input type="hidden" name="email" id="author_email" value="{{ auth()->user()->email }}">
+				<input type="hidden" name="author_username" value="{{ $comment->consultation->username }}" id="author_username">
+				<input type="hidden" name="username"
+				value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
+				<input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
               </form>
             </div>
           </section>
          
         </div>
+		 @if (session('success'))
+        <div class="toast">
+          <div class="toast__container" id="toast">
+            <div class="toast__item">
+              {{ session('success') }}
+            </div>
+          </div>
+        </div>
+        @endif
       </main>
     </div>
   </div>

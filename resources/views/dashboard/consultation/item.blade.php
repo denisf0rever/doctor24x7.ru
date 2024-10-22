@@ -167,7 +167,7 @@
               <div class="comment__text">{{ $comment->description }}</div>
               <div class="comment__ansv">
 
-                @if (auth()->user()->settings->answer_form)
+                @if ($hasAnswerForm)
                 <a href="/" class="comment__to-answ">Ответить</a>
                 @else
                 <a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</a>

@@ -11,7 +11,7 @@ use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Consultation\ConsultationAnswerController;
 use App\Http\Controllers\Consultation\BookingController;
-use App\Http\Controllers\Setting\User\SettingUserController;
+use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
 use App\Http\Controllers\Payment\PaymentController;
 
@@ -83,9 +83,9 @@ Route::middleware(['auth'])->group(function () {
 	// Профиль
 	Route::get('/dashboard/user', [UserController::class, 'index'])->name('dashboard.user');
 	Route::get('/dashboard/user/add-user', [UserController::class, 'store'])->name('dashboard.user.add-user');
-	Route::get('/dashboard/setting', [SettingUserController::class, 'index'])->name('dashboard.setting.user');
-	Route::post('/dashboard/setting/user', [SettingUserController::class, 'create'])->name('dashboard.setting.user.create');
-	Route::post('/dashboard/setting/user/{id}', [SettingUserController::class, 'update'])->name('dashboard.setting.user.update');
+	Route::get('/dashboard/setting', [UserSettingController::class, 'index'])->name('dashboard.setting.user');
+	Route::post('/dashboard/setting/user', [UserSettingController::class, 'create'])->name('dashboard.setting.user.create');
+	Route::post('/dashboard/setting/user/{id}', [UserSettingController::class, 'update'])->name('dashboard.setting.user.update');
 	Route::get('/dashboard/user/{id}/edit', [UserController::class, 'edit'])->name('dashboard.user.edit');
 	Route::post('/user/create', [UserController::class, 'create'])->name('dashboard.user.create-user');
 	Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.user.destroy');

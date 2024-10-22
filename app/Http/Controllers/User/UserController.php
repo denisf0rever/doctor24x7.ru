@@ -48,7 +48,7 @@ class UserController extends Controller
 			$images['avatarWebp'] = $avatarWebp;
 		}
 		
-		$is_priority = $request->has('is_active') ? 1 : 0;
+		$is_priority = $request->has('is_priority') ? 1 : 0;
 		$is_active = $request->has('is_active') ? 1 : 0;
 		
 		$user = $userService->createUser($request->validated(), $images, $is_priority, $is_active);

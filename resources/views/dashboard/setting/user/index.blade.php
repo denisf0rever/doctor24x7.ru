@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Добавление пользователя</title>
+  <title>Настройки</title>
   @include('dashboard.settings')
 </head>
 
@@ -41,7 +41,7 @@
                           <label class="form__switch form-switch">
                             <input type="hidden" id="answer_form_hidden" value="0" name="answer_form">
                             <input type="checkbox" id="answer_form" class="form-switch__checkbox" name="answer_form"
-                              {{ $settings->answer_form ? 'checked' : '' }}>
+                              value="1" {{ $settings->answer_form ? 'checked' : '' }}>
                             <span class="form-switch__slider">
                               <span class="form-switch__on-text">
                                 Вкл
@@ -61,6 +61,15 @@
             </div>
           </section>
         </div>
+		@if (session('success'))
+        <div class="toast">
+          <div class="toast__container" id="toast">
+            <div class="toast__item">
+              {{ session('success') }}
+            </div>
+          </div>
+        </div>
+        @endif
       </main>
     </div>
   </div>

@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Setting\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User\UserSettings as Settings;
+use App\Models\Settings\UserSettings as Settings;
 use Illuminate\Support\Facades\Auth;
 
-class SettingUserController extends Controller
+class UserSettingController extends Controller
 {
     public function index()
 	{
@@ -48,12 +48,12 @@ class SettingUserController extends Controller
     {	
        
 	    $setting = Settings::query()
-            ->where('id', $id)
+            ->where('user_id', Auth::id())
             ->firstOrFail();
 			
 		$setting->answer_form = $request->input('answer_form');
 		$setting->save();
 		
-		return redirect()->back()->with('success', 'Пост успешно обновлен');
+		return redirect()->back()->with('success', 'Настройка сохранена');
 	}
 }
