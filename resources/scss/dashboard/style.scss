@@ -256,6 +256,7 @@ body{
   }
   &__title{
     font-size: 18px;
+    font-weight: 500;
   }
   &__text-wrapper{
     display: flex;
@@ -600,7 +601,7 @@ body{
   }
   &__title{
     font-weight: 500;
-    font-size: 22px;
+    font-size: 18px;
     color: var(--main-text);
     margin: 0 0 10px 0;
   }

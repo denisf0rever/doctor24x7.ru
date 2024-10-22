@@ -22,15 +22,21 @@
       </ul>
       <form action="{{ route('authenticate') }}" method="post" class="popup-form__form">
         @csrf
-        <div class="popup-form__input-wrapper">
-          <label class="popup-form__label" for="username">Имя пользователя:</label>
-          <input type="text" id="username" name="username" class="popup-form__input">
-        </div>
-        <label class="popup-form__label" for="password">Пароль от личного кабинета:</label>
+        <label class="popup-form__input-wrapper" for="username">
+          <input type="text" id="username" name="username" class="popup-form__input" placeholder=" ">
+          <span class="popup-form__label">Имя пользователя:</span>
+        </label>
+        <label class="popup-form__input-wrapper" for="password">
+          <input type="password" id="password" name="password" class="popup-form__input" placeholder=" ">
+          <span class="popup-form__label">Пароль:</span>
+          <img src="images/eye-password-hide-svgrepo-com.svg" alt="" class="popup-form__password-img">
+        </label>
+        <!-- <label class="popup-form__label" for="password">Пароль от личного кабинета:</label>
         <div class="popup-form__input-wrapper">
           <input type="password" id="password" name="password" class="popup-form__input popup-form__password">
           <img src="images/eye-password-hide-svgrepo-com.svg" alt="" class="popup-form__password-img">
         </div>
+        -->
         <input type="submit" class="popup-form__submit popup-form__submit-disabled" disabled value="Далее">
       </form>
     </div>

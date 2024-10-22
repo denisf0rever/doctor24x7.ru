@@ -4,6 +4,24 @@
 @import "fonts.scss";
 @import "colors.scss";
 
+/* Прозрачный фон для автозаполненных input полей */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important; /* Прозрачный фон */
+  -webkit-text-fill-color: black !important; /* Цвет текста */
+  background-color: transparent !important; /* Прозрачный фон */
+}
+
+input:-moz-autofill {
+  background-color: transparent !important; /* Прозрачный фон */
+  color: black !important; /* Цвет текста */
+}
+
+/* Для других браузеров */
+input:-internal-autofill-selected {
+  background-color: transparent !important; /* Прозрачный фон */
+  color: black !important; /* Цвет текста */
+}
+
 *,
 *:before,
 *:after{
