@@ -165,7 +165,7 @@
                 <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
               </a>
               <div class="comment__text">{{ $comment->description }}</div>
-              <div class="comment__ansv">
+              <div class="comment__answ">
 
                 @if ($hasAnswerForm)
                 <a href="/" class="comment__to-answ">Ответить</a>

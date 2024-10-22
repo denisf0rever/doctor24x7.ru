@@ -18,12 +18,12 @@
       </svg>
       <div class="custom-select__wrapper custom-select__hide comment__menu">
         <ul class="comment__menu-list">
-			<li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
-				href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
-			<li class="comment__menu-item"><a class="comment__menu-item-link"
-				href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
-			<li class="comment__menu-item"><a class="comment__menu-item-link"
-				href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a></li>
+          <li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
+              href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
+          <li class="comment__menu-item"><a class="comment__menu-item-link"
+              href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
+          <li class="comment__menu-item"><a class="comment__menu-item-link"
+              href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a></li>
         </ul>
       </div>
     </div>
@@ -34,7 +34,7 @@
       <span class="comment__user-subtitle">{{ $comment->user->city }}</span>
     </a>
     <div class="comment__text"> {{ $comment->description }}</div>
-    <div class="comment__ansv comment__to-answ">Ответить</div>
+    <div class="comment__answ comment__to-answ">Ответить</div>
   </div>
 </div>
 @else
@@ -48,12 +48,12 @@
       </svg>
       <div class="custom-select__wrapper custom-select__hide comment__menu">
         <ul class="comment__menu-list">
-			<li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
-				href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
-			<li class="comment__menu-item"><a class="comment__menu-item-link"
-				href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
-			<li class="comment__menu-item"><a class="comment__menu-item-link"
-				href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a></li>
+          <li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
+              href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
+          <li class="comment__menu-item"><a class="comment__menu-item-link"
+              href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
+          <li class="comment__menu-item"><a class="comment__menu-item-link"
+              href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a></li>
         </ul>
       </div>
     </div>
@@ -63,7 +63,7 @@
       <span class="comment__user-subtitle"></span>
     </a>
     <div class="comment__text"> {{ $comment->description }}</div>
-    <div class="comment__ansv comment__to-answ">Ответить</div>
+    <div class="comment__answ comment__to-answ">Ответить</div>
   </div>
 </div>
 

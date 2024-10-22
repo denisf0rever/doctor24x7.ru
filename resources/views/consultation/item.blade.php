@@ -301,7 +301,7 @@
                 </span>
                 <div class="comment__answer-field-fake">
                   <div class="comments__form-fake" data-id="300328">
-                    <span class="comment__ansv">Ответить</span>
+                    <span class="comment__answ">Ответить</span>
                   </div>
                 </div>
 
@@ -333,7 +333,7 @@
 
                   <div class="comment__answer-field-fake">
                     <div class="comments__form-fake" data-id="300330">
-                      <span class="comment__ansv">Ответить</span>
+                      <span class="comment__answ">Ответить</span>
                     </div>
                   </div>
 
@@ -367,7 +367,7 @@
 
                 <div class="comment__answer-field-fake">
                   <div class="comments__form-fake" data-id="300329">
-                    <span class="comment__ansv">Ответить</span>
+                    <span class="comment__answ">Ответить</span>
                   </div>
                 </div>
 
