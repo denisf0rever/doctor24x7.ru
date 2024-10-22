@@ -292,17 +292,17 @@ window.onload = () => {
 
   /*TEXTAREA EDITOR */
 
-  if (document.querySelector('.ckeditor')) {
-    ClassicEditor
-      .create(document.querySelector('.ckeditor'), {
-        height: '130px',
-        plugins: [Essentials, Bold, Italic, Font, Paragraph, BlockQuote, Link],
-        toolbar: [
-          'undo', 'redo', '|', 'bold', 'italic', '|',
-          'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'blockQuote', 'Link'
-        ]
-      })
-  }
+  // if (document.querySelector('.ckeditor')) {
+  //   ClassicEditor
+  //     .create(document.querySelector('.ckeditor'), {
+  //       height: '130px',
+  //       plugins: [Essentials, Bold, Italic, Font, Paragraph, BlockQuote, Link],
+  //       toolbar: [
+  //         'undo', 'redo', '|', 'bold', 'italic', '|',
+  //         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'blockQuote', 'Link'
+  //       ]
+  //     })
+  // }
 
 
   /*TEXTAREA EDITOR */
