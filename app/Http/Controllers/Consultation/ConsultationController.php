@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Consultation;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 use App\Http\Controllers\Controller;
 use App\Models\Consultation\Consultation;
@@ -15,6 +16,7 @@ use App\Http\Requests\ConsultationUpdateRequest;
 use App\Services\ConsultationService;
 use App\Services\BookingService;
 use App\Events\ConsultationCreated;
+use Carbon\Carbon;
 
 class ConsultationController extends Controller
 {
@@ -26,8 +28,17 @@ class ConsultationController extends Controller
             ->take(100)
             ->get();
 			
-		$totalConsultations = Consultation::count();
-		$totalAnswers = 1000;
+		$totalConsultations = Cache::flexible(
+			'Consultations',
+			[720, 725],
+			fn () => Consultation::count()
+		);
+
+		$totalAnswers = Cache::flexible(
+			'Answers',
+			[720, 725],
+			fn () => Comment::count()
+		);
 		
 		return view('dashboard.consultation.list', compact('consultations', 'totalConsultations', 'totalAnswers'));
 	}
@@ -40,9 +51,11 @@ class ConsultationController extends Controller
 			->with(['comments' => fn($comments) => $comments->where('to_answer_id', null)])
             ->firstOrFail();
 		
-		$hasBooking = Consultation::hasBooking($consultation->id, auth()->id());
+		$user_id = auth()->id();
+		
+		$hasBooking = Consultation::hasBooking($consultation->id, $user_id);
 		$canBooking = Booking::canBooking($consultation->id);
-		$hasAnswerForm = Settings::hasAnswerForm(auth()->id());
+		$hasAnswerForm = Settings::hasAnswerForm($user_id);
 		
 		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm'));
     }

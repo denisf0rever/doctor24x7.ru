@@ -44,7 +44,7 @@
                   <span class="pages__title-id">ID</span>
                   <span class="pages__title-name">Название</span>
                   <span class="pages__title-number-left">Дата</span>
-                  <span class="pages__title-number">Просмотры</span>
+                  <span class="pages__title-number">Визиты</span>
                   <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list">
@@ -58,12 +58,12 @@
                     <div class="pages__icons">
                       <div class="pages__icon">
                         <a href="{{ route('dashboard.consultation.edit', $consultation->id)}}" target="_blank">
-                          <img src="/images/dashboard/edit.svg" alt="" class="pages__icon-img">
+                          <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="pages__icon-img">
                         </a>
                       </div>
                       <div class="pages__icon">
                         <a href="{{ route('dashboard.consultation.destroy', $consultation->id) }}">
-                          <img src="/images/dashboard/del.svg" alt="" class="pages__icon-img">
+                          <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="pages__icon-img">
                         </a>
                       </div>
                     </div>

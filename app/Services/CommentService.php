@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Consultation\ConsultationComment as Comment;
+use App\Models\Consultation\Consultation;
 
 final class CommentService
 {
@@ -16,6 +17,12 @@ final class CommentService
 			'username' => $commentData['username'],
 			'description' => $commentData['description'],
 		]);
+		
+		$consultation = Consultation::query()
+			->where('id', $commentData['comment_id'])
+			->firstOrFail();
+			
+		$consultation->increment('answer_count');
 			
 		return $comment;
 	 }

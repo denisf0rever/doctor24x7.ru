@@ -26,18 +26,19 @@
                   <p>{{ $consultation->description }}</p>
                 </div>
                 <div class="consultation__item">
-                  <p id="answer-fullname">{{ $consultation->username }}</p>,<p id="answer-email">
-                    {{ $consultation->email }}</p>
+                  <p id="answer-fullname">{{ $consultation->username }}</p>,
+				  <p id="answer-email">{{ $consultation->email }}</p>,
+				  <p id="answer-email">Возраст пациента: {{ $consultation->age/365 }}</p>
                 </div>
                 <div class="consultation__icons">
                   <div class="consultation__icon">
                     <a href="{{ route('dashboard.consultation.edit', $consultation->id)}}" target="_blank">
-                      <img src="/images/dashboard/edit.svg" alt="" class="consultation__icon-img">
+                      <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="consultation__icon-img">
                     </a>
                   </div>
                   <div class="consultation__icon">
                     <a href="{{ route('dashboard.consultation.destroy', $consultation->id) }}">
-                      <img src="/images/dashboard/del.svg" alt="" class="consultation__icon-img">
+                      <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="consultation__icon-img">
                     </a>
                   </div>
                 </div>
@@ -75,6 +76,10 @@
                 <li class="stats__item">
                   <div class="stats__number">1</div>
                   <div class="stats__text">Гонорар</div>
+                </li>
+				<li class="stats__item">
+                  <div class="stats__number">{{ $consultation->visit_count }}</div>
+                  <div class="stats__text">Визитов</div>
                 </li>
               </ul>
             </div>
@@ -136,7 +141,6 @@
           </form>
 
           @foreach($consultation->comments as $comment)
-          @if($comment->user_id) @endif
           <div class="comment" answer-id="{{ $comment->id }}" answer-author_username="{{ $comment->username }}"
             answer-author_email="{{ $comment->email }}">
             <div class="comment__wrapper white-block">
@@ -158,8 +162,8 @@
                   </ul>
                 </div>
               </div>
-              <a href="{{ $comment->username }}" class="comment__user-link">
-                <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar ?? null }}"
+              <a href="{{ $comment->user ? '/profile/'.$comment->user->username.'' : '#' }}" class="comment__user-link">
+                <img src="{{ $comment->user->avatar ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
                   class="comment__avatar-main">
                 <span class="comment__user-name">{{ $comment->username }}</span>
                 <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
@@ -173,12 +177,10 @@
                 <a href="{{ route('dashboard.consultation.answer', $comment->id)}}">Ответить</a>
                 @endif
 
-
               </div>
             </div>
-            @include('dashboard.consultation.childcomment', ['comments' => $comment->children])
           </div>
-
+			@include('dashboard.consultation.childcomment', ['comments' => $comment->children])
 
           @endforeach
 
