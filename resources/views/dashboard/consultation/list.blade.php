@@ -52,7 +52,9 @@
                   @foreach ($consultations as $consultation)
                   <li class="pages__item">
                     <span class="pages__views-id">{{ $consultation->id }}</span></a>
-					<a href="{{ route('consultation.item', $consultation->id) }}" target="_blank"><img src="{{ Storage::url('dashboard/link.svg') }}" alt="" width="20px" height="20px"></a>
+                    <a href="{{ route('consultation.item', $consultation->id) }}" target="_blank" class="pages__link">
+                      <img src="{{ Storage::url('dashboard/link.svg') }}" alt="" class="pages__link-img">
+                    </a>
                     <a class="pages__name" href="{{ route('dashboard.consultation.item', $consultation->id)}}"
                       target="_blank"><span>{{ $consultation->title }}</span></a>
                     <span class="pages__views-id">{{ $consultation->created_at }}</span>

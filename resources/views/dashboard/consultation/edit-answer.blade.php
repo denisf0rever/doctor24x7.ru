@@ -20,29 +20,31 @@
           <section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
               <h2 class="consultation__title">Редактирование сообщения # {{ $comment->id }}</h2>
-			    <div class="consultation__inner">
-					<div class="consultation__item">
-						{{ $comment->description }}
-					</div>
-					
-					<div class="consultation__item">
-						 <form action="{{ route('dashboard.consultation.update.answer', $comment->id) }}" method="POST">
-                @csrf
-                <textarea class="consultation-textarea__textarea ckeditor" name="description">{{ $comment->description }}</textarea>
-                <input type="hidden" name="comment_id" value="{{ $comment->id }}">
-                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                <input type="hidden" name="email" value="{{ auth()->user()->email }}">
-                <input type="hidden" name="username"
-                  value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
-                <input class="consultation-textarea__submit red-button" type="submit" value="Редактировать">
-              </form>
-					</div>
-				</div>
-			  
-             
+              <div class="consultation__inner">
+                <div class="consultation__item">
+                  {{ $comment->description }}
+                </div>
+
+                <div class="consultation__item">
+                  <form action="{{ route('dashboard.consultation.update.answer', $comment->id) }}"
+                    class="consultation__form" method="POST">
+                    @csrf
+                    <textarea class="consultation-textarea__textarea ckeditor"
+                      name="description">{{ $comment->description }}</textarea>
+                    <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                    <input type="hidden" name="email" value="{{ auth()->user()->email }}">
+                    <input type="hidden" name="username"
+                      value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
+                    <input class="consultation-textarea__submit red-button" type="submit" value="Редактировать">
+                  </form>
+                </div>
+              </div>
+
+
             </div>
           </section>
-		  
+
         </div>
         @if (session('success'))
         <div class="toast">

@@ -20,24 +20,26 @@
           <section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
               <h2 class="consultation__title">Редактирование сообщения # {{ $consultation->id }}</h2>
-			    <div class="consultation__inner">
-					<div class="consultation__item">
-						{{ $consultation->description }}
-					</div>
-					
-					<div class="consultation__item">
-						 <form action="{{ route('dashboard.consultation.update.consultation', $consultation->id) }}" method="POST">
-                @csrf
-                <textarea class="consultation-textarea__textarea ckeditor" name="description">{{ $consultation->description }}</textarea>
-                <input class="consultation-textarea__submit red-button" type="submit" value="Редактировать">
-              </form>
-					</div>
-				</div>
-			  
-             
+              <div class="consultation__inner">
+                <div class="consultation__item">
+                  {{ $consultation->description }}
+                </div>
+
+                <div class="consultation__item">
+                  <form action="{{ route('dashboard.consultation.update.consultation', $consultation->id) }}"
+                    class="consultation__form" method="POST">
+                    @csrf
+                    <textarea class="consultation-textarea__textarea ckeditor"
+                      name="description">{{ $consultation->description }}</textarea>
+                    <input class="consultation-textarea__submit red-button" type="submit" value="Редактировать">
+                  </form>
+                </div>
+              </div>
+
+
             </div>
           </section>
-		  
+
         </div>
         @if (session('success'))
         <div class="toast">
