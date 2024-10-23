@@ -15,6 +15,7 @@ class UserSettings extends Model
 	protected $table = 'laravel_users_settings';
 	
 	protected $fillable = [ 
+		'user_id',
 		'answer_form'
 	];
 	
@@ -29,6 +30,13 @@ class UserSettings extends Model
 		return self::query()
                 ->where('user_id', $user_id)
                 ->where('answer_form', 1)
+                ->exists();
+	}
+	
+	public static function hasSetting($user_id): bool
+	{
+		return self::query()
+                ->where('user_id', $user_id)
                 ->exists();
 	}
 }
