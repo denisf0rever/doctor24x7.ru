@@ -14,6 +14,7 @@ use App\Http\Controllers\Consultation\BookingController;
 use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
 use App\Http\Controllers\Payment\PaymentController;
+use App\Http\Controllers\Tariff\TariffController;
 
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
@@ -104,6 +105,12 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/dashboard/consultation/edit/answer/{id}', [ConsultationAnswerController::class, 'edit'])->name('dashboard.consultation.edit-answer');
 	Route::post('/dashboard/consultation/update/answer/{id}', [ConsultationAnswerController::class, 'update'])->name('dashboard.consultation.update.answer');
 	Route::get('/dashboard/consultation/block/answer/{id}', [ConsultationAnswerController::class, 'block'])->name('dashboard.consultation.answer.block');
+	
+	// Тарифы 
+	Route::get('/dashboard/tariff', [TariffController::class, 'index'])->name('dashboard.tariff.index');
+	Route::get('/dashboard/tariff/{id}/edit', [TariffController::class, 'edit'])->name('dashboard.tariff.edit');
+	Route::post('/dashboard/tariff/{id}', [TariffController::class, 'update'])->name('dashboard.tariff.update');
+	Route::get('/dashboard/tariff/{id}/delete', [TariffController::class, 'destroy'])->name('dashboard.tariff.delete');
 	
 	// Букинг
 	Route::post('/dashboard/fetch/booking/{id}', [BookingController::class, 'makeRequest'])->name('dashboard.consultation.booking');
