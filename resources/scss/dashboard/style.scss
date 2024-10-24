@@ -651,6 +651,10 @@ body{
     width: 20%;
     word-wrap: break-word;
   }
+  &__tariff-name{
+    width: 25%;
+    word-wrap: break-word;
+  }
   &__status{
     text-align: center;
     width: 10%;
@@ -659,6 +663,10 @@ body{
     justify-content: center;
   }
   &__views-number{
+    width: 10%;
+    text-align: center;
+  }
+  &__views-tariff-number{
     width: 10%;
     text-align: center;
   }
@@ -732,11 +740,18 @@ body{
   &__title-small-name{
     width: 20%;
   }
+  &__title-tariff-name{
+    width: 25%;
+  }
   &__title-name{
     width: 50%;
     padding-right: 10px;
   }
   &__title-number{
+    width: 10%;
+    text-align: center;
+  }
+  &__title-tariff-number{
     width: 10%;
     text-align: center;
   }
