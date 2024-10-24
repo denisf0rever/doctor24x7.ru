@@ -23,48 +23,97 @@ window.onload = () => {
 
   // DROPDAWN SELECT
 
-  const selectWrapper = document.querySelector('.form__select-wrapper');
-  const select = document.querySelector('.form__status-select');
-  const selectArrow = document.querySelector('.form__status-arrow');
-  const selectOptions = document.querySelectorAll('.form__status-option');
-  const selectInput = document.querySelector('.form__status-current');
-  const selectInputText = document.querySelector('.form__status-current-text');
+  const selectWrapper = document.querySelectorAll('.form__select-wrapper');
 
-  selectOptions.forEach((el, key) => {
-    if (selectInput.value === el.innerHTML) {
-      el.classList.add('form__status-option-active');
-    }
-  })
+  if (selectWrapper.length > 0) {
+    selectWrapper.forEach(el => {
 
-  selectOptions.forEach((el, key) => {
-    if (selectInput.value == el.value) {
-      selectInputText.innerHTML = el.innerHTML;
-    }
-  })
+      const select = el.querySelector('.form__status-select');
+      const selectArrow = el.querySelector('.form__status-arrow');
+      const selectOptions = el.querySelectorAll('.form__status-option');
+      const selectInput = el.querySelector('.form__status-current');
+      const selectInputText = el.querySelector('.form__status-current-text');
 
-  if (selectWrapper) {
-    selectWrapper.onclick = () => {
-      selectArrow.classList.toggle('form__rotate-arrow');
-      select.classList.toggle('form__status-hide');
-    }
-  }
-
-  if (selectOptions.length > 0) {
-    selectOptions.forEach((el, key) => {
       el.onclick = () => {
-        selectOptions.forEach((innerEl, innerKey) => {
-          if (key === innerKey) {
-            innerEl.classList.add('form__status-option-active');
-            selectInput.setAttribute("value", innerEl.value);
-            selectInputText.innerHTML = innerEl.innerHTML;
-          }
-          else {
-            innerEl.classList.remove('form__status-option-active');
+        selectArrow.classList.toggle('form__rotate-arrow');
+        select.classList.toggle('form__status-hide');
+      }
+
+      if (selectOptions.length > 0) {
+        selectOptions.forEach((el, key) => {
+          if (selectInput.value === el.innerHTML) {
+            el.classList.add('form__status-option-active');
           }
         })
       }
+
+      if (selectOptions.length > 0) {
+        selectOptions.forEach((el, key) => {
+          if (selectInput.value == el.value) {
+            selectInputText.innerHTML = el.innerHTML;
+          }
+        })
+      }
+
+      if (selectOptions.length > 0) {
+        selectOptions.forEach((el, key) => {
+          el.onclick = () => {
+            selectOptions.forEach((innerEl, innerKey) => {
+              if (key === innerKey) {
+                innerEl.classList.add('form__status-option-active');
+                selectInput.setAttribute("value", innerEl.value);
+                selectInputText.innerHTML = innerEl.innerHTML;
+              }
+              else {
+                innerEl.classList.remove('form__status-option-active');
+              }
+            })
+          }
+        })
+      }
+
     })
   }
+
+
+  // DROPDAWN MULTISELECT
+  const multiselect = document.querySelectorAll('.custom-multiselect');
+
+  if (multiselect.length > 0) {
+    multiselect.forEach(el => {
+
+      const selectedValues = []; // Для хранения выбранных значений
+      const multiselectInput = el.querySelector('.custom-multiselect__input');
+      const multiselectOptions = el.querySelectorAll('.custom-multiselect__option');
+
+      if (multiselectOptions.length > 0) {
+        multiselectOptions.forEach(option => {
+          option.onclick = () => {
+            if (option.classList.contains('custom-multiselect__option-active')) {
+              option.classList.remove('custom-multiselect__option-active');
+              const index = selectedValues.indexOf(option.value);
+              if (index > -1) {
+                selectedValues.splice(index, 1);
+              }
+            } else {
+              option.classList.add('custom-multiselect__option-active');
+              selectedValues.push(option.value);
+            }
+
+            // Обновляем input значениями
+            multiselectInput.value = selectedValues.join(',');
+
+            // Формируем структуру для передачи на сервер
+            const formData = new FormData();
+            selectedValues.forEach(value => {
+              formData.append('sf_consultation_traiff_filters[rubrics_list][]', value);
+            });
+          };
+        });
+      }
+    });
+  }
+
 
   // BURGER
 
