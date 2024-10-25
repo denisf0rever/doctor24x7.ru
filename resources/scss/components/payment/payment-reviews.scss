@@ -2,9 +2,42 @@
   &__swiper-wrapper{
     display: flex;
     justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  &__slider{
+    overflow: hidden;
+    padding-bottom: 10px;
+    padding-right: 20px;
   }
   &__slide{
-    flex: 0 0 45%;
+    height: auto !important;
+  }
+  &__slider-container{
+    position: relative;
+  }
+  &__arrow{
+    position: absolute;
+    display: block;
+    top: 0;
+    margin-top: -16px;
+    font-size: 32px;
+    line-height: 25px;
+    color: #FFF;
+    text-align: center;
+    background: #37a000;
+    box-shadow: 0 1px 5px 0 rgb(57 73 76 / 35%);
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 100;
+  }
+  &__arrow-after{
+    right: 15px;
+  }
+  &__arrow-before{
+    right: 50px;
   }
 }
 
@@ -16,6 +49,7 @@
     box-shadow: 0 2px 6px 0 rgb(0 0 0 / 24%);
     border-radius: .5em;
     gap: 20px;
+    height: 100%;
   }
   &__header{
     display: flex;
@@ -66,11 +100,13 @@
     color: var(--secondary-text);
     font-size: 15px;
     font-weight: 300;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     display: inline-block;
+    line-height: 24px;
   }
   &__review-link{
     color: var(--link-text);
+    font-weight: 400;
     &:hover{
       color: var(--main-text);
     }
@@ -105,5 +141,43 @@
     color: var(--secondary-text);
     font-size: 13px;
     font-weight: 300;
+  }
+}
+
+
+@media (max-width: 960px) {
+  
+  .swiper-autoheight .swiper-wrapper{
+    max-height: 300px ;
+  }
+  // .swiper-autoheight .swiper-wrapper{
+  //   height: 300px !important;
+  // }
+  .swiper-backface-hidden .swiper-slide{
+    height: auto !important;
+  }
+  // .payment-reviews{
+  //   &__slider-container{
+  //     padding-top: 30px;
+  //   }
+  //   &__slide{
+  //     height: 200px;
+  //   }
+  // }
+  // .payment-reviews-slide{
+  //   &__wrapper{
+  //     height: 200px;
+  //   }
+  //   &__header{
+  //     height: 200px;
+  //   }
+  // }
+}
+
+@media (max-width: 540px) {
+  .payment-reviews-slide{
+    &__wrapper{
+      flex-direction: column;
+    }
   }
 }
