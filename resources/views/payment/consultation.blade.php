@@ -44,17 +44,61 @@
                 <input checked class="second-radio__input" hidden id="contactChoice1" type="radio"
                   name="calculate-field-second" value="0">
                 <label for="contactChoice1" class="second-radio__item">
-                  <img src="/" alt="" class="second-radio__img">
-                  <span class="second-radio__item-title">Фармацевт не нужен
-                  </span>
-                  <span class="second-radio__item-text">Без дополнительной оплаты </span>
+                  <div class="second-radio__img">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 48 48">
+                      <title>Free Medical icons</title>
+                      <path
+                        d="M41.56,6.44a14.3,14.3,0,0,1,0,20.25l-7.43,7.44L13.88,13.87l7.43-7.43A14.32,14.32,0,0,1,41.56,6.44Z"
+                        fill="#a6c7ff" />
+                      <path
+                        d="M16.57,47.74A16.31,16.31,0,0,1,5,19.9L19.89,5A16.32,16.32,0,1,1,43,28.1L28.11,43A16.29,16.29,0,0,1,16.57,47.74ZM31.43,4.25a12.3,12.3,0,0,0-8.72,3.6L7.85,22.72A12.32,12.32,0,1,0,25.28,40.14L40.14,25.28A12.31,12.31,0,0,0,31.43,4.25Z"
+                        fill="#2161ff" />
+                      <rect width="48" height="48" fill="none" />
+                    </svg>
+                  </div>
+                  <div class="second-radio__checkmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="800px"
+                      width="800px" version="1.1" id="Capa_1" viewBox="0 0 17.837 17.837" xml:space="preserve">
+                      <g>
+                        <path style="fill:#00bb6d;"
+                          d="M16.145,2.571c-0.272-0.273-0.718-0.273-0.99,0L6.92,10.804l-4.241-4.27   c-0.272-0.274-0.715-0.274-0.989,0L0.204,8.019c-0.272,0.271-0.272,0.717,0,0.99l6.217,6.258c0.272,0.271,0.715,0.271,0.99,0   L17.63,5.047c0.276-0.273,0.276-0.72,0-0.994L16.145,2.571z" />
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="second-radio__text-wrapper">
+                    <span class="second-radio__item-title">Фармацевт не нужен
+                    </span>
+                    <span class="second-radio__item-text">Без дополнительной оплаты </span>
+                  </div>
                 </label>
                 <input class="second-radio__input" hidden id="contactChoice2" type="radio" name="calculate-field-second"
                   value="249">
                 <label class="second-radio__item" for="contactChoice2">
-                  <img src="/" alt="" class="second-radio__img">
-                  <span class="second-radio__item-title">Пригласить фармацевта </span>
-                  <span class="second-radio__item-text">+249 рублей к стоимости консультации </span>
+                  <div class="second-radio__img">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 48 48">
+                      <title>Free Medical icons</title>
+                      <path
+                        d="M41.56,6.44a14.3,14.3,0,0,1,0,20.25l-7.43,7.44L13.88,13.87l7.43-7.43A14.32,14.32,0,0,1,41.56,6.44Z"
+                        fill="#a6c7ff" />
+                      <path
+                        d="M16.57,47.74A16.31,16.31,0,0,1,5,19.9L19.89,5A16.32,16.32,0,1,1,43,28.1L28.11,43A16.29,16.29,0,0,1,16.57,47.74ZM31.43,4.25a12.3,12.3,0,0,0-8.72,3.6L7.85,22.72A12.32,12.32,0,1,0,25.28,40.14L40.14,25.28A12.31,12.31,0,0,0,31.43,4.25Z"
+                        fill="#2161ff" />
+                      <rect width="48" height="48" fill="none" />
+                    </svg>
+                  </div>
+                  <div class="second-radio__checkmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="800px"
+                      width="800px" version="1.1" id="Capa_1" viewBox="0 0 17.837 17.837" xml:space="preserve">
+                      <g>
+                        <path style="fill:#00bb6d;"
+                          d="M16.145,2.571c-0.272-0.273-0.718-0.273-0.99,0L6.92,10.804l-4.241-4.27   c-0.272-0.274-0.715-0.274-0.989,0L0.204,8.019c-0.272,0.271-0.272,0.717,0,0.99l6.217,6.258c0.272,0.271,0.715,0.271,0.99,0   L17.63,5.047c0.276-0.273,0.276-0.72,0-0.994L16.145,2.571z" />
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="second-radio__text-wrapper">
+                    <span class="second-radio__item-title">Пригласить фармацевта </span>
+                    <span class="second-radio__item-text">+249 рублей к стоимости консультации </span>
+                  </div>
                 </label>
               </div>
             </div>

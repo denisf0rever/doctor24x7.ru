@@ -2,4 +2,9 @@
   &__wrapper{
     padding: 0 5px;
   }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 }
