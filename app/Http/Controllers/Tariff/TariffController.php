@@ -14,7 +14,7 @@ class TariffController extends Controller
     public function index()
     {
         $tariffs = Tariff::query()
-			->orderBy('id', 'desc')
+			->orderBy('id', 'asc')
 			->get();
 			
 		
