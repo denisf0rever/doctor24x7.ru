@@ -416,5 +416,22 @@ window.onload = () => {
 
   /*РАСКРЫТИЕ НАСТРОЕК В КНОПКЕ ПРОФИЛЯ */
 
+  /*РАЗМЕР TEXTAREA */
+  const autoGrow = (el) => {
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
+  }
 
+  const textareaInput = document.querySelectorAll('textarea.form__input')
+
+  if (textareaInput.length > 0) {
+    textareaInput.forEach(el => {
+      autoGrow(el);
+      el.addEventListener('input', function () {
+        autoGrow(this);
+      });
+    })
+  }
+
+  /*РАЗМЕР TEXTAREA */
 }
