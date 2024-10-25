@@ -16,29 +16,28 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
+		<h1 class="main__title">Тарифы</h1>
           <section class="main__pages pages">
             <div class="pages__wrapper">
-              <h2 class="pages__title">Тарифы</h2>
               <div class="pages__inner">
                 <div class="pages__titles pages__titles-tariff">
                   <span class="pages__title-id">ID</span>
                   <span class="pages__title-tariff-name">Название</span>
-                  <span class="pages__title-tariff-name">Название</span>
-                  <span class="pages__title-tariff-number">Количество ответов</span>
-                  <span class="pages__title-tariff-number">Число</span>
-                  <span class="pages__title-tariff-number">Число</span>
+                  <span class="pages__title-tariff-name">На сайте</span>
+                  <span class="pages__title-tariff-number">Ответов</span>
+                  <span class="pages__title-tariff-number">База</span>
+                  <span class="pages__title-tariff-number">Гонорар</span>
                   <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list pages__list">
+				 @foreach ($tariffs as $tariff)
                   <li class="pages__item pages__item-tariff">
-                    <span class="pages__views-id">322322</span>
-                    <a class="pages__tariff-name" href="/" target="_blank"><span>Lorem ipsum dolor sit amet consectetur
-                        adipisicing
-                        elit.</span></a>
-                    <a class="pages__tariff-name" href="/" target="_blank"><span>Lorem ipsum dolor </span></a>
-                    <span class="pages__views-tariff-number">0</span>
-                    <span class="pages__views-tariff-number">456789</span>
-                    <span class="pages__views-tariff-number">123</span>
+                    <span class="pages__views-id">{{ $tariff->id }}</span>
+                    <a class="pages__tariff-name" href="{{ route('dashboard.tariff.edit', $tariff->id)}}" target="_blank"><span>{{ $tariff->name }}</span></a>
+                    <a class="pages__tariff-name" href="/" target="_blank"><span>{{ $tariff->title }}</span></a>
+                    <span class="pages__views-tariff-number">{{ $tariff->answers_count }}</span>
+                    <span class="pages__views-tariff-number">{{ $tariff->sum }} &#8381;</span>
+                    <span class="pages__views-tariff-number">123 &#8381;</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
                         <a href="/" target="_blank">
@@ -52,6 +51,7 @@
                       </div>
                     </div>
                   </li>
+				  @endforeach
                 </ul>
               </div>
             </div>
@@ -65,18 +65,6 @@
                 @foreach($errors->all() as $error)
                 {{ $error }} <br />
                 @endforeach
-                <div class="form__inner form__inner-small">
-                  <div class="form__tabs">
-                    <div class="form__tab form__tab-active">
-
-                      @foreach ($tariffs as $tariff)
-
-                      <a href="{{ route('dashboard.tariff.edit', $tariff->id)}}">{{ $tariff->id }}</a>
-
-                      @endforeach
-                    </div>
-                  </div>
-                </div>
               </form>
             </div>
           </section>

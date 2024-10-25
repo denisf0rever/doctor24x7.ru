@@ -20,25 +20,6 @@
           <h1 class="main__consultation-title">№{{ $consultation->id }}, {{ $consultation->created_at }}</h1>
           <section class="main__consultation consultation">
             <div class="consultation__wrapper white-block">
-              <div class="small-menu small-menu__menu-btn custom-select" data-id="300330">
-                <svg class="small-menu__menu-btn-svg">
-                  <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
-                  <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
-                  <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
-                </svg>
-                <div class="custom-select__wrapper custom-select__hide small-menu__menu">
-                  <ul class="small-menu__menu-list">
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
-                        href="/">Удалить</a>
-                    </li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link" href="/">Редактировать</a>
-                    </li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link" href="/">Заблокировать
-                        ответ</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
               <h2 class="consultation__title">{{ $consultation->title }}</h2>
               <div class="consultation__inner">
                 <div class="consultation__item">
@@ -46,8 +27,8 @@
                 </div>
                 <div class="consultation__item">
                   <p id="answer-fullname">{{ $consultation->username }}</p>,
-                  <p id="answer-email">{{ $consultation->email }}</p>,
-                  <p id="answer-email">Возраст пациента: {{ $consultation->age/365 }}</p>
+				  <p id="answer-email">{{ $consultation->email }}</p>,
+				  <p id="answer-email">Возраст пациента: {{ $consultation->age/365 }}</p>
                 </div>
                 <div class="consultation__icons">
                   <div class="consultation__icon">
@@ -96,7 +77,7 @@
                   <div class="stats__number">1</div>
                   <div class="stats__text">Гонорар</div>
                 </li>
-                <li class="stats__item">
+				<li class="stats__item">
                   <div class="stats__number">{{ $consultation->visit_count }}</div>
                   <div class="stats__text">Визитов</div>
                 </li>
@@ -163,27 +144,26 @@
           <div class="comment" answer-id="{{ $comment->id }}" answer-author_username="{{ $comment->username }}"
             answer-author_email="{{ $comment->email }}">
             <div class="comment__wrapper white-block">
-              <div class=" small-menu small-menu__menu-btn custom-select" data-id="300330">
-                <svg class="small-menu__menu-btn-svg">
+              <div class="comment__menu-btn custom-select" data-id="300330">
+                <svg class="comment__menu-btn-svg">
                   <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
                   <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
                   <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
                 </svg>
-                <div class="custom-select__wrapper custom-select__hide small-menu__menu">
-                  <ul class="small-menu__menu-list">
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
+                <div class="custom-select__wrapper custom-select__hide comment__menu">
+                  <ul class="comment__menu-list">
+                    <li class="comment__menu-item"><a class="comment__menu-item-link delete-link"
                         href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
+                    <li class="comment__menu-item"><a class="comment__menu-item-link"
                         href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
+                    <li class="comment__menu-item"><a class="comment__menu-item-link"
                         href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a>
                     </li>
                   </ul>
                 </div>
               </div>
               <a href="{{ $comment->user ? '/profile/'.$comment->user->username.'' : '#' }}" class="comment__user-link">
-                <img
-                  src="{{ $comment->user->avatar ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
+                <img src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
                   class="comment__avatar-main">
                 <span class="comment__user-name">{{ $comment->username }}</span>
                 <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
@@ -200,7 +180,7 @@
               </div>
             </div>
           </div>
-          @include('dashboard.consultation.childcomment', ['comments' => $comment->children])
+			@include('dashboard.consultation.childcomment', ['comments' => $comment->children])
 
           @endforeach
 
