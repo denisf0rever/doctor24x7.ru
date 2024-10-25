@@ -51,7 +51,7 @@
                 </label>
                 <input class="second-radio__input" hidden id="contactChoice2" type="radio" name="calculate-field-second"
                   value="249">
-                <label for="contactChoice1" class="second-radio__item">
+                <label class="second-radio__item" for="contactChoice2">
                   <img src="/" alt="" class="second-radio__img">
                   <span class="second-radio__item-title">Пригласить фармацевта </span>
                   <span class="second-radio__item-text">+249 рублей к стоимости консультации </span>

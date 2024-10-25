@@ -126,6 +126,13 @@
 }
 
 .comment{
+  &__children{
+    margin-left: 15px;
+    background-color: #f2f2f2;
+    .consultation-textarea__textarea{
+      background-color: #fff;
+    }
+  }
   &__migration-form{
     text-align: end;
   }
@@ -206,13 +213,7 @@
   &__menu-btn-svg{
     width:100%;height:100%
   }
-  &__children{
-    margin-left: 15px;
-    background-color: #f2f2f2;
-    .consultation-textarea__textarea{
-      background-color: #fff;
-    }
-  }
+ 
   &__menu{
     position: absolute;
     top: calc(100% + 10px);

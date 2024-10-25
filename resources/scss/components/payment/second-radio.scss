@@ -5,4 +5,37 @@
     font-weight: 500;
     line-height: 1.3;
   }
+  &__list{
+    display: flex;
+    gap: 10px;
+  }
+  &__item{
+    cursor: pointer;
+    border-radius: 18px;
+    padding: 10px 16px 16px;
+    position: relative;
+    z-index: 5;
+    min-width: 180px;
+    border: 2px solid rgba(70, 76, 92, $alpha: 0.2);
+  }
+  &__input:checked + &__item{
+    border: 4px solid #00bb6d;
+  }
+  &__img{
+    width: 32px;
+    height: 43px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+  }
+  &__item-title{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(102, 102, 102);
+  }
+  &__item-text{
+    white-space: nowrap;
+    margin-top: 11px;
+    font-size: 12px;
+  }
 }
