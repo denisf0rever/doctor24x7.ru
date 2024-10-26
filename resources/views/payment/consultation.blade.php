@@ -103,6 +103,189 @@
               </div>
             </div>
           </div>
+          <div class="payment-form__promo promo">
+            <div class="promo__wrapper">
+              <h2 class="promo__title">Выберите тариф </h2>
+              <ul class="promo__list">
+                <li class="promo__item">
+                  <div class="promo__header">
+                    <h3 class="promo__item-title">1 гинеколог </h3>
+                    <span class="promo__subtitle">Консультация онлайн </span>
+                  </div>
+                  <ul class="promo__item-list">
+                    <li class="promo__item-item">
+                      Гарантированная консультация
+                    </li>
+                    <li class="promo__item-item">
+                      Профессиональный ответ
+                    </li>
+                    <li class="promo__item-item">
+                      Уведомление на почту бесплатно
+                    </li>
+                  </ul>
+                  <div class="promo__bottom">
+                    <span class="promo__price">
+                      729 &#8381;
+                    </span>
+                    <input type="radio" id="promo380" name="Sum" value="729" hidden checked type="text"
+                      class="promo__input-radio">
+                    <label for="promo380" class="promo__label">
+                      Выбрать
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 20"
+                        style="margin-left: 8px;width: 20px;">
+                        <path fill="#fff"
+                          d="M9.457 14.531a.624.624 0 01-.442-1.067l3.308-3.308-3.308-3.308a.625.625 0 01.884-.884l3.75 3.75a.625.625 0 010 .884l-3.75 3.75a.623.623 0 01-.442.183z">
+                        </path>
+                      </svg>
+                    </label>
+                  </div>
+                </li>
+                <li class="promo__item">
+                  <div class="promo__header">
+                    <h3 class="promo__item-title">2 гинеколог </h3>
+                    <span class="promo__subtitle">Консультация онлайн </span>
+                  </div>
+                  <ul class="promo__item-list">
+                    <li class="promo__item-item">
+                      Гарантированная консультация
+                    </li>
+                    <li class="promo__item-item">
+                      Профессиональный ответ
+                    </li>
+                    <li class="promo__item-item">
+                      Уведомление на почту бесплатно
+                    </li>
+                  </ul>
+                  <div class="promo__bottom">
+                    <span class="promo__price">
+                      1229 &#8381;
+                    </span>
+                    <input type="radio" id="promo880" name="Sum" value="1229" hidden type="text"
+                      class="promo__input-radio">
+                    <label for="promo880" class="promo__label">
+                      Выбрать
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 20"
+                        style="margin-left: 8px;width: 20px;">
+                        <path fill="#fff"
+                          d="M9.457 14.531a.624.624 0 01-.442-1.067l3.308-3.308-3.308-3.308a.625.625 0 01.884-.884l3.75 3.75a.625.625 0 010 .884l-3.75 3.75a.623.623 0 01-.442.183z">
+                        </path>
+                      </svg>
+                    </label>
+                  </div>
+                </li>
+                <li class="promo__item">
+                  <div class="promo__header">
+                    <h3 class="promo__item-title">Документы 1 врач
+                    </h3>
+                    <span class="promo__subtitle">Изучение снимков и всех видов обследований
+                    </span>
+                  </div>
+                  <ul class="promo__item-list">
+                    <li class="promo__item-item">
+                      Гарантированная консультация
+                    </li>
+                    <li class="promo__item-item">
+                      Профессиональный ответ
+                    </li>
+                    <li class="promo__item-item">
+                      Уведомление на почту бесплатно
+                    </li>
+                    <li class="promo__item-item">
+                      Гарантированный ответ одного врача
+                    </li>
+                  </ul>
+                  <div class="promo__bottom">
+                    <span class="promo__price">
+                      2049 &#8381;
+                    </span>
+                    <input type="radio" id="promo1700" name="Sum" value="2049" hidden type="text"
+                      class="promo__input-radio">
+                    <label for="promo1700" class="promo__label">
+                      Выбрать
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 20"
+                        style="margin-left: 8px;width: 20px;">
+                        <path fill="#fff"
+                          d="M9.457 14.531a.624.624 0 01-.442-1.067l3.308-3.308-3.308-3.308a.625.625 0 01.884-.884l3.75 3.75a.625.625 0 010 .884l-3.75 3.75a.623.623 0 01-.442.183z">
+                        </path>
+                      </svg>
+                    </label>
+                  </div>
+                </li>
+                <li class="promo__item">
+                  <div class="promo__header">
+                    <h3 class="promo__item-title">Видео-консультация
+                    </h3>
+                    <span class="promo__subtitle">Врач изучит ваш вопрос и перезвонит
+                    </span>
+                  </div>
+                  <ul class="promo__item-list">
+                    <li class="promo__item-item">
+                      Видео-звонок по Skype или WhatsApp/Viber
+                    </li>
+                    <li class="promo__item-item">
+                      Ожидание 20-30 минут
+                    </li>
+                  </ul>
+                  <div class="promo__input-wrapper">
+                    <input type="text" class="promo__input" name="promo-text" placeholder="Контакт">
+                  </div>
+                  <div class="promo__bottom">
+                    <span class="promo__price">
+                      3349 &#8381;
+                    </span>
+                    <input type="radio" id="promo3000" name="Sum" value="3349" hidden type="text"
+                      class="promo__input-radio">
+                    <label for="promo3000" class="promo__label">
+                      Выбрать
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 20"
+                        style="margin-left: 8px;width: 20px;">
+                        <path fill="#fff"
+                          d="M9.457 14.531a.624.624 0 01-.442-1.067l3.308-3.308-3.308-3.308a.625.625 0 01.884-.884l3.75 3.75a.625.625 0 010 .884l-3.75 3.75a.623.623 0 01-.442.183z">
+                        </path>
+                      </svg>
+                    </label>
+                  </div>
+                </li>
+                <li class="promo__item">
+                  <div class="promo__header">
+                    <h3 class="promo__item-title">По телефону с гинекологом
+                    </h3>
+                    <span class="promo__subtitle">Ожидание звонка 15 - 30 минут
+                    </span>
+                  </div>
+                  <ul class="promo__item-list">
+                    <li class="promo__item-item">
+                      Звонок по телефону
+                    </li>
+                    <li class="promo__item-item">
+                      WhatsApp Viber
+                    </li>
+                  </ul>
+                  <div class="promo__input-wrapper">
+                    <input type="text" class="promo__input promo__input-phone" name="promo-text"
+                      placeholder="+7-xxx-xxx-xx-xx">
+                  </div>
+                  <div class="promo__bottom">
+                    <span class="promo__price">
+                      1249 &#8381;
+                    </span>
+                    <input type="radio" id="promo900" name="Sum" value="1249" hidden type="text"
+                      class="promo__input-radio">
+                    <label for="promo900" class="promo__label">
+                      Выбрать
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 20"
+                        style="margin-left: 8px;width: 20px;">
+                        <path fill="#fff"
+                          d="M9.457 14.531a.624.624 0 01-.442-1.067l3.308-3.308-3.308-3.308a.625.625 0 01.884-.884l3.75 3.75a.625.625 0 010 .884l-3.75 3.75a.623.623 0 01-.442.183z">
+                        </path>
+                      </svg>
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <input type="submit">
         </form>
       </div>
     </section>
