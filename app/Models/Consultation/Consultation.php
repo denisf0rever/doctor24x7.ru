@@ -5,6 +5,7 @@ namespace App\Models\Consultation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Consultation\Booking;
+use App\Models\Tariff\Tariff;
 
 class Consultation extends Model
 {
