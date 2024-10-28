@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <h1>Здравствуйте, {{ $details['name'] }}</h1>
-    <p>Врач получил ваш вопрос и принял его в работу. Ответ будет предоставлен согласно условиям оплаченного тарифа.</p>
-    <p>Мы пришлем вам сообщение на почту, когда врач ответит вам.</p>
-<p>___________</p>
-<p>С уважением, команда сервиса <a href="{{ $details['app_url'] }}">{{ $details['app_name'] }}</a></p>
-<p>Техническая поддержка: <a href="tel:{{ $details['app_phone'] }}">{{ $details['app_phone'] }}</a></p>
-<p>{{ $details['app_support'] }}</p>
+
+<body
+  style="background-color:#191a1c; color:#fafafa; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; margin:0; padding:0;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#191a1c; padding: 20px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0"
+          style="background-color:#242424; border-radius: 30px; padding: 20px;">
+          <!-- Основной контент -->
+          <tr>
+            <td style="padding: 20px;">
+              <h1 style="color:#fafafa; font-size: 20px; text-align: left; margin-bottom: 15px;">Здравствуйте,
+                {{ $details['name'] }}</h1>
+              <p style="color: #999; line-height: 1.6; font-size: 15px;">
+                Врач получил ваш вопрос и принял его в работу. Ответ будет предоставлен согласно условиям оплаченного
+                тарифа.
+              </p>
+              <p style="color: #999; line-height: 1.6; font-size: 15px;">
+                Мы пришлем вам сообщение на почту, когда врач ответит вам.
+              </p>
+            </td>
+          </tr>
+          <!-- Подпись -->
+          <tr>
+            <td style="padding: 20px; color: #999; font-size: 14px; text-align: center;">
+              С уважением, команда сервиса <a href="{{ $details['app_url'] }}"
+                style="color:#4CAF50; text-decoration: none;">{{ $details['app_name'] }}</a><br>
+              Техническая поддержка: <a href="tel:{{ $details['app_phone'] }}"
+                style="color: #4CAF50; text-decoration: none;">{{ $details['app_phone'] }}</a><br>
+              {{ $details['app_support'] }}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
+
 </html>
