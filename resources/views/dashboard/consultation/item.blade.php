@@ -137,7 +137,12 @@
                 <input type="hidden" name="author_username" value="{{ $consultation->username }}">
                 <input type="hidden" name="username"
                   value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
-                <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
+                <div class="consultation-textarea__bottom-buttons">
+                  <div class="consultation-textarea__copy-btn copy-btn">
+                    <img src="{{ Storage::url('dashboard/copy.svg') }}" alt="" class="copy-btn__img">
+                  </div>
+                  <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
+                </div>
               </form>
             </div>
           </section>

@@ -892,6 +892,16 @@ body{
   display: none;
 }
 
+.copy-btn{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  &__img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @import '../colors.scss';
 @import "consultation.scss";
 @import "popup.scss";

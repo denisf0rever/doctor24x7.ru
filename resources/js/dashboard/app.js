@@ -434,4 +434,19 @@ window.onload = () => {
   }
 
   /*РАЗМЕР TEXTAREA */
+
+  /*КНОПКА "СКОПИРОВАТЬ" */
+
+  const copyBtns = document.querySelectorAll('.cony-btn');
+
+  if (copyBtns.length > 0) {
+    copyBtns.forEach(btn => {
+      btn.onclick = () => {
+        closestForm = btn.closest('form');
+        console.log(closestForm.innerHTML, closestForm.value);
+      }
+    })
+  }
+
+  /*КНОПКА "СКОПИРОВАТЬ" */
 }
