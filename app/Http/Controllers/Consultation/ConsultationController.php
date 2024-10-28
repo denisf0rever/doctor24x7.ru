@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\Booking;
+use App\Models\Tariff\Tariff;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Settings\UserSettings as Settings;

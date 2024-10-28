@@ -37,7 +37,7 @@
                     <a class="pages__tariff-name" href="/" target="_blank"><span>{{ $tariff->title }}</span></a>
                     <span class="pages__views-tariff-number">{{ $tariff->answers_count }}</span>
                     <span class="pages__views-tariff-number">{{ $tariff->sum }} &#8381;</span>
-                    <span class="pages__views-tariff-number">123 &#8381;</span>
+                    <span class="pages__views-tariff-number">{{ $tariff->fee }} &#8381;</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
                         <a href="/" target="_blank">
@@ -54,18 +54,6 @@
 				  @endforeach
                 </ul>
               </div>
-            </div>
-          </section>
-          <section class="main__form form">
-            <div class="form__wrapper">
-              <form action="{{ route('dashboard.setting.user.update', auth()->user()->id) }}" method="post"
-                class="form__inner-form" enctype="multipart/form-data">
-                @csrf
-
-                @foreach($errors->all() as $error)
-                {{ $error }} <br />
-                @endforeach
-              </form>
             </div>
           </section>
         </div>

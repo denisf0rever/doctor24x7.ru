@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Tariff;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tariff\Tariff;
+use App\Models\Tariff\Conditions;
+use App\Models\Consultation\ConsultationCategory as Rubric;
 
 class TariffController extends Controller
 {
@@ -50,11 +52,17 @@ class TariffController extends Controller
      */
     public function edit(string $id)
     {
-        $tariff = Tariff::query()
-			->where('id', $id)
-			->firstOrFail();
+        $tariff = Tariff::with('consultation')
+			->with(['rubrics' => fn($rubrics) => $rubrics->where('tariff_id', $id)])
+			->findOrFail($id);
+		
+		$conditions = Conditions::query()
+			->get();
+		
+		$rubrics = Rubric::query()
+			->get();
 			
-		return view('dashboard.tariff.edit', compact('tariff'));
+		return view('dashboard.tariff.edit', compact('tariff', 'conditions', 'rubrics'));
     }
 
     /**
@@ -62,7 +70,48 @@ class TariffController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+			'name' => 'required|string|max:255',
+			'title' => 'required|string|max:255',
+			'description' => 'nullable|string',
+			'description_short' => 'nullable|string',
+			'answers_count' => 'nullable|integer',
+			'sum' => 'nullable|numeric',
+			'fee' => 'nullable|numeric',
+			'condition_id' => 'nullable|integer',
+			'position' => 'nullable|integer',
+			'is_phone' => 'nullable|boolean',
+			'is_free' => 'nullable|boolean',
+			'is_checked' => 'nullable|boolean',
+			'is_active' => 'nullable|boolean',
+			'class' => 'nullable|string|max:255',
+			
+        ]);
+	
+		$tariff = Tariff::query()
+            ->where('id', $id)
+            ->firstOrFail();
+			
+		$tariff->name = $request->input('name');
+		$tariff->title = $request->input('title');
+		$tariff->description = $request->input('description');
+		$tariff->description_short = $request->input('description_short');
+		$tariff->sum = $request->input('sum');
+		$tariff->fee = $request->input('fee');
+		$tariff->condition_id = null;
+		$tariff->position = $request->input('position');
+		$tariff->is_phone = $request->input('is_phone');
+		$tariff->is_free = $request->input('is_free');
+		$tariff->is_checked = $request->input('is_checked');
+		$tariff->is_active = $request->input('is_active');
+		$tariff->class = $request->input('class');
+		$tariff->save();
+		
+		if ($tariff) {
+			return redirect()->back()->with('success', 'Тариф обновлен');
+		} else {
+			return redirect()->back()->with('success', 'Возникла ошибка');
+		}
     }
 
     /**
