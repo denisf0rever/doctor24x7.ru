@@ -243,8 +243,8 @@ window.onload = () => {
     }
 
     async function makeBooking() {
-      const answerFullname = document.querySelector('#answer-fullname');
-      const answerEmail = document.querySelector('#answer-email');
+      const answerFullname = document.querySelector('#question-fullname');
+      const answerEmail = document.querySelector('#question-email');
       try {
         const response = await fetch(bookingUrl, {
           method: 'POST',
@@ -255,8 +255,8 @@ window.onload = () => {
           body: JSON.stringify({
             'consultation_id': +consultationId,
             'user_id': +userId,
-            'author_name': answerFullname,
-            'author_email': answerEmail
+            'author_name': answerFullname.innerHTML,
+            'author_email': answerEmail.innerHTML
           })
         });
 

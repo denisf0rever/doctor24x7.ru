@@ -44,9 +44,9 @@
                   <p>{{ $consultation->description }}</p>
                 </div>
                 <div class="consultation__item">
-                  <p id="answer-fullname">{{ $consultation->username }}</p>,
-                  <p id="answer-email">{{ $consultation->email }}</p>,
-                  <p id="answer-email">Возраст пациента: {{ $consultation->age/365 }}</p>
+                  <p id="question-fullname">{{ $consultation->username }}</p>,
+                  <p id="question-email">{{ $consultation->email }}</p>,
+                  <p id="question-age">Возраст пациента: {{ $consultation->age/365 }}</p>
                 </div>
                 <div class="consultation__icons">
                   <div class="consultation__icon">
