@@ -1,21 +1,52 @@
-<!DOCTYPE html>
-<html>
-<body>
-    <h1>Здравствуйте, {{ $details['name'] }}</h1>
-    <p>Вы задали вопрос на нашем сайте. Ответ предоставляют эксперты с большим опытом.</p>
-	<p><b>Оплачивая консультацию, вы получаете:</b>
-	<ul>
-		<li>гарантированный ответ,</li>
-		<li>детальный ответ в течение часа, с возможностью диалога,</li>
-		<li>круглосуточную помощь без выходных и праздников,</li>
-		<li>анонимную консультацию,</li>
-		<li>расшифровка анализов.</li>
-	</ul>
-<p>Квалификацию и компетентность подтверждают <a href="https://puzkarapuz.ru/consultation/testimonials?v=testimonials">более 7000 отзывов</a>.</p>
-<p>Вы можете <a href="{{ $details['app_url'] }}payment/consultation/{{ $details['consultation_id'] }}">оплатить консультацию</a> и получить ответ.</p>
-<p>___________</p>
-<p>С уважением, команда сервиса <a href="{{ $details['app_url'] }}">{{ $details['app_name'] }}</a></p>
-<p>Техническая поддержка: <a href="tel:{{ $details['app_phone'] }}">{{ $details['app_phone'] }}</a></p>
-<p>{{ $details['app_support'] }}</p>
+<body
+  style="background-color:#191a1c; color:#fafafa; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; margin:0; padding:0;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#191a1c; padding: 20px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color:#242424; border-radius: 30px;">
+          <!-- Основной контент -->
+          <tr>
+            <td style="padding: 20px;">
+              <h1 style="color:#fafafa; font-size: 20px; text-align: left; margin-bottom: 15px;">Здравствуйте, {{
+                $details['name'] }}</h1>
+              <p style="color: #999; line-height: 1.6; font-size: 15px">
+                Вы задали вопрос на нашем сайте. Ответ предоставляют эксперты с большим опытом. <br><br>
+                <b style="color:#ffffff;">Оплачивая консультацию, вы получаете:</b><br>
+                &bull; гарантированный ответ<br>
+                &bull; детальный ответ в течение часа<br>
+                &bull; круглосуточную помощь<br>
+                &bull; анонимную консультацию<br>
+                &bull; расшифровку анализов<br><br>
+                Подтверждением нашей компетенции являются <a
+                  href="https://puzkarapuz.ru/consultation/testimonials?v=testimonials"
+                  style="color:#4CAF50; text-decoration: none;">более 7000 отзывов</a>.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Кнопка -->
+          <tr>
+            <td align="center" style="padding: 20px;">
+              <a href="{{ $details['app_url'] }}payment/consultation/{{ $details['consultation_id'] }}"
+                style="display: inline-block; padding: 15px 25px; background-color:#005ece; color: #ffffff; font-weight: bold; text-decoration: none; border-radius: 5px; cursor:pointer; font-size: 20px">
+                Оплатить консультацию
+              </a>
+            </td>
+          </tr>
+
+          <!-- Подпись -->
+          <tr>
+            <td style="padding: 20px; color: #999; font-size: 14px; text-align: center;">
+              С уважением, команда сервиса <a href="{{ $details['app_url'] }}"
+                style="color:#4CAF50; text-decoration: none;">{{ $details['app_name'] }}</a><br>
+              <a href="tel:{{ $details['app_phone'] }}" style="color: #4CAF50; text-decoration: none;">{{
+                $details['app_phone'] }}</a> | {{ $details['app_support'] }}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
+
 </html>
