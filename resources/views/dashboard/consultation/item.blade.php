@@ -48,18 +48,6 @@
                   <p id="question-email">{{ $consultation->email }}</p>,
                   <p id="question-age">Возраст пациента: {{ $consultation->age/365 }}</p>
                 </div>
-                <div class="consultation__icons">
-                  <div class="consultation__icon">
-                    <a href="{{ route('dashboard.consultation.edit', $consultation->id)}}" target="_blank">
-                      <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="consultation__icon-img">
-                    </a>
-                  </div>
-                  <div class="consultation__icon">
-                    <a href="{{ route('dashboard.consultation.destroy', $consultation->id) }}">
-                      <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="consultation__icon-img">
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
@@ -92,7 +80,7 @@
                   <div class="stats__text">Коэффицент</div>
                 </li>
                 <li class="stats__item">
-                  <div class="stats__number">1</div>
+                  <div class="stats__number">{{ $consultation->tariff->fee }}</div>
                   <div class="stats__text">Гонорар</div>
                 </li>
                 <li class="stats__item">

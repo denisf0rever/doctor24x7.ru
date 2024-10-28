@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Response;
 use App\Services\BookingService;
 use App\Models\Consultation\Booking;
 use App\Events\ConsultationAddBooking;
-use App\Events\BookingAdded;
+use App\Events\ConsultationInWork;
 
 class BookingController extends Controller
 {
@@ -17,7 +17,9 @@ class BookingController extends Controller
 		try {
 			$consultation_id = $request->consultation_id;
 			$user_id = $request->user_id;
-			
+			$email = $request->author_email;
+			$username = $request->author_name;
+				
 			$service = new BookingService($consultation_id, $user_id);
 			$result = $service->createBooking();
 			
@@ -25,11 +27,8 @@ class BookingController extends Controller
 				$userId = auth()->id();
 				ConsultationAddBooking::dispatch($userId);
 				
-				$email = 'predlozhi@bk.ru';
-				$name = 'denis';
-				
-				$array = ['email' => $email, 'username' => $name];
-				BookingAdded::dispatch($array);
+				$array = ['email' => $email, 'username' => $username];
+				ConsultationInWork::dispatch($array);
 				
 				return Response::json(['success' => true, 'message' => 'Вы взяли вопрос']);
 			} 
