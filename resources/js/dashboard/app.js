@@ -166,26 +166,57 @@ window.onload = () => {
 
   /* ТОСТ */
 
+  const toastHtml = (text) => {
+    return `
+        <div class="toast" id="toast">
+          <div class="toast__container">
+            <div class="toast__item">
+              ${text}
+            </div>
+          </div>
+        </div>
+  `
+  }
+
   const hideToast = () => {
     const toast = document.getElementById('toast');
     if (toast) {
-      toast.classList.remove('toast__show');
+      toast.querySelector('.toast__container').classList.remove('toast__show');
       setTimeout(() => {
-        toast.style.display = 'none';
+        toast.remove();
       }, 500);
+    }
+  }
+
+  const showToast = (toast) => {
+    if (toast) {
+      // Показываем тост с задержкой
+      setTimeout(() => {
+        toast.querySelector('.toast__container').classList.add('toast__show');
+      }, 100);
+
+      // Автоматически скрываем тост через 5 секунд
+      setTimeout(hideToast, 5000);
     }
   }
 
   const toast = document.getElementById('toast');
 
-  if (toast) {
-    // Показываем тост с задержкой
-    setTimeout(() => {
-      toast.classList.add('toast__show');
-    }, 100);
+  showToast(toast);
 
-    // Автоматически скрываем тост через 5 секунд
-    setTimeout(hideToast, 5000);
+  const addToast = (message) => {
+    let toast = document.getElementById('toast');
+    if (toast) {
+      setTimeout(() => {
+        addToast(message);
+      }, 1000);
+    }
+    else {
+      const toastMarkup = toastHtml(message);
+      document.body.insertAdjacentHTML('beforeend', toastMarkup);
+      toast = document.getElementById('toast');
+      showToast(toast);
+    }
   }
 
   /* ТОСТ */
@@ -437,13 +468,23 @@ window.onload = () => {
 
   /*КНОПКА "СКОПИРОВАТЬ" */
 
-  const copyBtns = document.querySelectorAll('.cony-btn');
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      addToast('Текст скопирован');
+    }).catch((err) => {
+      addToast('Произошла ошибка');
+    });
+  }
+
+
+  const copyBtns = document.querySelectorAll('.copy-btn');
 
   if (copyBtns.length > 0) {
     copyBtns.forEach(btn => {
       btn.onclick = () => {
-        closestForm = btn.closest('form');
-        console.log(closestForm.innerHTML, closestForm.value);
+        const closestForm = btn.closest('form');
+        const closestTextarea = closestForm.querySelector('textarea');
+        copyToClipboard(closestTextarea.value);
       }
     })
   }

@@ -148,7 +148,12 @@
             <input type="hidden" name="author_username" value="" id="author_username">
             <input type="hidden" name="username"
               value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
-            <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
+            <div class="consultation-textarea__bottom-buttons">
+              <div class="consultation-textarea__copy-btn copy-btn">
+                <img src="{{ Storage::url('dashboard/copy.svg') }}" alt="" class="copy-btn__img">
+              </div>
+              <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
+            </div>
           </form>
 
           @foreach($consultation->comments as $comment)
@@ -198,8 +203,8 @@
 
         </div>
         @if (session('success'))
-        <div class="toast">
-          <div class="toast__container" id="toast">
+        <div class="toast" id="toast">
+          <div class="toast__container">
             <div class="toast__item">
               {{ session('success') }}
             </div>
