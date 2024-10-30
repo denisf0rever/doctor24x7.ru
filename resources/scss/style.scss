@@ -51,12 +51,21 @@ ul{
   position: relative;
   max-width: 1176px;
   padding: 0 10px;
+  width: 100%;
 }
 
 .small-container{
   margin: 0 auto;
   position: relative;
   max-width: 1000px;
+  width: 100%;
+}
+
+.big-container{
+  max-width: 1368px;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
 }
 
 body {

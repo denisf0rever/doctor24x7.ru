@@ -1,10 +1,28 @@
 .payment-form{
   &__wrapper{
-    padding: 0 5px;
+    padding: 30px 5px;
+    background-color: #fff;
   }
   &__form{
     display: flex;
     flex-direction: column;
     gap: 40px;
+  }
+  &__title{
+    color: var(--main-text);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: .98;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+  &__subtitle{
+    color: var(--secondary-text);
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+    font-weight: 400;
   }
 }
