@@ -80,7 +80,7 @@
                   <div class="stats__text">Коэффицент</div>
                 </li>
                 <li class="stats__item">
-                  <div class="stats__number">{{ $consultation->tariff->fee }}</div>
+                  <div class="stats__number">{{ $consultation->tariff->fee }} &#8381;</div>
                   <div class="stats__text">Гонорар</div>
                 </li>
                 <li class="stats__item">

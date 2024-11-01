@@ -4,6 +4,7 @@ namespace App\Models\Tariff;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Consultation\Consultation;
+use App\Models\Consultation\ConsultationCategory as Rubric;
 
 class Tariff extends Model
 {
@@ -23,7 +24,6 @@ class Tariff extends Model
 	
 	public function rubrics()
 	{
-        return $this->belongsToMany(Rubric::class, 'sf_consultation_tariff_rubric')
-                ->withPivot('tariff_id'); 
+        return $this->belongsToMany(Rubric::class, 'sf_consultation_tariff_rubric', 'rubric_id', 'rubric_id'); 
 	}
 }

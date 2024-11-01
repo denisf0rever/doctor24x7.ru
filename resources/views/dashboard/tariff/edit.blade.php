@@ -132,9 +132,9 @@
                               <div class="custom-multiselect__wrapper">
                                 <ul class="custom-multiselect__list">
                                   <input type="hidden" id="rubrics_list" class="custom-multiselect__input"
-                                    name="rubrics_list" value="{{ $tariff->consultation->rubric_id ? $tariff->consultation->rubric_id : '' }}">
+                                    name="rubrics_list" value="{{ $tariff->rubric_id ? $tariff->rubric_id : '' }}">
 								@foreach($rubrics as $rubric)
-									<li class="custom-multiselect__option{{ $rubric->id == $tariff->consultation->rubric_id ? ' custom-multiselect__option-active' : '' }}" value="{{ $rubric->id }}">{{ $rubric->short_title }}</li>
+									<li class="custom-multiselect__option{{ $tariff->rubrics->contains($rubric->id) ? ' custom-multiselect__option-active' : '' }}" value="{{ $rubric->id }}">{{ $rubric->short_title }}</li>
 								@endforeach
                                 </ul>
                               </div>

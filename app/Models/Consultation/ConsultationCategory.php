@@ -4,6 +4,7 @@ namespace App\Models\Consultation;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Tariff\Tariff;
 
 class ConsultationCategory extends Model
 {
@@ -18,5 +19,10 @@ class ConsultationCategory extends Model
 	public function consultation()
     {
         return $this->hasMany(Consultation::class);
+    }
+	
+	public function tariffs()
+    {
+        return $this->belongsToMany(Tariff::class, 'sf_consultation_tariff_rubric');
     }
 }

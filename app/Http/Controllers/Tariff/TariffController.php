@@ -52,16 +52,13 @@ class TariffController extends Controller
      */
     public function edit(string $id)
     {
-        $tariff = Tariff::with('consultation')
-			->with(['rubrics' => fn($rubrics) => $rubrics->where('tariff_id', $id)])
-			->findOrFail($id);
+        $tariff = Tariff::with('rubrics')->find($id);
 		
 		$conditions = Conditions::query()
 			->get();
 		
-		$rubrics = Rubric::query()
-			->get();
-			
+		$rubrics = Rubric::all();
+		
 		return view('dashboard.tariff.edit', compact('tariff', 'conditions', 'rubrics'));
     }
 

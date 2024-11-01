@@ -14,7 +14,7 @@
         <h2 class="payment-form__subtitle">Гарантированный ответ предоставляется после оплаты услуг </h2>
       </div>
       <div class="payment-form__wrapper big-container">
-        <form action="/" class="payment-form__form container">
+        <form action="{{ route('payment.consultation.init') }}" class="payment-form__form container">
           <div class="payment-form__first-radio first-radio">
             <div class="first-radio__wrapper">
               <div class="first-radio__list">
