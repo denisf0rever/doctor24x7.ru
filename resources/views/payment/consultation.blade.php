@@ -6,38 +6,6 @@
 
 @section('content')
 
-<<<<<<< HEAD
-<main class="main">
-  <div class="main__wrapper">
-    <section class="main__payment-form payment-form">
-      <div class="container">
-        <h1 class="payment-form__title">Оплата консультации </h1>
-        <h2 class="payment-form__subtitle">Гарантированный ответ предоставляется после оплаты услуг </h2>
-      </div>
-      <div class="payment-form__wrapper big-container">
-        <form action="{{ route('payment.consultation.init') }}" class="payment-form__form container">
-          <div class="payment-form__first-radio first-radio">
-            <div class="first-radio__wrapper">
-              <div class="first-radio__list">
-                <input checked class="first-radio__input" hidden id="first-calc" type="radio" name="calculate-field"
-                  value="349">
-                <label for="first-calc" class="first-radio__item">
-                  <span class="first-radio__item-title">С диалогами (чат)
-                  </span>
-                  <span class="first-radio__item-text">Возможность задавать уточняющие вопросы к вашей основной
-                    консультации. Удобный чат-интерфейс для общения с консультантом.
-                  </span>
-                </label>
-                <input class="first-radio__input" hidden id="second-calc" type="radio" name="calculate-field" value="0">
-                <label for="second-calc" class="first-radio__item">
-                  <span class="first-radio__item-title">Без диалогов
-                  </span>
-                  <span class="first-radio__item-text">Без возможности задавать дополнительные вопросы. Подходит для
-                    однозначного (простого) вопроса.
-                  </span>
-                </label>
-=======
-
 <div class="main__wrapper">
   <section class="main__payment-form payment-form">
     <div class="container">
@@ -319,7 +287,7 @@
                     </div>
                   </li>
                 </ul>
->>>>>>> 746aa64577516b04307edd605d1e57e110dc827f
+                >>>>>>> 746aa64577516b04307edd605d1e57e110dc827f
               </div>
             </div>
           </div>
