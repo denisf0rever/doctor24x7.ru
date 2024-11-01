@@ -79,17 +79,17 @@ p{
   margin: 0;
 }
 
-* {
-  scrollbar-width: none; /* Скрывает скроллбар в Firefox */
-}
+// * {
+//   scrollbar-width: none; /* Скрывает скроллбар в Firefox */
+// }
 
-*::-webkit-scrollbar {
-  display: none; /* Скрывает скроллбар в Chrome и Safari */
-}
+// *::-webkit-scrollbar {
+//   display: none; /* Скрывает скроллбар в Chrome и Safari */
+// }
 
-*::-webkit-scrollbar-button {
-display: none; /* Скрывает кнопки-стрелки на скроллбаре */
-}
+// *::-webkit-scrollbar-button {
+// display: none; /* Скрывает кнопки-стрелки на скроллбаре */
+// }
 
 .section-wrapper{
   background: #fff;
@@ -204,6 +204,7 @@ display: none; /* Скрывает кнопки-стрелки на скролл
 @import "components/payment/first-radio.scss";
 @import "components/payment/second-radio.scss";
 @import "components/payment/promo.scss";
+@import "components/payment/payment-type.scss";
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "components/login.scss";

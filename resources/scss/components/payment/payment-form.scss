@@ -1,7 +1,12 @@
 .payment-form{
-  &__wrapper{
-    padding: 30px 5px;
+  &__big-container{
     background-color: #fff;
+    padding: 30px 5px 80px;
+  }
+  &__container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
   &__form{
     display: flex;
@@ -24,5 +29,31 @@
     margin-bottom: 15px;
     word-wrap: break-word;
     font-weight: 400;
+    display: block;
+  }
+  &__submit{
+    display: inline-block;
+    background: #0fa113;
+    border-radius: .3em;
+    color: #fff;
+    padding: 0 20px;
+    line-height: 40px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    opacity: .8;
+    font-size: 15px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    &:hover{
+      background: #45ab6f;
+      color: #fff;
+    }
   }
 }
