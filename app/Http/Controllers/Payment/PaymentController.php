@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Payment;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Consultation\Consultation;
+use App\Models\Tariff\Rubric;
 
 class PaymentController extends Controller
 {
@@ -39,10 +42,20 @@ class PaymentController extends Controller
     {
         $consultation = Consultation::query()
             ->where('id', $id)
-			//->with(['rubrics' => fn ($rubrics) => $rubrics->where('rubric')])
             ->firstOrFail();
 			
-		return view('payment.consultation', compact('consultation'));
+			
+			
+		$tariffs = DB::table('sf_consultation_tariff')
+            ->join('sf_consultation_tariff_rubric', 'sf_consultation_tariff.id', '=', 'sf_consultation_tariff_rubric.tariff_id')
+			->where('sf_consultation_tariff_rubric.rubric_id', $consultation->rubric_id)
+			->where('sf_consultation_tariff.is_active', true)
+			->orderBy('position', 'asc')
+            ->get();
+			
+		dump($tariffs);
+		
+		return view('payment.consultation', compact('consultation', 'tariffs'));
     }
 
     /**

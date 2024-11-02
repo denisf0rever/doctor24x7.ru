@@ -97,7 +97,7 @@ class TariffController extends Controller
 		$tariff->sum = $request->input('sum');
 		$tariff->fee = $request->input('fee');
 		$tariff->night_fee = $request->input('night_fee');
-		$tariff->condition_id = null;
+		$tariff->condition_id = $request->input('condition_id');
 		$tariff->position = $request->input('position');
 		$tariff->is_phone = $request->input('is_phone');
 		$tariff->is_free = $request->input('is_free');

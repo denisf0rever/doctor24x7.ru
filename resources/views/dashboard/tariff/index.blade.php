@@ -28,6 +28,7 @@
                   <span class="pages__title-tariff-number">База</span>
                   <span class="pages__title-tariff-number">Дневной</span>
                   <span class="pages__title-tariff-number">Ночной</span>
+                  <span class="pages__title-tariff-number">Условия</span>
                   <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list pages__list">
@@ -40,6 +41,7 @@
                     <span class="pages__views-tariff-number">{{ $tariff->sum }} &#8381;</span>
                     <span class="pages__views-tariff-number">{{ $tariff->fee }} &#8381;</span>
                     <span class="pages__views-tariff-number">{{ $tariff->night_fee }} &#8381;</span>
+                    <span class="pages__views-tariff-number">{{ $tariff->condition_id }}</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
                         <a href="{{ route('dashboard.tariff.edit', $tariff->id)}}" target="_blank">

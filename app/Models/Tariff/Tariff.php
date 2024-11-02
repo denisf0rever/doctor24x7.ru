@@ -19,11 +19,11 @@ class Tariff extends Model
 	
 	public function conditions()
     {
-        return $this->hasMany(Conditions::class, 'id', 'condition_id');
+        return $this->belongsTo(Conditions::class, 'condition_id', 'id');
     }
 	
 	public function rubrics()
 	{
-        return $this->belongsToMany(Rubric::class, 'sf_consultation_tariff_rubric', 'rubric_id', 'rubric_id'); 
+        return $this->belongsToMany(Rubric::class, 'sf_consultation_tariff_rubric', 'rubric_id', 'tariff_id', 'd');
 	}
 }

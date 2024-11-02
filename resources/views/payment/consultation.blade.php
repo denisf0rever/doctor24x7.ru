@@ -5,12 +5,11 @@
 @section('canonical', 'consultation/'. $consultation->id)
 
 @section('content')
-
 <div class="main__wrapper">
   <section class="main__payment-form payment-form">
     <div class="container">
-      <h1 class="payment-form__title">Оплата консультации </h1>
-      <h2 class="payment-form__subtitle">Гарантированный ответ предоставляется после оплаты услуг </h2>
+      <h1 class="payment-form__title">Оплата консультации</h1>
+      <h2 class="payment-form__subtitle">Оплатите консультацию и получите гарантированный ответ</h2>
     </div>
     <div class="payment-form__wrapper">
       <form action="/" class="payment-form__form">
@@ -109,12 +108,13 @@
             </div>
             <div class="payment-form__promo promo">
               <div class="promo__wrapper">
-                <h2 class="promo__title">Выберите тариф </h2>
+                <h2 class="promo__title">Выберите тариф</h2>
                 <ul class="promo__list">
-                  <li class="promo__item">
+				@foreach($tariffs as $tariff)
+					<li class="promo__item">
                     <div class="promo__header">
-                      <h3 class="promo__item-title">1 гинеколог </h3>
-                      <span class="promo__subtitle">Консультация онлайн </span>
+                      <h3 class="promo__item-title">{{ $tariff->title }} {{ $tariff->sum }}</h3>
+                      <span class="promo__subtitle">{{ $tariff->description }}</span>
                     </div>
                     <ul class="promo__item-list">
                       <li class="promo__item-item">
@@ -129,9 +129,9 @@
                     </ul>
                     <div class="promo__bottom">
                       <span class="promo__price">
-                        418 &#8381;
+                        {{ $tariff->sum }} &#8381;
                       </span>
-                      <input type="radio" id="promo380" name="Sum" stadart-price="418" hidden checked type="text"
+                      <input type="radio" id="promo380" name="Sum" stadart-price="{{ $tariff->sum }}" hidden checked type="text"
                         class="promo__input-radio">
                       <label for="promo380" class="promo__label">
                         Выбрать
@@ -144,40 +144,9 @@
                       </label>
                     </div>
                   </li>
-                  <li class="promo__item">
-                    <div class="promo__header">
-                      <h3 class="promo__item-title">2 гинеколог </h3>
-                      <span class="promo__subtitle">Консультация онлайн </span>
-                    </div>
-                    <ul class="promo__item-list">
-                      <li class="promo__item-item">
-                        Гарантированная консультация
-                      </li>
-                      <li class="promo__item-item">
-                        Профессиональный ответ
-                      </li>
-                      <li class="promo__item-item">
-                        Уведомление на почту бесплатно
-                      </li>
-                    </ul>
-                    <div class="promo__bottom">
-                      <span class="promo__price">
-                        968 &#8381;
-                      </span>
-                      <input type="radio" id="promo880" name="Sum" stadart-price="968" hidden type="text"
-                        class="promo__input-radio">
-                      <label for="promo880" class="promo__label">
-                        Выбрать
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 20"
-                          style="margin-left: 8px;width: 20px;">
-                          <path fill="#fff"
-                            d="M9.457 14.531a.624.624 0 01-.442-1.067l3.308-3.308-3.308-3.308a.625.625 0 01.884-.884l3.75 3.75a.625.625 0 010 .884l-3.75 3.75a.623.623 0 01-.442.183z">
-                          </path>
-                        </svg>
-                      </label>
-                    </div>
-                  </li>
-                  <li class="promo__item">
+				@endforeach
+				
+                 <!-- <li class="promo__item">
                     <div class="promo__header">
                       <h3 class="promo__item-title">Документы 1 врач
                       </h3>
@@ -285,9 +254,8 @@
                         </svg>
                       </label>
                     </div>
-                  </li>
+                  </li>-->
                 </ul>
-                >>>>>>> 746aa64577516b04307edd605d1e57e110dc827f
               </div>
             </div>
           </div>
