@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Consultation\Consultation;
 use App\Models\Tariff\Rubric;
+use App\Models\Tariff\Tariff;
 
 class PaymentController extends Controller
 {
@@ -44,18 +45,14 @@ class PaymentController extends Controller
             ->where('id', $id)
             ->firstOrFail();
 			
-			
-			
 		$tariffs = DB::table('sf_consultation_tariff')
             ->join('sf_consultation_tariff_rubric', 'sf_consultation_tariff.id', '=', 'sf_consultation_tariff_rubric.tariff_id')
 			->where('sf_consultation_tariff_rubric.rubric_id', $consultation->rubric_id)
 			->where('sf_consultation_tariff.is_active', true)
 			->orderBy('position', 'asc')
             ->get();
-			
-		dump($tariffs);
 		
-		return view('payment.consultation', compact('consultation', 'tariffs'));
+		return view('payment.index', compact('consultation', 'tariffs'));
     }
 
     /**

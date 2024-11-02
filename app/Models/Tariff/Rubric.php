@@ -11,6 +11,6 @@ class Rubric extends Model
     protected $table = 'sf_consultation_tariff_rubric';
 	
 	public function tariffs() {
-        return $this->belongsToMany(Tariff::class, 'sf_consultation_tariff_rubric', 'tariff_id', 'rubric_id', 'd');
+        return $this->belongsToMany(Tariff::class, 'sf_consultation_tariff_rubric', 'tariff_id', 'rubric_id');
     }
 }
