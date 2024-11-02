@@ -65,6 +65,11 @@
                             value="{{ $tariff->fee }}">
                         </li>
                         <li class="form__input-wrapper">
+                          <label class="form__label" for="sum">Ночной гонорар</label>
+                          <input class="form__input @error('night_fee')input-error @enderror" type="text" id="night_fee" name="night_fee"
+                            value="{{ $tariff->night_fee }}">
+                        </li>
+                        <li class="form__input-wrapper">
                           <span class="form__select-title" for="condition_id">Состояние</span>
                           <div class="form__select-wrapper form__select-wrapper-standart">
                             <img src="{{ Storage::url('dashboard/expand-more.svg') }}" alt="" class="form__status-arrow">

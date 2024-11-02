@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Consultation;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\Controller;
 use App\Models\Consultation\Consultation;
@@ -17,6 +18,7 @@ use App\Http\Requests\ConsultationUpdateRequest;
 use App\Services\ConsultationService;
 use App\Services\BookingService;
 use App\Events\ConsultationCreated;
+
 use Carbon\Carbon;
 
 class ConsultationController extends Controller
@@ -54,11 +56,20 @@ class ConsultationController extends Controller
 		
 		$user_id = auth()->id();
 		
+		$dateTimeString = $consultation->created_at;
+		$dateTime = Carbon::parse($dateTimeString);
+
+		$currentHour = $dateTime->format('H:i');
+		
 		$hasBooking = Consultation::hasBooking($consultation->id, $user_id);
 		$canBooking = Booking::canBooking($consultation->id);
 		$hasAnswerForm = Settings::hasAnswerForm($user_id);
 		
-		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm'));
+		$photos = DB::table('sf_consultation_comment_photo')
+        ->where('comment_id', $id)
+        ->get();
+		
+		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos'));
     }
 	
     public function index()

@@ -26,7 +26,8 @@
                   <span class="pages__title-tariff-name">На сайте</span>
                   <span class="pages__title-tariff-number">Ответов</span>
                   <span class="pages__title-tariff-number">База</span>
-                  <span class="pages__title-tariff-number">Гонорар</span>
+                  <span class="pages__title-tariff-number">Дневной</span>
+                  <span class="pages__title-tariff-number">Ночной</span>
                   <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list pages__list">
@@ -38,15 +39,16 @@
                     <span class="pages__views-tariff-number">{{ $tariff->answers_count }}</span>
                     <span class="pages__views-tariff-number">{{ $tariff->sum }} &#8381;</span>
                     <span class="pages__views-tariff-number">{{ $tariff->fee }} &#8381;</span>
+                    <span class="pages__views-tariff-number">{{ $tariff->night_fee }} &#8381;</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
-                        <a href="/" target="_blank">
-                          <img src="/images/dashboard/edit.svg" alt="" class="pages__icon-img">
+                        <a href="{{ route('dashboard.tariff.edit', $tariff->id)}}" target="_blank">
+                          <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="pages__icon-img">
                         </a>
                       </div>
                       <div class="pages__icon">
-                        <a class="delete-link" href="/">
-                          <img src="/images/dashboard/del.svg" alt="" class="pages__icon-img">
+                        <a class="delete-link" href="#">
+                          <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="pages__icon-img">
                         </a>
                       </div>
                     </div>

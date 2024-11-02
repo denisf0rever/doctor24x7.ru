@@ -28,13 +28,10 @@
                 </svg>
                 <div class="custom-select__wrapper custom-select__hide small-menu__menu">
                   <ul class="small-menu__menu-list">
+                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link" href="{{ route('dashboard.consultation.edit', $consultation->id )}}">Редактировать</a>
+                    </li>
                     <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
-                        href="/">Удалить</a></li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link" href="/">Редактировать</a>
-                    </li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link" href="/">Заблокировать
-                        ответ</a>
-                    </li>
+                        href="{{ route('dashboard.consultation.destroy', $consultation->id )}}">Удалить</a></li>
                   </ul>
                 </div>
               </div>
@@ -47,6 +44,15 @@
                   <p id="question-fullname">{{ $consultation->username }}</p>,
                   <p id="question-email">{{ $consultation->email }}</p>,
                   <p id="question-age">Возраст пациента: {{ $consultation->age/365 }}</p>
+                </div> 
+				
+				<!-- ФОТКИ --> 
+				<div class="consultation__item">
+                  <ul>@foreach ($photos as $photo)
+						
+						<li><a href="https://puzkarapuz.ru/{{ $photo->path }}" target="_blank"><img src="https://puzkarapuz.ru/{{ $photo->path }}" alt="Фото консультации" width="450px"></a></li>
+					@endforeach
+					</ul>
                 </div>
               </div>
             </div>
@@ -61,7 +67,11 @@
                 </li>
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->tariff->sum }} &#8381;</div>
-                  <div class="stats__text">По тарифу</div>
+                  <div class="stats__text">Тариф</div>
+                </li>
+				<li class="stats__item">
+                  <div class="stats__number">Сценарий</div>
+                  <div class="stats__text">{{ $consultation->tariff->title }}</div>
                 </li>
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->tariff->answers_count }}</div>
@@ -80,7 +90,11 @@
                   <div class="stats__text">Коэффицент</div>
                 </li>
                 <li class="stats__item">
-                  <div class="stats__number">{{ $consultation->tariff->fee }} &#8381;</div>
+                  <div class="stats__number">@if ($currentHour >= '22:00' || $currentHour < '08:00')
+				  {{ $consultation->tariff->night_fee }}
+					@else
+					{{ $consultation->tariff->fee }}
+					@endif &#8381;</div>
                   <div class="stats__text">Гонорар</div>
                 </li>
                 <li class="stats__item">
@@ -90,7 +104,7 @@
               </ul>
             </div>
           </section>
-
+		  
           @if ($canBooking)
           <section class="main__booking booking">
             <div class="booking__wrapper white-block">

@@ -75,6 +75,7 @@ class TariffController extends Controller
 			'answers_count' => 'nullable|integer',
 			'sum' => 'nullable|numeric',
 			'fee' => 'nullable|numeric',
+			'night_fee' => 'nullable|numeric',
 			'condition_id' => 'nullable|integer',
 			'position' => 'nullable|integer',
 			'is_phone' => 'nullable|boolean',
@@ -95,6 +96,7 @@ class TariffController extends Controller
 		$tariff->description_short = $request->input('description_short');
 		$tariff->sum = $request->input('sum');
 		$tariff->fee = $request->input('fee');
+		$tariff->night_fee = $request->input('night_fee');
 		$tariff->condition_id = null;
 		$tariff->position = $request->input('position');
 		$tariff->is_phone = $request->input('is_phone');
