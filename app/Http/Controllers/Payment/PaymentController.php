@@ -108,7 +108,7 @@ class PaymentController extends Controller
 			'terminalKey' => '1729778851350DEMO',
 			'Description' => 'Подарочная карта на 1000 рублей',
 			'Amount' => 10,
-			'OrderId' => '1',
+			'OrderId' => '$request->OrderId',
 			'Token' => '1iaDILU&TIstEwxv'
 		]);
 		
