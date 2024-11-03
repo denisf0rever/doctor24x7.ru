@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Payment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 use App\Models\Consultation\Consultation;
 use App\Models\Tariff\Rubric;
@@ -45,12 +46,32 @@ class PaymentController extends Controller
             ->where('id', $id)
             ->firstOrFail();
 			
-		$tariffs = DB::table('sf_consultation_tariff')
+		$tariffss = DB::table('sf_consultation_tariff')
             ->join('sf_consultation_tariff_rubric', 'sf_consultation_tariff.id', '=', 'sf_consultation_tariff_rubric.tariff_id')
 			->where('sf_consultation_tariff_rubric.rubric_id', $consultation->rubric_id)
 			->where('sf_consultation_tariff.is_active', true)
 			->orderBy('position', 'asc')
             ->get();
+		
+		
+		$tariffs = [];
+			
+		foreach ($tariffss as $tariff) {
+			 
+            if ($tariff->condition_id){
+                if (5 == $tariff->condition_id) {
+                    $is_show = 1;
+                }
+				
+                if (6 == $tariff->condition_id) {
+                    $is_show = 1;
+                }
+            }
+			
+            if($is_show){
+                $tariffs[] = $tariff; 
+            }
+        }
 		
 		return view('payment.index', compact('consultation', 'tariffs'));
     }
@@ -79,51 +100,20 @@ class PaymentController extends Controller
         //
     }
 	
-    public function init(string $id)
+    public function init(Request $request)
     {
-        $terminalKey = '1729778851350DEMO'; // Идентификатор терминала
-		$secretKey = '1iaDILU&TIstEwxv'; // Секретный ключ
-		$url = 'https://secure.tinkoff.ru/v2/Init'; // URL для инициации платежа
+		$response = Http::withHeaders([
+			'Content-Type' => 'application/json',
+		])->post('https://rest-api-test.tinkoff.ru/v2/Init', [
+			'terminalKey' => '1729778851350DEMO',
+			'Description' => 'Подарочная карта на 1000 рублей',
+			'Amount' => 10,
+			'OrderId' => '1',
+			'Token' => '1iaDILU&TIstEwxv'
+		]);
+		
+		dump($response);
 
-// Данные для запроса
-$data = [
-    'TerminalKey' => $terminalKey,
-    'Amount' => 10000, // Сумма в копейках (например, 10000 = 100 рублей)
-    'Currency' => 'RUB', // Валюта
-    'OrderId' => '123456', // Уникальный идентификатор заказа
-    'Description' => 'Тестовый платеж',
-    'SuccessURL' => 'https://doctor24x7.ru/payment/success', // URL для перенаправления при успехе
-    'FailURL' => 'https://doctor24x7.ru/payment/error' // URL для перенаправления при неуспехе
-];
-
-// Подписываем данные
-$dataToSign = $terminalKey . $data['OrderId'] . $data['Amount'] . $data['Currency'] . $data['Description'] . $data['SuccessURL'] . $data['FailURL'] . $secretKey;
-$data['Token'] = hash('sha256', $dataToSign);
-
-// Инициация платежа
-$options = [
-    'http' => [
-        'header' => "Content-Type: application/json\r\n",
-        'method' => 'POST',
-        'content' => json_encode($data),
-    ],
-];
-
-$context = stream_context_create($options);
-$response = file_get_contents($url, false, $context);
-
-// Обработка ответа
-if ($response === FALSE) {
-    die('Ошибка при инициации платежа');
-}
-
-$responseData = json_decode($response, true);
-
-// Выводим результат
-if ($responseData['Success']) {
-    echo "Оплата успешно инициирована. Ссылка на оплату: " . $responseData['PaymentURL'];
-} else {
-    echo "Ошибка: " . $responseData['Message'];
-}
-    }
+	}
+	
 }

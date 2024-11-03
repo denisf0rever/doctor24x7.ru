@@ -12,7 +12,10 @@
       <h2 class="payment-form__subtitle">Оплатите консультацию и получите гарантированный ответ</h2>
     </div>
     <div class="payment-form__wrapper">
-      <form action="/" class="payment-form__form">
+      <form action="{{ route('payment.consultation.init') }}" method="POST" class="payment-form__form">
+	   @csrf
+	   <input type="hidden" name="CustomerNumber" value="{{ $consultation->id }}">
+	   
         <div class="big-container payment-form__big-container">
           <div class="container payment-form__container">
             <div class="payment-form__first-radio first-radio">
