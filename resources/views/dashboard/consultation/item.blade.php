@@ -28,7 +28,8 @@
                 </svg>
                 <div class="custom-select__wrapper custom-select__hide small-menu__menu">
                   <ul class="small-menu__menu-list">
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link" href="{{ route('dashboard.consultation.edit', $consultation->id )}}">Редактировать</a>
+                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
+                        href="{{ route('dashboard.consultation.edit', $consultation->id )}}">Редактировать</a>
                     </li>
                     <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
                         href="{{ route('dashboard.consultation.destroy', $consultation->id )}}">Удалить</a></li>
@@ -44,17 +45,20 @@
                   <p id="question-fullname">{{ $consultation->username }}</p>,
                   <p id="question-email">{{ $consultation->email }}</p>,
                   <p id="question-age">Возраст пациента: {{ $consultation->age/365 }}</p>
-                </div> 
-				
-				<!-- ФОТКИ --> 
-				<div class="consultation__item">
-				@if ($photos)
-                  <ul>@foreach ($photos as $photo)
-						
-						<li><a href="https://puzkarapuz.ru/{{ $photo->path }}" target="_blank"><img src="https://puzkarapuz.ru/{{ $photo->path }}" alt="Фото консультации" width="450px"></a></li>
-					@endforeach
-					</ul>
-				@endif
+                </div>
+
+                <!-- ФОТКИ -->
+                <div class="consultation__gallery">
+                  @if ($photos)
+                  <ul class="consultation__gallery-list">@foreach ($photos as $photo)
+
+                    <li class="consultation__gallery-item"><a class="consultation__gallery-link"
+                        href="https://puzkarapuz.ru/{{ $photo->path }}" data-fancybox="gallery" target="_blank"><img
+                          src="https://puzkarapuz.ru/{{ $photo->path }}" class="consultation__gallery-img"
+                          alt="Фото консультации" width="450px"></a></li>
+                    @endforeach
+                  </ul>
+                  @endif
                 </div>
               </div>
             </div>
@@ -71,7 +75,7 @@
                   <div class="stats__number">{{ $consultation->tariff->sum }} &#8381;</div>
                   <div class="stats__text">Тариф</div>
                 </li>
-				<li class="stats__item">
+                <li class="stats__item">
                   <div class="stats__number">Сценарий</div>
                   <div class="stats__text">{{ $consultation->tariff->title }}</div>
                 </li>
@@ -92,12 +96,9 @@
                   <div class="stats__text">Коэффицент</div>
                 </li>
                 <li class="stats__item">
-                  <div class="stats__number">@if ($currentHour >= '22:00' || $currentHour < '08:00')
-				  {{ $consultation->tariff->night_fee }}
-					@else
-					{{ $consultation->tariff->fee }}
-					@endif &#8381;</div>
-                  <div class="stats__text">Гонорар</div>
+                  <div class="stats__number">@if ($currentHour >= '22:00' || $currentHour < '08:00' )
+                      {{ $consultation->tariff->night_fee }} @else {{ $consultation->tariff->fee }} @endif &#8381;</div>
+                      <div class="stats__text">Гонорар</div>
                 </li>
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->visit_count }}</div>
@@ -106,7 +107,7 @@
               </ul>
             </div>
           </section>
-		  
+
           @if ($canBooking)
           <section class="main__booking booking">
             <div class="booking__wrapper white-block">

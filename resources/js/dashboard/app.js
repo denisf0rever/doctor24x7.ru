@@ -1,5 +1,8 @@
 import { ClassicEditor, Essentials, Bold, Italic, Font, Paragraph, BlockQuote, Link } from 'ckeditor5';
 
+import { Fancybox } from "@fancyapps/ui";
+
+
 import 'ckeditor5/ckeditor5.css';
 
 window.onload = () => {
@@ -490,4 +493,16 @@ window.onload = () => {
   }
 
   /*КНОПКА "СКОПИРОВАТЬ" */
+
+  /*ГАЛЕРЕЯ */
+
+  Fancybox.bind("[data-fancybox]", {
+    loop: true,
+    buttons: [
+      "zoom",
+      "close"
+    ]
+  });
+
+  /*ГАЛЕРЕЯ */
 }
