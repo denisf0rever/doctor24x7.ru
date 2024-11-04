@@ -46,34 +46,39 @@ class PaymentController extends Controller
             ->where('id', $id)
             ->firstOrFail();
 			
-		$tariffss = DB::table('sf_consultation_tariff')
+		$tariffs = DB::table('sf_consultation_tariff')
             ->join('sf_consultation_tariff_rubric', 'sf_consultation_tariff.id', '=', 'sf_consultation_tariff_rubric.tariff_id')
 			->where('sf_consultation_tariff_rubric.rubric_id', $consultation->rubric_id)
 			->where('sf_consultation_tariff.is_active', true)
 			->orderBy('position', 'asc')
             ->get();
-		
-		
-		$tariffs = [];
 			
-		foreach ($tariffss as $tariff) {
-			 
-            if ($tariff->condition_id){
-                if (5 == $tariff->condition_id) {
-                    $is_show = 1;
-                }
+		$hasPhoto = DB::table('sf_consultation_comment_photo')
+			->where('comment_id', $consultation->id)
+			->count();
+		
+		$tariffArray = [];
+		$is_show = false;
+		
+		foreach ($tariffs as $tariff) {
+			if (null === $tariff->condition_id) {
+				$is_show = 1;
+			}
 				
-                if (6 == $tariff->condition_id) {
-                    $is_show = 1;
-                }
-            }
+			if (5 == $tariff->condition_id) {
+				$is_show = $hasPhoto == 0;
+			}
+			
+			if (6 == $tariff->condition_id) {
+				$is_show = $hasPhoto > 0;
+			}
 			
             if($is_show){
-                $tariffs[] = $tariff; 
+                $tariffArray[] = $tariff; 
             }
         }
 		
-		return view('payment.index', compact('consultation', 'tariffs'));
+		return view('payment.index', compact('consultation', 'tariffArray'));
     }
 
     /**
@@ -102,18 +107,27 @@ class PaymentController extends Controller
 	
     public function init(Request $request)
     {
+		$data = [
+			'Amount' => 10*100,
+			'Description' => 'Подарочная карта на 1000 рублей',
+			'OrderId' => '444',
+			'Password' => '1iaDILU&TIstEwxv',
+			'TerminalKey' => '1729778851350'
+		];
+	
+	 
+		$concatenatedString = implode('', $data);
+		$hashedString = hash('sha256', $concatenatedString);
+		$data['Token'] = $hashedString;
+		unset($data['Password']);
+		
+		$postDataJson = json_encode($data);
+		
 		$response = Http::withHeaders([
 			'Content-Type' => 'application/json',
-		])->post('https://rest-api-test.tinkoff.ru/v2/Init', [
-			'terminalKey' => '1729778851350DEMO',
-			'Description' => 'Подарочная карта на 1000 рублей',
-			'Amount' => 10,
-			'OrderId' => '$request->OrderId',
-			'Token' => '1iaDILU&TIstEwxv'
-		]);
+		])->post('https://rest-api-test.tinkoff.ru/v2/Init', $postDataJson);
 		
 		dump($response);
-
+		
 	}
-	
 }

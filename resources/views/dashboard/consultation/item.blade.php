@@ -48,11 +48,13 @@
 				
 				<!-- ФОТКИ --> 
 				<div class="consultation__item">
+				@if ($photos)
                   <ul>@foreach ($photos as $photo)
 						
 						<li><a href="https://puzkarapuz.ru/{{ $photo->path }}" target="_blank"><img src="https://puzkarapuz.ru/{{ $photo->path }}" alt="Фото консультации" width="450px"></a></li>
 					@endforeach
 					</ul>
+				@endif
                 </div>
               </div>
             </div>

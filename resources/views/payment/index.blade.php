@@ -113,7 +113,7 @@
               <div class="promo__wrapper">
                 <h2 class="promo__title">Выберите тариф</h2>
                 <ul class="promo__list">
-				@foreach($tariffs as $tariff)
+				@foreach($tariffArray as $tariff)
 					@include('payment.tariff', ['tariff'])
 				@endforeach
 				

@@ -3,7 +3,7 @@
                       <h3 class="promo__item-title">{{ $tariff->title }}</h3>
                       <span class="promo__subtitle">{{ $tariff->description }}</span>
                     </div>
-                    <ul class="promo__item-list">
+                    <!--<ul class="promo__item-list">
                       <li class="promo__item-item">
                         Гарантированная консультация
                       </li>
@@ -13,12 +13,12 @@
                       <li class="promo__item-item">
                         Уведомление на почту бесплатно
                       </li>
-                    </ul>
+                    </ul>-->
                     <div class="promo__bottom">
                       <span class="promo__price">
                         {{ $tariff->sum }} &#8381;
                       </span>
-                      <input type="radio" id="promo380" name="Sum" stadart-price="{{ $tariff->sum }}" hidden checked type="text"
+                      <input type="radio" id="promo{{ $tariff->id }}" name="Sum" stadart-price="{{ $tariff->sum }}" hidden checked type="text"
                         class="promo__input-radio">
                       <label for="promo380" class="promo__label">
                         Выбрать
