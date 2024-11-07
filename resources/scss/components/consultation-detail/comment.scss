@@ -53,7 +53,8 @@
     transform:rotate(-135deg)
   }
   &__text{
-    grid-row:2/3;grid-column:1/3;display:block;font-size:20px
+    grid-row:2/3;grid-column:1/3;display:block;font-size:20px;
+    margin-top: 10px;
   }
   &__paywall{
     grid-row: 2 / 3;
@@ -89,6 +90,80 @@
     color: var(--link-text);
     &:hover{
       color: var(--main-text);
+    }
+  }
+  &__likes-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__like-link{
+    width: 32px;
+    height: 32px;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &::before{
+      opacity: 0;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transition: opacity .1s ease, background-color .1s ease;
+      background-color: rgba(0, 11, 33, 0.06);
+      border-radius: 10px;
+    }
+    &:hover{
+      &::before{
+        opacity: 1;
+      }
+    }
+  }
+  &__dislike-link{
+    width: 32px;
+    height: 32px;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &::before{
+      opacity: 0;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transition: opacity .1s ease, background-color .1s ease;
+      background-color: rgba(0, 11, 33, 0.06);
+      border-radius: 10px;
+    }
+    &:hover{
+      &::before{
+        opacity: 1;
+      }
+    }
+  }
+  &__like-img{
+    width: 15px;
+    height: 15px;
+    svg{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__dislike-img{
+    width: 15px;
+    height: 15px;
+    transform: rotate(180deg);
+    svg{
+      width: 100%;
+      height: 100%;
     }
   }
 }

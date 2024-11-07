@@ -11,4 +11,13 @@
   &__list{
     margin-top:25px;display:flex;flex-direction:column;gap:20px
   }
+  &__full-form{
+    width: 100%;
+  }
+  &__form-fake{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 }
