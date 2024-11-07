@@ -62,7 +62,7 @@ class PaymentController extends Controller
 		
 		foreach ($tariffs as $tariff) {
 			if (null === $tariff->condition_id) {
-				$is_show = 1;
+				$is_show = true;
 			}
 				
 			if (5 == $tariff->condition_id) {
@@ -110,24 +110,72 @@ class PaymentController extends Controller
 		$data = [
 			'Amount' => 10*100,
 			'Description' => 'Подарочная карта на 1000 рублей',
-			'OrderId' => '444',
+			'OrderId' => '444ddd',
 			'Password' => '1iaDILU&TIstEwxv',
 			'TerminalKey' => '1729778851350'
 		];
-	
-	 
-		$concatenatedString = implode('', $data);
+				
+		ksort($data);
+		
+		$values = array_values($data);
+		 
+		$concatenatedString = implode('', $values);
+		
 		$hashedString = hash('sha256', $concatenatedString);
-		$data['Token'] = $hashedString;
 		unset($data['Password']);
+		$data['Token'] = $hashedString;
 		
 		$postDataJson = json_encode($data);
 		
-		$response = Http::withHeaders([
+		echo $postDataJson;
+		
+		/*
+		 $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://rest-api-test.tinkoff.ru/v2/Init");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postDataJson);
+
+    // Добавляем заголовки для указания того, что тело запроса содержит JSON
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'Content-Length: ' . strlen($postDataJson)
+    ]);
+
+    // Выполнение запроса и получение ответа
+    $output = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+	
+
+    if ($output === false || $httpCode !== 200) {
+        error_log('Не удалось выполнить запрос, HTTP код: ' . $httpCode);
+        return false;
+    }
+    $outputArray = json_decode($output, true); // true означает декодирование в массив
+    
+	
+	
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        error_log('Ошибка при декодировании JSON: ' . json_last_error_msg());
+        return false;
+    }
+
+    if (isset($outputArray['Success']) && $outputArray['Success'] === true 
+        && isset($outputArray['PaymentURL'])) {
+
+        return $outputArray['PaymentURL'];
+    } else {
+        error_log("Ссылка не пришла");
+        return false;
+    }
+	
+	
+		/*$response = Http::withHeaders([
 			'Content-Type' => 'application/json',
 		])->post('https://rest-api-test.tinkoff.ru/v2/Init', $postDataJson);
 		
-		dump($response);
+		echo $response;*/
 		
 	}
 }
