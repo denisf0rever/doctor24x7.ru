@@ -139,7 +139,12 @@
           </span>
         </div>
       </div>
-
+	  
+	  
+	    @foreach ($consultation->comments as $comment)
+		{{ $comment->id }}
+	  @endforeach
+	  
       <section class="main__experts-list experts-list">
         <h2 class="experts-list__title">Ответы врачей</h2>
         <div class="experts-list__wrapper section-wrapper">
@@ -153,30 +158,16 @@
           </a>
         </div>
       </section>
+	  
       <section class="main__comments comments">
-        <!-- <script language="javascript">
-        $(document).ready(function() {
-          $('.captcha_copy').attr('src', $('#captcha_img').attr('src'));
-          $('.captcha_copy + a').click(function(e) {
-            $('.captcha_copy').attr('src', $('#captcha_img').attr('src'));
-          });
-        });
-        </script> -->
-
-        <!---->
-
-
         <div class="comment__menu comment-menu comment-menu__hide">
           <div class="comment-menu__wrapper">
             <div class="comment-menu__header">Меню</div>
             <img src="/images/svg/close.svg" class="comment-menu__hide-button">
             <div class="comment-menu__buttons">
-
-
-            </div>
+			
+			</div>
             <ul class="comment-menu__contact-list">
-
-
               <li class="comment-menu__contact-item">
                 <a href="/consultation/messenger" class="comment-menu__contact-link">
                   <span class="comment-menu__contact-text">Whatsapp/Viber</span>
@@ -261,15 +252,13 @@
 
 
           <ul class="comments__list">
-
-
-
+		    @foreach ($consultation->comments as $comment)
             <li class="comments__item comment">
               <div class="comment__main-comment" id="answer300328">
                 <a href="/profile/elenamihailovna" class="comment__user-link" id="elenamihailovna">
-                  <img src="/uploads/sfGuard/avatars/ebe21773a3e3b955b3d43312bf5f41298e000639.jpg"
+                  <img src="//puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar }}"
                     class="comment__avatar-main">
-                  <span class="comment__user-name">Войцехович&nbsp;Елена&nbsp;Михайловна</span>
+                  <span class="comment__user-name">{{ $comment->username }}</span>
                   <span class="comment__user-subtitle">Республика Беларусь</span>
                 </a>
                 <div class="comment__menu-btn" data-id="300328">
@@ -282,11 +271,11 @@
 
                 <span class="comment__text" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
                   <p>Здравствуйте, Арина </p>
-                  <p itemprop="text">В описанной Вами ситуации заражение полностью исключено.</p>
+                  <p itemprop="text">{{ $comment->description }}</p>
 
                 </span>
                 <div class="comment__answer-field-fake">
-                  <div class="comments__form-fake" data-id="300328">
+                  <div class="comments__form-fake" data-id="{{ $comment->id }}">
                     <span class="comment__answ">Ответить</span>
                     <div class="comment__likes-wrapper">
                       <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
@@ -484,6 +473,7 @@
               </div>
 
             </li>
+			@endforeach
 
             <li class="comments__item comment">
 
