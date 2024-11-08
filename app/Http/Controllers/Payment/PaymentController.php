@@ -127,10 +127,7 @@ class PaymentController extends Controller
 		
 		$postDataJson = json_encode($data);
 		
-		echo $postDataJson;
-		
-		/*
-		 $ch = curl_init();
+		 /*$ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://rest-api-test.tinkoff.ru/v2/Init");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
@@ -147,6 +144,7 @@ class PaymentController extends Controller
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 	
+	echo  $output;
 
     if ($output === false || $httpCode !== 200) {
         error_log('Не удалось выполнить запрос, HTTP код: ' . $httpCode);
@@ -169,13 +167,13 @@ class PaymentController extends Controller
         error_log("Ссылка не пришла");
         return false;
     }
+	*/
 	
-	
-		/*$response = Http::withHeaders([
+		$response = Http::withHeaders([
 			'Content-Type' => 'application/json',
 		])->post('https://rest-api-test.tinkoff.ru/v2/Init', $postDataJson);
 		
-		echo $response;*/
+		echo $response;
 		
 	}
 }
