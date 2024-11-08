@@ -129,5 +129,8 @@ ul.question__select-list{
     &__icon-last{
       flex: 1.6;
     }
+    &__text{
+      text-align: justify;
+    }
   }
 }

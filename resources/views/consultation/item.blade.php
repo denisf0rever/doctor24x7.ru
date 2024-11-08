@@ -289,7 +289,7 @@
                   <div class="comments__form-fake" data-id="300328">
                     <span class="comment__answ">Ответить</span>
                     <div class="comment__likes-wrapper">
-                      <a href="/" class="comment__like-link">
+                      <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
                         <div class="comment__like-img">
                           <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -394,7 +394,7 @@
                     <div class="comments__form-fake" data-id="300330">
                       <span class="comment__answ">Ответить</span>
                       <div class="comment__likes-wrapper">
-                        <a href="/" class="comment__like-link">
+                        <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
                           <div class="comment__like-img">
                             <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
                               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -501,7 +501,7 @@
                   <div class="comments__form-fake" data-id="300329">
                     <span class="comment__answ">Ответить</span>
                     <div class="comment__likes-wrapper">
-                      <a href="/" class="comment__like-link">
+                      <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
                         <div class="comment__like-img">
                           <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
