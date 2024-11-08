@@ -303,7 +303,7 @@
                           </svg>
                         </div>
                       </a>
-                      <div class="comment__like-amount">0</div>
+                      <div class="comment__like-amount">{{ $comment->like->likes ? $comment->like->likes : '' }}</div>
                       <a href="{{ route('consultation.dislike', $comment->id) }}" class="comment__dislike-link">
                         <div class="comment__dislike-img">
                           <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
