@@ -92,9 +92,27 @@ class ConsultationAnswerController extends Controller
 		}
     }
 	
-	public function like(string $id)
+	public function like(Request $request, string $id)
 	{
+		$state = $request->state;
 		$like = Like::firstOrCreate(['comment_id' => $id]);
-		$like->increment('likes');
+		
+		if($request->state == 1) {
+			$like->increment('likes');
+		} else {
+			$like->decrement('likes');
+		}
+	}
+	
+	public function dislike(Request $request, string $id)
+	{
+		$state = $request->state;
+		$like = Like::firstOrCreate(['comment_id' => $id]);
+		
+		if($request->state == 1) {
+			$like->increment('dislikes');
+		} else {
+			$like->decrement('dislikes');
+		}
 	}
 }

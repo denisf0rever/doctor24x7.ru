@@ -135,11 +135,6 @@
         </div>
       </div>
 	  
-	  
-	    @foreach ($consultation->comments as $comment)
-		{{ $comment->id }}
-	  @endforeach
-	  
       <section class="main__experts-list experts-list">
         <h2 class="experts-list__title">Ответы врачей</h2>
         <div class="experts-list__wrapper section-wrapper">
@@ -254,7 +249,7 @@
                   <img src="//puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar }}"
                     class="comment__avatar-main">
                   <span class="comment__user-name">{{ $comment->username }}</span>
-                  <span class="comment__user-subtitle">Республика Беларусь</span>
+                  <span class="comment__user-subtitle">{{ $comment->user->city }}</span>
                 </a>
                 <div class="comment__menu-btn" data-id="300328">
                   <svg class="comment__menu-btn-svg">
@@ -308,8 +303,8 @@
                           </svg>
                         </div>
                       </a>
-                      <div class="comment__like-amount">{{ $comment->like->likes }}</div>
-                      <a href="/" class="comment__dislike-link">
+                      <div class="comment__like-amount">0</div>
+                      <a href="{{ route('consultation.dislike', $comment->id) }}" class="comment__dislike-link">
                         <div class="comment__dislike-img">
                           <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -351,19 +346,7 @@
               </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
               <div class="comment__sub-comments" id="answer300330">
-
                 <div class="comment__sub-comment" id="answer300330">
                   <a href="#" class="comment__user-link">
                     <img src="/images/svg/profile-comment.svg" alt="" class="comment__avatar-sub">
@@ -572,24 +555,18 @@
               </div>
 
               <div class="comment__sub-comments" id="answer300331">
-
                 <div class="comment__paywall paywall">
                   <div class="paywall__wrapper">
-                    <div class="paywall__title">
-                      Этот материал входит в подписку с доступом к разделу «Основной»
-                    </div>
-                    <div class="paywall__subtitle">Прочитайте этот материал, чтобы узнать:</div>
+                    <div class="paywall__title">Этот ответ недоступен</div>
+                    <div class="paywall__subtitle">Возможные причины:</div>
                     <ul class="paywall__list">
-                      <li class="paywall__item">можно ли привлечь к ответственности маркетплейс за продажу контрафакта;
-                      </li>
-                      <li class="paywall__item">как взыскать убытки с торговой площадки, если она не выполняет свои
-                        обязанности по сохранности товара;</li>
-                      <li class="paywall__item">как суды относятся к возможности взыскания упущенной выгоды.</li>
+                      <li class="paywall__item">Не оплачена опция чат;</li>
+                      <li class="paywall__item">Новый вопрос, не относящийся к первоначальному запросу;</li>
+                      <li class="paywall__item">Ситуация затянулась либо превысила стандартное время консультации.</li>
                     </ul>
-                    <a href="#" class="paywall__button">Оформить подписку</a>
+                    <a href="#" class="paywall__button">Разблокировать ответ</a>
                   </div>
                 </div>
-
               </div>
 
 
