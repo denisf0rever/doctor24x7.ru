@@ -5,11 +5,6 @@
 @section('canonical', 'consultation/detail/'. $consultation->id)
 
 @section('content')
-</title>
-<meta name="description" content="Консультация врача, вопрос: Гормональные таблетки">
-<meta name="keywords" content="Вопрос гинекологу">
-
-
 <main class="main">
   <div class="main__wrapper-main container">
     <div class="main__content">
@@ -313,7 +308,7 @@
                           </svg>
                         </div>
                       </a>
-                      <div class="comment__like-amount">10</div>
+                      <div class="comment__like-amount">{{ $comment->like->likes }}</div>
                       <a href="/" class="comment__dislike-link">
                         <div class="comment__dislike-img">
                           <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
@@ -526,7 +521,7 @@
                           </svg>
                         </div>
                       </a>
-                      <div class="comment__like-amount">10</div>
+                      <div class="comment__like-amount">{{ $comment->like }}</div>
                       <a href="/" class="comment__dislike-link">
                         <div class="comment__dislike-img">
                           <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
