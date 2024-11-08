@@ -155,6 +155,9 @@
   &__like-img{
     width: 17px;
     height: 17px;
+    &-active{
+      background-color: red;
+    }
     svg{
       width: 100%;
       height: 100%;
