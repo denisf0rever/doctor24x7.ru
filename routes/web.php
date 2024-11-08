@@ -35,6 +35,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::get('/consultation/comment', [ConsultationController::class, 'form'])->name('consult.form');
 	Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'consultation'])->name('consultation.item');
 	Route::post('/consultation/post', [ConsultationController::class, 'create'])->name('consult.create');
+	Route::post('/consultation/answer/like', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');

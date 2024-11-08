@@ -12,6 +12,7 @@ use App\Models\Consultation\Booking;
 use App\Models\Tariff\Tariff;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\ConsultationComment as Comment;
+use App\Models\Consultation\CommentLike as Like;
 use App\Models\Settings\UserSettings as Settings;
 use App\Http\Requests\ConsultationRequest;
 use App\Http\Requests\ConsultationUpdateRequest;
@@ -42,7 +43,7 @@ class ConsultationController extends Controller
 			[720, 725],
 			fn () => Comment::count()
 		);
-		
+			
 		return view('dashboard.consultation.list', compact('consultations', 'totalConsultations', 'totalAnswers'));
 	}
 	
@@ -102,12 +103,21 @@ class ConsultationController extends Controller
     {
 		$consultation = Consultation::query()
             ->where('id', $id)
+			->with(['comments' => fn($comments) => $comments->where('to_answer_id', null)])
             ->firstOrFail();
 			
 		//$this->incrementView($id);
 		
 		return view('consultation.item', compact('consultation'));
     }
+	
+	public function like(string $id)
+	{
+		$id = $comment->id;
+		
+		$like = Like::firstOrCreate(['comment_id' => $comment->id]);
+		$like->increment('likes');
+	}
 
     public function edit(string $id)
     {

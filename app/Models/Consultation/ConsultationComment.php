@@ -41,6 +41,11 @@ class ConsultationComment extends Model
 		return $this->belongsTo(UserMain::class);
 	}
 	
+	public function like()
+    {
+        return $this->hasOne(CommmentLike::class);
+    }
+	
 	// Вернет true если ответов нет, и false если ответы есть
 	public static function hasAnswer($consultation_id, $user_id): bool
 	{
