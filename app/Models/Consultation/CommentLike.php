@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class CommentLike extends Model
 {
+	public $timestamps = false;
+
     protected $table = 'sf_consultation_comment_answer_like';
+	
+	protected $fillable = ['comment_id'];
 	
 	public function comment()
     {

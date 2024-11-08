@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\ConsultationComment as Comment;
+use App\Models\Consultation\CommentLike as Like;
 use App\Services\CommentService;
 use App\Events\AnswerToAuthorCreated;
 
@@ -90,4 +91,10 @@ class ConsultationAnswerController extends Controller
 			 return redirect()->back()->with('success', 'Ответ заблокирован');
 		}
     }
+	
+	public function like(string $id)
+	{
+		$like = Like::firstOrCreate(['comment_id' => $id]);
+		$like->increment('likes');
+	}
 }
