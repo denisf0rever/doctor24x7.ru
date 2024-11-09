@@ -134,7 +134,7 @@
           </span>
         </div>
       </div>
-	  
+
       <section class="main__experts-list experts-list">
         <h2 class="experts-list__title">Ответы врачей</h2>
         <div class="experts-list__wrapper section-wrapper">
@@ -148,15 +148,15 @@
           </a>
         </div>
       </section>
-	  
+
       <section class="main__comments comments">
         <div class="comment__menu comment-menu comment-menu__hide">
           <div class="comment-menu__wrapper">
             <div class="comment-menu__header">Меню</div>
             <img src="/images/svg/close.svg" class="comment-menu__hide-button">
             <div class="comment-menu__buttons">
-			
-			</div>
+
+            </div>
             <ul class="comment-menu__contact-list">
               <li class="comment-menu__contact-item">
                 <a href="/consultation/messenger" class="comment-menu__contact-link">
@@ -242,7 +242,7 @@
 
 
           <ul class="comments__list">
-		    @foreach ($consultation->comments as $comment)
+            @foreach ($consultation->comments as $comment)
             <li class="comments__item comment">
               <div class="comment__main-comment" id="answer300328">
                 <a href="/profile/elenamihailovna" class="comment__user-link" id="elenamihailovna">
@@ -270,7 +270,7 @@
                     <div class="comment__likes-wrapper">
                       <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
                         <div class="comment__like-img">
-                          <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
+                          <!-- <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             viewBox="0 0 512 512" xml:space="preserve">
                             <g>
@@ -300,7 +300,7 @@
                               <path
                                 d="M80,264c-8.822,0-16,7.178-16,16s7.178,16,16,16s16-7.178,16-16S88.822,264,80,264z" />
                             </g>
-                          </svg>
+                          </svg> -->
                         </div>
                       </a>
                       <div class="comment__like-amount">{{ $comment->like->likes ? $comment->like->likes : '' }}</div>
@@ -451,7 +451,7 @@
               </div>
 
             </li>
-			@endforeach
+            @endforeach
 
             <li class="comments__item comment">
 
