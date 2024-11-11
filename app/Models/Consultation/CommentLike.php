@@ -10,7 +10,10 @@ class CommentLike extends Model
 
     protected $table = 'sf_consultation_comment_answer_like';
 	
-	protected $fillable = ['comment_id'];
+	protected $fillable = [
+		'comment_id',
+		'ip'
+	];
 	
 	public function comment()
     {

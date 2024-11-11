@@ -271,10 +271,10 @@
             <li class="comments__item comment">
               <div class="comment__main-comment" id="answer300328">
                 <a href="/profile/elenamihailovna" class="comment__user-link" id="elenamihailovna">
-                  <img src="//puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user->avatar }}"
+                  <img src="//puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user ? $comment->user->avatar : '' }}"
                     class="comment__avatar-main">
                   <span class="comment__user-name">{{ $comment->username }}</span>
-                  <span class="comment__user-subtitle">{{ $comment->user->city }}</span>
+                  <span class="comment__user-subtitle">{{ $comment->user ? $comment->user->city : '' }}</span>
                 </a>
                 <div class="comment__menu-btn" data-id="300328">
                   <svg class="comment__menu-btn-svg">
@@ -300,7 +300,7 @@
                           </svg>
                         </div>
                       </a>
-                      <div class="comment__like-amount">{{ $comment->like->likes ? $comment->like->likes : '' }}</div>
+                      <div class="comment__like-amount">{{ $comment->like ? $comment->like->likes : '' }}</div>
                       <a href="{{ route('consultation.dislike', $comment->id) }}" class="comment__dislike-link">
                         <div class="comment__dislike-img">
                           <svg viewBox="0 0 24 24" width="16" height="16">

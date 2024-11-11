@@ -47,7 +47,6 @@ class ConsultationAnswerController extends Controller
 		if ($comment) {
 			 return redirect()->back()->with('success', 'Ответ удален');
 		}
-    
 	}
 	
 	public function edit(string $id)
@@ -57,7 +56,6 @@ class ConsultationAnswerController extends Controller
             ->firstOrFail();
 
 		return view('dashboard.consultation.edit-answer', compact('comment'));
-    
 	}
 	
 	public function update(CommentRequest $request, string $id)
@@ -95,7 +93,7 @@ class ConsultationAnswerController extends Controller
 	public function like(Request $request, string $id)
 	{
 		$state = $request->state;
-		$like = Like::firstOrCreate(['comment_id' => $id]);
+		$like = Like::firstOrCreate(['comment_id' => $id, 'ip' => $request->ip() ]);
 		
 		if($request->state == 1) {
 			$like->increment('likes');
