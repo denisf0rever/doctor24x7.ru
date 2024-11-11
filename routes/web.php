@@ -42,8 +42,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');
 	Route::post('/payment/consultation', [PaymentController::class, 'create'])->name('payment.consultation.create');
-	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.consultation.init');
-	
+	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.consultation.init');	
 	
 	// Профиль
 	Route::get('/profile/{slug}', [\App\Http\Controllers\User\UserController::class, 'show'])->name('user.profile.item');

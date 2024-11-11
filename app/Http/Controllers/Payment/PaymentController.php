@@ -6,10 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 use App\Models\Consultation\Consultation;
 use App\Models\Tariff\Rubric;
 use App\Models\Tariff\Tariff;
+use App\Mail\Payment\PaymentStatus;
+
+use Log;
 
 class PaymentController extends Controller
 {
@@ -105,75 +109,47 @@ class PaymentController extends Controller
         //
     }
 	
+	public function status(Request $request)
+    {
+		//Log::channel('payment')->info('Payment Notification:', $request->all());
+		
+		//Mail::to('predlozhi@bk.ru')->send(new PaymentStatus('ff'));
+		
+        return response('', 200);
+    }
+	
     public function init(Request $request)
     {
 		$data = [
 			'Amount' => 10*100,
 			'Description' => 'Подарочная карта на 1000 рублей',
-			'OrderId' => '444ddd',
-			'Password' => '1iaDILU&TIstEwxv',
-			'TerminalKey' => '1729778851350'
+			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
+			'OrderId' => '4ggggвыывввыdddfddfddfddsа',
+			'Password' => 'UNUKBp3_0OMdREha',
+			'TerminalKey' => '1729778851371'
 		];
-				
-		ksort($data);
 		
 		$values = array_values($data);
 		 
 		$concatenatedString = implode('', $values);
 		
 		$hashedString = hash('sha256', $concatenatedString);
+		
 		unset($data['Password']);
+		
 		$data['Token'] = $hashedString;
 		
 		$postDataJson = json_encode($data);
 		
-		 /*$ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://rest-api-test.tinkoff.ru/v2/Init");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postDataJson);
-
-    // Добавляем заголовки для указания того, что тело запроса содержит JSON
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'Content-Length: ' . strlen($postDataJson)
-    ]);
-
-    // Выполнение запроса и получение ответа
-    $output = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+		$response = Http::post('https://securepay.tinkoff.ru/v2/Init', $data);
 	
-	echo  $output;
-
-    if ($output === false || $httpCode !== 200) {
-        error_log('Не удалось выполнить запрос, HTTP код: ' . $httpCode);
-        return false;
-    }
-    $outputArray = json_decode($output, true); // true означает декодирование в массив
-    
-	
-	
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        error_log('Ошибка при декодировании JSON: ' . json_last_error_msg());
-        return false;
-    }
-
-    if (isset($outputArray['Success']) && $outputArray['Success'] === true 
-        && isset($outputArray['PaymentURL'])) {
-
-        return $outputArray['PaymentURL'];
-    } else {
-        error_log("Ссылка не пришла");
-        return false;
-    }
-	*/
-	
-		$response = Http::withHeaders([
-			'Content-Type' => 'application/json',
-		])->post('https://rest-api-test.tinkoff.ru/v2/Init', $postDataJson);
+		$decode_response = json_decode($response, true);
 		
-		echo $response;
-		
+		if (isset($decode_response['PaymentURL'])) {
+			$paymentUrl = $decode_response['PaymentURL'];
+			return redirect($paymentUrl);
+		} else {
+			return response()->json(['error' => 'Ошибка при отправке запроса'], $response->status());
+		}
 	}
 }
