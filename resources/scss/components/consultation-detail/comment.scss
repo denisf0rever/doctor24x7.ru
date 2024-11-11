@@ -208,14 +208,6 @@
   }
 }
 
-@media (max-width: 576px) {
-  .comment{
-    &__text{
-      text-align: justify;
-    }
-  }
-}
-
 @media (max-width: 450px) {
   .comment{
     &__sub-comment{
