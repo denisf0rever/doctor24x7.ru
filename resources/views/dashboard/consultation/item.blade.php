@@ -177,7 +177,7 @@
           <div class="comment" answer-id="{{ $comment->id }}" answer-author_username="{{ $comment->username }}"
             answer-author_email="{{ $comment->email }}">
             <div class="comment__wrapper white-block">
-              <div class="small-menu small-menu__menu-btn custom-select" data-id="300330">
+              <div class="small-menu small-menu__menu-btn custom-select" data-id="{{ $comment->id }}">
                 <svg class="small-menu__menu-btn-svg">
                   <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
                   <circle r="2" fill="#000" cx="50%" cy="25%"></circle>

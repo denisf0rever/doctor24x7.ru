@@ -66,8 +66,8 @@ class ConsultationController extends Controller
 		$hasAnswerForm = Settings::hasAnswerForm($user_id);
 		
 		$photos = DB::table('sf_consultation_comment_photo')
-        ->where('comment_id', $id)
-        ->get();
+			->where('comment_id', $id)
+			->get();
 		
 		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos'));
     }
@@ -100,9 +100,13 @@ class ConsultationController extends Controller
 	// Просмотр консультации в паблике
     public function consultation(string $id)
     {
+		$ipAddress = request()->ip();
+		
 		$consultation = Consultation::query()
             ->where('id', $id)
-			->with(['comments' => fn($comments) => $comments->where('to_answer_id', null)->withCount('like')])
+			->with(['comments' => fn ($comments) => $comments->where('to_answer_id', null)
+					->withCount('like')
+					->with(['like' => fn ($like) => $like->where('ip', $ipAddress)])])
             ->firstOrFail();
 			
 		//$this->incrementView($id);
