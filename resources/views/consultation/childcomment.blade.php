@@ -23,7 +23,7 @@
                             </svg>
                           </div>
                         </a>
-                        <div class="comment__like-amount">10</div>
+                        <div class="comment__like-amount">{{ $comment->like_count > 0 ? $comment->like_count : '' }}</div>
                         <a href="/" class="comment__dislike-link">
                           <div class="comment__dislike-img">
                             <svg viewBox="0 0 24 24" width="16" height="16">
