@@ -102,7 +102,7 @@ class ConsultationController extends Controller
     {
 		$consultation = Consultation::query()
             ->where('id', $id)
-			->with(['comments' => fn($comments) => $comments->where('to_answer_id', null)->with('like')])
+			->with(['comments' => fn($comments) => $comments->where('to_answer_id', null)->withCount('like')])
             ->firstOrFail();
 			
 		//$this->incrementView($id);

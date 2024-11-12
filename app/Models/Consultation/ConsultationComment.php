@@ -43,7 +43,7 @@ class ConsultationComment extends Model
 	
 	public function like()
     {
-        return $this->hasOne(CommentLike::class, 'comment_id');
+        return $this->hasMany(CommentLike::class, 'comment_id');
     }
 	
 	// Вернет true если ответов нет, и false если ответы есть

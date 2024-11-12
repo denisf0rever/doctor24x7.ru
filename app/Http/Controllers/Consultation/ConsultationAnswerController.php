@@ -92,25 +92,48 @@ class ConsultationAnswerController extends Controller
 	
 	public function like(Request $request, string $id)
 	{
+		$commentId = $id;
 		$state = $request->state;
-		$like = Like::firstOrCreate(['comment_id' => $id, 'ip' => $request->ip() ]);
+		$ip = $request->ip();
 		
-		if($request->state == 1) {
-			$like->increment('likes');
+		$like = Like::query()
+				->where('comment_id', $commentId)
+				->where('ip', $ip)
+				->first();
+				
+		if ($request->state == 1) {
+			if ($like) {
+				$like->delete();
+			} else {
+				$like = Like::create(['comment_id' => $commentId, 'ip' => $ip]);
+				return response()->json(['message' => 'Лайк успешно добавлен']);
+			}
 		} else {
-			$like->decrement('likes');
+			$like->delete();
+			return response()->json(['message' => 'Лайк успешно удалён']);
 		}
 	}
 	
 	public function dislike(Request $request, string $id)
 	{
+		$commentId = $id;
 		$state = $request->state;
-		$like = Like::firstOrCreate(['comment_id' => $id]);
+		$ip = $request->ip();
 		
-		if($request->state == 1) {
-			$like->increment('dislikes');
+		if ($request->state == 1) {
+			$like = Like::query()
+				->where('comment_id', $commentId)
+				->where('ip', $ip)
+				->first();
+			
+			if ($like) {
+				$like->delete();
+			}
+			
+			return response()->json(['message' => 'Лайк успешно удалён']);
+			
 		} else {
-			$like->decrement('dislikes');
+			return;
 		}
 	}
 }
