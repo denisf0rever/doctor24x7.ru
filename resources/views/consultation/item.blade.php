@@ -35,12 +35,15 @@
     <div class="main__content">
       <section class="main__question question">
         <div class="question__wrapper section-wrapper">
-          <h1 class="question__title">{{ $consultation->title }}</h1>
-          <ul class="question__discussion-list">
-            <li class="question__discussion-item">
-              <a href="/" class="question__discussion-link">Сперма</a>
-            </li>
-          </ul>
+          <h1 class="question__title">{{ $consultation->title }} {{ $executionTime }}</h1>
+			@if ($consultation->discussion)
+				<ul class="question__discussion-list">
+					<li class="question__discussion-item">
+						<a href="{{ $consultation->discussion->subcategory->slug }}" class="question__discussion-link">{{ $consultation->discussion->subcategory->short_title }}</a>
+					</li>
+				</ul>
+			@endif
+          
           <div class="question__text">
             <p>{{ $consultation->description }}</p>
           </div>

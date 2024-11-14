@@ -25,4 +25,9 @@ class ConsultationCategory extends Model
     {
         return $this->belongsToMany(Tariff::class, 'sf_consultation_tariff_rubric');
     }
+	
+	public function subcategory()
+	{
+		return $this->hasOne(SubCategories::class);
+	}
 }

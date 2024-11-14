@@ -11,6 +11,7 @@ use App\Models\Consultation\Consultation;
 use App\Models\Consultation\Booking;
 use App\Models\Tariff\Tariff;
 use App\Models\Consultation\ConsultationCategory as Category;
+use App\Models\Consultation\Discussion;
 use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Settings\UserSettings as Settings;
 use App\Http\Requests\ConsultationRequest;
@@ -100,18 +101,30 @@ class ConsultationController extends Controller
 	// Просмотр консультации в паблике
     public function consultation(string $id)
     {
+		$startTime = microtime(true);
+		
 		$ipAddress = request()->ip();
 		
-		$consultation = Consultation::query()
-            ->where('id', $id)
-			->with(['comments' => fn ($comments) => $comments->where('to_answer_id', null)
-					->withCount('like')
-					->with(['like' => fn ($like) => $like->where('ip', $ipAddress)])])
-            ->firstOrFail();
+		$cacheKey = 'consultation_' . $id . '_' . md5($ipAddress);
+
+// Попробуйте получить данные из кэша
+$consultation = cache()->remember($cacheKey, 60, fn () => Consultation::query()
+        ->where('id', $id)
+        ->with([
+            'discussion' => fn ($discussion) => $discussion->with('subcategory'),
+            'comments' => fn ($comments) => $comments->where('to_answer_id', null)
+                ->withCount('like')
+                ->with(['like' => fn ($like) => $like->where('ip', $ipAddress)])
+        ])
+        ->firstOrFail());
 			
+		$endTime = microtime(true); // Запоминаем время конца
+        $executionTime = ($endTime - $startTime) * 1000; // Время в миллисекундах
+		
+		//dd($executionTime);
 		//$this->incrementView($id);
 		
-		return view('consultation.item', compact('consultation'));
+		return view('consultation.item', compact('consultation', 'executionTime'));
     }
 	
     public function edit(string $id)

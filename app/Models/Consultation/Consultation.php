@@ -43,6 +43,11 @@ class Consultation extends Model
         return $this->belongsTo(Tariff::class);
     }
 	
+	public function discussion()
+	{
+		return $this->hasOne(Discussion::class, 'comment_id');
+	}
+	
 	// Вернет false если брони нет, и true если бронь есть
 	public static function hasBooking($consultation_id, $user_id): bool
 	{

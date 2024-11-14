@@ -50,9 +50,9 @@
                 <!-- ФОТКИ -->
                 <div class="consultation__gallery">
                   @if ($photos)
-                  <ul class="consultation__gallery-list">@foreach ($photos as $photo)
-
-                    <li class="consultation__gallery-item"><a class="consultation__gallery-link"
+                  <ul class="consultation__gallery-list">
+					@foreach ($photos as $photo)
+					<li class="consultation__gallery-item"><a class="consultation__gallery-link"
                         href="https://puzkarapuz.ru/{{ $photo->path }}" data-fancybox="gallery" target="_blank"><img
                           src="https://puzkarapuz.ru/{{ $photo->path }}" class="consultation__gallery-img"
                           alt="Фото консультации" width="450px"></a></li>
@@ -96,7 +96,7 @@
                   <div class="stats__text">Коэффицент</div>
                 </li>
                 <li class="stats__item">
-                  <div class="stats__number">@if ($currentHour >= '22:00' || $currentHour < '08:00' )
+                  <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour < '07:00' )
                       {{ $consultation->tariff->night_fee }} @else {{ $consultation->tariff->fee }} @endif &#8381;</div>
                       <div class="stats__text">Гонорар</div>
                 </li>
