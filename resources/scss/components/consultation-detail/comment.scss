@@ -69,16 +69,18 @@
   }
   &__text-more:hover{text-decoration:underline}
   &__sub-comments{
-    position:relative;padding-top:10px;padding-bottom:10px;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-top: 10px;
+    margin-bottom: 10px;
   }
   &__sub-comment{
     padding-top:20px;display:grid;grid-template-rows:auto auto auto;grid-template-columns:1fr auto;
     position: relative;
     padding: 20px;
     margin-left: 50px;
-    margin-bottom: 15px;
-    margin-top: 15px;
     background-color: #f6f6f9;
     box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
     border-radius: 0.5em;
