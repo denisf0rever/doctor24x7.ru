@@ -36,6 +36,11 @@ class ConsultationComment extends Model
         return $this->hasMany(self::class, 'to_answer_id', 'id');
     }
 	
+	public function parentComment()
+    {
+		return $this->belongsTo(self::class, 'to_answer_id');
+	}
+	
 	public function user()
 	{
 		return $this->belongsTo(UserMain::class);

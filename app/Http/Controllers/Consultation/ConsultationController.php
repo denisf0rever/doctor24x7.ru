@@ -19,6 +19,7 @@ use App\Http\Requests\ConsultationUpdateRequest;
 use App\Services\ConsultationService;
 use App\Services\BookingService;
 use App\Events\ConsultationCreated;
+use App\Helpers\LinkHelper;
 
 use Carbon\Carbon;
 
@@ -107,8 +108,9 @@ class ConsultationController extends Controller
 		
 		$cacheKey = 'consultation_' . $id . '_' . md5($ipAddress);
 
-// Попробуйте получить данные из кэша
-$consultation = cache()->remember($cacheKey, 60, fn () => Consultation::query()
+		// Попробуйте получить данные из кэша
+		//LinkHelper::convertToHtmlLink();
+		$consultation = cache()->remember($cacheKey, 60, fn () => Consultation::query()
         ->where('id', $id)
         ->with([
             'discussion' => fn ($discussion) => $discussion->with('subcategory'),

@@ -280,7 +280,7 @@
                   <span class="comment__user-name">{{ $comment->username }}</span>
                   <span class="comment__user-subtitle">{{ $comment->user ? $comment->user->city : '' }}</span>
                 </a>
-                <div class="comment__menu-btn" data-id="300328">
+                <div class="comment__menu-btn" data-id="{{ $comment->id }}">
                   <svg class="comment__menu-btn-svg">
                     <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
                     <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
