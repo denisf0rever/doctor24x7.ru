@@ -107,18 +107,25 @@ class ConsultationController extends Controller
 		$ipAddress = request()->ip();
 		
 		$cacheKey = 'consultation_' . $id . '_' . md5($ipAddress);
+		$discussionCache = 'discussion' . $id;
 
 		// Попробуйте получить данные из кэша
 		//LinkHelper::convertToHtmlLink();
-		$consultation = cache()->remember($cacheKey, 60, fn () => Consultation::query()
+		// 
+		$consultation = cache()->remember($cacheKey, 60*60, fn () => Consultation::query()
 			->where('id', $id)
 			->with([
-				'discussion' => fn ($discussion) => $discussion->where('comment_id', $id)->with('subcategory'),
+				'discussion' => fn ($discussion) => $discussion->with('subcategory'),
 				'comments' => fn ($comments) => $comments->where('to_answer_id', null)
 					->withCount('like')
-					->with(['like' => fn ($like) => $like->where('ip', $ipAddress)])
-			])
+					->with(['children' => fn ($children) => $children->withCount('like')->with('children')]),
+				'content' => fn ($content) => $content->where('comment_id', $id)
+				])
         ->firstOrFail());
+		
+		$discussion = cache()->remember($discussionCache, 60, fn () => Discussion::query()
+			->where('comment_id', $id)
+			->count());
 			
 		$endTime = microtime(true); // Запоминаем время конца
         $executionTime = ($endTime - $startTime) * 1000; // Время в миллисекундах
@@ -126,7 +133,7 @@ class ConsultationController extends Controller
 		//dd($executionTime);
 		//$this->incrementView($id);
 		
-		return view('consultation.item', compact('consultation', 'executionTime'));
+		return view('consultation.item', compact('consultation', 'executionTime', 'discussion'));
     }
 	
     public function edit(string $id)

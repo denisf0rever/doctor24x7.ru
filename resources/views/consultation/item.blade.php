@@ -36,10 +36,10 @@
       <section class="main__question question">
         <div class="question__wrapper section-wrapper">
           <h1 class="question__title">{{ $consultation->title }} {{ $executionTime }}</h1>
-			@if ($consultation->discussion)
+			@if ($discussion > 0)
 				<ul class="question__discussion-list">
 					<li class="question__discussion-item">
-						<a href="{{ $consultation->discussion->subcategory->slug }}" class="question__discussion-link">{{ $consultation->discussion_count }}{{ $consultation->discussion->subcategory->short_title }}</a>
+						<a href="{{ $consultation->discussion->subcategory->slug }}" class="question__discussion-link">{{ $consultation->discussion->subcategory->short_title }}</a>
 					</li>
 				</ul>
 			@endif
@@ -49,15 +49,15 @@
           </div>
           <div class="question__icons">
             <div class="question__icon">
-              <img src="/" alt="" class="question__icon-img question__icon-small question__icon-doc-img">
+              <img src="https://puzkarapuz.ru/images/svg/doc.svg" alt="" class="question__icon-img question__icon-small question__icon-doc-img">
               <div class="question__icon-value">{{ $consultation->visit_count }}</div>
             </div>
             <a href="" class="question__icon question__icon-big question__icon-link">
-              <img src="/" alt="" class="question__icon-img question__icon-calendar-img">
+              <img src="https://puzkarapuz.ru/images/svg/calendar.svg" alt="" class="question__icon-img question__icon-calendar-img">
               <div class="question__icon-value">{{ $consultation->created_at }}</div>
             </a>
             <div class="question__icon question__icon-link question__icon-last custom-select">
-              <img src="/" alt="" class="question__icon-img question__icon-actions-img">
+              <img src="https://puzkarapuz.ru/images/svg/click.svg" alt="" class="question__icon-img question__icon-actions-img">
               <div class="question__icon-value">Действия</div>
               <div class="question__select-wrapper custom-select__wrapper custom-select__hide">
                 <ul class="question__select-list">
@@ -101,21 +101,32 @@
             <br>
             в чате либо по телефону
           </div>
-          <a href="/" class="ask-question__button">
+          <a href="{{ route('consult.form') }}" class="ask-question__button">
             Задать вопрос
           </a>
         </div>
       </section>
-
-		
-
-      <div class="booking-fail">
-        <div class="booking-fail__wrapper">
-          <span class="booking-fail__text">
-            К сожалению, на этот вопрос уже готовятся ответы. Ваш ответ будет тарифицироваться согласно договоренности.
-          </span>
+	  
+	  @if ($consultation->content)
+		<section class="contents">
+        <div class="contents__wrapper section-wrapper">
+          <div class="contents__title">Содержание консультации</div>
+          <ul class="contents__list">
+		  @foreach ($consultation->content as $content)
+            <li class="contents__item">
+              <span class="contents__nubmer"></span>
+              <a href="#answer{{ $content->answer_id }}" class="contents__text-link">
+                <span class="contents__text">{{ $content->name }}</span></a>
+              <a href="/" class="contents__delete">
+                <img src="https://puzkarapuz.ru/images/svg/delete.svg" alt="" class="contents__img">
+              </a>
+            </li>
+			@endforeach
+          </ul>
         </div>
-      </div>
+      </section>
+@endif
+      
 
       <section class="main__experts-list experts-list">
         <h2 class="experts-list__title">Ответы врачей</h2>
@@ -272,8 +283,8 @@
                 </div>
               </div>
               <div class="comment__sub-comments" id="answer{{ $comment->id }}">
-                @include('consultation.childcomment', ['comments' => $comment->children])
-              </div>
+				@include('consultation.childcomment', ['comments' => $comment->children])
+			  </div>
             </li>
             @endforeach
 

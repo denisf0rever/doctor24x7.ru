@@ -45,6 +45,5 @@
     </svg>
   </div>
 </div>
-
 @include('consultation.childcomment', ['comments' => $comment->children])
 @endforeach

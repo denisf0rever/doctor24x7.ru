@@ -33,6 +33,11 @@ class Consultation extends Model
         return $this->hasMany(ConsultationComment::class, 'comment_id')->orderBy('created_at', 'asc');
     }
 	
+	public function content()
+    {
+        return $this->hasMany(Contents::class, 'comment_id')->orderBy('id', 'asc');
+    }
+	
 	public function bookings()
     {
         return $this->hasMany(Booking::class, 'comment_id');
