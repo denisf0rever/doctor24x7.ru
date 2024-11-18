@@ -39,7 +39,7 @@
 			@if ($consultation->discussion)
 				<ul class="question__discussion-list">
 					<li class="question__discussion-item">
-						<a href="{{ $consultation->discussion->subcategory->slug }}" class="question__discussion-link">{{ $consultation->discussion->subcategory->short_title }}</a>
+						<a href="{{ $consultation->discussion->subcategory->slug }}" class="question__discussion-link">{{ $consultation->discussion_count }}{{ $consultation->discussion->subcategory->short_title }}</a>
 					</li>
 				</ul>
 			@endif
@@ -50,11 +50,11 @@
           <div class="question__icons">
             <div class="question__icon">
               <img src="/" alt="" class="question__icon-img question__icon-small question__icon-doc-img">
-              <div class="question__icon-value">4</div>
+              <div class="question__icon-value">{{ $consultation->visit_count }}</div>
             </div>
             <a href="" class="question__icon question__icon-big question__icon-link">
               <img src="/" alt="" class="question__icon-img question__icon-calendar-img">
-              <div class="question__icon-value">29.09.2024 20:20</div>
+              <div class="question__icon-value">{{ $consultation->created_at }}</div>
             </a>
             <div class="question__icon question__icon-link question__icon-last custom-select">
               <img src="/" alt="" class="question__icon-img question__icon-actions-img">
@@ -107,53 +107,7 @@
         </div>
       </section>
 
-      <section class="contents">
-        <div class="contents__wrapper section-wrapper">
-          <div class="contents__title">Содержание консультации</div>
-          <ul class="contents__list">
-            <li class="contents__item">
-              <span class="contents__nubmer">1.</span>
-              <a href="/" class="contents__text-link">
-                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
-              <a href="/" class="contents__delete">
-                <img src="/" alt="" class="contents__img">
-              </a>
-            </li>
-            <li class="contents__item">
-              <span class="contents__nubmer">1.</span>
-              <a href="/" class="contents__text-link">
-                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
-              <a href="/" class="contents__delete">
-                <img src="/" alt="" class="contents__img">
-              </a>
-            </li>
-            <li class="contents__item">
-              <span class="contents__nubmer">1.</span>
-              <a href="/" class="contents__text-link">
-                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
-              <a href="/" class="contents__delete">
-                <img src="/" alt="" class="contents__img">
-              </a>
-            </li>
-            <li class="contents__item">
-              <span class="contents__nubmer">1.</span>
-              <a href="/" class="contents__text-link">
-                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
-              <a href="/" class="contents__delete">
-                <img src="/" alt="" class="contents__img">
-              </a>
-            </li>
-            <li class="contents__item">
-              <span class="contents__nubmer">1.</span>
-              <a href="/" class="contents__text-link">
-                <span class="contents__text">Есть вторичные половые признаки, но нет спермы в 14 лет</span></a>
-              <a href="/" class="contents__delete">
-                <img src="/" alt="" class="contents__img">
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+		
 
       <div class="booking-fail">
         <div class="booking-fail__wrapper">

@@ -111,13 +111,13 @@ class ConsultationController extends Controller
 		// Попробуйте получить данные из кэша
 		//LinkHelper::convertToHtmlLink();
 		$consultation = cache()->remember($cacheKey, 60, fn () => Consultation::query()
-        ->where('id', $id)
-        ->with([
-            'discussion' => fn ($discussion) => $discussion->with('subcategory'),
-            'comments' => fn ($comments) => $comments->where('to_answer_id', null)
-                ->withCount('like')
-                ->with(['like' => fn ($like) => $like->where('ip', $ipAddress)])
-        ])
+			->where('id', $id)
+			->with([
+				'discussion' => fn ($discussion) => $discussion->where('comment_id', $id)->with('subcategory'),
+				'comments' => fn ($comments) => $comments->where('to_answer_id', null)
+					->withCount('like')
+					->with(['like' => fn ($like) => $like->where('ip', $ipAddress)])
+			])
         ->firstOrFail());
 			
 		$endTime = microtime(true); // Запоминаем время конца
