@@ -18,7 +18,11 @@
         <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
           <div class="comment__like-img">
             <svg viewBox="0 0 24 24" width="16" height="16">
-              <use xlink:href="#like_3e48--react"></use>
+               @if ($comment->like->isNotEmpty())
+				<use xlink:href="#like_filled_2ff7--react"></use>
+               @else
+				<use xlink:href="#like_3e48--react"></use>
+			   @endif
             </svg>
           </div>
         </a>
