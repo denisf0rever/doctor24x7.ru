@@ -41,6 +41,13 @@
     width: 100%;
     height: 100%;
   }
+  &__nubmer{
+    &::before{
+      counter-increment: list;
+      content: counter(list) ".";
+      font-size: 14px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
