@@ -133,7 +133,7 @@
     <h2 class="experts-list__title">Ответы врачей</h2>
     <div class="experts-list__wrapper section-wrapper">
       @if ($consultation->bookings->count() > 0)
-      @foreach($consultation->bookings as $booking)
+      @foreach ($consultation->bookings as $booking)
       <div class="experts-list__expert-wrapper">
         <a href="/profile/{{ $booking->user->username }}" class="experts-list__expert">
           <img
@@ -142,12 +142,25 @@
           <div class="experts-list__expert-fullname">{{ $booking->user->full_name }}</div>
           <div class="experts-list__expert-status">Врач</div>
         </a>
-        <a href="#elenamihailovna" class="experts-list__anchor">
+        <a href="#{{ $booking->user->username }}" class="experts-list__anchor">
           <img src="" alt="" class="experts-list__anchor-img">
         </a>
       </div>
       @endforeach
-
+      @else ($consultation->comments->count() > 0)
+      @foreach ($consultation->comments as $comment)
+      <div class="experts-list__expert-wrapper">
+        <a href="/profile/" class="experts-list__expert">
+          <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user ? $comment->user->avatar : '' }}"
+            alt="" class="experts-list__expert-img">
+          <div class="experts-list__expert-fullname"></div>
+          <div class="experts-list__expert-status">Врач</div>
+        </a>
+        <a href="#" class="experts-list__anchor">
+          <img src="" alt="" class="experts-list__anchor-img">
+        </a>
+      </div>
+      @endforeach
       @endif
     </div>
   </section>
@@ -296,22 +309,77 @@
           </div>
         </li>
         @endforeach
+        <ul class="comments__list">
+          @foreach ($consultation->comments as $comment)
+          <li class="comments__item comment">
+            <div class="comment__main-comment" id="answer{{ $comment->id }}">
+              <a @if($comment->user) href="/profile/{{ $comment->user->username }}"
+                id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif
+                class="comment__user-link">
+                <img
+                  src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
+                  class="comment__avatar-main">
+                <span class="comment__user-name">{{ $comment->username }}</span>
+                <span class="comment__user-subtitle">{{ $comment->user ? $comment->user->city : '' }}</span>
+              </a>
+              <div class="comment__menu-btn" data-id="{{ $comment->id }}">
+                <svg class="comment__menu-btn-svg">
+                  <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+                  <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+                  <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+                </svg>
+              </div>
+              <span class="comment__text" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+                <p itemprop="text">{{ $comment->description }}</p>
+              </span>
+              <div class="comment__answer-field-fake">
+                <div class="comments__form-fake" data-id="{{ $comment->id }}">
+                  <span class="comment__answ">Ответить</span>
+                  <div class="comment__likes-wrapper">
+                    <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
+                      <div class="comment__like-img">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                          @if ($comment->like->isNotEmpty())
+                          <use xlink:href="#like_filled_2ff7--react"></use>
+                          @else
+                          <use xlink:href="#like_3e48--react"></use>
+                          @endif
+                        </svg>
+                      </div>
+                    </a>
+                    <div class="comment__like-amount">{{ $comment->like_count > 0 ? $comment->like_count : '' }}</div>
+                    <a href="{{ route('consultation.dislike', $comment->id) }}" class="comment__dislike-link">
+                      <div class="comment__dislike-img">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                          <use xlink:href="#dislike_5d1d--react"></use>
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="comment__sub-comments" id="answer{{ $comment->id }}">
+              @include('consultation.childcomment', ['comments' => $comment->children])
+            </div>
+          </li>
+          @endforeach
 
-        <div class="comment__paywall paywall">
-          <div class="paywall__wrapper">
-            <div class="paywall__title">Этот ответ недоступен</div>
-            <div class="paywall__subtitle">Возможные причины:</div>
-            <ul class="paywall__list">
-              <li class="paywall__item">Не оплачена опция чат;</li>
-              <li class="paywall__item">Новый вопрос, не относящийся к первоначальному запросу;</li>
-              <li class="paywall__item">Ситуация затянулась либо превысила стандартное время консультации.</li>
-            </ul>
-            <a href="#" class="paywall__button">Разблокировать ответ</a>
+          <div class="comment__paywall paywall">
+            <div class="paywall__wrapper">
+              <div class="paywall__title">Этот ответ недоступен</div>
+              <div class="paywall__subtitle">Возможные причины:</div>
+              <ul class="paywall__list">
+                <li class="paywall__item">Не оплачена опция чат;</li>
+                <li class="paywall__item">Новый вопрос, не относящийся к первоначальному запросу;</li>
+                <li class="paywall__item">Ситуация затянулась либо превысила стандартное время консультации.</li>
+              </ul>
+              <a href="#" class="paywall__button">Разблокировать ответ</a>
+            </div>
           </div>
-        </div>
 
 
-      </ul>
+        </ul>
     </div>
   </section>
   <section class="main__description description">
