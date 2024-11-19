@@ -129,7 +129,7 @@
         <h2 class="experts-list__title">Ответы врачей</h2>
         <div class="experts-list__wrapper section-wrapper">
 		@if ($consultation->bookings->count() > 0)
-			@foreach($consultation->bookings as $booking) 
+			@foreach ($consultation->bookings as $booking) 
 				<a href="/profile/{{ $booking->user->username }}" class="experts-list__expert">
 				<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $booking->usermain ? $booking->usermain->avatar : '' }}" alt="" class="experts-list__expert-img">
 					<div class="experts-list__expert-fullname">{{ $booking->user->full_name }}</div>
@@ -140,7 +140,16 @@
 				</a>
 			@endforeach
 		@else ($consultation->comments->count() > 0)
-		{{ dd($consultation->comments->count()) }}
+			@foreach ($consultation->comments as $comment)
+				<a href="/profile/" class="experts-list__expert">
+				<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $comment->user ? $comment->user->avatar : '' }}" alt="" class="experts-list__expert-img">
+					<div class="experts-list__expert-fullname"></div>
+					<div class="experts-list__expert-status">Врач</div>
+				</a>
+				<a href="#" class="experts-list__anchor">
+					<img src="" alt="" class="experts-list__anchor-img">
+				</a>
+			@endforeach
 		@endif
         </div>
       </section>
