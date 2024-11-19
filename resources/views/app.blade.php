@@ -33,7 +33,12 @@
   @yield('chat')
   @include('parts.header')
 
-  @yield('content')
-
+<main class="main">
+	<div class="main__wrapper-main container">
+	@yield('content')
+	@include('parts.sidebar')
+	</div>
+</main>
+  
   @include('parts.footer')
 </html>

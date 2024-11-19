@@ -5,6 +5,8 @@ namespace App\Models\Consultation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Consultation\Consultation;
+use App\Models\User;
+use App\Models\UserMain;
 
 class Booking extends Model
 {
@@ -26,6 +28,11 @@ class Booking extends Model
     {
         return $this->belongsTo(User::class);
     }
+	
+	public function usermain()
+	{
+		return $this->belongsTo(UserMain::class);
+	}
 		
 	public static function canBooking($consultation_id): bool
     {

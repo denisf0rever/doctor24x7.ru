@@ -13,6 +13,7 @@ use App\Models\Tariff\Tariff;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\Discussion;
 use App\Models\Consultation\ConsultationComment as Comment;
+use App\Models\Consultation\Contents;
 use App\Models\Settings\UserSettings as Settings;
 use App\Http\Requests\ConsultationRequest;
 use App\Http\Requests\ConsultationUpdateRequest;
@@ -100,37 +101,43 @@ class ConsultationController extends Controller
     }
 
 	// Просмотр консультации в паблике
-    public function consultation(string $id)
+    public function consultation(string $slug)
     {
 		$startTime = microtime(true);
 		
 		$ipAddress = request()->ip();
 		
-		$cacheKey = 'consultation_' . $id . '_' . md5($ipAddress);
-		$discussionCache = 'discussion' . $id;
+		$cacheKey = 'consultation_' . $slug;
+		$discussionCache = 'discussion_' . $slug;
+		$contentCache = 'content_' . $slug;
+		
+		$timeCache = 60*60;
 
 		// Попробуйте получить данные из кэша
 		//LinkHelper::convertToHtmlLink();
 		// 
-		$consultation = cache()->remember($cacheKey, 60*60, fn () => Consultation::query()
-			->where('id', $id)
+		$consultation = cache()->remember($cacheKey, $timeCache, fn () => Consultation::query()
+			->where('slug', $slug)
 			->with([
 				'discussion' => fn ($discussion) => $discussion->with('subcategory'),
 				'comments' => fn ($comments) => $comments->where('to_answer_id', null)
 					->withCount('like')
-					->with(['children' => fn ($children) => $children->withCount('like')->with('children')]),
-				'content' => fn ($content) => $content->where('comment_id', $id)
+					->with(['children' => fn ($children) => $children->withCount('like')->with('children')])
 				])
         ->firstOrFail());
 		
-		$discussion = cache()->remember($discussionCache, 60, fn () => Discussion::query()
-			->where('comment_id', $id)
+		$consultationId = $consultation->id;
+		
+		$consultation->setRelation('content', cache()->remember($contentCache, $timeCache, fn () => Contents::where('comment_id', $consultationId)->get()));
+		
+		$discussion = cache()->remember($discussionCache, $timeCache, fn () => Discussion::query()
+			->where('comment_id', $consultationId)
 			->count());
 			
-		$endTime = microtime(true); // Запоминаем время конца
+		$endTime = microtime(true);
         $executionTime = ($endTime - $startTime) * 1000; // Время в миллисекундах
 		
-		//dd($executionTime);
+		
 		//$this->incrementView($id);
 		
 		return view('consultation.item', compact('consultation', 'executionTime', 'discussion'));

@@ -62,7 +62,7 @@ class User extends Authenticatable
 	  
 	public function getFullNameAttribute(): string
     {
-        return $this->last_name. ' ' . $this->name . ' ' . $this->middle_name;
+        return $this->last_name. ' ' . $this->first_name . ' ' . $this->middle_name;
     }
 	
 	public function getFirstMiddleNameAttribute(): string
