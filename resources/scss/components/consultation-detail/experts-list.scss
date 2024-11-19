@@ -8,8 +8,14 @@
   }
   &__wrapper{
     display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  &__expert-wrapper{
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
   }
   &__expert{
     display: grid;

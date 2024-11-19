@@ -75,7 +75,7 @@
     gap: 32px;
     max-width: 1176px;
     white-space: nowrap;
-
+    padding-right: 16px;
   }
   &__bottom-nav-item-active{
     margin-right: auto;
@@ -143,6 +143,26 @@
   &__link{
     font-size: 18px;
     color: var(--link-text);
+  }
+}
+
+@media (max-width: 1200px) {
+  .header{
+    &__top{
+      padding: 0 10px;
+    }
+    &__experts{
+      display: none;
+    }
+    &__nav{
+      display: none;
+    }
+    &__burger{
+      display: block;
+    }
+    &__bottom-nav-list{
+      width: 100%;
+    }
   }
 }
 

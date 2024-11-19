@@ -1,6 +1,6 @@
 .contents{
   &__title{
-    margin-bottom: 35px;
+    margin-bottom: 10px;
     font-size: 20px;
     line-height: 1.3;
   }
@@ -39,9 +39,11 @@
   }
   &__nubmer{
     &::before{
-      counter-increment: list;
-      content: counter(list) ".";
-      font-size: 14px;
+      content: "•";
+      font-size: 24px;
+      color: black;
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 }
