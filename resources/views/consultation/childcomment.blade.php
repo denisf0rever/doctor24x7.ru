@@ -1,6 +1,6 @@
 @foreach($comments as $comment)
 <div class="comment__sub-comment" id="answer{{ $comment->id }}">
-  <a href="{{ $comment->user ? '/profile/'.$comment->user->username.'' : '#' }}" class="comment__user-link">
+  <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif class="comment__user-link">
     <img
       src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
       alt="" class="comment__avatar-sub">

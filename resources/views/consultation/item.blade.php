@@ -135,11 +135,12 @@
 					<div class="experts-list__expert-fullname">{{ $booking->user->full_name }}</div>
 					<div class="experts-list__expert-status">Врач</div>
 				</a>
-				<a href="#elenamihailovna" class="experts-list__anchor">
+				<a href="#{{ $booking->user->username }}" class="experts-list__anchor">
 					<img src="" alt="" class="experts-list__anchor-img">
 				</a>
 			@endforeach
-         
+		@else ($consultation->comments->count() > 0)
+		{{ dd($consultation->comments->count()) }}
 		@endif
         </div>
       </section>
@@ -239,7 +240,7 @@
             @foreach ($consultation->comments as $comment)
             <li class="comments__item comment">
               <div class="comment__main-comment" id="answer{{ $comment->id }}">
-                <a href="{{ $comment->user ? '/profile/' . $comment->user->username : '#answer' . $comment->id }}"
+                <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif
                   class="comment__user-link">
                   <img
                     src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
