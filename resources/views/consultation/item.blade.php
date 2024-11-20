@@ -70,7 +70,7 @@
                 </a>
               </li>
               <li class="question__option">
-                <a href="/" class="question__link">
+                <a href="/" class="question__link question__link-doc">
                   Запросить документы
                 </a>
               </li>
