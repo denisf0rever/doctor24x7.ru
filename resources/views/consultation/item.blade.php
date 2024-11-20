@@ -172,7 +172,7 @@
         <div class="comment-menu__header">Меню</div>
         <img src="/images/svg/close.svg" class="comment-menu__hide-button">
         <div class="comment-menu__buttons">
-          <a href="#" data-id="" class="comment-menu__button comment-menu__button-delete answer-del">
+          <a href="" data-id="" class="comment-menu__button comment-menu__button-delete answer-del">
             <img src="/images/svg/delete.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Удалить ответ</span>
           </a>
@@ -180,15 +180,16 @@
             <img src="/images/svg/edit.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Редактировать ответ</span>
           </a>
-          <a onclick="" class="comment-menu__button comment-menu__button-add">
+          <a href="" class="comment-menu__button comment-menu__button-add">
             <img src="/images/svg/content.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Добавить в содержание</span>
           </a>
-          <a onclick="" class="comment-menu__button comment-menu__button-up">
+          <a href="" class="comment-menu__button comment-menu__button-up">
             <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Поднять в начало</span>
           </a>
-          <a onclick="" class="comment-menu__button comment-menu__button-up comment-menu__button-block">
+          <a href="{{ route('consultation.block-answer', $comment->id) }}"
+            class="comment-menu__button comment-menu__button-up comment-menu__button-block">
             <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Заблокировать ответ</span>
           </a>

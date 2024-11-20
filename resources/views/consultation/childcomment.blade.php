@@ -1,14 +1,17 @@
 @foreach($comments as $comment)
 <div class="comment__sub-comment" id="answer{{ $comment->id }}">
-  <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif class="comment__user-link">
+  <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else
+    href="#answer{{ $comment->id }}"@endif class="comment__user-link">
     <img
       src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
       alt="" class="comment__avatar-sub">
-    <span class="comment__user-name">{{ $comment->user ? $comment->user->first_name .' '. $comment->user->middle_name : $comment->username }}</span>
+    <span
+      class="comment__user-name">{{ $comment->user ? $comment->user->first_name .' '. $comment->user->middle_name : $comment->username }}</span>
     <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
   </a>
   <span class="comment__text">
-    <p><a href="#answer{{ $comment->to_answer_id }}">@if ($comment->to_answer_id){{ trim($comment->parentComment->username) }}@endif</a>, {{ $comment->description }}</p>
+    <p><a href="#answer{{ $comment->to_answer_id }}">@if
+        ($comment->to_answer_id){{ trim($comment->parentComment->username) }}@endif</a>, {{ $comment->description }}</p>
   </span>
 
   <div class="comment__answer-field-fake">
@@ -18,11 +21,11 @@
         <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
           <div class="comment__like-img">
             <svg viewBox="0 0 24 24" width="16" height="16">
-               @if ($comment->like->isNotEmpty())
-				<use xlink:href="#like_filled_2ff7--react"></use>
-               @else
-				<use xlink:href="#like_3e48--react"></use>
-			   @endif
+              @if ($comment->like->isNotEmpty())
+              <use xlink:href="#like_filled_2ff7--react"></use>
+              @else
+              <use xlink:href="#like_3e48--react"></use>
+              @endif
             </svg>
           </div>
         </a>
