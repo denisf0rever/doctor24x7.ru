@@ -35,7 +35,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::get('/consultation/comment', [ConsultationController::class, 'form'])->name('consult.form');
 	Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'consultation'])->name('consultation.item');
 	Route::post('/consultation/create', [ConsultationController::class, 'create'])->name('consult.create');
-	Route::post('/consultation/get-document/{id}', [ConsultationController::class, 'getDocument'])->name('consultation.get-document');
+	Route::post('/consultation/get-document/{id}', [ConsultationAnswerController::class, 'getDocument'])->name('consultation.get-document');
 	Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
 	Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
 	Route::post('/consultation/block/answer/{id}', [ConsultationAnswerController::class, 'blockAnswer'])->name('consultation.block-answer');

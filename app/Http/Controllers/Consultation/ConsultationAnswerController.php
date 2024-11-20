@@ -27,7 +27,6 @@ class ConsultationAnswerController extends Controller
 		$comment = $service->createComment($request->validated());
 		
 		if ($comment) {
-			
 			AnswerToAuthorCreated::dispatch($request->validated());
 		
 			return redirect()->back()->with('success', 'Ответ добавлен');
@@ -76,7 +75,7 @@ class ConsultationAnswerController extends Controller
 		}
     }
 	
-	public function block(string $id)
+	public function blockAnswer(string $id)
     {
 		$comment = Comment::query()
             ->where('id', $id)
@@ -120,12 +119,12 @@ class ConsultationAnswerController extends Controller
 		$state = $request->state;
 		$ip = $request->ip();
 		
-		if ($request->state == 1) {
-			$like = Like::query()
+		$like = Like::query()
 				->where('comment_id', $commentId)
 				->where('ip', $ip)
 				->first();
-			
+				
+		if ($request->state == 1) {
 			if ($like) {
 				$like->delete();
 			}
@@ -135,5 +134,37 @@ class ConsultationAnswerController extends Controller
 		} else {
 			return;
 		}
+	}
+	
+	public function getDocument(string $id, CommentService $service)
+	{
+		$dataForDocument = [
+			'comment_id' => $id,
+			'user_id' => 87,
+			'to_answer_id' => null,
+			'email' => 'noreply@puzkarapuz.ru',
+			'username' => 'Администрация сайта',
+			'description' => 'Пришлите, пожалуйста, анализы или документы имеющие отношение к вопросу на адрес doc@puzkarapuz.ru, в конце укажите: ' . $id,
+		];
+		
+		$comment = $service->createComment($dataForDocument);
+		
+		if ($comment) {
+			$consultation = Consultation::query()
+				->where('id', $id)
+				->first();
+				
+			$dataForMail = [
+				'name' => $consultation->username,
+				'email' => $consultation->email,
+				'consultation_id' = $consultation->id
+			];
+			
+			AnswerToAuthorCreated::dispatch($dataForMail);
+			
+			return response()->json(['success', 'Ответ добавлен']);
+		}
+		
+		return response()->json(['success', 'Ответ добавлен']);
 	}
 }
