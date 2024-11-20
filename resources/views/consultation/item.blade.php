@@ -188,7 +188,7 @@
             <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Поднять в начало</span>
           </a>
-          <a onclick="" class="comment-menu__button comment-menu__button-up">
+          <a onclick="" class="comment-menu__button comment-menu__button-up comment-menu__button-block">
             <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Заблокировать ответ</span>
           </a>
