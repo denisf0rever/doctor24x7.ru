@@ -10,8 +10,8 @@
     <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
   </a>
   <span class="comment__text">
-    <p><a href="#answer{{ $comment->to_answer_id }}">@if
-        ($comment->to_answer_id){{ trim($comment->parentComment->username) }}@endif</a>, {{ $comment->description }}</p>
+    <p><a href="#answer{{ $comment->to_answer_id }}">
+	@if ($comment->to_answer_id){{ trim($comment->parentComment->username) }}@endif</a>, {{ $comment->description }}</p>
   </span>
 
   <div class="comment__answer-field-fake">
