@@ -38,8 +38,8 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::post('/consultation/get-document/{id}', [ConsultationAnswerController::class, 'getDocument'])->name('consultation.get-document');
 	Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
 	Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
-	Route::post('/consultation/block/answer', [ConsultationAnswerController::class, 'lockAnswer'])->name('consultation.block-answer');
-	Route::post('/consultation/block/answer', [ConsultationAnswerController::class, 'unlockAnswer'])->name('consultation.unlock-answer');
+	Route::post('/consultation/lockAnswer', [ConsultationAnswerController::class, 'lockAnswer'])->name('consultation.block-answer');
+	Route::post('/consultation/unlockAnswer', [ConsultationAnswerController::class, 'unlockAnswer'])->name('consultation.unlock-answer');
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');
