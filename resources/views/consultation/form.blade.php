@@ -14,7 +14,7 @@
 <main class="main">
   <div class="main__wrapper container">
     <section class="main__text-service text-service">
-      <h2 class="text-service__title">Консультация врача онлайн </h2>
+      <h1 class="text-service__title">Консультация врача онлайн</h1>
       <span class="text-service__subtitle">Задать вопрос врачу в простой форме и получить ответ в течение часа
       </span>
       <div class="text-service__wrapper section-wrapper">
@@ -35,11 +35,8 @@
       </div>
     </section>
 
-
-
     <section class="main__consultation-slider consultation-slider">
-      <h2 class="consultation-slider__title">Медицинские консультации предоставляют
-      </h2>
+      <h2 class="consultation-slider__title">Медицинские консультации предоставляют</h2>
       <span class="consultation-slider__subtitle">В онлайн сервисе работает более 100 врачей, всех специализаций
       </span>
       <div class="consultation-slider__wrapper">

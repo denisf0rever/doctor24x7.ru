@@ -28,7 +28,7 @@ class ConsultationController extends Controller
 {
 	public function dashboard()
 	{
-		$consultations = Consultation::query()
+		$consultations = Consultation::select('id', 'title', 'visit_count', 'created_at')
 			->where('is_payed', true)
 			->orderBy('created_at', 'desc')
             ->take(100)
@@ -45,13 +45,15 @@ class ConsultationController extends Controller
 			[720, 725],
 			fn () => Comment::count()
 		);
-			
+		
 		return view('dashboard.consultation.list', compact('consultations', 'totalConsultations', 'totalAnswers'));
 	}
 	
 	// Просмотр консультации в панели
     public function show(string $id)
     {
+		$startTime = microtime(true);
+		
         $consultation = Consultation::query()
             ->where('id', $id)
 			->with(['comments' => fn($comments) => $comments->where('to_answer_id', null)])
@@ -72,7 +74,10 @@ class ConsultationController extends Controller
 			->where('comment_id', $id)
 			->get();
 		
-		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos'));
+		$endTime = microtime(true);
+        $executionTime = ($endTime - $startTime) * 1000; // Время в миллисекундах
+		
+		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos', 'executionTime'));
     }
 	
     public function index()
@@ -82,7 +87,7 @@ class ConsultationController extends Controller
 
     public function form()
     {
-		$categories = Category::all();
+		$categories = Category::select('id', 'short_title')->get();
 		
 		return view('consultation.form', compact('categories'));
     } 
@@ -169,10 +174,7 @@ class ConsultationController extends Controller
 			return redirect()->back()->with('success', 'Возникла ошибка');
 		}
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+	
     public function destroy(string $id)
     {
         $consultation = Consultation::query()
@@ -185,4 +187,5 @@ class ConsultationController extends Controller
 			 return redirect()->back()->with('success', 'Консультация удалена');
 		}
     }
+	
 }

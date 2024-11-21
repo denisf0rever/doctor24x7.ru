@@ -17,7 +17,7 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
-          <h1 class="main__consultation-title">№{{ $consultation->id }}, {{ $consultation->created_at }}</h1>
+          <h1 class="main__consultation-title">№{{ $consultation->id }}, {{ $consultation->created_at }}  {{ $executionTime }}</h1>
           <section class="main__consultation consultation">
             <div class="consultation__wrapper white-block">
               <div class="small-menu small-menu__menu-btn custom-select" data-id="300330">
