@@ -5,7 +5,7 @@
 @section('canonical', 'consultation/detail/'. $consultation->id)
 
 @section('content')
-<div aria-hidden="true">
+<div aria-hidden="true" class="svg-hide">
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     style="position: absolute; width: 0; height: 0" id="__SVG_SPRITE_NODE__" xmlnsxlink="http://www.w3.org/1999/xlink">
     <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="like_3e48--react">
