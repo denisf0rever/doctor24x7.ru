@@ -188,8 +188,7 @@
             <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Поднять в начало</span>
           </a>
-          <a href="{{ route('consultation.block-answer', $comment->id) }}"
-            class="comment-menu__button comment-menu__button-up comment-menu__button-block">
+          <a href="test/" class="comment-menu__button comment-menu__button-up comment-menu__button-block">
             <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Заблокировать ответ</span>
           </a>
