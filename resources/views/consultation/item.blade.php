@@ -188,9 +188,15 @@
             <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Поднять в начало</span>
           </a>
-          <a href="{{ route('consultation.block-answer') }}" class="comment-menu__button comment-menu__button-up comment-menu__button-block">
+          <a href="{{ route('consultation.block-answer') }}"
+            class="comment-menu__button comment-menu__button-up comment-menu__button-block">
             <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Заблокировать ответ</span>
+          </a>
+          <a href="{{ route('consultation.unlock-answer') }}"
+            class="comment-menu__button comment-menu__button-up comment-menu__button-unlock">
+            <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
+            <span class="comment-menu__button-text">Разблокировать ответ</span>
           </a>
 
         </div>
