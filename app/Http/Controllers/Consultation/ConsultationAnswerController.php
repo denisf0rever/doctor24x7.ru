@@ -75,18 +75,33 @@ class ConsultationAnswerController extends Controller
 		}
     }
 	
-	public function blockAnswer(string $id)
+	public function lockAnswer(Request $request)
     {
+		$comment_id = $request->id;
+		
 		$comment = Comment::query()
-            ->where('id', $id)
+            ->where('id', $comment_id)
             ->firstOrFail();
 		
-		$comment->block = 1;
+		$comment->is_block = 1;
 		$comment->save();
 				
-		if ($comment) {
-			 return redirect()->back()->with('success', 'Ответ заблокирован');
-		}
+		return redirect()->back()->with('success', 'Ответ заблокирован');
+    
+	}
+	
+	public function unlockAnswer(Request $request)
+    {
+		$comment_id = $request->id;
+		
+		$comment = Comment::query()
+            ->where('id', $comment_id)
+            ->firstOrFail();
+		
+		$comment->is_block = 0;
+		$comment->save();
+				
+		return redirect()->back()->with('success', 'Ответ разблокирован');
     }
 	
 	public function like(Request $request, string $id)
@@ -157,7 +172,7 @@ class ConsultationAnswerController extends Controller
 			$dataForMail = [
 				'name' => $consultation->username,
 				'email' => $consultation->email,
-				'consultation_id' = $consultation->id
+				'consultation_id' => $consultation->id
 			];
 			
 			AnswerToAuthorCreated::dispatch($dataForMail);
