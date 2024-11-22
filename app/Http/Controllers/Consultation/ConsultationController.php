@@ -21,11 +21,14 @@ use App\Services\ConsultationService;
 use App\Services\BookingService;
 use App\Events\ConsultationCreated;
 use App\Helpers\LinkHelper;
+use App\Traits\ConsultationCacheable;
 
 use Carbon\Carbon;
 
 class ConsultationController extends Controller
 {
+	use ConsultationCacheable;
+	
 	public function dashboard()
 	{
 		$consultations = Consultation::select('id', 'title', 'visit_count', 'created_at')
@@ -168,11 +171,7 @@ class ConsultationController extends Controller
 		$consultation->description = $request->input('description');
 		$consultation->save();
 		
-		if ($consultation) {
-			return redirect()->back()->with('success', 'Консультация обновлена');
-		} else {
-			return redirect()->back()->with('success', 'Возникла ошибка');
-		}
+		return redirect()->back()->with('success', 'Консультация обновлена');
     }
 	
     public function destroy(string $id)
@@ -182,10 +181,14 @@ class ConsultationController extends Controller
             ->firstOrFail();
 		
 		$consultation->delete();
-				
-		if ($consultation) {
-			 return redirect()->back()->with('success', 'Консультация удалена');
-		}
+		
+		return redirect()->back()->with('success', 'Консультация удалена');
     }
+	
+	public function clearConsultationCache($slug)
+	{
+		$cacheKey = 'consultation_' . $slug;
+		cache()->forget($cacheKey);
+	}
 	
 }

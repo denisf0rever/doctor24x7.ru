@@ -10,9 +10,12 @@ use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Consultation\CommentLike as Like;
 use App\Services\CommentService;
 use App\Events\AnswerToAuthorCreated;
+use App\Traits\ConsultationCacheable;
 
 class ConsultationAnswerController extends Controller
 {
+	use ConsultationCacheable;
+	
 	public function show($id)
 	{
 		$comment = Comment::query()
@@ -68,11 +71,8 @@ class ConsultationAnswerController extends Controller
 		$comment->description = $request->input('description');
 		$comment->save();
 		
-		if ($comment) {
-			return redirect()->back()->with('success', 'Комментарий обновлен');
-		} else {
-			return redirect()->back()->with('success', 'Возникла ошибка');
-		}
+		return redirect()->back()->with('success', 'Комментарий обновлен');
+		
     }
 	
 	public function lockAnswer(Request $request)
@@ -85,9 +85,12 @@ class ConsultationAnswerController extends Controller
 		
 		$comment->is_block = 1;
 		$comment->save();
-				
+		
+		$consultation_slug = $comment->consultation->slug;
+		
+		$this->clearConsultationCache($consultation_slug);
+		
 		return redirect()->back()->with('success', 'Ответ заблокирован');
-    
 	}
 	
 	public function unlockAnswer(Request $request)
@@ -100,7 +103,11 @@ class ConsultationAnswerController extends Controller
 		
 		$comment->is_block = 0;
 		$comment->save();
-				
+		
+		$consultation_slug = $comment->consultation->slug;
+		
+		$this->clearConsultationCache($consultation_slug);
+		
 		return redirect()->back()->with('success', 'Ответ разблокирован');
     }
 	
