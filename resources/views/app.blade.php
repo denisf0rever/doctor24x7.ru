@@ -35,8 +35,8 @@
   @include('parts.header')
 
   <main class="main">
-    <!-- <div class="main__wrapper-main container"> -->
-    <div class="main__wrapper container">
+    <div class="main__wrapper-main container">
+      <!-- <div class="main__wrapper container"> -->
       @yield('content')
       @include('parts.sidebar')
 
