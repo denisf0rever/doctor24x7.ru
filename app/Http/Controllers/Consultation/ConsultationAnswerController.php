@@ -175,11 +175,14 @@ class ConsultationAnswerController extends Controller
 			$consultation = Consultation::query()
 				->where('id', $id)
 				->first();
+			
+			$consultation_slug = $consultation->slug;
+			$this->clearConsultationCache($consultation_slug);
 				
 			$dataForMail = [
-				'name' => $consultation->username,
-				'email' => $consultation->email,
-				'consultation_id' => $consultation->id
+				'author_username' => $consultation->username,
+				'author_email' => $consultation->email,
+				'comment_id' => $consultation->id
 			];
 			
 			AnswerToAuthorCreated::dispatch($dataForMail);
@@ -187,6 +190,6 @@ class ConsultationAnswerController extends Controller
 			return response()->json(['success', 'Ответ добавлен']);
 		}
 		
-		return response()->json(['success', 'Ответ добавлен']);
+		return response()->json(['error', 'Ответ не добавлен']);
 	}
 }
