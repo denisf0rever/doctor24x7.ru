@@ -11,6 +11,7 @@ use App\Models\Consultation\CommentLike as Like;
 use App\Services\CommentService;
 use App\Events\AnswerToAuthorCreated;
 use App\Traits\ConsultationCacheable;
+use App\Helpers\ClearConsultationCache;
 
 class ConsultationAnswerController extends Controller
 {
@@ -125,12 +126,21 @@ class ConsultationAnswerController extends Controller
 		if ($request->state == 1) {
 			if ($like) {
 				$like->delete();
+				
+				ClearConsultationCache::clear($like);
+				
 			} else {
 				$like = Like::create(['comment_id' => $commentId, 'ip' => $ip]);
+				
+				ClearConsultationCache::clear($like);
+				
 				return response()->json(['message' => 'Лайк успешно добавлен']);
 			}
 		} else {
 			$like->delete();
+			
+			ClearConsultationCache::clear($like);
+			
 			return response()->json(['message' => 'Лайк успешно удалён']);
 		}
 	}
