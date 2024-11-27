@@ -11,13 +11,10 @@ use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Consultation\CommentLike as Like;
 use App\Services\CommentService;
 use App\Events\AnswerToAuthorCreated;
-use App\Traits\ConsultationCacheable;
 use App\Helpers\ClearConsultationCache;
 
 class ConsultationAnswerController extends Controller
 {
-	use ConsultationCacheable;
-	
 	public function show($id)
 	{
 		$comment = Comment::query()
@@ -161,7 +158,7 @@ class ConsultationAnswerController extends Controller
 			if ($like) {
 				$like->delete();
 				
-				ClearConsultationCache::clear($request->slug);
+			ClearConsultationCache::clear($request->slug);
 			}
 			
 			return response()->json(['message' => 'Лайк успешно удалён']);
@@ -171,7 +168,7 @@ class ConsultationAnswerController extends Controller
 		}
 	}
 	
-	public function getDocument(string $id, LikeRequest $request, CommentService $service)
+	public function getDocument(string $id, CommentService $service)
 	{
 		$dataForDocument = [
 			'comment_id' => $id,
@@ -179,7 +176,7 @@ class ConsultationAnswerController extends Controller
 			'to_answer_id' => null,
 			'email' => 'noreply@puzkarapuz.ru',
 			'username' => 'Администрация сайта',
-			'description' => 'Пришлите, пожалуйста, анализы или документы имеющие отношение к вопросу на адрес doc@puzkarapuz.ru, в конце укажите: ' . $id,
+			'description' => 'Пришлите, пожалуйста, анализы или документы имеющие отношение к вопросу на адрес doc@puzkarapuz.ru, в письме укажите номер консультации: ' . $id,
 		];
 		
 		// Создаем комментарий в консул
@@ -187,7 +184,9 @@ class ConsultationAnswerController extends Controller
 		
 		if ($comment) {
 			
-			ClearConsultationCache::clear($request->slug);
+			$consultation = Consultation::query()
+				->where('id', $id)
+				->first();
 				
 			$dataForMail = [
 				'author_username' => $consultation->username,
@@ -196,6 +195,8 @@ class ConsultationAnswerController extends Controller
 			];
 			
 			AnswerToAuthorCreated::dispatch($dataForMail);
+			
+			ClearConsultationCache::clear($consultation->id);
 			
 			return response()->json(['success', 'Ответ добавлен']);
 		}
