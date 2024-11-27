@@ -33,20 +33,8 @@ final class ClearConsultationCache {
         }
     }
 	
-    public static function clear($object) {
-		
-		if (is_object($object)) {
-			$like_comment = $object->comment_id;
-			$comment = Comment::find($like_comment);
-		
-			$consultation = Consultation::query()
-				->where('id', $comment->comment_id)
-				->first();
-			
-			$slug = $consultation->slug;
-			self::clearConsultationCache($slug);
-		}
-		
-		return response()->json(['message' => 'Возникла ошибка в ' . __CLASS__]);
+    public static function clear($slug): void
+	{
+		self::clearConsultationCache($slug);
     }
 }

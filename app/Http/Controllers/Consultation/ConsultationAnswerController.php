@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Consultation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
+use App\Http\Requests\LikeRequest;
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Consultation\CommentLike as Like;
@@ -112,11 +113,11 @@ class ConsultationAnswerController extends Controller
 		return redirect()->back()->with('success', 'Ответ разблокирован');
     }
 	
-	public function like(Request $request, string $id)
+	public function like(LikeRequest $request, string $id)
 	{
 		$commentId = $id;
 		$state = $request->state;
-		$ip = $request->ip();
+		$ip = $request->ip(); 
 		
 		$like = Like::query()
 				->where('comment_id', $commentId)
@@ -127,25 +128,25 @@ class ConsultationAnswerController extends Controller
 			if ($like) {
 				$like->delete();
 				
-				ClearConsultationCache::clear($like);
+				ClearConsultationCache::clear($request->slug);
 				
 			} else {
 				$like = Like::create(['comment_id' => $commentId, 'ip' => $ip]);
 				
-				ClearConsultationCache::clear($like);
+				ClearConsultationCache::clear($request->slug);
 				
 				return response()->json(['message' => 'Лайк успешно добавлен']);
 			}
-		} else {
+		} elseif ($request->state == 0) {
 			$like->delete();
 			
-			ClearConsultationCache::clear($like);
+			ClearConsultationCache::clear($request->slug);
 			
 			return response()->json(['message' => 'Лайк успешно удалён']);
 		}
 	}
 	
-	public function dislike(Request $request, string $id)
+	public function dislike(LikeRequest $request, string $id)
 	{
 		$commentId = $id;
 		$state = $request->state;
@@ -159,6 +160,8 @@ class ConsultationAnswerController extends Controller
 		if ($request->state == 1) {
 			if ($like) {
 				$like->delete();
+				
+				ClearConsultationCache::clear($request->slug);
 			}
 			
 			return response()->json(['message' => 'Лайк успешно удалён']);
@@ -168,7 +171,7 @@ class ConsultationAnswerController extends Controller
 		}
 	}
 	
-	public function getDocument(string $id, CommentService $service)
+	public function getDocument(string $id, LikeRequest $request, CommentService $service)
 	{
 		$dataForDocument = [
 			'comment_id' => $id,
@@ -179,15 +182,12 @@ class ConsultationAnswerController extends Controller
 			'description' => 'Пришлите, пожалуйста, анализы или документы имеющие отношение к вопросу на адрес doc@puzkarapuz.ru, в конце укажите: ' . $id,
 		];
 		
+		// Создаем комментарий в консул
 		$comment = $service->createComment($dataForDocument);
 		
 		if ($comment) {
-			$consultation = Consultation::query()
-				->where('id', $id)
-				->first();
 			
-			$consultation_slug = $consultation->slug;
-			$this->clearConsultationCache($consultation_slug);
+			ClearConsultationCache::clear($request->slug);
 				
 			$dataForMail = [
 				'author_username' => $consultation->username,
