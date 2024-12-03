@@ -34,7 +34,7 @@ class AnswerToConsultant extends Mailable
         return new Envelope(
 			from: new Address('notify@doctor24x7.ru', 'Доктор 24x7'),
 			//replyTo: [new Address('hello@okuoku.ru', 'OkuOku')],
-			subject: 'Диалог',
+			subject: 'Диалог в консультации',
 		);
     }
 

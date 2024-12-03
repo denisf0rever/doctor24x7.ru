@@ -67,6 +67,11 @@ use App\Helpers\LinkHelper
           <div class="question__select-wrapper custom-select__wrapper custom-select__hide">
             <ul class="question__select-list">
               <li class="question__option">
+                <a href="{{ route('dashboard.consultation.item', $consultation->id) }}" class="question__link">
+                  В панель
+                </a>
+			</li>  
+				<li class="question__option">
                 <a href="{{ route('dashboard.consultation.destroy', $consultation->id) }}" class="question__link">
                   Удалить
                 </a>
