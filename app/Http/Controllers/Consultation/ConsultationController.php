@@ -112,14 +112,13 @@ class ConsultationController extends Controller
     public function consultation(string $slug)
     {
 		$startTime = microtime(true);
-		
-		$ipAddress = request()->ip();
-		
+			
 		$cacheKey = 'consultation_' . $slug;
 		$discussionCache = 'discussion_' . $slug;
 		$contentCache = 'content_' . $slug;
+		$userListCache = 'userlist_' . $slug;
 		
-		$timeCache = 60*60;
+		$timeCache = 60;
 
 		// Попробуйте получить данные из кэша
 		//LinkHelper::convertToHtmlLink();
@@ -128,11 +127,12 @@ class ConsultationController extends Controller
 			->where('slug', $slug)
 			->with([
 				'discussion' => fn ($discussion) => $discussion->with('subcategory'),
-				'comments' => fn ($comments) => $comments->where('to_answer_id', null)
+				'comments' => fn ($comments) => $comments->where('to_answer_id', NULL)
 					->withCount('like')
-					->with(['children' => fn ($children) => $children->withCount('like')->with('children')])
+					->with(['children' => fn ($children) => $children->withCount('like')])
+					->with('user')
 				])
-        ->firstOrFail());
+			->firstOrFail());
 		
 		$consultationId = $consultation->id;
 		
@@ -142,13 +142,29 @@ class ConsultationController extends Controller
 			->where('comment_id', $consultationId)
 			->count());
 			
+		if ($consultation->comments->count() > 0) {
+			$consultantsArray = cache()->remember($userListCache, $timeCache, fn () => DB::table('sf_consultation_comment_answer as ca')
+				->join('sf_guard_user as u', 'ca.user_id', '=', 'u.id')
+				->where('ca.comment_id', $consultation->id)
+				->distinct()
+					->select('u.id', 'u.username', 'u.email_address', 'u.first_name', 'u.last_name', 'u.middle_name', 'u.avatar') // выбор полей о пользователях
+				->get());
+		}
+			
 		$endTime = microtime(true);
-        $executionTime = ($endTime - $startTime) * 1000; // Время в миллисекундах
+        $executionTime = ($endTime - $startTime); // Время в миллисекундах
 		
 		
+		
+		//@if ($consultation->bookings->count() > 0)
+		//@foreach ($consultation->bookings as $booking)
+		//	@include('consultation.user.userlist', ['user' => $booking])
+		//@endforeach
+		//@else
+		//@endif
 		//$this->incrementView($id);
 		
-		return view('consultation.item', compact('consultation', 'executionTime', 'discussion'));
+		return view('consultation.item', compact('consultation', 'executionTime', 'discussion', 'consultantsArray'));
     }
 	
     public function edit(string $id)
@@ -169,6 +185,7 @@ class ConsultationController extends Controller
             ->firstOrFail();
 			
 		$consultation->description = $request->input('description');
+		$consultation->email = $request->input('email');
 		$consultation->save();
 		
 		return redirect()->back()->with('success', 'Консультация обновлена');

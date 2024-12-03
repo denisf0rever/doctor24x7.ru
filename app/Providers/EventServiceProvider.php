@@ -12,6 +12,8 @@ use App\Events\ConsultationAddBooking;
 use App\Listeners\ConsultationBookingdNotification;
 use App\Events\AnswerToAuthorCreated;
 use App\Listeners\AnswerNotification;
+use App\Events\AnswerToConsultantCreated;
+use App\Listeners\AnswerToConsultantNotification;
 use App\Events\ConsultationInWork;
 use App\Listeners\ConsultationInWorkNotification;
 
@@ -37,6 +39,10 @@ class EventServiceProvider extends ServiceProvider
 		
 		ConsultationInWork::class => [
 			ConsultationInWorkNotification::class,
+		],
+		
+		AnswerToConsultantCreated::class => [
+			AnswerToConsultantNotification::class,
 		]
     ];
 
@@ -58,6 +64,11 @@ class EventServiceProvider extends ServiceProvider
 		Event::listen(
 			AnswerToAuthorCreated::class,
 			AnswerNotification::class
+		);
+		
+		Event::listen(
+			AnswerToConsultantCreated::class,
+			AnswerToConsultantNotification::class
 		);
 		
 		Event::listen(

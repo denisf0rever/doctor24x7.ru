@@ -3,7 +3,7 @@
   <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else
     href="#answer{{ $comment->id }}"@endif class="comment__user-link">
     <img
-      src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
+      src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Str::substr($comment->username, 0, 1); }}"
       alt="" class="comment__avatar-sub">
     <span
       class="comment__user-name">{{ $comment->user ? $comment->user->first_name .' '. $comment->user->middle_name : $comment->username }}</span>

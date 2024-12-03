@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Consultation\ConsultationAnswerController;
+use App\Http\Controllers\Consultation\ConsultationCategory;
 use App\Http\Controllers\Consultation\BookingController;
 use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
@@ -35,8 +36,12 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::get('/consultation/comment', [ConsultationController::class, 'form'])->name('consult.form');
 	Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'consultation'])->name('consultation.item');
 	Route::post('/consultation/create', [ConsultationController::class, 'create'])->name('consult.create');
+	Route::post('/consultation/answer', [ConsultationAnswerController::class, 'createPublicAnswer'])->name('consultation.answer');
 	Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
 	Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
+	
+	Route::get('/consultation/rubric/{categorySlug}/', [ConsultationCategory::class, 'show'])->name('consultation.rubric');
+	Route::get('/consultation/rubric/{categorySlug}/{subcategorySlug}/', [ConsultationCategory::class, 'getSubRubricUrl'])->name('consultation.subrubric');
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');
@@ -60,6 +65,10 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::post('/consultation/get-document/{id}', [ConsultationAnswerController::class, 'getDocument'])->name('consultation.get-document');
 	Route::post('/consultation/lockAnswer', [ConsultationAnswerController::class, 'lockAnswer'])->name('consultation.block-answer');
 	Route::post('/consultation/unlockAnswer', [ConsultationAnswerController::class, 'unlockAnswer'])->name('consultation.unlock-answer');
+	Route::get('/consultation/answer/delete', [ConsultationAnswerController::class, 'destroy'])->name('consultation.destroy-answer');
+	Route::post('/consultation/answer/top', [ConsultationAnswerController::class, 'top'])->name('consultation.top-answer');
+	Route::post('/consultation/content/add', [ConsultationAnswerController::class, 'addContent'])->name('consultation.add-content');
+	Route::get('/consultation/content/delete/{id}', [ConsultationAnswerController::class, 'destroyContent'])->name('consultation.destroy-content');
 	
 Route::middleware(['auth'])->group(function () { 	 
     Route::get('/dashboard', fn() => view('dashboard.main'))->name('dashboard.main');

@@ -13,33 +13,38 @@
     <div class="wrapper__wrapper container">
       @include('dashboard.parts.sidebar')
 
-      <main class="wrapper__main main">
+	<main class="wrapper__main main">
         <div class="main__wrapper">
-          <h1 class="main__consultation-title">№{{ $consultation->id }}, {{ $consultation->created_at }}</h1>
+		<h1 class="main__title">Редактирование консультации №{{ $consultation->id }}</h1>
+          <section class="main__form form">
+            <div class="form__wrapper">
+              <form action="{{ route('dashboard.consultation.update.consultation', $consultation->id) }}" method="post" class="form__inner-form" enctype="multipart/form-data">
+                @csrf
 
-          <section class="main__consultation-textarea consultation-textarea">
-            <div class="consultation-textarea__wrapper white-block">
-              <h2 class="consultation__title">Редактирование сообщения # {{ $consultation->id }}</h2>
-              <div class="consultation__inner">
-                <div class="consultation__item">
-                  {{ $consultation->description }}
+                <div class="form__inner">
+                  <div class="form__tabs">
+                    <div class="form__tab form__tab-active">
+                      <ul class="form__inputs">
+                       <li class="form__input-wrapper">
+                          <label class="form__label" for="description_short">Дательное описание</label>
+                          <textarea class="form__input @error('description_short')input-error @enderror" type="text"
+                            id="description" name="description">{{ $consultation->description }}</textarea>
+                        </li>
+						<li class="form__input-wrapper">
+                          <label class="form__label" for="name">Название</label>
+                          <input class="form__input @error('name')input-error @enderror" type="text" id="email"
+                            name="email" value="{{ $consultation->email }}">
+                        </li>
+                        
+                    </div>
+                  </div>
                 </div>
-
-                <div class="consultation__item">
-                  <form action="{{ route('dashboard.consultation.update.consultation', $consultation->id) }}"
-                    class="consultation__form" method="POST">
-                    @csrf
-                    <textarea class="consultation-textarea__textarea ckeditor"
-                      name="description">{{ $consultation->description }}</textarea>
-                    <input class="consultation-textarea__submit red-button" type="submit" value="Редактировать">
-                  </form>
+                <div class="form__textarea-wrapper">
+                  <input class="form__submit red-button" type="submit" value="Сохранить"></input>
                 </div>
-              </div>
-
-
+              </form>
             </div>
           </section>
-
         </div>
         @if (session('success'))
         <div class="toast">

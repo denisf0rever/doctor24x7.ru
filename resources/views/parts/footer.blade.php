@@ -34,7 +34,7 @@
             <a href="/" class="footer__link">Архив</a>
           </li>
           <li class="footer__links-item">
-            <a href="/" class="footer__link">Войти</a>
+            <a href="{{ route('login') }}" class="footer__link">Войти</a>
           </li>
         </ul>
         <div class="footer__desc">

@@ -12,9 +12,9 @@ final class CommentService
 		$comment = Comment::create([
 			'comment_id' => $commentData['comment_id'],
 			'to_answer_id' => $commentData['to_answer_id'] ?? null,
-			'user_id' => $commentData['user_id'],
+			'user_id' => $commentData['user_id'] ?? null,
 			'email' => $commentData['email'],
-			'username' => $commentData['username'],
+			'username' => $commentData['username'] ?? null,
 			'description' => $commentData['description'],
 		]);
 		

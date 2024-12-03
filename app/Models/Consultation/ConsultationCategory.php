@@ -28,6 +28,6 @@ class ConsultationCategory extends Model
 	
 	public function subcategory()
 	{
-		return $this->hasOne(SubCategories::class);
+		return $this->hasOne(SubCategories::class, 'id');
 	}
 }

@@ -5,13 +5,17 @@ namespace App\Http\Controllers\Consultation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
+use App\Http\Requests\CommentPublicRequest;
 use App\Http\Requests\LikeRequest;
 use App\Models\Consultation\Consultation;
+use App\Models\UserMain as User;
 use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Consultation\CommentLike as Like;
 use App\Services\CommentService;
 use App\Events\AnswerToAuthorCreated;
+use App\Events\AnswerToConsultantCreated;
 use App\Helpers\ClearConsultationCache;
+use App\Models\Consultation\Contents;
 
 class ConsultationAnswerController extends Controller
 {
@@ -32,6 +36,31 @@ class ConsultationAnswerController extends Controller
 			AnswerToAuthorCreated::dispatch($request->validated());
 		
 			return redirect()->back()->with('success', 'Ответ добавлен');
+		}
+		
+		return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');
+    } 
+	
+	public function createPublicAnswer(CommentPublicRequest $request, CommentService $service)
+    {
+		$comment = $service->createComment($request->validated());
+		
+		if ($comment) {
+			$to_answer = Comment::select('username', 'email')
+				->where('id', $comment->to_answer_id)
+				->first();
+			
+			if ($to_answer) {
+				$validatedData = $request->validated();
+				$validatedData['email'] = $to_answer->email;
+				$validatedData['username'] = $to_answer->username;
+				
+				AnswerToConsultantCreated::dispatch($validatedData);
+				
+				return redirect()->back()->with('success', $validatedData);
+			} 
+			
+			return redirect()->back()->with('success', 'Пользователь не найден.');
 		}
 		
 		return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');
@@ -59,15 +88,14 @@ class ConsultationAnswerController extends Controller
 		return view('dashboard.consultation.edit-answer', compact('comment'));
 	}
 	
-	public function update(CommentRequest $request, string $id)
+	public function update(Request $request, string $id)
     {	
-        $data = $request->validated();
-		
 		$comment = Comment::query()
-            ->where('id', $id)
-            ->firstOrFail();
+			->where('id', $id)
+			->firstOrFail();
 			
 		$comment->description = $request->input('description');
+		$comment->email = $request->input('email');
 		$comment->save();
 		
 		return redirect()->back()->with('success', 'Комментарий обновлен');
@@ -86,10 +114,9 @@ class ConsultationAnswerController extends Controller
 		$comment->save();
 		
 		$consultation_slug = $comment->consultation->slug;
+		ClearConsultationCache::clear($consultation_slug);
 		
-		$this->clearConsultationCache($consultation_slug);
-		
-		return redirect()->back()->with('success', 'Ответ заблокирован');
+		return response()->json(['message' => 'Ответ заблокирован']);
 	}
 	
 	public function unlockAnswer(Request $request)
@@ -104,10 +131,9 @@ class ConsultationAnswerController extends Controller
 		$comment->save();
 		
 		$consultation_slug = $comment->consultation->slug;
+		ClearConsultationCache::clear($consultation_slug);
 		
-		$this->clearConsultationCache($consultation_slug);
-		
-		return redirect()->back()->with('success', 'Ответ разблокирован');
+		return response()->json(['message' => 'Ответ разблокирован']);
     }
 	
 	public function like(LikeRequest $request, string $id)
@@ -121,24 +147,25 @@ class ConsultationAnswerController extends Controller
 				->where('ip', $ip)
 				->first();
 				
-		if ($request->state == 1) {
-			if ($like) {
+		switch (true) {
+			case $request->state == 1 && $like:
 				$like->delete();
-				
 				ClearConsultationCache::clear($request->slug);
-				
-			} else {
+			break;
+
+			case $request->state == 1 && !$like:
 				$like = Like::create(['comment_id' => $commentId, 'ip' => $ip]);
-				
 				ClearConsultationCache::clear($request->slug);
-				
+       
 				return response()->json(['message' => 'Лайк успешно добавлен']);
-			}
-		} elseif ($request->state == 0) {
-			$like->delete();
-			
+
+			case $request->state == 0:
+				if ($like) {
+					$like->delete();
+				}
+        
 			ClearConsultationCache::clear($request->slug);
-			
+        
 			return response()->json(['message' => 'Лайк успешно удалён']);
 		}
 	}
@@ -157,8 +184,7 @@ class ConsultationAnswerController extends Controller
 		if ($request->state == 1) {
 			if ($like) {
 				$like->delete();
-				
-			ClearConsultationCache::clear($request->slug);
+				ClearConsultationCache::clear($request->slug);
 			}
 			
 			return response()->json(['message' => 'Лайк успешно удалён']);
@@ -202,5 +228,16 @@ class ConsultationAnswerController extends Controller
 		}
 		
 		return response()->json(['error', 'Ответ не добавлен']);
+	}
+	
+	public function destroyContent(string $id)
+	{
+		$contents = Contents::query()
+			->where('id', $id)
+			->firstOrFail();
+		
+		$contents->delete();
+		
+		return redirect()->back()->with('success', 'Пункт сожержания удален');
 	}
 }
