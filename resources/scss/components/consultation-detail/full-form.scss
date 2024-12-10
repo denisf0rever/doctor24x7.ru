@@ -23,6 +23,10 @@
   &__confirm-btn-unactive{
     background-color:#07bde2
   }
+  &__confirm-btn-active {
+    background-color: #005ff9;
+    cursor: pointer;
+  }
   &__next-btn {
     position: absolute;
     bottom: 35px;
