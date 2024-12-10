@@ -35,10 +35,6 @@ class ConsultationAnswerController extends Controller
 		if ($comment) {
 			AnswerToAuthorCreated::dispatch($request->validated());
 			
-			
-			// добавить уведомление ту ансвер айди
-			// сделать обновление кеша
-			
 			$consultation_slug = $comment->consultation->slug;
 			ClearConsultationCache::clear($consultation_slug);
 			
@@ -64,13 +60,12 @@ class ConsultationAnswerController extends Controller
 				$validatedData['email'] = $consultation_email;
 				$validatedData['username'] = $consultation_username;;
 				
+				ClearConsultationCache::clear($consultation_slug);
 				AnswerToConsultantCreated::dispatch($validatedData);
-					
+				
 				if ($payment_chat == 0) {
 					return redirect()->route('payment.answer', $comment->id)->with('success', 'Ответ успешно добавлен');
 				}
-				
-				ClearConsultationCache::clear($consultation_slug);
 			
 				return redirect()->back()->with('success', 'Ответ успешно добавлен');
 			} else {	
@@ -82,8 +77,8 @@ class ConsultationAnswerController extends Controller
 				$validatedData['email'] = $answer->email;
 				$validatedData['username'] = $answer->username;
 				
-				AnswerToConsultantCreated::dispatch($validatedData);
 				ClearConsultationCache::clear($consultation_slug);
+				AnswerToConsultantCreated::dispatch($validatedData);
 				
 				if ($payment_chat == 0) {
 					return redirect()->route('payment.answer', $comment->id)->with('success', 'Ответ успешно добавлен');
@@ -107,7 +102,10 @@ class ConsultationAnswerController extends Controller
             ->where('id', $id)
             ->firstOrFail();
 		
+		$consultation_slug = $comment->consultation->slug;
 		$comment->delete();
+		
+		ClearConsultationCache::clear($consultation_slug);
 				
 		if ($comment) {
 			 return redirect()->back()->with('success', 'Ответ удален');

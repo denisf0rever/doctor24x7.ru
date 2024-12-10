@@ -32,6 +32,10 @@
                         href="{{ route('dashboard.consultation.edit', $consultation->id )}}">Редактировать</a>
                     </li>
                     <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
+                        href="{{ route('consultation.get-document', $consultation->id) }}">Запросить документы</a></li>
+                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
+                        href="">Объединить с...</a></li>
+                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
                         href="{{ route('dashboard.consultation.destroy', $consultation->id )}}">Удалить</a></li>
                   </ul>
                 </div>
