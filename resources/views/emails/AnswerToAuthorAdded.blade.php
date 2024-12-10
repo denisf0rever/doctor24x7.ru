@@ -14,7 +14,7 @@
               <h1 style="color:#fafafa; font-size: 20px; text-align: left; margin-bottom: 15px;">Здравствуйте,
                 {{ $details['name'] }}</h1>
               <p style="color: #999; line-height: 1.6; font-size: 15px;">
-                Врач ответил на ваш вопрос.
+                Поступил комментарий к вашему сообщению.
               </p>
               <p style="color: #999; line-height: 1.6; font-size: 15px;">
                 Посмотреть ответ <a href="https://puzkarapuz.ru/consultation/detail/{{ $details['consultation_id'] }}"

@@ -21,14 +21,11 @@ use App\Services\ConsultationService;
 use App\Services\BookingService;
 use App\Events\ConsultationCreated;
 use App\Helpers\LinkHelper;
-use App\Traits\ConsultationCacheable;
-
 use Carbon\Carbon;
 
 class ConsultationController extends Controller
 {
-	use ConsultationCacheable;
-	
+	// Вывод консультаций
 	public function dashboard()
 	{
 		$consultations = Consultation::select('id', 'title', 'visit_count', 'created_at')
@@ -88,6 +85,7 @@ class ConsultationController extends Controller
 		return view('consultation.list');
     }
 
+	// Форма для подачи вопроса
     public function form()
     {
 		$categories = Category::select('id', 'short_title')->get();
@@ -95,6 +93,7 @@ class ConsultationController extends Controller
 		return view('consultation.form', compact('categories'));
     } 
 	
+	// Создание консультации
 	public function create(ConsultationRequest $request, ConsultationService $service)
     {
 		$consultation = $service->create($request->validated());
@@ -155,7 +154,6 @@ class ConsultationController extends Controller
         $executionTime = ($endTime - $startTime); // Время в миллисекундах
 		
 		
-		
 		//@if ($consultation->bookings->count() > 0)
 		//@foreach ($consultation->bookings as $booking)
 		//	@include('consultation.user.userlist', ['user' => $booking])
@@ -167,6 +165,7 @@ class ConsultationController extends Controller
 		return view('consultation.item', compact('consultation', 'executionTime', 'discussion', 'consultantsArray'));
     }
 	
+	// Редактирование консультации
     public function edit(string $id)
     {
         $consultation = Consultation::query()
@@ -176,6 +175,7 @@ class ConsultationController extends Controller
 		return view('dashboard.consultation.edit-consultation', compact('consultation'));
     }
 
+	// Обновление консультации
     public function update(ConsultationUpdateRequest $request, string $id)
     {
         $data = $request->validated();
@@ -190,7 +190,8 @@ class ConsultationController extends Controller
 		
 		return redirect()->back()->with('success', 'Консультация обновлена');
     }
-	
+	 
+	// Удаление консультации
     public function destroy(string $id)
     {
         $consultation = Consultation::query()

@@ -16,14 +16,15 @@ class AuthController extends Controller
 	
 	public function authenticate(Request $request)
 	{
+		$credentials = $request->only('username', 'password');
+		$remember = $request->has('remember');
 		
-		 $credentials = $request->only('username', 'password');
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
+        if (Auth::attempt($credentials, $remember)) {
+			$request->session()->regenerate();
+			
             return redirect(route('dashboard.main'));
         }
+		
         return redirect(route('login'))->withErrors(['email' => 'Пользователь не найден']);
 	}
 

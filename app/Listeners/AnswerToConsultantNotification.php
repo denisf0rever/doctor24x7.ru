@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AnswerToConsultant;
+use App\Services\TelegramBot\TelegramNotifier;
 
 class AnswerToConsultantNotification
 {
@@ -22,6 +23,13 @@ class AnswerToConsultantNotification
 			'app_support' => env('CUSTOM_SUPPORT'),
 		];
 		
-		Mail::to($event->email)->send(new AnswerToConsultant($details));
+		try {
+			Mail::to($event->email)->send(new AnswerToConsultant($details));
+		} catch (\Exception $e) {
+			\Log::error('Ошибка отправки почты: ' . $e->getMessage());
+    
+			$notifier = new TelegramNotifier(__CLASS__ . 'Почта не ушла');
+			$notifier->notify();
+		}
     }
 }

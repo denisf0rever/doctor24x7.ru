@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Consultation\Booking;
 use App\Models\Tariff\Tariff;
+use App\Models\Payment\Payment;
 
 class Consultation extends Model
 {
@@ -51,6 +52,11 @@ class Consultation extends Model
 	public function discussion()
 	{
 		return $this->hasOne(Discussion::class, 'comment_id');
+	}
+	
+	public function payment()
+	{
+		return $this->hasOne(Payment::class, 'consultation_id');
 	}
 	
 	// Вернет false если брони нет, и true если бронь есть

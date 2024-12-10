@@ -45,6 +45,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');
+	Route::get('/payment/answer/{id}', [PaymentController::class, 'payAnswer'])->name('payment.answer');
 	Route::post('/payment/consultation', [PaymentController::class, 'create'])->name('payment.consultation.create');
 	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.consultation.init');	
 	
@@ -113,7 +114,7 @@ Route::middleware(['auth'])->group(function () {
 	// Консультации
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
-	Route::post('/dashboard/consultation/delete/{id}', [ConsultationController::class, 'destroy'])->name('dashboard.consultation.destroy');
+	Route::get('/dashboard/consultation/delete/{id}', [ConsultationController::class, 'destroy'])->name('dashboard.consultation.destroy');
 	Route::get('/dashboard/consultation/edit/{id}', [ConsultationController::class, 'edit'])->name('dashboard.consultation.edit');
 	Route::post('/dashboard/consultation/update/consultation/{id}', [ConsultationController::class, 'update'])->name('dashboard.consultation.update.consultation');
 	
@@ -129,6 +130,10 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/dashboard/tariff/{id}/edit', [TariffController::class, 'edit'])->name('dashboard.tariff.edit');
 	Route::post('/dashboard/tariff/{id}', [TariffController::class, 'update'])->name('dashboard.tariff.update');
 	Route::get('/dashboard/tariff/{id}/delete', [TariffController::class, 'destroy'])->name('dashboard.tariff.delete');
+	
+	// Платежи
+	Route::get('/dashboard/payment', [PaymentController::class, 'index'])->name('dashboard.payment.index');
+	Route::get('/dashboard/payment/{id}', [PaymentController::class, 'item'])->name('dashboard.payment.item');
 	
 	// Букинг
 	Route::post('/dashboard/fetch/booking/{id}', [BookingController::class, 'makeRequest'])->name('dashboard.consultation.booking');

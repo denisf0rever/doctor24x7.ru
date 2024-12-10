@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 use App\Models\Consultation\Consultation;
+use App\Models\Payment\Payment;
 use App\Models\Tariff\Rubric;
 use App\Models\Tariff\Tariff;
 use App\Mail\Payment\PaymentStatus;
+use Carbon\Carbon;
 
 use Log;
 
@@ -22,7 +24,10 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $payments = Payment::query()
+			->get();
+			
+		return view('dashboard.payment.index', compact('payments'));
     }
 
     /**

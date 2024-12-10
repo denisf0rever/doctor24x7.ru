@@ -34,7 +34,14 @@ class ConsultationAnswerController extends Controller
 		
 		if ($comment) {
 			AnswerToAuthorCreated::dispatch($request->validated());
-		
+			
+			
+			// добавить уведомление ту ансвер айди
+			// сделать обновление кеша
+			
+			$consultation_slug = $comment->consultation->slug;
+			ClearConsultationCache::clear($consultation_slug);
+			
 			return redirect()->back()->with('success', 'Ответ добавлен');
 		}
 		
@@ -44,27 +51,55 @@ class ConsultationAnswerController extends Controller
 	public function createPublicAnswer(CommentPublicRequest $request, CommentService $service)
     {
 		$comment = $service->createComment($request->validated());
+		$payment_chat = $comment->consultation->payment->chat;
+		$consultation_username = $comment->consultation->username;
+		$consultation_email = $comment->consultation->email;
+		$to_answer_id = $comment->to_answer_id;
 		
 		if ($comment) {
-			$to_answer = Comment::select('username', 'email')
-				->where('id', $comment->to_answer_id)
-				->first();
+			$consultation_slug = $comment->consultation->slug;
 			
-			if ($to_answer) {
+			if ($to_answer_id === null) {
 				$validatedData = $request->validated();
-				$validatedData['email'] = $to_answer->email;
-				$validatedData['username'] = $to_answer->username;
+				$validatedData['email'] = $consultation_email;
+				$validatedData['username'] = $consultation_username;;
 				
 				AnswerToConsultantCreated::dispatch($validatedData);
+					
+				if ($payment_chat == 0) {
+					return redirect()->route('payment.answer', $comment->id)->with('success', 'Ответ успешно добавлен');
+				}
 				
-				return redirect()->back()->with('success', $validatedData);
-			} 
+				ClearConsultationCache::clear($consultation_slug);
 			
-			return redirect()->back()->with('success', 'Пользователь не найден.');
+				return redirect()->back()->with('success', 'Ответ успешно добавлен');
+			} else {	
+				$answer = Comment::select('username', 'email')
+					->where('id', $to_answer_id)
+					->first();
+					
+				$validatedData = $request->validated();
+				$validatedData['email'] = $answer->email;
+				$validatedData['username'] = $answer->username;
+				
+				AnswerToConsultantCreated::dispatch($validatedData);
+				ClearConsultationCache::clear($consultation_slug);
+				
+				if ($payment_chat == 0) {
+					return redirect()->route('payment.answer', $comment->id)->with('success', 'Ответ успешно добавлен');
+				}
+				
+				return redirect()->back()->with('success', 'Ответ успешно добавлен');
+			}
 		}
 		
 		return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');
     }
+	
+	public function payAnswer(string $id)
+	{
+		return 'OK';
+	}
 	
 	public function destroy(string $id)
     {
@@ -88,18 +123,16 @@ class ConsultationAnswerController extends Controller
 		return view('dashboard.consultation.edit-answer', compact('comment'));
 	}
 	
-	public function update(Request $request, string $id)
+	public function update(Request $request, string $id, CommentService $service)
     {	
-		$comment = Comment::query()
-			->where('id', $id)
-			->firstOrFail();
-			
-		$comment->description = $request->input('description');
-		$comment->email = $request->input('email');
-		$comment->save();
+		$validatedData = $request->all();
+		$validatedData['id'] = $id;
 		
-		return redirect()->back()->with('success', 'Комментарий обновлен');
+		$comment = $service->updateComment($validatedData);
 		
+		if ($comment) {
+			return redirect()->back()->with('success', 'Комментарий обновлен');
+		}
     }
 	
 	public function lockAnswer(Request $request)

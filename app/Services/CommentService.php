@@ -7,7 +7,7 @@ use App\Models\Consultation\Consultation;
 
 final class CommentService
 {
-	 public function createComment(array $commentData)
+	 public function createComment(array $commentData): Comment
 	 {
 		$comment = Comment::create([
 			'comment_id' => $commentData['comment_id'],
@@ -24,6 +24,19 @@ final class CommentService
 			
 		$consultation->increment('answer_count');
 			
+		return $comment;
+	 }
+	 
+	 public function updateComment(array $commentData): Comment
+	 {
+		 $comment = Comment::query()
+			->where('id',  $commentData['id'])
+			->firstOrFail();
+			
+		$comment->description = $commentData['description'];
+		$comment->email = $commentData['email'];
+		$comment->save();
+		
 		return $comment;
 	 }
 }
