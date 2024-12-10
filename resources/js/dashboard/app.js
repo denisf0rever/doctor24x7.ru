@@ -6,6 +6,9 @@ import { Fancybox } from "@fancyapps/ui";
 import 'ckeditor5/ckeditor5.css';
 
 window.onload = () => {
+
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
   const tubButtons = document.querySelectorAll('.form__tab-button');
   const tubs = document.querySelectorAll('.form__tab');
 
@@ -505,4 +508,56 @@ window.onload = () => {
   });
 
   /*ГАЛЕРЕЯ */
+
+  /* ДЕЙСТВИЯ КОНСУЛЬТАЦИИ */
+
+  const menuPostAction = (csrfToken, url, body, isReload) => {
+    if (csrfToken) {
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': csrfToken
+        },
+        body: JSON.stringify(body)
+      })
+        .then(async response => {
+          if (response.ok) {
+            if (isReload) {
+              window.location.reload();
+            }
+          } else {
+            const errorText = await response.text();
+            console.error('Ошибка при отправке POST-запроса:', {
+              status: response.status,
+              statusText: response.statusText,
+              url,
+              errorText
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Ошибка сети или другая проблема:', {
+            message: error.message,
+            stack: error.stack,
+            url
+          });
+        });
+    }
+  }
+
+  const requestDoc = document.querySelector('.small-menu__link-doc');
+
+
+  if (requestDoc) {
+    const url = window.location.href;
+    const segments = url.split('/');
+    const consultationId = segments[segments.length - 1];
+    requestDoc.onclick = (e) => {
+      e.preventDefault();
+      menuPostAction(csrfToken, requestDoc.href, { 'id': +consultationId }, true)
+    }
+  }
+
+  /* ДЕЙСТВИЯ КОНСУЛЬТАЦИИ */
 }

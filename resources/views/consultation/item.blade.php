@@ -71,27 +71,6 @@ use App\Helpers\LinkHelper
                   В панель
                 </a>
               </li>
-              <li class="question__option">
-                <a href="{{ route('dashboard.consultation.destroy', $consultation->id) }}" class="question__link">
-                  Удалить
-                </a>
-              </li>
-              <li class="question__option">
-                <a href="{{ route('consultation.get-document', $consultation->id) }}"
-                  class="question__link question__link-doc">
-                  Запросить документы
-                </a>
-              </li>
-              <li class="question__option">
-                <a href="/" class="question__link">
-                  Объединить с...
-                </a>
-              </li>
-              <li class="question__option">
-                <a href="{{ route('dashboard.consultation.edit', $consultation->id) }}" class="question__link">
-                  Редактировать
-                </a>
-              </li>
             </ul>
           </div>
         </div>@endif

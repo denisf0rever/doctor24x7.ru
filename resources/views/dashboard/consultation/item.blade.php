@@ -17,7 +17,8 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
-          <h1 class="main__consultation-title">№{{ $consultation->id }}, {{ $consultation->created_at }}  {{ $executionTime }}</h1>
+          <h1 class="main__consultation-title">№{{ $consultation->id }}, {{ $consultation->created_at }}
+            {{ $executionTime }}</h1>
           <section class="main__consultation consultation">
             <div class="consultation__wrapper white-block">
               <div class="small-menu small-menu__menu-btn custom-select" data-id="300330">
@@ -31,10 +32,10 @@
                     <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
                         href="{{ route('dashboard.consultation.edit', $consultation->id )}}">Редактировать</a>
                     </li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
+                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link small-menu__link-doc"
                         href="{{ route('consultation.get-document', $consultation->id) }}">Запросить документы</a></li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
-                        href="">Объединить с...</a></li>
+                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link" href="">Объединить с...</a>
+                    </li>
                     <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
                         href="{{ route('dashboard.consultation.destroy', $consultation->id )}}">Удалить</a></li>
                   </ul>
@@ -55,8 +56,8 @@
                 <div class="consultation__gallery">
                   @if ($photos)
                   <ul class="consultation__gallery-list">
-					@foreach ($photos as $photo)
-					<li class="consultation__gallery-item"><a class="consultation__gallery-link"
+                    @foreach ($photos as $photo)
+                    <li class="consultation__gallery-item"><a class="consultation__gallery-link"
                         href="https://puzkarapuz.ru/{{ $photo->path }}" data-fancybox="gallery" target="_blank"><img
                           src="https://puzkarapuz.ru/{{ $photo->path }}" class="consultation__gallery-img"
                           alt="Фото консультации" width="450px"></a></li>
