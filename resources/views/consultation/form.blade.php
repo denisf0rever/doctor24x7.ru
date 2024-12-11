@@ -1,16 +1,13 @@
 @extends('app')
-@section('title', 'Добавить вопрос')
-@section('description', '')
-@section('keywords', '')
+@section('title', 'Консультация врача онлайн — задать вопрос и получить ответ в течение часа')
+@section('description', 'Консультируют практикующие врачи, документы об образовании проверены администрацией сайта')
+@section('keywords', 'Задать вопрос врачу онлайну, консультация врача онлайн')
 @section('canonical', 'consultation/create')
 
 @section('content')
-
 @foreach($errors->all() as $error)
 {{ $error }} <br />
 @endforeach
-
-
 
 <section class="main__text-service text-service">
   <h1 class="text-service__title">Консультация врача онлайн</h1>

@@ -140,8 +140,10 @@ class ConsultationController extends Controller
 		$discussion = cache()->remember($discussionCache, $timeCache, fn () => Discussion::query()
 			->where('comment_id', $consultationId)
 			->count());
-			
-		if ($consultation->comments->count() > 0) {
+		
+		/* !!!!!!!!!!!!! нужно подумать над проверкой внизу !!!!!!!!!!!!!!!*/
+		
+		if ($consultation->comments->count() >= 0) {
 			$consultantsArray = cache()->remember($userListCache, $timeCache, fn () => DB::table('sf_consultation_comment_answer as ca')
 				->join('sf_guard_user as u', 'ca.user_id', '=', 'u.id')
 				->where('ca.comment_id', $consultation->id)
