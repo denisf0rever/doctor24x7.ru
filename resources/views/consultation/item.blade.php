@@ -235,9 +235,11 @@ use App\Helpers\LinkHelper
             <a @if($comment->user) href="/profile/{{ $comment->user->username }}"
               id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif
               class="comment__user-link">
-              <img
-                src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Str::substr($comment->username, 0, 1) }}"
-                class="comment__avatar-main">
+              {!! $comment->user && $comment->user->avatar ?
+              '<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'"
+                class="comment__avatar-main">' :
+              '<div class="comment__avatar-main">' . Str::substr($comment->username, 0, 1) . '</div>'
+              !!}
               <span class="comment__user-name">{{ $comment->username }}</span>
               <span class="comment__user-subtitle">{{ $comment->user ? $comment->user->city : '' }}</span>
             </a>

@@ -2,16 +2,19 @@
 <div class="comment__sub-comment" id="answer{{ $comment->id }}">
   <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else
     href="#answer{{ $comment->id }}"@endif class="comment__user-link">
-    <img
-      src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Str::substr($comment->username, 0, 1); }}"
-      alt="" class="comment__avatar-sub">
+    {!! $comment->user && $comment->user->avatar ?
+    '<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'" class="comment__avatar-sub">'
+    :
+    '<div class="comment__avatar-sub">' . Str::substr($comment->username, 0, 1) . '</div>'
+    !!}
     <span
       class="comment__user-name">{{ $comment->user ? $comment->user->first_name .' '. $comment->user->middle_name : $comment->username }}</span>
     <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
   </a>
   <span class="comment__text">
     <p><a href="#answer{{ $comment->to_answer_id }}">
-	@if ($comment->to_answer_id){{ trim($comment->parentComment->username) }}@endif</a>, {{ $comment->description }}</p>
+        @if ($comment->to_answer_id){{ trim($comment->parentComment->username) }}@endif</a>, {{ $comment->description }}
+    </p>
   </span>
 
   <div class="comment__answer-field-fake">
