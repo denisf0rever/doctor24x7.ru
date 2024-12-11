@@ -33,7 +33,7 @@ class ConsultationComment extends Model
 	
 	public function children()
     {
-        return $this->hasMany(self::class, 'to_answer_id', 'id');
+        return $this->hasMany(self::class, 'to_answer_id', 'id')->orderBy('created_at', 'asc');
     }
 	
 	public function parentComment()

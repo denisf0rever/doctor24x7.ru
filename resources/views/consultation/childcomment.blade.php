@@ -9,7 +9,7 @@
     !!}
     <span
       class="comment__user-name">{{ $comment->user ? $comment->user->first_name .' '. $comment->user->middle_name : $comment->username }}</span>
-    <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
+    <span class="comment__user-subtitle">{{ $comment->user?->city ?? $comment->created_at }}</span>
   </a>
   <span class="comment__text">
     <p><a href="#answer{{ $comment->to_answer_id }}">

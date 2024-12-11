@@ -22,10 +22,12 @@ class CommentPublicRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'comment_id' => 'required|int|min:1',
+            'comment_id' => 'required|integer|min:1',
+			'to_answer_id' => 'integer|min:1',
+            'author_email' => 'string|max:255',
             'email' => 'required|string|max:255',
             'username' => 'required|string|max:255',
-            'description' => 'required|string|min:10',
+            'description' => 'required|string|min:2',
         ];
     }
 }

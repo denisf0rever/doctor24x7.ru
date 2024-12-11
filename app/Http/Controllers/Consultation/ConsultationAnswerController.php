@@ -38,7 +38,7 @@ class ConsultationAnswerController extends Controller
 			$consultation_slug = $comment->consultation->slug;
 			ClearConsultationCache::clear($consultation_slug);
 			
-			return redirect()->back()->with('success', 'Ответ добавлен');
+			return redirect()->route('dashboard.consultation.item', $comment->consultation->id)->with('success', 'Ответ добавлен');
 		}
 		
 		return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');
@@ -51,11 +51,6 @@ class ConsultationAnswerController extends Controller
 		$consultation_username = $comment->consultation->username;
 		$consultation_email = $comment->consultation->email;
 		$to_answer_id = $comment->to_answer_id;
-		
-		
-		dump(gettype($to_answer_id));
-		dump(gettype($request->to_answer_id));
-		dd($request);
 		
 		if ($comment) {
 			$consultation_slug = $comment->consultation->slug;
@@ -134,7 +129,7 @@ class ConsultationAnswerController extends Controller
 		$comment = $service->updateComment($validatedData);
 		
 		if ($comment) {
-			return redirect()->back()->with('success', 'Комментарий обновлен');
+			return redirect()->route('dashboard.consultation.item', $comment->consultation->id)->with('success', 'Комментарий обновлен');
 		}
     }
 	

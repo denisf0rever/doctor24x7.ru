@@ -35,10 +35,9 @@
                 <input type="hidden" name="comment_id" value="{{ $comment->consultation->id }}">
                 <input type="hidden" name="to_answer_id" value="{{ $comment->id }}" id="to_answer_id">
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                <input type="hidden" name="author_email" value="{{ $comment->consultation->email }}" id="author_email">
-                <input type="hidden" name="email" id="author_email" value="{{ auth()->user()->email }}">
-                <input type="hidden" name="author_username" value="{{ $comment->consultation->username }}"
-                  id="author_username">
+                <input type="hidden" name="author_email" value="{{ $comment->email }}" id="author_email">
+                <input type="hidden" name="email" id="email" value="{{ auth()->user()->email }}">
+                <input type="hidden" name="author_username" value="{{ $comment->username }}" id="author_username">
                 <input type="hidden" name="username"
                   value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
                 <input class="consultation-textarea__submit red-button" type="submit" value="Ответить">
