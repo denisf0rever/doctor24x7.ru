@@ -13,7 +13,7 @@
   </a>
   <span class="comment__text">
     <p>@if ($comment->to_answer_id)<a href="#answer{{ $comment->to_answer_id }}">
-        {{ trim($comment->parentComment->username) }}</a>,@endif{{ $comment->description }}
+        {{ trim($comment->parentComment->username) }}</a>, @endif{{ $comment->description }}
     </p>
   </span>
 
