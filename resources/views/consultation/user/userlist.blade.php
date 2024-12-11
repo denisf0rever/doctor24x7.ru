@@ -7,6 +7,6 @@
           <div class="experts-list__expert-status">Врач</div>
         </a>
         <a href="#{{ $user->username }}" class="experts-list__anchor">
-          <img src="" alt="" class="experts-list__anchor-img">
+          <img src="{{ Storage::url('common/question/hashtag.svg') }}" alt="" class="experts-list__anchor-img">
         </a>
       </div>

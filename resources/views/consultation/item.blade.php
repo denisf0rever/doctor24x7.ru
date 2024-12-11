@@ -51,17 +51,13 @@ use App\Helpers\LinkHelper
       <div class="question__text">
         <p>{{ $consultation->description }}</p>
         <p>{{ $consultation->created_at }}</p>
+        <p>Ответов: {{ $consultation->answer_count }}</p>
       </div>
 
       <div class="question__icons">
-        <div class="question__icon">
-          <img src="https://puzkarapuz.ru/images/svg/doc.svg" alt=""
-            class="question__icon-img question__icon-small question__icon-doc-img">
-          <div class="question__icon-value">{{ $consultation->answer_count }}</div>
-        </div>
         @if(Auth::check())
         <div class="question__icon question__icon-link question__icon-last custom-select">
-          <img src="https://puzkarapuz.ru/images/svg/click.svg" alt=""
+          <img src="{{ Storage::url('common/question/click.svg') }}" alt=""
             class="question__icon-img question__icon-actions-img">
           <div class="question__icon-value">Действия</div>
           <div class="question__select-wrapper custom-select__wrapper custom-select__hide">
@@ -103,7 +99,7 @@ use App\Helpers\LinkHelper
             <span class="contents__text">{{ $content->name }}</span></a>
           @if(Auth::check())
           <a href="{{ route('consultation.destroy-content', $content->id) }}" class="contents__delete">
-            <img src="https://puzkarapuz.ru/images/svg/delete.svg" alt="" class="contents__img">
+            <img src="{{ Storage::url('common/question/delete.svg') }}" alt="" class="contents__img">
           </a>
           @endif
         </li>
@@ -128,34 +124,34 @@ use App\Helpers\LinkHelper
     <div class="comment__menu comment-menu comment-menu__hide">
       <div class="comment-menu__wrapper">
         <div class="comment-menu__header">Меню</div>
-        <img src="/images/svg/close.svg" class="comment-menu__hide-button">
+        <img src="{{ Storage::url('common/close.svg') }}" class="comment-menu__hide-button">
         @if(Auth::check())
         <div class="comment-menu__buttons">
           <a href="{{ route('consultation.destroy-answer') }}"
             class="comment-menu__button comment-menu__button-delete answer-del">
-            <img src="/images/svg/delete.svg" alt="" class="comment-menu__button-img">
+            <img src="{{ Storage::url('common/question/delete.svg') }}" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Удалить ответ</span>
           </a>
           <a href="" target="_blank" class="comment-menu__button comment-menu__button-edit">
-            <img src="/images/svg/edit.svg" alt="" class="comment-menu__button-img">
+            <img src="{{ Storage::url('common/question/edit.svg') }}" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Редактировать ответ</span>
           </a>
           <a href="{{ route('consultation.add-content') }}" class="comment-menu__button comment-menu__button-add">
-            <img src="/images/svg/content.svg" alt="" class="comment-menu__button-img">
+            <img src="{{ Storage::url('common/question/content.svg') }}" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Добавить в содержание</span>
           </a>
           <a href="{{ route('consultation.top-answer') }}" class="comment-menu__button comment-menu__button-up">
-            <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
+            <img src="{{ Storage::url('common/question/top.svg') }}" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Поднять в начало</span>
           </a>
           <a href="{{ route('consultation.block-answer') }}"
             class="comment-menu__button comment-menu__button-up comment-menu__button-block">
-            <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
+            <img src="{{ Storage::url('common/question/lock.svg') }}" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Заблокировать ответ</span>
           </a>
           <a href="{{ route('consultation.unlock-answer') }}"
             class="comment-menu__button comment-menu__button-up comment-menu__button-unlock">
-            <img src="/images/svg/top.svg" alt="" class="comment-menu__button-img">
+            <img src="{{ Storage::url('common/question/unlock.svg') }}" alt="" class="comment-menu__button-img">
             <span class="comment-menu__button-text">Разблокировать ответ</span>
           </a>
         </div>
@@ -164,14 +160,14 @@ use App\Helpers\LinkHelper
           <li class="comment-menu__contact-item">
             <a href="/consultation/messenger" class="comment-menu__contact-link">
               <span class="comment-menu__contact-text">Whatsapp/Viber</span>
-              <img src="/images/svg/messenger-icon.svg" alt="" class="comment-menu__contact-img">
+              <img src="{{ Storage::url('common/question/messenger.svg') }}" alt="" class="comment-menu__contact-img">
             </a>
           </li>
           <li class="comment-menu__contact-item">
             <a href="/consultation/chat/dialog/300331/redirect"
               class="comment-menu__contact-link comment-menu__contact-list-last">
               <span class="comment-menu__contact-text">В чате</span>
-              <img src="/images/svg/chat-icon.svg" alt="" class="comment-menu__contact-img">
+              <img src="{{ Storage::url('common/question/chat.svg') }}" alt="" class="comment-menu__contact-img">
             </a>
           </li>
         </ul>
@@ -201,11 +197,11 @@ use App\Helpers\LinkHelper
               </div>
               <div class="full-form__second-screen hide">
                 <div class="full-form__input-wrapper full-form__input-wrapper-name">
-                  <img src="/images/svg/forms/form-for-answers/user.svg" alt="" class="full-form__input-img">
+                  <img src="{{ Storage::url('common/question/user.svg') }}" alt="" class="full-form__input-img">
                   <input type="name" name="username" id="username" class="full-form__name" placeholder="Ваше имя">
                 </div>
                 <div class="full-form__input-wrapper full-form__input-wrapper-email">
-                  <img src="/images/svg/forms/form-for-answers/email.svg" alt="" class="full-form__input-img">
+                  <img src="{{ Storage::url('common/question/email.svg') }}" alt="" class="full-form__input-img">
                   <input type="email" name="email" id="email" class="full-form__email" placeholder="Ваша почта">
                 </div>
                 <div class="full-form__buttons">

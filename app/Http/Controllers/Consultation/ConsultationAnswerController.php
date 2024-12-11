@@ -47,12 +47,15 @@ class ConsultationAnswerController extends Controller
 	public function createPublicAnswer(CommentPublicRequest $request, CommentService $service)
     {
 		$comment = $service->createComment($request->validated());
-		$payment_chat = $comment->consultation->payment->chat;
+		$payment_chat = $comment->consultation->payment?->chat ?? false;
 		$consultation_username = $comment->consultation->username;
 		$consultation_email = $comment->consultation->email;
 		$to_answer_id = $comment->to_answer_id;
 		
-		dd(gettype($request->to_answer_id));
+		
+		dump(gettype($to_answer_id));
+		dump(gettype($request->to_answer_id));
+		dd($request);
 		
 		if ($comment) {
 			$consultation_slug = $comment->consultation->slug;
@@ -65,7 +68,7 @@ class ConsultationAnswerController extends Controller
 				ClearConsultationCache::clear($consultation_slug);
 				AnswerToConsultantCreated::dispatch($validatedData);
 				
-				if ($payment_chat == 0) {
+				if ($payment_chat == false) {
 					return redirect()->route('payment.answer', $comment->id)->with('success', 'Ответ успешно добавлен');
 				}
 			
@@ -73,7 +76,7 @@ class ConsultationAnswerController extends Controller
 			} else {	
 				$answer = Comment::select('username', 'email')
 					->where('id', $to_answer_id)
-					->first();
+					->first();	
 					
 				$validatedData = $request->validated();
 				$validatedData['email'] = $answer->email;
@@ -82,7 +85,7 @@ class ConsultationAnswerController extends Controller
 				ClearConsultationCache::clear($consultation_slug);
 				AnswerToConsultantCreated::dispatch($validatedData);
 				
-				if ($payment_chat == 0) {
+				if ($payment_chat == false) {
 					return redirect()->route('payment.answer', $comment->id)->with('success', 'Ответ успешно добавлен');
 				}
 				

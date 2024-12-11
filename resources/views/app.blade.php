@@ -7,28 +7,26 @@
 
   <title>@yield('title')</title>
 
+  <meta name="title" content="@yield('title')">
   <meta name="description" content="@yield('description')">
   <meta name="keywords" content="@yield('keywords')">
 
   <link rel="canonical" href="{{ config('app.url') }}@yield('canonical')">
 
-  <meta name="description" content="@yield('description')">
-  <meta name="title" content="@yield('title')">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <meta property="og:title" content="@yield('title')">
   <meta property="og:description" content="@yield('description')">
-  <meta property="og:image" content="/images/logoimage.jpg">
+  <meta property="og:image" content="{{ Storage::url('common/logoimage.jpg') }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ config('app.url') }}@yield('canonical')">
-  <meta property="og:site_name"
-    content="Онлайн сервис медицинских консультаций: педиатр и гинеколог, а также другие врачи">
+  <meta property="og:site_name" content="Телемедицина. Платформа медицинских консультаций онлайн">
 
   <meta name="theme-color" content="#fff">
 
-  <link rel="image_src" href="/images/logoimage.jpg" />
-  <link rel="icon" href="/images/favicon/favicon.svg" type="svg+xml">
-  <link rel="manifest" href="/images/favicon/site.webmanifest">
+  <link rel="image_src" href="{{ Storage::url('common/logoimage.jpg') }}" />
+  <link rel="icon" href="{{ Storage::url('common/favicon.svg') }}" type="svg+xml">
+  <link rel="manifest" href="{{ Storage::url('common/favicon/site.webmanifest') }}">
 
   @vite(['resources/scss/style.scss', 'resources/js/main.min.js'])
   @yield('chat')
@@ -36,7 +34,6 @@
 
   <main class="main">
     <div class="main__wrapper-main container">
-      <!-- <div class="main__wrapper container"> -->
       @yield('content')
       @include('parts.sidebar')
 
@@ -137,7 +134,6 @@
           </ul>
         </div>
       </div>
-
     </div>
   </main>
 
