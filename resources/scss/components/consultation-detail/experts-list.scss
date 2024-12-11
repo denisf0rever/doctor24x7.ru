@@ -52,6 +52,8 @@
     font-size: 13px;
     line-height: 15px;
     color: var(--secondary-text);
+    display: flex;
+    align-items: center;
   }
   &__anchor{
     width: 15px;
