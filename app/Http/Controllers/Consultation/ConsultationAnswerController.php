@@ -52,6 +52,8 @@ class ConsultationAnswerController extends Controller
 		$consultation_email = $comment->consultation->email;
 		$to_answer_id = $comment->to_answer_id;
 		
+		dd(gettype($request->to_answer_id));
+		
 		if ($comment) {
 			$consultation_slug = $comment->consultation->slug;
 			
