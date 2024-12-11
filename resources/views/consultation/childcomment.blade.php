@@ -12,8 +12,8 @@
     <span class="comment__user-subtitle">{{ $comment->user?->city ?? $comment->created_at }}</span>
   </a>
   <span class="comment__text">
-    <p><a href="#answer{{ $comment->to_answer_id }}">
-        @if ($comment->to_answer_id){{ trim($comment->parentComment->username) }}@endif</a>, {{ $comment->description }}
+    <p>@if ($comment->to_answer_id)<a href="#answer{{ $comment->to_answer_id }}">
+        {{ trim($comment->parentComment->username) }}</a>,@endif{{ $comment->description }}
     </p>
   </span>
 
