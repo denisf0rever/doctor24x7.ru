@@ -1,4 +1,11 @@
 .promo{
+  &__title{
+    font-size: 20px;
+    margin: 0 0 8px;
+    font-weight: 500;
+    line-height: 1.3;
+    display: inline-block;
+  }
   &__list{
     display: flex;
     flex-wrap: wrap;

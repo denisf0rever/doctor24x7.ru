@@ -241,7 +241,8 @@ use App\Helpers\LinkHelper
               '<div class="comment__avatar-main">' . Str::substr($comment->username, 0, 1) . '</div>'
               !!}
               <span class="comment__user-name">{{ $comment->username }}</span>
-              <span class="comment__user-subtitle">{{ $comment->user ? $comment->user->city : '' }}</span>
+              <span
+                class="comment__user-subtitle">{{ $comment->user ? $comment->user->city : $comment->created_at }}</span>
             </a>
             <div class="comment__menu-btn" data-id="{{ $comment->id }}">
               <svg class="comment__menu-btn-svg">

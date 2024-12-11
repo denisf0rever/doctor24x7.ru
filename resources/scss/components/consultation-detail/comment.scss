@@ -54,7 +54,7 @@
     background-color: #f6f6f9;
   }
   &__user-name{
-    grid-row:1/2;grid-column:2/3;font-size:18px;
+    grid-row:1/2;grid-column:2/3;font-size:16px;
   }
   &__user-subtitle{
     grid-row:2/3;grid-column:2/3;color:#a6abb6;font-size:13px
@@ -94,6 +94,12 @@
     background-color: #f6f6f9;
     box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
     border-radius: 0.5em;
+    .full-form__question-input{
+      background-color: #fff;
+    }
+    .full-form__name, .full-form__email{
+      background-color: #fff;
+    }
   } 
   p{
     font-size: 16px;

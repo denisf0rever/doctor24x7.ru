@@ -30,6 +30,7 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    object-fit: cover;
   }
   &__expert-fullname{
     grid-column: 2 / 3;
@@ -38,6 +39,8 @@
     line-height: 15px;
     font-weight: 500;
     color: var(--link-text);
+    display: flex;
+    align-items: center;
     &:hover{
       color: var(--main-text);
     }
