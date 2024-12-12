@@ -276,6 +276,7 @@ window.onload = () => {
     if (makeBookingBtn) {
       makeBookingBtn.onclick = () => {
         makeBooking();
+        makeBookingBtn.style.display = 'none';
       }
     }
 
