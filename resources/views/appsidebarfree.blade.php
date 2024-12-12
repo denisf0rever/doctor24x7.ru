@@ -32,15 +32,9 @@
   @include('parts.header')
 
   <main class="main">
-    <div class="main__wrapper-main container">
+	<div class="main__wrapper container">
 		@yield('content')
-	  
-		@if (!isset($showSidebar))
-        @include('parts.sidebar')
-		@endif
-		
-	  @include('parts.menu')
-    </div>
+	</div>
   </main>
 
   @include('parts.footer')

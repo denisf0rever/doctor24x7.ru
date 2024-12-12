@@ -5,7 +5,7 @@
       <div class="header__top">
         <a href="/" class="header__logo">
           <img src="{{ Storage::url('common/logo.svg') }}" alt="" class="header__logo-img">
-          <h1 class="header__title">КОНСУЛЬТАЦИИ ВРАЧЕЙ</h1>
+          <div class="header__title">КОНСУЛЬТАЦИИ ВРАЧЕЙ</div>
         </a>
         <nav class="header__nav">
           <ul class="header__nav-list">

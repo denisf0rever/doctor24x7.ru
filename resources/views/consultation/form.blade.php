@@ -1,4 +1,4 @@
-@extends('app')
+@extends('appsidebarfree')
 @section('title', 'Консультация врача онлайн — задать вопрос и получить ответ в течение часа')
 @section('description', 'Консультируют практикующие врачи, документы об образовании проверены администрацией сайта')
 @section('keywords', 'Задать вопрос врачу онлайну, консультация врача онлайн')
@@ -100,7 +100,6 @@
   </div>
 </section>
 
-
 <section class="main__consultation-form consultation-form">
   <div class="consultation-form__wrapper small-container">
     <h2 class="consultation-form__title">Задать вопрос врачам онлайн </h2>
@@ -112,8 +111,9 @@
         </div>
       </div>
     </div>
-    <form id="consultation-form" method="POST" action="{{ route('consult.create') }}" enctype="multipart/form-data"
+    <form id="consultation-form" method="POST" action="{{ route('consultation.create') }}" enctype="multipart/form-data"
       class="consultation-form__form">
+	  @csrf
       <div class="consultation-form__tubs">
         <div class="consultation-form__tub consultation-form__tub-active" data-step="1">
           <div class="consultation-form__tub-wrapper">
@@ -311,7 +311,7 @@
       <div class="content-block__wrapper">
         <h1 class="content-block__header">Заявка на онлайн консультацию</h1>
         <div class="content-block__subtitle-wrapper">
-          <form method="POST" action="{{ route('consult.create') }}" enctype="multipart/form-data">
+          <form method="POST" action="" enctype="multipart/form-data">
             @csrf
             <div class="form__input-wrapper">
               <label class="form__label" for="Заголовок вопроса">Заголовок вопроса</label>

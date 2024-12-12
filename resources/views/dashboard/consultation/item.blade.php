@@ -54,7 +54,7 @@
 
                 <!-- ФОТКИ -->
                 <div class="consultation__gallery">
-                  @if ($photos)
+                  @if ($photos->isNotEmpty())
                   <ul class="consultation__gallery-list">
                     @foreach ($photos as $photo)
                     <li class="consultation__gallery-item"><a class="consultation__gallery-link"
@@ -166,7 +166,7 @@
             <input type="hidden" name="to_answer_id" value="" id="to_answer_id">
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             <input type="hidden" name="author_email" value="" id="author_email">
-            <input type="hidden" name="email" id="author_email" value="{{ auth()->user()->email }}">
+            <input type="hidden" name="email" id="email" value="{{ auth()->user()->email }}">
             <input type="hidden" name="author_username" value="" id="author_username">
             <input type="hidden" name="username"
               value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
