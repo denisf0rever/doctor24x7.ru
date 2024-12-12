@@ -165,13 +165,8 @@
             <input type="hidden" name="comment_id" value="{{ $consultation->id }}">
             <input type="hidden" name="to_answer_id" value="" id="to_answer_id">
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-<<<<<<< HEAD
-            <input type="hidden" name="author_email" value="" id="author_email">
-            <input type="hidden" name="email" id="email" value="{{ auth()->user()->email }}">
-=======
             <input type="hidden" name="author_email" id="author_email" value="" id="author_email">
-            <input type="hidden" name="email" value="{{ auth()->user()->email }}">
->>>>>>> f2b28fdcffa71fc6a289d574b9611c3d33b9b4f7
+            <input type="hidden" name="email" id="email" value="{{ auth()->user()->email }}">
             <input type="hidden" name="author_username" value="" id="author_username">
             <input type="hidden" name="username"
               value="{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}">
