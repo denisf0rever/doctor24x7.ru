@@ -1,5 +1,6 @@
 @foreach($comments as $comment)
-<div class="comment" answer-id="{{ $comment->id }}">
+<div class="comment" answer-id="{{ $comment->id }}" answer-author_username="{{ $comment->username }}"
+            answer-author_email="{{ $comment->email }}">
   <div class="comment__wrapper comment__children white-block">
     <div class="small-menu small-menu__menu-btn custom-select" data-id="300330">
       <svg class="small-menu__menu-btn-svg">
