@@ -72,6 +72,11 @@
           <section class="main__stats stats">
             <div class="stats__wrapper">
               <ul class="stats__list">
+			  <li class="stats__item">
+                  <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour < '07:00' )
+                      {{ $consultation->tariff->night_fee * $coefficientLength * $coefficientCity }} @else {{ $consultation->tariff->fee * $coefficientLength * $coefficientCity }} @endif &#8381;</div>
+                      <div class="stats__text">Гонорар</div>
+                </li>
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
                   <div class="stats__text">Оплачено</div>
@@ -81,30 +86,27 @@
                   <div class="stats__text">Тариф</div>
                 </li>
                 <li class="stats__item">
-                  <div class="stats__number">Сценарий</div>
-                  <div class="stats__text">{{ $consultation->tariff->title }}</div>
-                </li>
-                <li class="stats__item">
-                  <div class="stats__number">{{ $consultation->tariff->answers_count }}</div>
-                  <div class="stats__text">Ответов</div>
+                  <div class="stats__number">{{ $consultation->tariff->title }}</div>
+                  <div class="stats__text">Сценарий</div>
                 </li>
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->bookings->count() }}</div>
                   <div class="stats__text">Взято</div>
                 </li>
                 <li class="stats__item">
+                  <div class="stats__number">{{ $coefficientLength }}</div>
+                  <div class="stats__text">Коэффициент</div>
+                </li>
+                </li>
+                <li class="stats__item">
+                  <div class="stats__number">Длина</div>
+                  <div class="stats__text">{{ $lengthDescription }}</div>
+                </li>
+                <li class="stats__item">
                   <div class="stats__number">1</div>
                   <div class="stats__text">Чат</div>
                 </li>
-                <li class="stats__item">
-                  <div class="stats__number">1</div>
-                  <div class="stats__text">Коэффицент</div>
-                </li>
-                <li class="stats__item">
-                  <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour < '07:00' )
-                      {{ $consultation->tariff->night_fee }} @else {{ $consultation->tariff->fee }} @endif &#8381;</div>
-                      <div class="stats__text">Гонорар</div>
-                </li>
+                
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->visit_count }}</div>
                   <div class="stats__text">Визитов</div>
@@ -113,15 +115,15 @@
             </div>
           </section>
 
-          @if ($canBooking)
-          <section class="main__booking booking">
+         @if ($canBooking && !$hasBooking)
+           <section class="main__booking booking">
             <div class="booking__wrapper white-block">
               <div class="booking__text">Чтобы ответить, нажмите беру</div>
               <div class=" booking__button red-button" id="makeBooking">Беру</div>
             </div>
           </section>
-          @elseif ($hasBooking)
-          <section class="main__booking booking">
+          @elseif ($hasBooking) 
+         <section class="main__booking booking">
             <div class="booking__wrapper white-block booking__is-free">
               <div class="booking__text">Вы взяли вопрос</div>
             </div>

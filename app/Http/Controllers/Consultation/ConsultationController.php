@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Consultation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 use App\Http\Controllers\Controller;
 use App\Models\Consultation\Consultation;
@@ -58,6 +59,20 @@ class ConsultationController extends Controller
             ->where('id', $id)
 			->with(['comments' => fn($comments) => $comments->where('to_answer_id', null)])
             ->firstOrFail();
+			
+		$lengthDescription = Str::length($consultation->description);
+		$cityId = $consultation->city_id;
+		
+		$coefficientCity = $cityId == 4400 ? 1.1 : 1;
+			
+		$coefficientLength = match(true) {
+			$lengthDescription > 1750 => 1.9,
+			$lengthDescription > 1500 => 1.8,
+			$lengthDescription > 1250 => 1.7,
+			$lengthDescription > 1000 => 1.6,
+			$lengthDescription > 750 => 1.5,
+			default => 1,
+		};
 		
 		$user_id = auth()->id();
 		
@@ -75,9 +90,9 @@ class ConsultationController extends Controller
 			->get();
 		
 		$endTime = microtime(true);
-        $executionTime = ($endTime - $startTime) * 1000; // Время в миллисекундах
+        $executionTime = ($endTime - $startTime); // Время в миллисекундах
 		
-		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos', 'executionTime'));
+		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos', 'executionTime', 'coefficientCity', 'coefficientLength', 'lengthDescription'));
     }
 	
     public function index()

@@ -16,6 +16,6 @@ final class TelegramNotifier
     {
 		$message = $this->message . '%0A%0A';
         
-        return file_get_contents('https://api.telegram.org/bot'.self::token.'/sendMessage?chat_id='.self::$telegram_admin_id.'&text='.$message.'');
+        return file_get_contents('https://api.telegram.org/bot'.self::$token.'/sendMessage?chat_id='.self::$telegram_admin_id.'&text='.$message.'');
     }
 }
