@@ -145,8 +145,9 @@ class PaymentController extends Controller
 		$data['Token'] = $hashedString;
 		
 		$postDataJson = json_encode($data);
+		echo $postDataJson;
 		
-		$response = Http::post('https://securepay.tinkoff.ru/v2/Init', $data);
+		/*$response = Http::post('https://securepay.tinkoff.ru/v2/Init', $data);
 	
 		$decode_response = json_decode($response, true);
 		
@@ -155,6 +156,6 @@ class PaymentController extends Controller
 			return redirect($paymentUrl);
 		} else {
 			return response()->json(['error' => 'Ошибка при отправке запроса'], $response->status());
-		}
+		}*/
 	}
 }
