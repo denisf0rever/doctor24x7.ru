@@ -148,7 +148,6 @@
                   </div>
                   <div class="experts-list__expert-status">Врач</div>
                 </a>
-                <a href="#doctorsvet" class="experts-list__anchor">К ответу</a>
               </div>
               <div class="experts-list__expert">
                 <a href="/profile/zimkov" class="experts-list__expert-link">
@@ -159,7 +158,6 @@
                   </div>
                   <div class="experts-list__expert-status">Врач</div>
                 </a>
-                <a href="#zimkov" class="experts-list__anchor">К ответу</a>
               </div>
             </div>
           </section>
