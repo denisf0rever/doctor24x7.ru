@@ -72,9 +72,10 @@
           <section class="main__stats stats">
             <div class="stats__wrapper">
               <ul class="stats__list">
-			  <li class="stats__item">
+                <li class="stats__item">
                   <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour < '07:00' )
-                      {{ $consultation->tariff->night_fee * $coefficientLength * $coefficientCity }} @else {{ $consultation->tariff->fee * $coefficientLength * $coefficientCity }} @endif &#8381;</div>
+                      {{ $consultation->tariff->night_fee * $coefficientLength * $coefficientCity }} @else
+                      {{ $consultation->tariff->fee * $coefficientLength * $coefficientCity }} @endif &#8381;</div>
                       <div class="stats__text">Гонорар</div>
                 </li>
                 <li class="stats__item">
@@ -106,7 +107,7 @@
                   <div class="stats__number">1</div>
                   <div class="stats__text">Чат</div>
                 </li>
-                
+
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->visit_count }}</div>
                   <div class="stats__text">Визитов</div>
@@ -115,15 +116,15 @@
             </div>
           </section>
 
-         @if ($canBooking && !$hasBooking)
-           <section class="main__booking booking">
+          @if ($canBooking && !$hasBooking)
+          <section class="main__booking booking">
             <div class="booking__wrapper white-block">
               <div class="booking__text">Чтобы ответить, нажмите беру</div>
               <div class=" booking__button red-button" id="makeBooking">Беру</div>
             </div>
           </section>
-          @elseif ($hasBooking) 
-         <section class="main__booking booking">
+          @elseif ($hasBooking)
+          <section class="main__booking booking">
             <div class="booking__wrapper white-block booking__is-free">
               <div class="booking__text">Вы взяли вопрос</div>
             </div>
@@ -135,6 +136,33 @@
             </div>
           </section>
           @endif
+          <section class="main__experts-list experts-list">
+            <h2 class="experts-list__title">Ответы врачей</h2>
+            <div class="experts-list__wrapper">
+              <div class="experts-list__expert">
+                <a href="/profile/doctorsvet" class="experts-list__expert-link">
+                  <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg"
+                    alt="" class="experts-list__expert-img">
+                  <div class="experts-list__expert-fullname">
+                    Светлана<br>Васильевна
+                  </div>
+                  <div class="experts-list__expert-status">Врач</div>
+                </a>
+                <a href="#doctorsvet" class="experts-list__anchor">К ответу</a>
+              </div>
+              <div class="experts-list__expert">
+                <a href="/profile/zimkov" class="experts-list__expert-link">
+                  <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/0d0907dfef8c541c52133451f4a98e5af28057c6.jpg"
+                    alt="" class="experts-list__expert-img">
+                  <div class="experts-list__expert-fullname">
+                    Евгений<br>Вячеславович
+                  </div>
+                  <div class="experts-list__expert-status">Врач</div>
+                </a>
+                <a href="#zimkov" class="experts-list__anchor">К ответу</a>
+              </div>
+            </div>
+          </section>
 
           <section class="main__consultation-textarea consultation-textarea">
             <div class="consultation-textarea__wrapper white-block">
