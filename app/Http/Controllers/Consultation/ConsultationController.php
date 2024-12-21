@@ -119,7 +119,13 @@ class ConsultationController extends Controller
 			'consultation_id' => $consultation->id
 		];
 				
-		ConsultationCreated::dispatch($data);
+		if ($consultation) {
+			ConsultationCreated::dispatch($data);
+		
+			return redirect()->route('payment.consultation', $consultation->id)->with('success', 'Консультация добавлена');
+		} else {
+			return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');
+		}
     }
 
 	// Просмотр консультации в паблике

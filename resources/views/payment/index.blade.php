@@ -1,4 +1,4 @@
-@extends('app')
+@extends('appsidebarfree')
 @section('title', $consultation->title)
 @section('description', $consultation->metadescription)
 @section('keywords', $consultation->metakey)
