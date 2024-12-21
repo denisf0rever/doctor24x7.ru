@@ -112,7 +112,7 @@ use App\Helpers\LinkHelper
   @if ($consultantsArray->isNotEmpty())
   <section class="main__experts-list experts-list">
     <h2 class="experts-list__title">Ответы врачей</h2>
-    <div class="experts-list__wrapper section-wrapper">
+    <div class="experts-list__wrapper">
       @foreach ($consultantsArray as $user)
       @include('consultation.user.userlist', ['user' => $user])
       @endforeach
