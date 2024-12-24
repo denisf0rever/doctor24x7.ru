@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Consultation\Booking;
 
 class UserMain extends Authenticatable
 {
@@ -112,5 +113,11 @@ class UserMain extends Authenticatable
 	{
 		return $this->belongsTo(User::class);
 	}
+	
+	
+	public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'user_id');
+    }
 	
 }

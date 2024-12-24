@@ -137,32 +137,21 @@
           </section>
           @endif
           <section class="main__experts-list experts-list">
-            <h2 class="experts-list__title">Ответы врачей</h2>
             <div class="experts-list__wrapper">
+			@foreach($doctors as $doctor)
               <div class="experts-list__expert">
-                <a href="/profile/doctorsvet" class="experts-list__expert-link">
-                  <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg"
+                <a href="#" class="experts-list__expert-link">
+                  <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $doctor->avatar }}"
                     alt="" class="experts-list__expert-img">
-                  <div class="experts-list__expert-fullname">
-                    Светлана<br>Васильевна
-                  </div>
-                  <div class="experts-list__expert-status">Врач</div>
+                  <div class="experts-list__expert-fullname">{{ $doctor->first_name }}<br />{{ $doctor->last_name }}</div>
                 </a>
               </div>
-              <div class="experts-list__expert">
-                <a href="/profile/zimkov" class="experts-list__expert-link">
-                  <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/0d0907dfef8c541c52133451f4a98e5af28057c6.jpg"
-                    alt="" class="experts-list__expert-img">
-                  <div class="experts-list__expert-fullname">
-                    Евгений<br>Вячеславович
-                  </div>
-                  <div class="experts-list__expert-status">Врач</div>
-                </a>
-              </div>
+			  @endforeach
             </div>
           </section>
 
           <section class="main__consultation-textarea consultation-textarea">
+            <h2>Форма для ответа</h2>
             <div class="consultation-textarea__wrapper white-block">
               <form action="{{ route('dashboard.consultation.create-answer') }}" method="POST">
                 @csrf

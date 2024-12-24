@@ -15,6 +15,7 @@ use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\Discussion;
 use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Consultation\Contents;
+use App\Models\UserMain;
 use App\Models\Settings\UserSettings as Settings;
 use App\Http\Requests\ConsultationRequest;
 use App\Http\Requests\ConsultationUpdateRequest;
@@ -88,11 +89,16 @@ class ConsultationController extends Controller
 		$photos = DB::table('sf_consultation_comment_photo')
 			->where('comment_id', $id)
 			->get();
-		
+			
+		$doctors = UserMain::whereHas('bookings', function ($query) use ($id) {
+            $query->where('comment_id', $id);
+        })->select('id', 'first_name', 'last_name', 'avatar')
+		->get();
+				
 		$endTime = microtime(true);
         $executionTime = ($endTime - $startTime); // Время в миллисекундах
 		
-		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos', 'executionTime', 'coefficientCity', 'coefficientLength', 'lengthDescription'));
+		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos', 'executionTime', 'coefficientCity', 'coefficientLength', 'lengthDescription', 'doctors'));
     }
 	
     public function index()
