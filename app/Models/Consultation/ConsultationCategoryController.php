@@ -15,8 +15,6 @@ class ConsultationCategoryController extends Controller
 			->where('slug', $slug)
 			->first();
 			
-		dd($category->consultation);
-			
 		return view('consultation.category.index', compact('category'));
 	}
 	

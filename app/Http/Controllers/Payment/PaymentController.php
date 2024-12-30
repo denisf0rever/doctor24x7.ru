@@ -129,7 +129,7 @@ class PaymentController extends Controller
 			'Amount' => 10*100,
 			'Description' => 'Подарочная карта на 1000 рублей',
 			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
-			'OrderId' => '4ggggвыывввыdddfddfddfddsа',
+			'OrderId' => 'Тест1',
 			'Password' => 'UNUKBp3_0OMdREha',
 			'TerminalKey' => '1729778851371'
 		];

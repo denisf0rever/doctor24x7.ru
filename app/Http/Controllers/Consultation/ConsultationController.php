@@ -136,7 +136,7 @@ class ConsultationController extends Controller
 
 	// Просмотр консультации в паблике
     public function consultation(string $slug)
-    {
+    {		
 		$startTime = microtime(true);
 			
 		$cacheKey = 'consultation_' . $slug;
@@ -213,6 +213,7 @@ class ConsultationController extends Controller
             ->where('id', $id)
             ->firstOrFail();
 			
+		$consultation->title = $request->input('title');
 		$consultation->description = $request->input('description');
 		$consultation->email = $request->input('email');
 		$consultation->save();

@@ -47,9 +47,16 @@
                   <p>{{ $consultation->description }}</p>
                 </div>
                 <div class="consultation__item">
-                  <p id="question-fullname">{{ $consultation->username }}</p>,
-                  <p id="question-email">{{ $consultation->email }}</p>,
+                  <p id="question-fullname">{{ $consultation->username }}</p>
+                </div> 
+				<div class="consultation__item">
+                  <p id="question-email">{{ $consultation->email }}</p>
+                </div> 
+				<div class="consultation__item">
                   <p id="question-age">Возраст пациента: {{ $consultation->age/365 }}</p>
+                </div> 
+				<div class="consultation__item">
+                  <p id="question-age">Телефон: {{ $consultation->phone ?? $consultation->phone }}</p>
                 </div>
 
                 <!-- ФОТКИ -->

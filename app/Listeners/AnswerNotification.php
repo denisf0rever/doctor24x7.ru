@@ -26,9 +26,9 @@ class AnswerNotification
 		try {
 			Mail::to($event->email)->send(new AnswerToAuthorAdded($details));
 		} catch (\Exception $e) {
-			\Log::error('Ошибка отправки почты: ' . $e->getMessage());
+			//\Log::error('Ошибка отправки почты: ' . $e->getMessage());
     
-			$notifier = new TelegramNotifier(__CLASS__ . 'Почта не ушла');
+			$notifier = new TelegramNotifier(__CLASS__ . '%0AПочта не ушла' . '%0A'. $event->consultation_id . '%0A'. $event->email);
 			$notifier->notify();
 		}
     }

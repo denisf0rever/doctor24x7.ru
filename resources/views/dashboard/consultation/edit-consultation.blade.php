@@ -25,6 +25,11 @@
                   <div class="form__tabs">
                     <div class="form__tab form__tab-active">
                       <ul class="form__inputs">
+						<li class="form__input-wrapper">
+                          <label class="form__label" for="name">Заголовок</label>
+                          <input class="form__input @error('name')input-error @enderror" type="text" id="title"
+                            name="title" value="{{ $consultation->title }}">
+                        </li>
                        <li class="form__input-wrapper">
                           <label class="form__label" for="description_short">Дательное описание</label>
                           <textarea class="form__input @error('description_short')input-error @enderror" type="text"

@@ -31,11 +31,10 @@
                             id="description" name="description">{{ $comment->description }}</textarea>
                         </li>
 						<li class="form__input-wrapper">
-                          <label class="form__label" for="name">Название</label>
+                          <label class="form__label" for="name">Почта</label>
                           <input class="form__input @error('name')input-error @enderror" type="text" id="email"
                             name="email" value="{{ $comment->email }}">
                         </li>
-                        
                     </div>
                   </div>
                 </div>

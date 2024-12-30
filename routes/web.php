@@ -10,7 +10,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Consultation\ConsultationAnswerController;
-use App\Http\Controllers\Consultation\ConsultationCategory;
+use App\Http\Controllers\Consultation\ConsultationCategoryController;
 use App\Http\Controllers\Consultation\BookingController;
 use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
@@ -40,8 +40,9 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
 	Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
 	
-	Route::get('/consultation/rubric/{categorySlug}/', [ConsultationCategory::class, 'show'])->name('consultation.rubric');
-	Route::get('/consultation/rubric/{categorySlug}/{subcategorySlug}/', [ConsultationCategory::class, 'getSubRubricUrl'])->name('consultation.subrubric');
+	// Категории консультаций
+	Route::get('/consultation/{categorySlug}/', [ConsultationCategoryController::class, 'category'])->name('consultation.category');
+	Route::get('/consultation/rubric/{categorySlug}/{subcategorySlug}/', [ConsultationCategoryController::class, 'getSubRubricUrl'])->name('consultation.subrubric');
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');
