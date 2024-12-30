@@ -305,7 +305,7 @@ window.onload = () => {
 
         // Получение данных из ответа (в формате JSON)
         const data = await response.json();
-
+        console.log(data);
         if (data.message) {
           document.querySelector('.booking__text').innerHTML = data.message;
         } else {
