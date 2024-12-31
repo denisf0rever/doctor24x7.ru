@@ -38,5 +38,24 @@ class BookingController extends Controller
 			} catch (\Exception $e) {
 				return Response::json(['success' => false, 'message' => 'Error creating booking: ' . $e->getMessage()], 500);
 			}
-	}	
+	}
+	
+	public function show($id)
+	{
+		$bookings = Booking::where('comment_id', $id)
+			->get();
+		
+		return view('dashboard.consultation.booking', compact('bookings'));
+	}
+	
+	 public function destroy(string $id)
+    {
+        $booking = Booking::query()
+            ->where('id', $id)
+            ->firstOrFail();
+		
+		$booking->delete();
+		
+		return redirect()->back()->with('success', 'Бронирование удалено');
+    }
 }

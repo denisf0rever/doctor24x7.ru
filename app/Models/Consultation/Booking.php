@@ -26,12 +26,12 @@ class Booking extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id');
     }
 	
 	public function usermain()
 	{
-		return $this->belongsTo(UserMain::class);
+		return $this->belongsTo(UserMain::class, 'id');
 	}
 		
 	public static function canBooking($consultation_id): bool

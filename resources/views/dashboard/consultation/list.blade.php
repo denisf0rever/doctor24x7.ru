@@ -61,6 +61,11 @@
                     <span class="pages__views-number">{{ $consultation->visit_count }}</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
+                        <a href="{{ route('dashboard.booking.list', $consultation->id)}}" target="_blank">
+                          <img src="{{ Storage::url('dashboard/booking.svg') }}" alt="" class="pages__icon-img">
+                        </a>
+                      </div>
+                      <div class="pages__icon">
                         <a href="{{ route('dashboard.consultation.edit', $consultation->id)}}" target="_blank">
                           <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="pages__icon-img">
                         </a>

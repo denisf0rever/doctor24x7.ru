@@ -114,7 +114,6 @@ class UserMain extends Authenticatable
 		return $this->belongsTo(User::class);
 	}
 	
-	
 	public function bookings()
     {
         return $this->hasMany(Booking::class, 'user_id');

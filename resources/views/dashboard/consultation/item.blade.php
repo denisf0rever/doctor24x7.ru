@@ -17,8 +17,6 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
-          <h1 class="main__consultation-title">№{{ $consultation->id }}, {{ $consultation->created_at }}
-            {{ $executionTime }}</h1>
           <section class="main__consultation consultation">
             <div class="consultation__wrapper white-block">
               <div class="small-menu small-menu__menu-btn custom-select" data-id="300330">
@@ -55,9 +53,11 @@
 				<div class="consultation__item">
                   <p id="question-age">Возраст пациента: {{ $consultation->age/365 }}</p>
                 </div> 
+				@if ($consultation->phone)
 				<div class="consultation__item">
-                  <p id="question-age">Телефон: {{ $consultation->phone ?? $consultation->phone }}</p>
+					<p id="question-age">Телефон: {{ $consultation->phone }}</p>
                 </div>
+				@endif
 
                 <!-- ФОТКИ -->
                 <div class="consultation__gallery">
@@ -127,13 +127,14 @@
           <section class="main__booking booking">
             <div class="booking__wrapper white-block">
               <div class="booking__text">Чтобы ответить, нажмите беру</div>
-              <div class=" booking__button red-button" id="makeBooking">Беру</div>
+              <div class="booking__button red-button" id="makeBooking">Беру</div>
             </div>
           </section>
           @elseif ($hasBooking)
           <section class="main__booking booking">
             <div class="booking__wrapper white-block booking__is-free">
               <div class="booking__text">Вы взяли вопрос</div>
+              <a href="{{ route('dashboard.booking.list', $consultation->id) }}" class="booking__button red-button">Отменить бронь</a>
             </div>
           </section>
           @else
@@ -257,28 +258,9 @@
           </div>
         </div>
         @endif
+		
+		<div class="main__statistic">№{{ $consultation->id }}, {{ $consultation->created_at }}, {{ $executionTime }}</div>		
       </main>
     </div>
   </div>
-  <div class="dashboard-popup dashboard-popup__hide">
-    <div class="dashboard-popup__wrapper">
-      <div class="dashboard-popup__close">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" class="loaded">
-          <g fill="none" fill-rule="evenodd">
-            <path fill="#515151" d="M.04 21.753L21.253.54l.707.707L.747 22.46z"></path>
-            <path fill="#525252" d="M21.96 21.753L.747.54l-.707.707L21.253 22.46z"></path>
-          </g>
-        </svg>
-      </div>
-      <div class="dashboard-popup__content">
-        <div class="dashboard-popup__item" popup-action="resume">
-          <span class="dashboard-popup__item-text"> Продолжить </span>
-          <img src="/" alt="" class="dashboard-popup__item-img">
-        </div>
-        <div class="dashboard-popup__item" popup-action="cancel">
-          <span class="dashboard-popup__item-text"> Отменить </span>
-          <img src="/" alt="" class="dashboard-popup__item-img">
-        </div>
-      </div>
-    </div>
-  </div>
+  @include('dashboard.parts.dashboard-popup')
