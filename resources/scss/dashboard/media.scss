@@ -1,39 +1,39 @@
 @media (max-width: 960px) {
-  .main{
-    &__wrapper{
+  .main {
+    &__wrapper {
       padding: 20px;
       width: 100%;
     }
   }
-  .header{
+  .header {
     background-color: #2f343a;
     padding-bottom: 1px;
-    &__menu-button{
+    &__menu-button {
       display: block;
     }
-    &__wrapper{
+    &__wrapper {
       padding: 0 10px;
     }
   }
-  .wrapper{
-    &__wrapper{
+  .wrapper {
+    &__wrapper {
       padding: 0;
     }
-    &__menu{
+    &__menu {
       display: none;
     }
-    &__main{
+    &__main {
       width: 100%;
     }
-    &__menu-mobile{
+    &__menu-mobile {
       display: block;
     }
   }
-  .menu-mobile{
-    &__hide{
+  .menu-mobile {
+    &__hide {
       transform: translateX(-100%);
     }
-    &__wrapper{
+    &__wrapper {
       position: absolute;
       width: 30%;
       min-width: 200px;
@@ -44,16 +44,16 @@
       background-color: #2f343a;
       color: #fff;
       padding: 20px;
-      transition: all .2s linear;
+      transition: all 0.2s linear;
     }
-    &__list{
+    &__list {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    &__link{
+    &__link {
       overflow-wrap: break-word;
-      &:hover{
+      &:hover {
         text-decoration: underline;
       }
     }
@@ -61,8 +61,8 @@
 }
 
 @media (max-width: 768px) {
-  .header{
-    &__profile{
+  .header {
+    &__profile {
       position: fixed;
       top: 0;
       right: 0;
@@ -71,12 +71,12 @@
       z-index: 1000;
     }
   }
-  .header-profile{
-    &__wrapper{
+  .header-profile {
+    &__wrapper {
       width: 100%;
       height: 100%;
     }
-    &__avatar{
+    &__avatar {
       width: 75px;
       height: 75px;
     }
@@ -84,113 +84,112 @@
 }
 
 @media (max-width: 720px) {
-  .info{
-    &__wrapper{
+  .info {
+    &__wrapper {
       flex-direction: column;
       gap: 20px;
     }
-    &__element{
+    &__element {
       width: 100%;
     }
   }
-  .pages{
-    &__inner{
+  .pages {
+    &__inner {
       overflow-y: hidden;
       overflow-x: auto;
     }
-    &__item{
+    &__item {
       min-width: 400px;
     }
-    &__icons{
+    &__icons {
       gap: 10px;
     }
-    &__title-name{
+    &__title-name {
       text-align: center;
     }
   }
-  .main{
-    &__blocks{
+  .main {
+    &__blocks {
       justify-content: center;
     }
   }
-  .color-block{
-    &__wrapper{
+  .color-block {
+    &__wrapper {
       width: 100px;
       height: 100px;
       padding: 10px;
     }
-    &__img{
+    &__img {
       width: 20px;
       height: 20px;
       padding: 3px;
     }
-    &__big-text{
+    &__big-text {
       font-size: 14px;
     }
-    &__title{
+    &__title {
       font-size: 12px;
     }
-    &__small-text{
+    &__small-text {
       font-size: 10px;
     }
   }
-  
 }
 
 @media (max-width: 540px) {
-  .form{
-    &__inner{
+  .form {
+    &__inner {
       flex-direction: column;
     }
-    &__tabs{
+    &__tabs {
       width: 100%;
     }
-    &__label-photo{
+    &__label-photo {
       display: flex;
       justify-content: center;
     }
-    &__status-wrapper{
-      margin:0;
+    &__status-wrapper {
+      margin: 0;
       width: 100%;
       margin-top: 30px;
     }
-    &__select-wrapper{
+    &__select-wrapper {
       margin: 0 auto;
     }
   }
-  .pages{
-    &__title-name{
-      font-size: 14px;      
+  .pages {
+    &__title-name {
+      font-size: 14px;
       width: 40%;
     }
-    &__title-number{
+    &__title-number {
       font-size: 14px;
       width: 25%;
     }
-    &__title-options{
+    &__title-options {
       width: 15%;
     }
-    &__name{
+    &__name {
       font-size: 14px;
       width: 40%;
     }
-    &__views-number{
+    &__views-number {
       font-size: 14px;
       width: 25%;
     }
-    &__list{
+    &__list {
       min-width: 580px;
     }
-    &__titles{
+    &__titles {
       min-width: 580px;
     }
-    &__titles-tariff{
+    &__titles-tariff {
       min-width: 800px;
     }
-    &__item-tariff{
+    &__item-tariff {
       min-width: 800px;
     }
-    &__icons{
+    &__icons {
       width: 15%;
     }
   }

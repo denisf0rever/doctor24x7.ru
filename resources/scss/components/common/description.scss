@@ -1,22 +1,31 @@
-.description{
-  p{
+.description {
+  p {
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 15px;
     word-wrap: break-word;
   }
 
-  a{
+  a {
     text-decoration: none;
     cursor: pointer;
     color: var(--link-text);
-    &:hover{
+    &:hover {
       color: var(--dark-text);
     }
   }
-  & &__small{
+  & &__small {
     font-size: 13px;
     line-height: 1.4;
     margin: 0;
+  }
+  &__link {
+    margin-bottom: 15px;
+    color: var(--link-text);
+    font-size: 16px;
+    display: inline-block;
+    &:hover {
+      color: var(--main-text);
+    }
   }
 }

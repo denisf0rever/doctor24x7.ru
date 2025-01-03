@@ -155,10 +155,10 @@ p {
     &__wrapper-main {
       flex-direction: column;
       gap: 40px;
-      padding: 0 10px;
+      padding: 30px 10px;
     }
     &__wrapper {
-      margin: 0 10px;
+      padding: 30px 10px;
     }
     &__content {
       width: 100%;
@@ -194,7 +194,7 @@ p {
 }
 
 @import "components/header.scss";
-@import "components/main-page/description.scss";
+@import "components/common/description.scss";
 @import "components/main-page/consultation-sidebar.scss";
 @import "components/main-page/news.scss";
 @import "components/main-page/cards.scss";
@@ -224,4 +224,5 @@ p {
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "components/login.scss";
+@import "components/consultation-detail/category/category-question.scss";
 @import "media.scss";
