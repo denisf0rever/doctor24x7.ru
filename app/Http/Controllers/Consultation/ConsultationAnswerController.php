@@ -96,6 +96,11 @@ class ConsultationAnswerController extends Controller
 		return 'OK';
 	}
 	
+	public function online()
+	{
+		return view('consultation.online');
+	}
+	
 	public function destroy(string $id)
     {
 		$comment = Comment::query()

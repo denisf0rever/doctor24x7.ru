@@ -289,10 +289,8 @@ use App\Helpers\LinkHelper
         </li>
         @endif
         @endforeach
-      </ul>
-    </div>
-  </section>
-  <section class="main__description description">
+		
+		<section class="main__description description">
     <div class="description__wrapper section-wrapper">
       <p class="description__small">Консультация врача на форуме предоставляется практикующими экспертами.
         Медицинское образование проверено
@@ -303,6 +301,11 @@ use App\Helpers\LinkHelper
         самолечением, консультация врача онлайн не заменяет очный осмотр.</p>
     </div>
   </section>
+  
+      </ul>
+    </div>
+  </section>
+  
 </div>
 @if (session('success'))
 <div class="toast">

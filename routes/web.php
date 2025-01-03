@@ -40,6 +40,8 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
 	Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
 	
+	Route::get('/consultation/online', [ConsultationAnswerController::class, 'online'])->name('consultation.online');
+	
 	// Категории консультаций
 	Route::get('/consultation/{categorySlug}/', [ConsultationCategoryController::class, 'category'])->name('consultation.category');
 	Route::get('/consultation/rubric/{categorySlug}/{subcategorySlug}/', [ConsultationCategoryController::class, 'getSubRubricUrl'])->name('consultation.subrubric');
