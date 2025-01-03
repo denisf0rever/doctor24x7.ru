@@ -1,19 +1,19 @@
-.consultation-sidebar{
-  &__top{
+.consultation-sidebar {
+  &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 25px;
   }
-  &__title{
+  &__title {
     font-size: 14px;
     font-weight: bold;
     line-height: 1.75rem;
     margin: 0;
     padding: 0;
     color: var(--black);
-  } 
-  &__img{
+  }
+  &__img {
     background-color: var(--blue-img-bg);
     color: #fff;
     border-radius: 12px;
@@ -23,22 +23,37 @@
     display: flex;
     align-items: center;
   }
-  &__list{
+  &__list {
     display: flex;
     gap: 30px;
     flex-direction: column;
   }
-  &__item{
+  &__item {
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
-  &__problem-title{
+  &__problem-title {
     color: var(--link-text);
     font-size: 13px;
   }
-  &__problem-info{
+  &__problem-info {
     color: var(--secondary-text);
     font-size: 12px;
+  }
+  &__button {
+    font-weight: bold;
+    background-color: rgba(30, 43, 68, 0.08);
+    color: #000;
+    border-radius: 8px;
+    min-height: 50px;
+    min-width: 128px;
+    padding: 0 25px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 15px;
+    margin-top: 20px;
   }
 }

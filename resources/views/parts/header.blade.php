@@ -1,4 +1,5 @@
 </head>
+
 <body>
   <header class="header">
     <div class="header__wrapper container">
@@ -38,7 +39,7 @@
           <img src="" alt="" class="header__burger-img">
         </div>
       </div>
-      <div class="header__bottom">
+      <!-- <div class="header__bottom">
         <nav class="header__bottom-nav">
           <ul class="header__bottom-nav-list">
             <li class="header__bottom-nav-item header__bottom-nav-item-active">
@@ -52,7 +53,7 @@
             </li>
           </ul>
         </nav>
-      </div>
+      </div> -->
     </div>
   </header>
 

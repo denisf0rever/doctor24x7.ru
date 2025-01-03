@@ -23,6 +23,10 @@
       </ul>
     </div>
   </section>
+  <!-- СДЕЛАТЬ ТОЛЬКО ДЛЯ ПК ВЕРСИИ -->
+  <a href="/consultation/comment" class="main__ask-question-sidebar">
+    Задать вопрос врачу
+  </a>
   <section class="main__consultation-sidebar consultation-sidebar">
     <div class="consultation-sidebar__wrapper section-wrapper">
       <div class="consultation-sidebar__top">
@@ -67,6 +71,7 @@
           </span>
         </li>
       </ul>
+      <a href="/consultation/online" class="consultation-sidebar__button">Все консультации</a>
     </div>
   </section>
   <section class="form-select">
