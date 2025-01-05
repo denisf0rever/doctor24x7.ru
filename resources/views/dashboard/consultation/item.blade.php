@@ -79,8 +79,8 @@
           <section class="main__stats stats">
             <div class="stats__wrapper">
               <ul class="stats__list">
-                <li class="stats__item">
-                  <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour < '07:00' )
+                <li class="stats__item">{{ $currentHour }}
+                  <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour <= '08:00' )
                       {{ $consultation->tariff->night_fee * $coefficientLength * $coefficientCity }} @else
                       {{ $consultation->tariff->fee * $coefficientLength * $coefficientCity }} @endif &#8381;</div>
                       <div class="stats__text">Гонорар</div>

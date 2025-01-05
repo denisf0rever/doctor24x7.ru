@@ -14,7 +14,6 @@ use App\Models\Tariff\Rubric;
 use App\Models\Tariff\Tariff;
 use App\Mail\Payment\PaymentStatus;
 use Carbon\Carbon;
-
 use Log;
 
 class PaymentController extends Controller
@@ -27,7 +26,15 @@ class PaymentController extends Controller
         $payments = Payment::query()
 			->get();
 			
-		return view('dashboard.payment.index', compact('payments'));
+		$paidConsultationsCount = Consultation::where('is_payed', 1)
+			->whereDate('created_at', Carbon::today())
+			->count();
+			
+		$totalPaymentsToday = Consultation::where('is_payed', 1)
+			->whereDate('created_at', Carbon::today())
+			->sum('payed_amount');
+			
+		return view('dashboard.payment.index', compact('payments', 'totalPaymentsToday', 'paidConsultationsCount'));
     }
 
     /**

@@ -25,10 +25,10 @@
                     <span class="info__text"></span>
                   </div>
                   <div class="info__data">
-                    <span class="info__text"><strong></strong> всего консультаций</span>
+                    <span class="info__text"><strong>{{ $paidConsultationsCount }}</strong> консультаций сегодня</span>
                   </div>
                   <div class="info__data">
-                    <span class="info__text"><strong></strong> всего ответов</span>
+                    <span class="info__text"><strong>{{ $totalPaymentsToday }} &#8381;</strong> сумма платежей</span>
                   </div>
                 </div>
               </div>
