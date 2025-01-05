@@ -115,3 +115,19 @@
   font-display: swap;
   src: local('Roboto Black Italic'), url('../../fonts/Roboto-BlackItalic.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: 'Gbfont';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Gbfont'), url('../../fonts/GBFont-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Gbfont';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Gbfont'), url('../../fonts/GBFont-Bold.woff2') format('woff2');
+}
