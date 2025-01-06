@@ -1,0 +1,40 @@
+.category-card {
+  &__wrapper {
+    display: flex;
+  }
+  &__left {
+    flex: 1;
+  }
+  &__right {
+    width: 228px;
+  }
+  &__msg {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    background-color: #ebebeb;
+    min-height: 40px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    color: #a6a6a6;
+  }
+  &__small-title {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.25;
+    &--sidebar {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      width: 170px;
+      display: block;
+    }
+  }
+  &__text {
+    font-size: 16px;
+  }
+}
