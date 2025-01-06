@@ -114,10 +114,10 @@ p {
   &__wrapper-main {
     display: flex;
     justify-content: space-between;
-    padding: 30px 0;
+    padding: 30px 10px;
   }
   &__wrapper {
-    padding: 30px 0;
+    padding: 30px 10px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -195,6 +195,7 @@ p {
 
 @import "components/header.scss";
 @import "components/common/description.scss";
+@import "components/common/themes.scss";
 @import "components/main-page/consultation-sidebar.scss";
 @import "components/main-page/news.scss";
 @import "components/main-page/cards.scss";

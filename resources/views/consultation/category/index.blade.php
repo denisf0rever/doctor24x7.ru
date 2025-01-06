@@ -75,4 +75,82 @@
   </div>
 </section>
 
+<section class="main__themes themes">
+  <div class="themes__wrapper section-wrapper small-container">
+    <h2 class="themes__title">Темы справочных материалов</h2>
+    <ul class="themes__list">
+      <li class="themes__item">
+        <span class="themes__letter">А</span>
+        <ul class="themes__sublist">
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит</a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит </a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит </a>
+          </li>
+        </ul>
+      </li>
+      <li class="themes__item">
+        <span class="themes__letter">А</span>
+        <ul class="themes__sublist">
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит</a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит </a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит </a>
+          </li>
+        </ul>
+      </li>
+      <li class="themes__item">
+        <span class="themes__letter">А</span>
+        <ul class="themes__sublist">
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит</a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит Автокредит</a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит Автокредит Автокредит</a>
+          </li>
+        </ul>
+      </li>
+      <li class="themes__item">
+        <span class="themes__letter">А</span>
+        <ul class="themes__sublist">
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит</a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит Автокредит</a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит Автокредит Автокредит</a>
+          </li>
+        </ul>
+      </li>
+      <li class="themes__item">
+        <span class="themes__letter">А</span>
+        <ul class="themes__sublist">
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит</a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит Автокредит</a>
+          </li>
+          <li class="themes__subitem">
+            <a href="/" class="themes__link">Автокредит Автокредит Автокредит</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
 @endsection
