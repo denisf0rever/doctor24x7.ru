@@ -280,10 +280,10 @@ body {
         border-radius: 15px;
     }
     &__title {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
         margin: 0;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     &__text-wrapper {
         display: flex;
@@ -638,8 +638,7 @@ body {
     }
     &__title {
         font-weight: 500;
-        font-size: 18px;
-        color: var(--main-text);
+        font-size: 16px;
         margin: 0 0 10px 0;
     }
     &__list {
