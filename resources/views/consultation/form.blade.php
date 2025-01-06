@@ -113,7 +113,7 @@
     </div>
     <form id="consultation-form" method="POST" action="{{ route('consultation.create') }}" enctype="multipart/form-data"
       class="consultation-form__form">
-	  @csrf
+      @csrf
       <div class="consultation-form__tubs">
         <div class="consultation-form__tub consultation-form__tub-active" data-step="1">
           <div class="consultation-form__tub-wrapper">

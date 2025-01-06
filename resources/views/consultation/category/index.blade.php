@@ -1,4 +1,4 @@
-@extends('appsidebarfree')
+@extends('appwide')
 @section('title', $category->title)
 @section('description', $category->meta_description)
 @section('keywords', $category->meta_keywords)
@@ -6,61 +6,28 @@
 
 @section('content')
 
-<section class="main__category-doctor category-doctor">
-  <h2 class="category-doctor__title">Нужна помощь аллерголога? </h2>
-  <span class="category-doctor__subtitle">Консультации оказываются онлайн в реальном времени</span>
-  <div class="category-doctor__wrapper section-wrapper">
-    <div class="category-doctor__doctor">
-      <a href="/" class="category-doctor__img-link">
-        <img src="/" alt="" class="category-doctor__img">
-      </a>
-      <a href="/" class="category-doctor__fullname">Марина Михайловна</a>
-      <span class="category-doctor__specialization">Аллерголог</span>
-      <span class="category-doctor__exp">18 лет </span>
-      <span class="category-doctor__exp-text">Опыт </span>
+<section class="main__intro category-intro">
+  <div class="category-intro__wrapper section-wrapper">
+    <div class="category-intro__inner">
+      <div class="category-intro__top">
+        <h2 class="category-intro__title">Консультация аллерголога онлайн </h2>
+        <div class="category-intro__text">
+          <p class="category-intro__p">
+            Работаем круглосуточно. Практикующие врачи и психологи. Консультацию аллерголога можно получить через разные
+            способы коммуникации. В онлайн чате вы можете быстро задать вопрос и получить ответ в режиме реального
+            времени, а по телефону — обсудить свои проблемы более подробно.
+          </p>
+          <p class="category-intro__p">
+            Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как
+            мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.
+          </p>
+        </div>
+      </div>
+      <div class="category-intro__button-block">
+        <a href="/consultation/comment?rubric_id=2" class="category-intro__button-link">Онлайн консультация</a>
+        <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
+      </div>
     </div>
-    <div class="category-doctor__text">
-      Врач дерматовенеролог, аллерголог, руководитель Центра по изучению и терапии зуда. Закончила Московскую
-      Медицинскую Академию им. И.М. Сеченова по специальности лечебное дело, ординатуру и аспирантуру на кафедре кожных
-      болезней ММА им И.М. Сеченова, г. Москва. В 2006-2007гг прошла стадировку Philipps-Universität Marburg, Германия.
-      В 2013г окончила образование по аллергологии в Институте Иммунофизиологии, кафедра аллергологии и иммунологии, г.
-      Москва. В 2011г защитила диссертацию на тему способов лечения зуда при атопическом дерматите, экземе и других
-      зудящих кожных заболеваниях. Диссертационная работа награждена медалью Российской Академии Медицинских наук
-      (РАМН). Доктор проходила стажировку по аллергологии Medizinische Hochschule Hannover, Германия. Консультирую
-      пациентов с 0мес.
-    </div>
-    <span class="category-doctor__list-title">По вопросам аллергологии:
-    </span>
-    <ul class="category-doctor__list">
-      <li class="category-doctor__list-item">
-        атопический дерматит/нейродермит;
-      </li>
-      <li class="category-doctor__list-item">
-        экзема;
-      </li>
-      <li class="category-doctor__list-item">
-        сезонная аллергия/поллиноз/аллергия на цветение;
-      </li>
-      <li class="category-doctor__list-item">
-        пищевая аллергия и пищевая непереносимость;
-      </li>
-      <li class="category-doctor__list-item">
-        хроническая крапивница - все типы;
-      </li>
-      <li class="category-doctor__list-item">
-        мастоцитоз;
-      </li>
-      <li class="category-doctor__list-item">
-        кожный зуд;
-      </li>
-      <li class="category-doctor__list-item">
-        ксероз/сухость кожи;
-      </li>
-      <li class="category-doctor__list-item">
-        пруриго (почесуха) и др.
-      </li>
-    </ul>
-    <a href="" class="category-doctor__button">Обратиться →</a>
   </div>
 </section>
 

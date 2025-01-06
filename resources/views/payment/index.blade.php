@@ -1,4 +1,4 @@
-@extends('appsidebarfree')
+@extends('appwide')
 @section('title', $consultation->title)
 @section('description', $consultation->metadescription)
 @section('keywords', $consultation->metakey)
@@ -13,9 +13,9 @@
     </div>
     <div class="payment-form__wrapper">
       <form action="{{ route('payment.consultation.init') }}" method="POST" class="payment-form__form">
-	   @csrf
-	   <input type="hidden" name="OrderId" value="{{ $consultation->id }}">
-	   
+        @csrf
+        <input type="hidden" name="OrderId" value="{{ $consultation->id }}">
+
         <div class="big-container payment-form__big-container">
           <div class="container payment-form__container">
             <div class="payment-form__first-radio first-radio">
@@ -113,11 +113,11 @@
               <div class="promo__wrapper">
                 <h2 class="promo__title">Выберите тариф</h2>
                 <ul class="promo__list">
-				@foreach($tariffArray as $tariff)
-					@include('payment.tariff', ['tariff'])
-				@endforeach
-				
-                 <!-- <li class="promo__item">
+                  @foreach($tariffArray as $tariff)
+                  @include('payment.tariff', ['tariff'])
+                  @endforeach
+
+                  <!-- <li class="promo__item">
                     <div class="promo__header">
                       <h3 class="promo__item-title">Документы 1 врач
                       </h3>
