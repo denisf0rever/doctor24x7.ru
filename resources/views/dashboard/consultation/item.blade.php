@@ -159,7 +159,7 @@
           </section>
 
           <section class="main__consultation-textarea consultation-textarea">
-            <h2>Форма для ответа</h2>
+            <h2 class="consultation-textarea__title">Форма для ответа</h2>
             <div class="consultation-textarea__wrapper white-block">
               <form action="{{ route('dashboard.consultation.create-answer') }}" method="POST">
                 @csrf
