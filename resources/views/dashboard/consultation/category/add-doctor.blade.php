@@ -33,8 +33,8 @@
                         </li>
                         <li class="form__input-wrapper">
                           <label class="form__label" for="title">ID Врача</label>
-                          <input class="form__input @error('doctor_id')input-error @enderror" type="text" id="doctor_id"
-                            name="doctor_id" value="">
+                          <input class="form__input @error('user_id')input-error @enderror" type="text" id="user_id"
+                            name="user_id" value="">
                         </li>
                       </ul>
                     </div>

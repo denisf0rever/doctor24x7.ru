@@ -46,7 +46,7 @@
                     <span class="pages__views-id">{{ $category->id }}</span></a>
                     <a class="pages__name" href=""
                       target="_blank"><span>{{ $category->short_title }}</span></a>
-                    <span class="pages__views-number">{{ $category->visit_count }}</span>
+                    <span class="pages__views-number">{{ $category->doctors_count }}</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
                         <a href="" target="_blank">

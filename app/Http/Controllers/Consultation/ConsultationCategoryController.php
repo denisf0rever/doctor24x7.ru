@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\SubCategories;
+use App\Services\DoctorService;
 
 class ConsultationCategoryController extends Controller
 {
@@ -22,15 +23,14 @@ class ConsultationCategoryController extends Controller
 	
 	public function index()
 	{
-		$categories = Category::query()
-			->get();
+		$categories = Category::select('id', 'short_title')->get();
 		
 		return view('dashboard.consultation.category.index', compact('categories'));
 	}
 	
 	public function showCategories()
 	{
-		$categories = Category::query()
+		$categories = Category::select('id', 'short_title')
 			->get();
 		
 		return view('dashboard.consultation.category.doctors', compact('categories'));
@@ -52,11 +52,11 @@ class ConsultationCategoryController extends Controller
 		return view('dashboard.consultation.category.add-doctor', compact('categories'));
 	}
 	
-	public function setDoctor(Request $request)
+	public function setDoctor(Request $request, DoctorService $service)
 	{
-		dd($request);
+		$result = $service->create($request->all());
 		
-		return view('dashboard.consultation.category.add-doctor', compact('categories'));
+		return redirect()->back()->with('success', 'Доктор успешно добавлен');
 	}
 	
 	public function getSubRubricUrl($categorySlug, $subcategorySlug)
