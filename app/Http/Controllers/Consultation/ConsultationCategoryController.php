@@ -33,7 +33,7 @@ class ConsultationCategoryController extends Controller
 		$categories = Category::query()
 			->get();
 		
-		return view('dashboard.consultation.category.index', compact('categories'));
+		return view('dashboard.consultation.category.doctors', compact('categories'));
 	}
 	
 	public function getSubRubricUrl($categorySlug, $subcategorySlug)
