@@ -28,12 +28,35 @@ class ConsultationCategoryController extends Controller
 		return view('dashboard.consultation.category.index', compact('categories'));
 	}
 	
-	public function showDoctorsByCategory()
+	public function showCategories()
 	{
 		$categories = Category::query()
 			->get();
 		
 		return view('dashboard.consultation.category.doctors', compact('categories'));
+	}
+	
+	public function showToCategory()
+	{
+		$categories = Category::query()
+			->get();
+		
+		return view('dashboard.consultation.category.doctors', compact('categories'));
+	}
+	
+	public function addDoctorPage()
+	{
+		$categories = Category::query()
+			->get();
+		
+		return view('dashboard.consultation.category.add-doctor', compact('categories'));
+	}
+	
+	public function setDoctor(Request $request)
+	{
+		dd($request);
+		
+		return view('dashboard.consultation.category.add-doctor', compact('categories'));
 	}
 	
 	public function getSubRubricUrl($categorySlug, $subcategorySlug)

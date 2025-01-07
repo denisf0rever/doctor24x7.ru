@@ -19,13 +19,12 @@
 		  <div class="main__blocks-wrapper">
             <ul class="main__blocks">
               <li class="main__block color-block">
-                <a href="{{ route('dashboard.consultation.categories.doctors') }}" class="color-block__wrapper"
+                <a href="{{ route('dashboard.consultation.categories.adddoctor') }}" class="color-block__wrapper"
                   style="background-color: #ffe2e6">
                   <img src="{{ Storage::url('dashboard/network.svg') }}" alt="" class="color-block__img"
                     style="background-color: #f9597c">
-                  <div class="color-block__big-text">Врачи</div>
+                  <div class="color-block__big-text">Добавить связь</div>
                   <div class="color-block__title"></div>
-                  <div class="color-block__small-text">Всего добавлено:  </div>
                 </a>
               </li>
             </ul>
@@ -37,37 +36,21 @@
               <div class="pages__inner">
                 <div class="pages__titles">
                   <span class="pages__title-id">ID</span>
-                  <span class="pages__title-link">Ссылка</span>
                   <span class="pages__title-name">Название</span>
-                  <span class="pages__title-number-left">Дата</span>
-                  <span class="pages__title-number">Визиты</span>
+                  <span class="pages__title-number">Связей</span>
                   <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list">
                   @foreach ($categories as $category)
                   <li class="pages__item">
                     <span class="pages__views-id">{{ $category->id }}</span></a>
-                    <a href="" target="_blank" class="pages__link">
-                      <img src="{{ Storage::url('dashboard/link.svg') }}" alt="" class="pages__link-img">
-                    </a>
                     <a class="pages__name" href=""
-                      target="_blank"><span>{{ $category->title }}</span></a>
-                    <span class="pages__views-id">{{ $category->created_at }}</span>
+                      target="_blank"><span>{{ $category->short_title }}</span></a>
                     <span class="pages__views-number">{{ $category->visit_count }}</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
                         <a href="" target="_blank">
-                          <img src="{{ Storage::url('dashboard/booking.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                      <div class="pages__icon">
-                        <a href="" target="_blank">
                           <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                      <div class="pages__icon">
-                        <a href="">
-                          <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="pages__icon-img">
                         </a>
                       </div>
                     </div>

@@ -118,7 +118,10 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
 	
 	Route::get('/dashboard/consultation/categories', [ConsultationCategoryController::class, 'index'])->name('dashboard.consultation.categories');
-	Route::get('/dashboard/consultation/categories/doctors', [ConsultationCategoryController::class, 'showDoctorsByCategory'])->name('dashboard.consultation.categories.doctors');
+	Route::get('/dashboard/consultation/categories/doctors', [ConsultationCategoryController::class, 'showCategories'])->name('dashboard.consultation.categories.doctors');
+	Route::get('/dashboard/consultation/categories/doctortocategory', [ConsultationCategoryController::class, 'showDoctorToCategory'])->name('dashboard.consultation.categories.doctortocategory');
+	Route::get('/dashboard/consultation/categories/add-doctor', [ConsultationCategoryController::class, 'addDoctorPage'])->name('dashboard.consultation.categories.adddoctor');
+	Route::post('/dashboard/consultation/categories/doctor', [ConsultationCategoryController::class, 'setDoctor'])->name('dashboard.consultation.categories.create-doctor');
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
 	Route::get('/dashboard/booking/{id}', [BookingController::class, 'show'])->name('dashboard.booking.list');
 	Route::get('/dashboard/booking/destroy/{id}', [BookingController::class, 'destroy'])->name('dashboard.booking.destroy');
