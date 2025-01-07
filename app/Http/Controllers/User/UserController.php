@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Consultation\ConsultationCategory as Category;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -14,6 +15,7 @@ use Intervention\Image\ImageManager;
 use Carbon\Carbon;
 use App\Services\UserService;
 use App\Http\Requests\UserRequest;
+
 
 class UserController extends Controller
 {
@@ -90,6 +92,17 @@ class UserController extends Controller
 		$roles = Role::all();
 
 		return view('dashboard.user.edit-user', compact('user', 'roles'));
+    }
+	
+	public function editCategory(string $id, string $category_id)
+    {
+        $user = User::query()
+			->where('id', $id)
+            ->firstOrFail();
+			
+		$category = Category::findOrFail($category_id);
+
+		return view('dashboard.user.add-description', compact('user', 'category'));
     }
 	
     public function update(Request $request, string $id)

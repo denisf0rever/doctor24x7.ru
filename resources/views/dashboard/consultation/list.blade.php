@@ -28,16 +28,6 @@
                   <div class="color-block__small-text">Всего добавлено:  </div>
                 </a>
               </li>
-              <li class="main__block color-block">
-                <a href="" class="color-block__wrapper"
-                  style="background-color: #fff4de">
-                  <img src="/images/dashboard/analytics-article.svg" alt="" class="color-block__img"
-                    style="background-color: #fe947a">
-                  <div class="color-block__big-text">Аналитика статей</div>
-                  <div class="color-block__title"> </div>
-                  <div class="color-block__small-text">Раз в неделю</div>
-                </a>
-              </li>
             </ul>
           </div>
           <section class="main__info info">

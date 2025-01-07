@@ -110,6 +110,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/dashboard/setting/user', [UserSettingController::class, 'create'])->name('dashboard.setting.user.create');
 	Route::post('/dashboard/setting/user/{id}', [UserSettingController::class, 'update'])->name('dashboard.setting.user.update');
 	Route::get('/dashboard/user/{id}/edit', [UserController::class, 'edit'])->name('dashboard.user.edit');
+	Route::get('/dashboard/user/{id}/categories/{category_id}/edit', [UserController::class, 'editCategory'])->name('dashboard.user.edit-category');
 	Route::post('/user/create', [UserController::class, 'create'])->name('dashboard.user.create-user');
 	Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.user.destroy');
 	Route::post('/dashboard/user/{id}', [UserController::class, 'update'])->name('dashboard.user.update');
