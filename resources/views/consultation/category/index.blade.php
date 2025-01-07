@@ -31,11 +31,11 @@
         <div class="category-info__wrapper">
           <div class="category-info__inner">
             <ul class="category-info__tabs">
-              <li class="category-info__tab category-info__tab--active" data-tab="1">Задать вопрос педиатру онлайн</li>
-              <li class="category-info__tab" data-tab="2">Специалисты</li>
+              <li class="category-info__tab" data-tab="1">Задать вопрос педиатру онлайн</li>
+              <li class="category-info__tab category-info__tab--active" data-tab="2">Специалисты</li>
             </ul>
             <div class="category-info__tab-content-list">
-              <div class="category-info__tab-content category-info__tab-content--active" id="tab-1">
+              <div class="category-info__tab-content" id="tab-1">
                 <div class="category-info__form category-form">
                   <div class="category-form__wrapper">
                     <h2 class="category-form__title">Остались пожелания к заказу?</h2>
@@ -47,7 +47,7 @@
                   </div>
                 </div>
               </div>
-              <div class="category-info__tab-content" id="tab-2">
+              <div class="category-info__tab-content category-info__tab-content--active" id="tab-2">
                 <div class="category-info__category-card category-card">
                   <div class="category-card__wrapper">
                     <div class="category-card__left">
