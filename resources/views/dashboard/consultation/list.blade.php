@@ -16,6 +16,30 @@
       <main class="wrapper__main main">
         <div class="main__wrapper">
           <h1 class="main__title">Консультации</h1>
+		  <div class="main__blocks-wrapper">
+            <ul class="main__blocks">
+              <li class="main__block color-block">
+                <a href="{{ route('dashboard.consultation.categories'); }}" class="color-block__wrapper"
+                  style="background-color: #ffe2e6">
+                  <img src="{{ Storage::url('dashboard/category.svg') }}" alt="" class="color-block__img"
+                    style="background-color: #f9597c">
+                  <div class="color-block__big-text">Категории</div>
+                  <div class="color-block__title"></div>
+                  <div class="color-block__small-text">Всего добавлено:  </div>
+                </a>
+              </li>
+              <li class="main__block color-block">
+                <a href="" class="color-block__wrapper"
+                  style="background-color: #fff4de">
+                  <img src="/images/dashboard/analytics-article.svg" alt="" class="color-block__img"
+                    style="background-color: #fe947a">
+                  <div class="color-block__big-text">Аналитика статей</div>
+                  <div class="color-block__title"> </div>
+                  <div class="color-block__small-text">Раз в неделю</div>
+                </a>
+              </li>
+            </ul>
+          </div>
           <section class="main__info info">
             <div class="info__wrapper">
               <div class="info__element">

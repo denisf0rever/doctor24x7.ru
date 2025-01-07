@@ -96,7 +96,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/analytics/delete/{id}', [AnalyticsController::class, 'destroy'])->name('dashboard.analytics.phrase.destroy');
 	
 	// Статьи: категории
-	Route::get('/dashboard/categories', [CatergoryController::class, 'index'])->name('dashboard.categories');
+	Route::get('/dashboard/article/categories', [CatergoryController::class, 'index'])->name('dashboard.categories');
 	Route::get('/dashboard/article/add-category', function () {return view('dashboard.articles.add-category');})->name('dashboard.article.add-category');
 	Route::post('/categories/create', [CatergoryController::class, 'create'])->name('dashboard.article.create-category');
 	Route::get('/dashboard/category/{id}/edit', [CatergoryController::class, 'edit'])->name('dashboard.category.edit');
@@ -116,6 +116,9 @@ Route::middleware(['auth'])->group(function () {
 	
 	// Консультации
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
+	
+	Route::get('/dashboard/consultation/categories', [ConsultationCategoryController::class, 'index'])->name('dashboard.consultation.categories');
+	Route::get('/dashboard/consultation/categories/doctors', [ConsultationCategoryController::class, 'showDoctorsByCategory'])->name('dashboard.consultation.categories.doctors');
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
 	Route::get('/dashboard/booking/{id}', [BookingController::class, 'show'])->name('dashboard.booking.list');
 	Route::get('/dashboard/booking/destroy/{id}', [BookingController::class, 'destroy'])->name('dashboard.booking.destroy');

@@ -20,6 +20,22 @@ class ConsultationCategoryController extends Controller
 		return view('consultation.category.index', compact('category'));
 	}
 	
+	public function index()
+	{
+		$categories = Category::query()
+			->get();
+		
+		return view('dashboard.consultation.category.index', compact('categories'));
+	}
+	
+	public function showDoctorsByCategory()
+	{
+		$categories = Category::query()
+			->get();
+		
+		return view('dashboard.consultation.category.index', compact('categories'));
+	}
+	
 	public function getSubRubricUrl($categorySlug, $subcategorySlug)
 	{
 	}
