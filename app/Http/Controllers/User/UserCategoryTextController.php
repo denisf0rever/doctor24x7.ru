@@ -13,11 +13,23 @@ class UserCategoryTextController extends Controller
 {
 	public function index()
 	{
-		$texts = Category::whereHas('textForCategory')
+		$categories = Category::whereHas('textForCategory')
 			->withCount('textForCategory')
 			->get();
 		
-		return view('dashboard.user.categories', compact('texts'));
+		return view('dashboard.user.categories', compact('categories'));
+	}
+	
+	public function show(string $id)
+	{
+		$category = Category::select('h1')
+			->where('id', $id)
+			->first();
+			
+		$texts = CategoryText::where('category_id', $id)
+			->get();
+			
+		return view('dashboard.user.category-item', compact('texts', 'category'));
 	}
 	
 	public function form()
@@ -33,20 +45,20 @@ class UserCategoryTextController extends Controller
 			'description' => $request->description
 		]);
 
-		return redirect()->route('dashboard.user.show-category')->with('success', 'Текст успешно добавлен');
+		return redirect()->route('dashboard.user.index')->with('success', 'Текст успешно добавлен');
 		
     }
 	
-	public function edit(string $user_id, string $text_id, UserService $userService)
+	public function edit(string $id, UserService $userService)
     {
-        $user = $userService->user($user_id);
+        //$user = $userService->user($user_id);
 		
-		$text = CategoryText::findOrFail($text_id);
+		$text = CategoryText::findOrFail($id);
 
-		return view('dashboard.user.edit-description-category', compact('user', 'text'));
+		return view('dashboard.user.edit-description-category', compact('text'));
     }
 	
-	public function update(string $user_id, Request $request)
+	public function update(string $id, Request $request)
     {
         $text = CategoryText::findOrFail($request->id);
 		

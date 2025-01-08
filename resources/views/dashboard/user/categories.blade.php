@@ -32,34 +32,21 @@
           </div>
           <section class="main__pages pages">
             <div class="pages__wrapper">
-              <h2 class="pages__title">Список текстов</h2>
+              <h2 class="pages__title">Список категорий</h2>
               <div class="pages__inner">
                 <div class="pages__titles">
                   <span class="pages__title-id">ID</span>
                   <span class="pages__title-name">Название</span>
                   <span class="pages__title-number">Кол-во текстов</span>
-                  <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list">
-                  @foreach ($texts as $text)
+                  @foreach ($categories as $category)
                   <li class="pages__item">
-                    <span class="pages__views-id">{{ $text->id }}</span></a>
+                    <span class="pages__views-id">{{ $category->id }}</span></a>
+                    <a class="pages__name" href="{{ route('dashboard.user.item', $category->id) }}"
+                      target="_blank"><span>{{ $category->short_title }}</span></a>
                     <a class="pages__name" href=""
-                      target="_blank"><span>{{ $text->short_title }}</span></a>
-                    <a class="pages__name" href=""
-                      target="_blank"><span>{{ $text->text_for_category_count }}</span></a>
-                    <div class="pages__icons">
-                      <div class="pages__icon">
-                        <a href="" target="_blank">
-                          <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                      <div class="pages__icon">
-                        <a href="{{ route('dashboard.user.destroy-category-text', $text->id) }}">
-                          <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                    </div>
+                      target="_blank"><span>{{ $category->text_for_category_count }}</span></a>
                   </li>
                   @endforeach
                 </ul>

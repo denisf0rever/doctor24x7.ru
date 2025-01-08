@@ -18,7 +18,7 @@
           <h1 class="main__title">Редактирование текста</h1>
           <section class="main__form form">
             <div class="form__wrapper">
-              <form action="{{ route('dashboard.user.update-category-text', $user->id) }}" method="post" class="form__inner-form">
+              <form action="{{ route('dashboard.user.update-category-text', $text->id) }}" method="post" class="form__inner-form">
                 @csrf
 
                 @foreach($errors->all() as $error)

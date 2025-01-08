@@ -28,7 +28,7 @@
                 </a>
               </li>
               <li class="main__block color-block">
-                <a href="{{ route('dashboard.user.show-category') }}" class="color-block__wrapper" style="background-color: #fff4de">
+                <a href="{{ route('dashboard.user.index') }}" class="color-block__wrapper" style="background-color: #fff4de">
                   <img src="{{ Storage::url('dashboard/add.svg') }}" alt="" class="color-block__img"
                     style="background-color: #f9597c">
                   <div class="color-block__big-text">Витрина в категориях</div>
