@@ -16,21 +16,6 @@
       <main class="wrapper__main main">
         <div class="main__wrapper">
           <h1 class="main__title">Категории</h1>
-		  <div class="main__blocks-wrapper">
-            <ul class="main__blocks">
-              <li class="main__block color-block">
-                <a href="{{ route('dashboard.consultation.categories.doctors') }}" class="color-block__wrapper"
-                  style="background-color: #ffe2e6">
-                  <img src="{{ Storage::url('dashboard/network.svg') }}" alt="" class="color-block__img"
-                    style="background-color: #f9597c">
-                  <div class="color-block__big-text">Врачи</div>
-                  <div class="color-block__title"></div>
-                  <div class="color-block__small-text"></div>
-                </a>
-              </li>
-            </ul>
-          </div>
-         
           <section class="main__pages pages">
             <div class="pages__wrapper">
               <h2 class="pages__title">Заголовки страниц</h2>

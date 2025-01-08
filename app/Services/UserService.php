@@ -5,8 +5,6 @@ namespace App\Services;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-
-
 final class UserService
 {
 	 public function createUser(array $userData, array $images, int $is_priority, int $is_active)
@@ -25,6 +23,15 @@ final class UserService
 			'avatar' => $images['avatarImage'],
 			'webp_avatar' => $images['avatarWebp']
 		]);
+			
+		return $user;
+	 }
+	 
+	 public function user(string $id): User
+	 {
+		 $user = User::query()
+			->where('id', $id)
+            ->firstOrFail();
 			
 		return $user;
 	 }

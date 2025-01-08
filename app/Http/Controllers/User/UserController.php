@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserMain;
 use App\Models\Role;
 use App\Models\Consultation\ConsultationCategory as Category;
 use Illuminate\Support\Str;
@@ -16,11 +17,8 @@ use Carbon\Carbon;
 use App\Services\UserService;
 use App\Http\Requests\UserRequest;
 
-
 class UserController extends Controller
-{
-	private $userService;
-	
+{	
     public function index()
     {
         $users = User::query()
@@ -85,24 +83,13 @@ class UserController extends Controller
 	
     public function edit(string $id)
     {
-        $user = User::query()
+        $user = UserMain::query()
 			->where('id', $id)
             ->firstOrFail();
 			
-		$roles = Role::all();
+		//$roles = Role::all();
 
-		return view('dashboard.user.edit-user', compact('user', 'roles'));
-    }
-	
-	public function editCategory(string $id, string $category_id)
-    {
-        $user = User::query()
-			->where('id', $id)
-            ->firstOrFail();
-			
-		$category = Category::findOrFail($category_id);
-
-		return view('dashboard.user.add-description', compact('user', 'category'));
+		return view('dashboard.user.edit-user', compact('user'));
     }
 	
     public function update(Request $request, string $id)
@@ -111,19 +98,20 @@ class UserController extends Controller
             'email' => 'string|max:255',
             'username' => 'string|max:255',
             'password' => 'nullable|max:255',
-            'role' => 'string|max:1',
+            'role' => 'nullable|string|max:1',
             'name' => 'string|max:255',
             'last_name' => 'string|max:255',
             'middle_name' => 'string|max:255',
             'city' => 'string|max:255',
             'phone' => 'string|max:255',
+            'experience' => 'integer|max:2050',
 			'is_priority' => 'in:1,0',
 			'is_active' => 'in:1,0',
 			'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
 			'webp_avatar' => 'image|mimes:webp|max:2048'
         ]);
 		
-		$user = User::query()
+		$user = UserMain::query()
             ->where('id', $id)
             ->firstOrFail();
 			
@@ -146,16 +134,17 @@ class UserController extends Controller
 			$user->password = Hash::make($data['password']);
 		}
 		
-		$user->email = $data['email'];
+		$user->email_address = $data['email'];
 		$user->username = $data['username'];
-		$user->role = $data['role'];
-		$user->name = $data['name'];
+		$user->role = $data['role'] ?? 1;
+		$user->first_name = $data['name'];
 		$user->last_name = $data['last_name'];
 		$user->middle_name = $data['middle_name'];
-		$user->is_priority = $data['is_priority'];
+		$user->is_priority_user = $data['is_priority'];
 		$user->is_active = $data['is_active'];
 		$user->city = $data['city'];
 		$user->phone = $data['phone'];
+		$user->experience = $data['experience'];
 		$user->save();
 		
 		return redirect()->back()->with('success', 'Пользователь успешно обновлен');

@@ -10,7 +10,7 @@
   <div class="category-intro__wrapper section-wrapper">
     <div class="category-intro__inner">
       <div class="category-intro__top">
-        <h2 class="category-intro__title">Консультация аллерголога онлайн </h2>
+        <h1 class="category-intro__title">{{ $category->h1 }}</h1>
         <div class="category-intro__text">
           <p class="category-intro__p">
             Работаем круглосуточно. Практикующие врачи и психологи. Консультацию аллерголога можно получить через разные
@@ -47,18 +47,21 @@
                   </div>
                 </div>
               </div>
+			  
+			 
               <div class="category-info__tab-content category-info__tab-content--active" id="tab-2">
+			  @foreach ($texts as $text)
                 <div class="category-info__category-card category-card">
                   <div class="category-card__wrapper">
                     <div class="category-card__left">
                       <div class="category-card__header-info">
                         <a href="/" class="category-card__avatar-link">
                           <img
-                            src="https://cdn.profi.ru/xfiles/pfiles/97f2cee3f5fd4451b95d8990e39c73e5.jpg-profi_a34-180.jpg"
+                            src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $text->user->avatar }}"
                             alt="" class="category-card__avatar">
                         </a>
-                        <a href="/" class="category-card__fullname">Антон Шипаков</a>
-                        <span class="category-card__online">Был в сети 16 минут назад </span>
+                        <a href="/" class="category-card__fullname">{{ $text->user->fullname }}</a>
+                        <span class="category-card__online">Был в сети 16 минут назад, среднее время отклика, КМН</span>
                         <div class="category-card__icons">
                           <div class="category-card__icon-wrapper">
                             <div class="category-card__icon-img">
@@ -96,9 +99,7 @@
                         <span class="category-card__passport-text">Паспорт проверен</span>
                       </div>
                       <div class="category-card__text-wrapper">
-                        <span class="category-card__text">На сервисе с ноября 2019 г. На сервисе с ноября 2019 г.</span>
-                        <span class="category-card__text">На сервисе с ноября 2019 г. На сервисе с ноября 2019 г.</span>
-                        <span class="category-card__text">На сервисе с ноября 2019 г. На сервисе с ноября 2019 г.</span>
+                        <span class="category-card__text">{{ $text->description }}</span>
                       </div>
                       <span class="category-card__small-title">Образование и опыт </span>
                       <span class="category-card__big-text">Финансовая академия при Правительстве РФ, факультет
@@ -131,6 +132,7 @@
                     </div>
                   </div>
                 </div>
+				@endforeach
               </div>
             </div>
           </div>

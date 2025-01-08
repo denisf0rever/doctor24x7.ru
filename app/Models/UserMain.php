@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Consultation\Booking;
+use App\Models\User\CategoryText;
 
 class UserMain extends Authenticatable
 {
@@ -119,4 +120,8 @@ class UserMain extends Authenticatable
         return $this->hasMany(Booking::class, 'user_id');
     }
 	
+	public function textForCategory()
+    {
+        return $this->hasMany(CategoryText::class);
+    }
 }

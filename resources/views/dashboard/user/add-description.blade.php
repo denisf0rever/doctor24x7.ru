@@ -13,12 +13,12 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
-          <h1 class="main__title">Добавление текста к {{ $category->short_title }}</h1>
+          <h1 class="main__title">Добавление текста для категории</h1>
           <section class="main__form form">
             <div class="form__wrapper">
-              <form action="{{ route('dashboard.consultation.categories.create-doctor') }}" method="post" class="form__inner-form">
+              <form action="{{ route('dashboard.user.set-category-text') }}" method="post" class="form__inner-form">
                 @csrf
-
+								
                 @foreach($errors->all() as $error)
                 {{ $error }} <br />
                 @endforeach
@@ -32,26 +32,18 @@
                             name="category_id" value="">
                         </li>
                         <li class="form__input-wrapper">
-                          <label class="form__label" for="description">Описание</label>
-                          <textarea class="form__input @error('description')input-error @enderror" type="text"
-                            id="description" name="description"></textarea>
+                          <label class="form__label" for="name">ID Врача</label>
+                          <input class="form__input @error('user_id')input-error @enderror" type="text" id="user_id"
+                            name="user_id" value="">
                         </li>
                       </ul>
                     </div>
-					
-
                   </div>
                 </div>
-                
-				<div class="form__textarea-wrapper">
-                  <div class="form__textarea-title">Краткое описание</div>
-                  <textarea name="short_text" id="short_text"
-                    class="form__textarea @error('short_text')input-error @enderror" value="{{ old("short_text") }}">{{ old("short_text") }}</textarea>
-                </div>
                 <div class="form__textarea-wrapper">
-                  <div class="form__textarea-title">Содержание статьи</div>
-                  <textarea name="content" id=""
-                    class="form__textarea @error('content')input-error @enderror" value="{{ old("content") }}">{{ old("content") }}</textarea>
+                  <div class="form__textarea-title">Описание</div>
+                  <textarea name="description" id=""
+                    class="form__textarea @error('description')input-error @enderror" value="{{ old("description") }}">{{ old("description") }}</textarea>
                 </div>
 				
                 <div class="form__textarea-wrapper">

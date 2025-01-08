@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\SubCategories;
+use App\Models\User\CategoryText as Text;
 use App\Services\DoctorService;
 
 class ConsultationCategoryController extends Controller
@@ -16,9 +17,12 @@ class ConsultationCategoryController extends Controller
 			->where('slug', $slug)
 			->first();
 			
-		//dd($category->consultation);
-			
-		return view('consultation.category.index', compact('category'));
+		$texts = Text::query()
+			->where('category_id', $category->id)
+			->select('user_id', 'description')
+			->get();
+		
+		return view('consultation.category.index', compact('category', 'texts'));
 	}
 	
 	public function index()
@@ -26,37 +30,6 @@ class ConsultationCategoryController extends Controller
 		$categories = Category::select('id', 'short_title')->get();
 		
 		return view('dashboard.consultation.category.index', compact('categories'));
-	}
-	
-	public function showCategories()
-	{
-		$categories = Category::select('id', 'short_title')
-			->get();
-		
-		return view('dashboard.consultation.category.doctors', compact('categories'));
-	}
-	
-	public function showToCategory()
-	{
-		$categories = Category::query()
-			->get();
-		
-		return view('dashboard.consultation.category.doctors', compact('categories'));
-	}
-	
-	public function addDoctorPage()
-	{
-		$categories = Category::query()
-			->get();
-		
-		return view('dashboard.consultation.category.add-doctor', compact('categories'));
-	}
-	
-	public function setDoctor(Request $request, DoctorService $service)
-	{
-		$result = $service->create($request->all());
-		
-		return redirect()->back()->with('success', 'Доктор успешно добавлен');
 	}
 	
 	public function getSubRubricUrl($categorySlug, $subcategorySlug)

@@ -6,6 +6,7 @@ use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\Analytics\AnalyticsController;
 use App\Http\Controllers\Post\CatergoryController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\UserCategoryTextController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
@@ -110,19 +111,22 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/dashboard/setting/user', [UserSettingController::class, 'create'])->name('dashboard.setting.user.create');
 	Route::post('/dashboard/setting/user/{id}', [UserSettingController::class, 'update'])->name('dashboard.setting.user.update');
 	Route::get('/dashboard/user/{id}/edit', [UserController::class, 'edit'])->name('dashboard.user.edit');
-	Route::get('/dashboard/user/{id}/categories/{category_id}/edit', [UserController::class, 'editCategory'])->name('dashboard.user.edit-category');
+	
+	Route::get('/dashboard/user/categories', [UserCategoryTextController::class, 'index'])->name('dashboard.user.show-category');
+	Route::get('/dashboard/user/categories/add-text-category', [UserCategoryTextController::class, 'form'])->name('dashboard.user.add-text-category');
+	Route::get('/dashboard/user/{id}/categories/{category_id}/edit', [UserCategoryTextController::class, 'edit'])->name('dashboard.user.edit-category');
+	Route::post('/dashboard/user/text-category', [UserCategoryTextController::class, 'create'])->name('dashboard.user.set-category-text');
+	Route::post('/dashboard/user/text-category/{id}', [UserCategoryTextController::class, 'update'])->name('dashboard.user.update-category-text');
+	
+	
+	
 	Route::post('/user/create', [UserController::class, 'create'])->name('dashboard.user.create-user');
 	Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.user.destroy');
 	Route::post('/dashboard/user/{id}', [UserController::class, 'update'])->name('dashboard.user.update');
 	
 	// Консультации
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
-	
 	Route::get('/dashboard/consultation/categories', [ConsultationCategoryController::class, 'index'])->name('dashboard.consultation.categories');
-	Route::get('/dashboard/consultation/categories/doctors', [ConsultationCategoryController::class, 'showCategories'])->name('dashboard.consultation.categories.doctors');
-	Route::get('/dashboard/consultation/categories/doctortocategory', [ConsultationCategoryController::class, 'showDoctorToCategory'])->name('dashboard.consultation.categories.doctortocategory');
-	Route::get('/dashboard/consultation/categories/add-doctor', [ConsultationCategoryController::class, 'addDoctorPage'])->name('dashboard.consultation.categories.adddoctor');
-	Route::post('/dashboard/consultation/categories/doctor', [ConsultationCategoryController::class, 'setDoctor'])->name('dashboard.consultation.categories.create-doctor');
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
 	Route::get('/dashboard/booking/{id}', [BookingController::class, 'show'])->name('dashboard.booking.list');
 	Route::get('/dashboard/booking/destroy/{id}', [BookingController::class, 'destroy'])->name('dashboard.booking.destroy');

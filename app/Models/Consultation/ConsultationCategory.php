@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tariff\Tariff;
 use App\Models\Consultation\SubCategories;
-use App\Models\Consultation\UserByCategory;
+use App\Models\User\CategoryText;
 
 class ConsultationCategory extends Model
 {
@@ -33,9 +33,9 @@ class ConsultationCategory extends Model
         return $this->hasMany(SubCategories::class, 'parent_id');
     }
 	
-	public function doctors()
-	{
-	  return $this->belongsToMany(UserByCategory::class, 'sf_consultation_user_rubric', 'rubric_id', 'user_id');
-	}
+	public function textForCategory()
+    {
+        return $this->hasMany(CategoryText::class, 'category_id', 'id');
+    }
 
 }

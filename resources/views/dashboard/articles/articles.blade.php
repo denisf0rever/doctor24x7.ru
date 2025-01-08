@@ -21,17 +21,27 @@
               <li class="main__block color-block">
                 <a href="{{ route('dashboard.article.add-article') }}" class="color-block__wrapper"
                   style="background-color: #ffe2e6">
-                  <img src="/images/dashboard/edit.svg" alt="" class="color-block__img"
+                  <img src="{{ Storage::url('dashboard/add.svg') }}" alt="" class="color-block__img"
                     style="background-color: #f9597c">
                   <div class="color-block__big-text">Добавить статью</div>
                   <div class="color-block__title"></div>
                   <div class="color-block__small-text">Всего добавлено: {{ $total }}</div>
                 </a>
+              </li> 
+              <li class="main__block color-block">
+                <a href="{{ route('dashboard.categories') }}" class="color-block__wrapper"
+                  style="background-color: #fff4de">
+                  <img src="{{ Storage::url('dashboard/category.svg') }}" alt="" class="color-block__img"
+                    style="background-color: #fe947a">
+                  <div class="color-block__big-text">Категории</div>
+                  <div class="color-block__title"> </div>
+                  <div class="color-block__small-text"> </div>
+                </a>
               </li>
               <li class="main__block color-block">
                 <a href="{{ route('dashboard.analytics') }}" class="color-block__wrapper"
                   style="background-color: #fff4de">
-                  <img src="/images/dashboard/analytics-article.svg" alt="" class="color-block__img"
+                  <img src="{{ Storage::url('dashboard/analytics-article.svg') }}" alt="" class="color-block__img"
                     style="background-color: #fe947a">
                   <div class="color-block__big-text">Аналитика статей</div>
                   <div class="color-block__title"> </div>

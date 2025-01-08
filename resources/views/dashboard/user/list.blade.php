@@ -20,9 +20,18 @@
             <ul class="main__blocks">
               <li class="main__block color-block">
                 <a href="{{ route('dashboard.user.add-user') }}" class="color-block__wrapper" style="background-color: #ffe2e6">
-                  <img src="/images/dashboard/edit.svg" alt="" class="color-block__img"
+                  <img src="{{ Storage::url('dashboard/add.svg') }}" alt="" class="color-block__img"
                     style="background-color: #f9597c">
-                  <div class="color-block__big-text">Добавить пользователя</div>
+                  <div class="color-block__big-text">Добавить врача</div>
+                  <div class="color-block__title"></div>
+                  <div class="color-block__small-text">Всего добавлено: </div>
+                </a>
+              </li>
+              <li class="main__block color-block">
+                <a href="{{ route('dashboard.user.show-category') }}" class="color-block__wrapper" style="background-color: #fff4de">
+                  <img src="{{ Storage::url('dashboard/add.svg') }}" alt="" class="color-block__img"
+                    style="background-color: #f9597c">
+                  <div class="color-block__big-text">Витрина в категориях</div>
                   <div class="color-block__title"></div>
                   <div class="color-block__small-text">Всего добавлено: </div>
                 </a>
@@ -95,11 +104,11 @@
         </div>
       </main>
 
-      @if (session('post_added'))
+      @if (session('success'))
       <div class="toast">
         <div class="toast__container" id="toast">
           <div class="toast__item">
-            {{ session('post_added') }}
+            {{ session('success') }}
           </div>
         </div>
       </div>

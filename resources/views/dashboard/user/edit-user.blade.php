@@ -38,7 +38,7 @@
                         <li class="form__input-wrapper">
                           <label class="form__label" for="email">Почта</label>
                           <input class="form__input @error('email')input-error @enderror" type="text" id="email"
-                            name="email" value="{{ $user->email }}">
+                            name="email" value="{{ $user->email_address }}">
                         </li>
                         <li class="form__input-wrapper">
                           <label class="form__label" for="name">Логин</label>
@@ -52,8 +52,8 @@
                         </li>
                         <li class="form__input-wrapper">
                           <label class="form__label" for="name">Имя</label>
-                          <input class="form__input @error('name')input-error @enderror" type="text" id="name"
-                            name="name" value="{{ $user->name }}">
+                          <input class="form__input @error('first_name')input-error @enderror" type="text" id="first_name"
+                            name="name" value="{{ $user->first_name }}">
                         </li>
                         <li class="form__input-wrapper">
                           <label class="form__label" for="last_name">Фамилия</label>
@@ -74,6 +74,11 @@
                           <label class="form__label" for="phone">Телефон</label>
                           <input class="form__input @error('phone')input-error @enderror" type="text" id="phone"
                             name="phone" value="{{ $user->phone }}">
+                        </li>
+                        <li class="form__input-wrapper">
+                          <label class="form__label" for="experience">Начало практики</label>
+                          <input class="form__input @error('experience')input-error @enderror" type="text" id="experience"
+                            name="experience" value="{{ $user->experience }}">
                         </li>
                       </ul>
                       <label class="form__label-photo">
@@ -116,20 +121,7 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="form__status-wrapper">
-                    <div class="form__select-wrapper">
-                      <span class="form__status-title" for="status">Выберите категорию</span>
-                      <img src="/images/dashboard/expand-more.svg" alt="" class="form__status-arrow">
-                      <div class="form__status-current-text">Выберите категорию</div>
-                      <input class="form__status-current @error('role')input-error @enderror" name="role" type="text"
-                        value="{{ $user->role ? $user->role : 0 }}" readonly>
-                      <ul id="status" class="form__status-select form__status-hide">
-                        @foreach($roles as $role)
-                        <li class="form__status-option" value="{{ $role->id }}">{{ $role->role_name }}</li>
-                        @endforeach
-                      </ul>
-                    </div>
-                  </div>
+                 
                 </div>
                 <div class="form__textarea-wrapper">
 
