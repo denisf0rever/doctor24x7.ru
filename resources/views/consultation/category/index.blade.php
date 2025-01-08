@@ -12,26 +12,22 @@
       <div class="category-intro__top">
         <h1 class="category-intro__title">{{ $category->h1 }}</h1>
         <div class="category-intro__text">
-          <p class="category-intro__p">
-            Работаем круглосуточно. Практикующие врачи и психологи. Консультацию аллерголога можно получить через разные
-            способы коммуникации. В онлайн чате вы можете быстро задать вопрос и получить ответ в режиме реального
-            времени, а по телефону — обсудить свои проблемы более подробно.
+          <p class="category-intro__p">Работаем круглосуточно. Практикующие врачи и психологи. Консультацию {{ $category->name_v }} можно получить через разные способы коммуникации. В онлайн чате вы можете быстро задать вопрос и получить ответ в режиме реального времени, а по телефону — обсудить свои проблемы более подробно.
           </p>
           <p class="category-intro__p">
-            Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как
-            мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.
+            Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.
           </p>
         </div>
       </div>
       <div class="category-intro__button-block">
-        <a href="/consultation/comment?rubric_id=2" class="category-intro__button-link">Онлайн консультация</a>
+        <a href="/consultation/comment?rubric_id={{ $category->id }}" class="category-intro__button-link">Онлайн консультация</a>
         <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
       </div>
       <div class="main__category-info category-info">
         <div class="category-info__wrapper">
           <div class="category-info__inner">
             <ul class="category-info__tabs">
-              <li class="category-info__tab" data-tab="1">Задать вопрос педиатру онлайн</li>
+              <li class="category-info__tab" data-tab="1">Задать вопрос</li>
               <li class="category-info__tab category-info__tab--active" data-tab="2">Специалисты</li>
             </ul>
             <ul class="category-info__tabs--mobile">
@@ -44,7 +40,7 @@
                       stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"></path>
                   </svg>
                 </div>
-                <span class="category-info__tab-icon-text">Вопрос</span>
+                <span class="category-info__tab-icon-text">Задать вопрос</span>
               </li>
               <li class="category-info__tab category-info__tab--active" data-tab="2">
                 <div class="category-info__tab-icon">
@@ -62,10 +58,10 @@
               <div class="category-info__tab-content" id="tab-1">
                 <div class="category-info__form category-form">
                   <div class="category-form__wrapper">
-                    <h2 class="category-form__title">Остались пожелания к заказу?</h2>
+                    <h2 class="category-form__title">Задать вопрос {{ $category->button_name }} онлайн</h2>
                     <form action="/" class="category-form__form">
                       <textarea name="text" class="category-form__textarea"
-                        placeholder="Важные детали для специалиста, о которых мы не спросили"></textarea>
+                        placeholder="Опишите детали для {{ $category->name_v }}, которые важны для ответа."></textarea>
                       <input type="submit" value="Продолжить →" class="category-form__submit">
                     </form>
                   </div>
@@ -81,13 +77,18 @@
                     <div class="category-card__wrapper">
                       <div class="category-card__left">
                         <div class="category-card__header-info">
-                          <a href="/" class="category-card__avatar-link">
+                          <a href="{{ route('user.profile.item', $text->user->username) }}" class="category-card__avatar-link">
                             <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $text->user->avatar }}" alt=""
                               class="category-card__avatar">
                           </a>
-                          <a href="/" class="category-card__fullname">{{ $text->user->fullname }}</a>
-                          <span class="category-card__online">Был в сети 16 минут назад, среднее время отклика,
-                            КМН</span>
+                          <a href="{{ route('user.profile.item', $text->user->username) }}" class="category-card__fullname">{{ $text->user->first_name .' '. $text->user->middle_name }}</a>
+                          <span class="category-card__online">{{ 
+    $text->user->last_activity > now()->subMinutes(5) 
+    ? 'Сейчас онлайн' 
+    : ($text->user->gender === 0 
+        ? 'Был сегодня в ' . \Carbon\Carbon::parse($text->user->last_activity)->format('H:i') 
+        : 'Была сегодня в ' . \Carbon\Carbon::parse($text->user->last_activity)->format('H:i')) 
+}}</span>
                           <div class="category-card__icons">
                             <div class="category-card__icon-wrapper">
                               <div class="category-card__icon-img">
@@ -124,16 +125,25 @@
                           </div>
                           <span class="category-card__passport-text">Паспорт проверен</span>
                         </div>
-                        <a href="/" class="category-card__msg category-card__msg--mobile">Написать сообщение</a>
+						<div class="category-card__passport">
+                          <div class="category-card__passport-img">
+                            <svg width="1em" height="1em" viewBox="0 0 14 14" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M13.9651 4.83824C13.739 4.17941 12.5549 3.98382 12.135 3.43824C11.7152 2.88235 11.8767 1.73971 11.3061 1.33824C10.7356 0.936765 9.65912 1.44118 8.97017 1.23529C8.29198 1.01912 7.7322 0 7.00019 0C6.26818 0 5.7084 1.01912 5.04098 1.23529C4.35203 1.44118 3.27554 0.936765 2.69424 1.33824C2.1237 1.73971 2.28517 2.88235 1.86534 3.43824C1.45627 3.98382 0.261371 4.17941 0.0353084 4.83824C-0.179989 5.47647 0.659672 6.3 0.659672 7C0.659672 7.7 -0.179989 8.52353 0.0353084 9.16177C0.261371 9.82059 1.44551 10.0162 1.86534 10.5618C2.28517 11.1176 2.1237 12.2603 2.69424 12.6618C3.26477 13.0632 4.34126 12.5588 5.03022 12.7647C5.7084 12.9809 6.26818 14 7.00019 14C7.7322 14 8.29198 12.9809 8.9594 12.775C9.64835 12.5588 10.7248 13.0632 11.2954 12.6721C11.8767 12.2706 11.7044 11.1279 12.1243 10.5721C12.5441 10.0265 13.7282 9.83088 13.9543 9.17206C14.1696 8.53382 13.3299 7.71029 13.3299 7.01029C13.3299 6.3103 14.1804 5.47647 13.9651 4.83824ZM10.7141 5.84706L5.9237 10.4279L3.2863 7.90588C2.98489 7.61765 2.98489 7.16471 3.2863 6.87647C3.58772 6.58824 4.06138 6.58824 4.36279 6.87647L5.9237 8.36912L9.63759 4.81765C9.939 4.52941 10.4127 4.52941 10.7141 4.81765C11.0155 5.10588 11.0155 5.55882 10.7141 5.84706Z"
+                                fill="#18d15c"></path>
+                            </svg>
+                          </div>
+                          <span class="category-card__passport-text">Диплом проверен</span>
+                        </div>
+                        <a href="#" class="category-card__msg category-card__msg--mobile">Написать сообщение</a>
                         <div class="category-card__text-wrapper">
                           <span class="category-card__text">{{ $text->description }}</span>
                         </div>
                         <span class="category-card__small-title">Образование и опыт </span>
-                        <span class="category-card__big-text">Финансовая академия при Правительстве РФ, факультет
-                          бухгалтерского
-                          учёта, анализа и аудита, специальность – экономист2003 г.
+                        <span class="category-card__big-text">{{ $text->user->work_place }}
                         </span>
-                        <span class="category-card__small-title">Услуги и цены </span>
+                        @php /*<span class="category-card__small-title">Услуги и цены </span>
                         <div class="category-card__dotted-wrapper">
                           <div class="category-card__dotted-item">
                             <span class="category-card__dotted-text">Форма Р14001 </span>
@@ -150,12 +160,21 @@
                             <div class="category-card__dots"></div>
                             <span class="category-card__dotted-text-right">по договорённости </span>
                           </div>
-                        </div>
+                        </div>*/@endphp
                       </div>
                       <div class="category-card__right">
                         <a href="/" class="category-card__msg">Написать сообщение</a>
-                        <span class="category-card__small-title--sidebar">Работает дистанционно </span>
-                        <span class="category-card__text">Специалист из Москвы </span>
+                        <span class="category-card__small-title--sidebar">Работает дистанционно</span>
+                        <span class="category-card__text">Специалист из Москвы</span>
+						
+						  <span class="category-card__small-title--sidebar">Среднее время отклика</span>
+                        <span class="category-card__text">
+@php
+$minutes = $text->user->response; // например, это число минут
+    $minuteWord = \App\Helpers\TextHelper::getMinuteWord($minutes);
+@endphp
+{{ $minutes }} {{ $minuteWord }}</span>
+
                       </div>
                     </div>
                   </div>

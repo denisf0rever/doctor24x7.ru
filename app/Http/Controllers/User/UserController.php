@@ -105,6 +105,8 @@ class UserController extends Controller
             'city' => 'string|max:255',
             'phone' => 'string|max:255',
             'experience' => 'integer|max:2050',
+            'work_place' => 'nullable|string|min:10',
+            'gender' => 'integer|max:1',
 			'is_priority' => 'in:1,0',
 			'is_active' => 'in:1,0',
 			'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
@@ -145,6 +147,8 @@ class UserController extends Controller
 		$user->city = $data['city'];
 		$user->phone = $data['phone'];
 		$user->experience = $data['experience'];
+		$user->work_place = $data['work_place'];
+		$user->gender = $data['gender'];
 		$user->save();
 		
 		return redirect()->back()->with('success', 'Пользователь успешно обновлен');

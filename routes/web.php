@@ -18,7 +18,7 @@ use App\Http\Controllers\Reviews\ReviewsController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Tariff\TariffController;
 
-Route::get('/', [HomePageController::class, 'index'])->name('homepage');
+	Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 	// Авторизирация
 	Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -74,7 +74,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::post('/consultation/answer/top', [ConsultationAnswerController::class, 'top'])->name('consultation.top-answer');
 	Route::post('/consultation/content/add', [ConsultationAnswerController::class, 'addContent'])->name('consultation.add-content');
 	Route::get('/consultation/content/delete/{id}', [ConsultationAnswerController::class, 'destroyContent'])->name('consultation.destroy-content');
-	
+
 Route::middleware(['auth'])->group(function () { 	 
     Route::get('/dashboard', fn() => view('dashboard.main'))->name('dashboard.main');
 	Route::get('/home', fn() => view('dashboard.main'));

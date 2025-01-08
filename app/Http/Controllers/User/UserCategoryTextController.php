@@ -8,6 +8,7 @@ use App\Models\User\CategoryText;
 use App\Models\UserMain;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Services\UserService;
+use Illuminate\Support\Facades\Auth;
 
 class UserCategoryTextController extends Controller
 {
@@ -16,7 +17,7 @@ class UserCategoryTextController extends Controller
 		$categories = Category::whereHas('textForCategory')
 			->withCount('textForCategory')
 			->get();
-		
+		Auth::user()->update(['last_activity' => now()]);
 		return view('dashboard.user.categories', compact('categories'));
 	}
 	

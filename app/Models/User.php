@@ -29,7 +29,8 @@ class User extends Authenticatable
 		'middle_name',
 		'views',
 		'avatar',
-		'webp_avatar'
+		'webp_avatar',
+		'last_activity'
 	];
 	
 	protected $appends = ['full_name', 'first_middle_name'];
@@ -119,5 +120,10 @@ class User extends Authenticatable
 	public function bookings()
     {
         return $this->hasMany(Booking::class, 'user_id');
+    }
+	
+	public function isOnline($minutes = 5)
+    {
+        return $this->last_activity && $this->last_activity > now()->subMinutes($minutes);
     }
 }

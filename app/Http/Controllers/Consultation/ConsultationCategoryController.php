@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Consultation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\SubCategories;
 use App\Models\User\CategoryText as Text;
@@ -13,7 +15,7 @@ class ConsultationCategoryController extends Controller
 {
 	public function category($slug)
 	{
-		$category = Category::query()
+		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name')
 			->where('slug', $slug)
 			->first();
 			
@@ -22,7 +24,7 @@ class ConsultationCategoryController extends Controller
 			->select('user_id', 'description')
 			->get();
 		
-		return view('consultation.category.index', compact('category', 'texts'));
+	return view('consultation.category.index', compact('category', 'texts'));
 	}
 	
 	public function index()

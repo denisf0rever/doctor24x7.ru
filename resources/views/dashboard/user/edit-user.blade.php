@@ -76,10 +76,22 @@
                             name="phone" value="{{ $user->phone }}">
                         </li>
                         <li class="form__input-wrapper">
+                          <label class="form__label" for="gender">Женщина?</label>
+                          <input class="form__input @error('gender')input-error @enderror" type="text" id="gender"
+                            name="gender" value="{{ $user->gender }}">
+                        </li>
+                        <li class="form__input-wrapper">
                           <label class="form__label" for="experience">Начало практики</label>
                           <input class="form__input @error('experience')input-error @enderror" type="text" id="experience"
                             name="experience" value="{{ $user->experience }}">
                         </li>
+						
+						<li class="form__input-wrapper">
+                          <label class="form__label" for="experience">Образование</label>
+						<textarea name="work_place" id="work_place"
+								class="form__textarea @error('work_place')input-error @enderror">{{ $user->work_place }}</textarea>
+                        </li>
+				
                       </ul>
                       <label class="form__label-photo">
                         <img src="/images/dashboard/photo-camera.svg" alt="" class="form__input-photo-img">
