@@ -114,13 +114,13 @@ p {
   &__wrapper-main {
     display: flex;
     justify-content: space-between;
-    padding: 30px 0;
+    padding: 20px 0 30px;
   }
   &__wrapper {
-    padding: 30px 0;
+    padding: 20px 0 30px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
   }
   &__content {
     width: calc(100% - 320px);
@@ -155,10 +155,6 @@ p {
     &__wrapper-main {
       flex-direction: column;
       gap: 40px;
-      padding: 30px 10px;
-    }
-    &__wrapper {
-      padding: 30px 10px;
     }
     &__content {
       width: 100%;
