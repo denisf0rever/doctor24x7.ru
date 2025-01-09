@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Consultation\Booking;
+use App\Models\Consultation\ConsultationComment;
 use App\Models\User\CategoryText;
 
 class UserMain extends Authenticatable
@@ -103,7 +104,7 @@ class UserMain extends Authenticatable
 	
 	public function comments()
     {
-        return $this->hasMany(ConsultationComments::class);
+        return $this->hasMany(ConsultationComment::class, 'user_id');
     }
 	
 	public function settings()

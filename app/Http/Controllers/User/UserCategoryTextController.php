@@ -18,6 +18,9 @@ class UserCategoryTextController extends Controller
 			->withCount('textForCategory')
 			->get();
 		Auth::user()->update(['last_activity' => now()]);
+		
+		//$user = UserMain::whereRelation('comments', 'created_at', '>', now()->subDay())->get();
+		
 		return view('dashboard.user.categories', compact('categories'));
 	}
 	
