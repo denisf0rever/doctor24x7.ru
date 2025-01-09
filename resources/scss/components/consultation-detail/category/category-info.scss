@@ -8,6 +8,9 @@
   }
   &__tabs {
     width: calc(33.33% - 20px);
+    height: fit-content;
+    position: sticky;
+    top: 5px;
     &--mobile {
       display: none;
     }
