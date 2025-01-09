@@ -5,6 +5,26 @@
   &__title {
     margin: 0 0 20px 0;
   }
+  &__sort-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  &__sort-item {
+    padding: 2px 10px;
+    background: #6588b9;
+    color: #fff;
+    border-radius: 4px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 15px 19px -11px rgba(0, 0, 0, 0.35);
+  }
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -13,11 +33,9 @@
     list-style-type: none;
     margin-bottom: 20px;
   }
-
   &__item {
     width: 30%;
   }
-
   &__letter {
     display: inline-block;
     margin-bottom: 10px;

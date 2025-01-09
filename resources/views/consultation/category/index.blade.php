@@ -12,15 +12,20 @@
       <div class="category-intro__top">
         <h1 class="category-intro__title">{{ $category->h1 }}</h1>
         <div class="category-intro__text">
-          <p class="category-intro__p">Работаем круглосуточно. Практикующие врачи и психологи. Консультацию {{ $category->name_v }} можно получить через разные способы коммуникации. В онлайн чате вы можете быстро задать вопрос и получить ответ в режиме реального времени, а по телефону — обсудить свои проблемы более подробно.
+          <p class="category-intro__p">Работаем круглосуточно. Практикующие врачи и психологи. Консультацию
+            {{ $category->name_v }} можно получить через разные способы коммуникации. В онлайн чате вы можете быстро
+            задать вопрос и получить ответ в режиме реального времени, а по телефону — обсудить свои проблемы более
+            подробно.
           </p>
           <p class="category-intro__p">
-            Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.
+            Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как
+            мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.
           </p>
         </div>
       </div>
       <div class="category-intro__button-block">
-        <a href="/consultation/comment?rubric_id={{ $category->id }}" class="category-intro__button-link">Онлайн консультация</a>
+        <a href="/consultation/comment?rubric_id={{ $category->id }}" class="category-intro__button-link">Онлайн
+          консультация</a>
         <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
       </div>
       <div class="main__category-info category-info">
@@ -77,11 +82,13 @@
                     <div class="category-card__wrapper">
                       <div class="category-card__left">
                         <div class="category-card__header-info">
-                          <a href="{{ route('user.profile.item', $text->user->username) }}" class="category-card__avatar-link">
+                          <a href="{{ route('user.profile.item', $text->user->username) }}"
+                            class="category-card__avatar-link">
                             <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $text->user->avatar }}" alt=""
                               class="category-card__avatar">
                           </a>
-                          <a href="{{ route('user.profile.item', $text->user->username) }}" class="category-card__fullname">{{ $text->user->first_name .' '. $text->user->middle_name }}</a>
+                          <a href="{{ route('user.profile.item', $text->user->username) }}"
+                            class="category-card__fullname">{{ $text->user->first_name .' '. $text->user->middle_name }}</a>
                           <span class="category-card__online">{{ 
     $text->user->last_activity > now()->subMinutes(5) 
     ? 'Сейчас онлайн' 
@@ -125,7 +132,7 @@
                           </div>
                           <span class="category-card__passport-text">Паспорт проверен</span>
                         </div>
-						<div class="category-card__passport">
+                        <div class="category-card__passport">
                           <div class="category-card__passport-img">
                             <svg width="1em" height="1em" viewBox="0 0 14 14" fill="none"
                               xmlns="http://www.w3.org/2000/svg">
@@ -166,14 +173,14 @@
                         <a href="/" class="category-card__msg">Написать сообщение</a>
                         <span class="category-card__small-title--sidebar">Работает дистанционно</span>
                         <span class="category-card__text">Специалист из Москвы</span>
-						
-						  <span class="category-card__small-title--sidebar">Среднее время отклика</span>
+
+                        <span class="category-card__small-title--sidebar">Среднее время отклика</span>
                         <span class="category-card__text">
-@php
-$minutes = $text->user->response; // например, это число минут
-    $minuteWord = \App\Helpers\TextHelper::getMinuteWord($minutes);
-@endphp
-{{ $minutes }} {{ $minuteWord }}</span>
+                          @php
+                          $minutes = $text->user->response; // например, это число минут
+                          $minuteWord = \App\Helpers\TextHelper::getMinuteWord($minutes);
+                          @endphp
+                          {{ $minutes }} {{ $minuteWord }}</span>
 
                       </div>
                     </div>
@@ -191,30 +198,35 @@ $minutes = $text->user->response; // например, это число мин�
 
 @if ($category->subcategories->isNotEmpty())
 <section class="main__themes themes">
-    <div class="themes__wrapper section-wrapper small-container">
-        <h2 class="themes__title">Вопросы {{ $category->button_name }} {{ $executionTime }}</h2>
-        <ul class="themes__list">
-            @foreach($groupedSubcategories as $letter => $subcategories)
-                <li class="themes__item">
-                    <span class="themes__letter">{{ $letter }}</span>
-                    <ul class="themes__sublist">
-                        @foreach($subcategories as $subcategory)
-                            <li class="themes__subitem">
-                                <a href="{{ route('consultation.subrubric', ['categorySlug' => $category->slug, 
+  <div class="themes__wrapper section-wrapper small-container">
+    <h2 class="themes__title">Вопросы {{ $category->button_name }} {{ $executionTime }}</h2>
+    <ul class="themes__sort-list">
+      <li class="themes__sort-item" data-sort-btn="1">Первая категория</li>
+      <li class="themes__sort-item" data-sort-btn="2">Вторая категория</li>
+      <li class="themes__sort-item" data-sort-btn="3">Третья категория</li>
+    </ul>
+    <ul class="themes__list">
+      @foreach($groupedSubcategories as $letter => $subcategories)
+      <li class="themes__item">
+        <span class="themes__letter">{{ $letter }}</span>
+        <ul class="themes__sublist">
+          @foreach($subcategories as $subcategory)
+          <li class="themes__subitem" data-sort-target="1">
+            <a href="{{ route('consultation.subrubric', ['categorySlug' => $category->slug, 
 		  'subcategorySlug' => $subcategory->slug]) }}" class="themes__link">{{ $subcategory->short_title }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endforeach
+          </li>
+          @endforeach
         </ul>
-    </div>
+      </li>
+      @endforeach
+    </ul>
+  </div>
 </section>
 @endif
 
 <section class="main__description description">
   <div class="description__wrapper section-wrapper small-container">
-  {!! $category->description !!}
+    {!! $category->description !!}
   </div>
 </section>
 
