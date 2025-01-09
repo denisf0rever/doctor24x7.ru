@@ -230,4 +230,36 @@
   </div>
 </section>
 
+<div class="main__chat chat">
+  <form action="" class="chat__form">
+    <div class="chat__wrapper">
+      <div class="chat__header">
+        <div class="chat__head">
+          <span class="chat__head-text">Онлайн чат</span>
+          <div class="chat__close">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fff" version="1.1"
+              id="Layer_1" x="0px" y="0px" viewBox="0 0 371.23 371.23" style="enable-background:new 0 0 371.23 371.23;"
+              xml:space="preserve">
+              <polygon
+                points="371.23,21.213 350.018,0 185.615,164.402 21.213,0 0,21.213 164.402,185.615 0,350.018 21.213,371.23   185.615,206.828 350.018,371.23 371.23,350.018 206.828,185.615 " />
+            </svg>
+          </div>
+        </div>
+        <div class="chat__consultant">
+          <div class="chat__avatar">
+            <img src="" alt="" class="chat__avatar-img">
+            <span class="chat__fullname"></span>
+            <span class="chat__specialization">placeholder</span>
+          </div>
+        </div>
+      </div>
+      <div class="chat__message">Здравствуйте. Опишите свою проблему. </div>
+      <span class="chat__title">Ваш вопрос</span>
+      <textarea name="" id="" class="chat__question"
+        placeholder="-опишите вашу ситуацию;&#10 - сформулируйте вопрос"></textarea>
+      <div class="chat__button-next">Дальше</div>
+    </div>
+  </form>
+</div>
+
 @endsection

@@ -33,6 +33,7 @@
     object-position: top;
   }
   &__fullname {
+    width: fit-content;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     display: block;
@@ -135,11 +136,11 @@
   }
   &__text {
     font-size: 15px;
-	line-height: 1.4;
+    line-height: 1.4;
   }
   &__big-text {
     font-size: 15px;
-	line-height: 1.4;
+    line-height: 1.4;
   }
   &__left {
     margin-bottom: 10px;
