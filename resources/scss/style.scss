@@ -211,6 +211,8 @@ p {
 @import "components/consultation-detail/paid-answer.scss";
 @import "components/consultation-detail/contents.scss";
 @import "components/consultation-detail/admin-control.scss";
+@import "components/consultation-detail/online-waiting.scss";
+@import "components/consultation-detail/online-list.scss";
 @import "components/payment/specialists.scss";
 @import "components/payment/payment-reviews.scss";
 @import "components/payment/payment-form.scss";
@@ -221,7 +223,6 @@ p {
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "components/login.scss";
-@import "components/consultation-detail/category/category-question.scss";
 @import "components/consultation-detail/category/category-intro.scss";
 @import "components/consultation-detail/category/category-info.scss";
 @import "components/consultation-detail/category/category-form.scss";
