@@ -42,7 +42,7 @@ use App\Helpers\LinkHelper
       <ul class="question__discussion-list">
         <li class="question__discussion-item">
           <a href="{{ route('consultation.subrubric', ['categorySlug' => $consultation->discussion->subcategory->category->slug, 
-		  'subcategorySlug' => $consultation->discussion->subcategory->slug]) }}/"
+		  'subcategorySlug' => $consultation->discussion->subcategory->slug]) }}"
             class="question__discussion-link">{{ $consultation->discussion->subcategory->short_title }}</a>
         </li>
       </ul>

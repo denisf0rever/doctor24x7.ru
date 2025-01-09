@@ -189,16 +189,10 @@ $minutes = $text->user->response; // например, это число мин�
   </div>
 </section>
 
-<section class="main__description description">
-  <div class="description__wrapper section-wrapper small-container">
-  {!! $category->description !!}
-  </div>
-</section>
-
 @if ($category->subcategories->isNotEmpty())
 <section class="main__themes themes">
     <div class="themes__wrapper section-wrapper small-container">
-        <h2 class="themes__title">Темы справочных материалов</h2>
+        <h2 class="themes__title">Вопросы {{ $category->button_name }} {{ $executionTime }}</h2>
         <ul class="themes__list">
             @foreach($groupedSubcategories as $letter => $subcategories)
                 <li class="themes__item">
@@ -206,7 +200,8 @@ $minutes = $text->user->response; // например, это число мин�
                     <ul class="themes__sublist">
                         @foreach($subcategories as $subcategory)
                             <li class="themes__subitem">
-                                <a href="/{{ $category->slug }}/{{ $subcategory->slug }}" class="themes__link">{{ $subcategory->short_title }}</a>
+                                <a href="{{ route('consultation.subrubric', ['categorySlug' => $category->slug, 
+		  'subcategorySlug' => $subcategory->slug]) }}" class="themes__link">{{ $subcategory->short_title }}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -216,4 +211,11 @@ $minutes = $text->user->response; // например, это число мин�
     </div>
 </section>
 @endif
+
+<section class="main__description description">
+  <div class="description__wrapper section-wrapper small-container">
+  {!! $category->description !!}
+  </div>
+</section>
+
 @endsection

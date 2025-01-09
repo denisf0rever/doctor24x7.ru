@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Consultation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\SubCategories;
@@ -15,6 +16,8 @@ class ConsultationCategoryController extends Controller
 {
 	public function category($slug)
 	{
+		$startTime = microtime(true);
+		
 		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name', 'description', 'slug')
 			->where('slug', $slug)
 			->first();
@@ -25,11 +28,17 @@ class ConsultationCategoryController extends Controller
 			->get();
 			
 		$subcategories = $category->subcategories;
-			$groupedSubcategories = $subcategories->groupBy(function($subcategory) {
-				return mb_substr($subcategory->short_title, 0, 1);
-		});
 		
-	return view('consultation.category.index', compact('category', 'texts', 'groupedSubcategories'));
+		
+		$groupedSubcategories = $subcategories->groupBy(function($subcategory) {
+			return mb_substr($subcategory->short_title, 0, 1);
+		});
+
+
+		$endTime = microtime(true);
+        $executionTime = ($endTime - $startTime); // Время в миллисекундах
+		
+	return view('consultation.category.index', compact('category', 'texts', 'groupedSubcategories', 'executionTime'));
 	}
 	
 	public function index()
