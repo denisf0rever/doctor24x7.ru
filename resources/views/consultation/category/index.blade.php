@@ -211,7 +211,7 @@
         <span class="themes__letter">{{ $letter }}</span>
         <ul class="themes__sublist">
           @foreach($subcategories as $subcategory)
-          <li class="themes__subitem" data-sort-target="{{ $category->position }}">
+          <li class="themes__subitem" data-sort-target="{{ $subcategory->position }}">
             <a href="{{ route('consultation.subrubric', ['categorySlug' => $category->slug, 
 		  'subcategorySlug' => $subcategory->slug]) }}" class="themes__link">{{ $subcategory->short_title }}</a>
           </li>
