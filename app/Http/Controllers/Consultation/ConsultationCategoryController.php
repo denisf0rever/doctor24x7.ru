@@ -15,7 +15,7 @@ class ConsultationCategoryController extends Controller
 {
 	public function category($slug)
 	{
-		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name')
+		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name', 'description', 'slug')
 			->where('slug', $slug)
 			->first();
 			
@@ -23,8 +23,13 @@ class ConsultationCategoryController extends Controller
 			->where('category_id', $category->id)
 			->select('user_id', 'description')
 			->get();
+			
+		$subcategories = $category->subcategories;
+			$groupedSubcategories = $subcategories->groupBy(function($subcategory) {
+				return mb_substr($subcategory->short_title, 0, 1);
+		});
 		
-	return view('consultation.category.index', compact('category', 'texts'));
+	return view('consultation.category.index', compact('category', 'texts', 'groupedSubcategories'));
 	}
 	
 	public function index()

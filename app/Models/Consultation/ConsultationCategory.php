@@ -30,7 +30,7 @@ class ConsultationCategory extends Model
 	
 	public function subcategories()
     {
-        return $this->hasMany(SubCategories::class, 'parent_id');
+        return $this->hasMany(SubCategories::class, 'parent_id')->orderBy('short_title', 'asc');
     }
 	
 	public function textForCategory()
