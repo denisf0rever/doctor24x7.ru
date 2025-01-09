@@ -201,9 +201,9 @@
   <div class="themes__wrapper section-wrapper small-container">
     <h2 class="themes__title">Вопросы {{ $category->button_name }} {{ $executionTime }}</h2>
     <ul class="themes__sort-list">
-      <li class="themes__sort-item" data-sort-btn="1">Первая категория</li>
-      <li class="themes__sort-item" data-sort-btn="2">Вторая категория</li>
-      <li class="themes__sort-item" data-sort-btn="3">Третья категория</li>
+      <li class="themes__sort-item" data-sort-btn="{{ $category->position }}">Первая категория</li>
+      <li class="themes__sort-item" data-sort-btn="{{ $category->position }}">Вторая категория</li>
+      <li class="themes__sort-item" data-sort-btn="{{ $category->position }}">Третья категория</li>
     </ul>
     <ul class="themes__list">
       @foreach($groupedSubcategories as $letter => $subcategories)
@@ -211,7 +211,7 @@
         <span class="themes__letter">{{ $letter }}</span>
         <ul class="themes__sublist">
           @foreach($subcategories as $subcategory)
-          <li class="themes__subitem" data-sort-target="1">
+          <li class="themes__subitem" data-sort-target="{{ $category->position }}">
             <a href="{{ route('consultation.subrubric', ['categorySlug' => $category->slug, 
 		  'subcategorySlug' => $subcategory->slug]) }}" class="themes__link">{{ $subcategory->short_title }}</a>
           </li>
