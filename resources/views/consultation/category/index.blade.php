@@ -252,7 +252,7 @@
 </section>
 
 <div class="main__chat chat">
-  <form action="" class="chat__form">
+  <form action="/" id="chat-form" class="chat__form">
     <div class="chat__wrapper">
       <div class="chat__header">
         <div class="chat__head">
@@ -274,11 +274,37 @@
           </div>
         </div>
       </div>
-      <div class="chat__message">Здравствуйте. Опишите свою проблему. </div>
-      <span class="chat__title">Ваш вопрос</span>
-      <textarea name="" id="" class="chat__question"
-        placeholder="-опишите вашу ситуацию;&#10 - сформулируйте вопрос"></textarea>
-      <div class="chat__button-next">Дальше</div>
+      <div class="chat__body">
+        <div class="chat__message">Здравствуйте. Опишите свою проблему. </div>
+        <div class="chat__textarea-wrapper">
+          <span class="chat__title">Ваш вопрос</span>
+          <textarea name="" id="" class="chat__question"
+            placeholder="- опишите вашу ситуацию;&#10- сформулируйте вопрос."></textarea>
+        </div>
+      </div>
+      <div class="chat__additional-fields hide">
+        <div class="chat__additional-field">
+          <span class="chat__label">Заголовок вопроса </span>
+          <input type="text" class="chat__input">
+        </div>
+        <div class="chat__additional-field">
+          <span class="chat__label">Ваше имя </span>
+          <input type="text" class="chat__input">
+        </div>
+        <div class="chat__additional-field">
+          <span class="chat__label">Ваш email </span>
+          <input type="text" class="chat__input">
+        </div>
+      </div>
+      <div class="chat__footer">
+        <div class="chat__footer-first">
+          <div class="chat__button-next" id="button-next">Дальше</div>
+        </div>
+        <div class="chat__footer-second hide">
+          <div class="chat__button-prev" id="button-prev">Назад</div>
+          <div class="chat__button-next" id="button-submit"> Отправить</div>
+        </div>
+      </div>
     </div>
   </form>
 </div>
