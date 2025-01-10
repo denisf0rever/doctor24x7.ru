@@ -201,9 +201,30 @@
   <div class="themes__wrapper section-wrapper small-container">
     <h2 class="themes__title">Вопросы {{ $category->button_name }} {{ $executionTime }}</h2>
     <ul class="themes__sort-list">
-      <li class="themes__sort-item" data-sort-btn="{{ $category->position }}">Первая категория</li>
-      <li class="themes__sort-item" data-sort-btn="{{ $category->position }}">Вторая категория</li>
-      <li class="themes__sort-item" data-sort-btn="{{ $category->position }}">Третья категория</li>
+      <li class="themes__sort-item" data-sort-btn="1">
+        <span class="themes__sort-item-text">Первая категория</span>
+      </li>
+      <li class="themes__sort-item" data-sort-btn="2">
+        <span class="themes__sort-item-text">Вторая категория</span>
+      </li>
+      <li class="themes__sort-item" data-sort-btn="3">
+        <span class="themes__sort-item-text">Третья категория</span>
+      </li>
+      <li class="themes__sort-item" data-sort-btn="4">
+        <span class="themes__sort-item-text">Четвертая категория</span>
+      </li>
+      <li class="themes__sort-item" data-sort-btn="5">
+        <span class="themes__sort-item-text">Пятая категория</span>
+      </li>
+      <li class="themes__sort-item" data-sort-btn="6">
+        <span class="themes__sort-item-text">Шестая категория</span>
+      </li>
+      <li class="themes__sort-item" data-sort-btn="7">
+        <span class="themes__sort-item-text">Седьмая категория</span>
+      </li>
+      <li class="themes__sort-item" data-sort-btn="8">
+        <span class="themes__sort-item-text">Восьмая категория</span>
+      </li>
     </ul>
     <ul class="themes__list">
       @foreach($groupedSubcategories as $letter => $subcategories)
