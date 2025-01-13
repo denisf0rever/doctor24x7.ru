@@ -5,6 +5,7 @@ namespace App\Models\Consultation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tariff\Tariff;
+use App\Models\Consultation\Consultation;
 use App\Models\Consultation\SubCategories;
 use App\Models\User\CategoryText;
 

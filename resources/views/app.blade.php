@@ -35,9 +35,7 @@
     <div class="main__wrapper-main container">
 		@yield('content')
 	  
-		@if (!isset($showSidebar))
         @include('parts.sidebar')
-		@endif
 		
 	  @include('parts.menu')
     </div>

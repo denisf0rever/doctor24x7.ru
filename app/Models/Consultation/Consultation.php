@@ -5,6 +5,7 @@ namespace App\Models\Consultation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Consultation\Booking;
+use App\Models\Consultation\ConsultationCategory;
 use App\Models\Tariff\Tariff;
 use App\Models\Payment\Payment;
 
@@ -26,7 +27,7 @@ class Consultation extends Model
 	
 	public function category()
     {
-        return $this->belongsTo(ConsultationCategory::class);
+        return $this->belongsTo(ConsultationCategory::class, 'rubric_id');
     }
 		
 	public function comments()

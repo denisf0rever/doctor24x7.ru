@@ -10,6 +10,7 @@ use App\Http\Requests\LikeRequest;
 use App\Models\Consultation\Consultation;
 use App\Models\UserMain as User;
 use App\Models\Consultation\ConsultationComment as Comment;
+use App\Models\Consultation\ConsultationCategory;
 use App\Models\Consultation\CommentLike as Like;
 use App\Services\CommentService;
 use App\Events\AnswerToAuthorCreated;
@@ -98,7 +99,13 @@ class ConsultationAnswerController extends Controller
 	
 	public function online()
 	{
-		return view('consultation.online');
+		$consultations = Consultation::orderBy('created_at', 'desc')
+			->where('is_payed', true)
+			->take(30)
+            ->get();
+		
+			
+		return view('consultation.online', compact('consultations'));
 	}
 	
 	public function destroy(string $id)
