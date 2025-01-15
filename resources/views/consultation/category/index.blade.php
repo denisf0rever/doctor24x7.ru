@@ -143,7 +143,8 @@
                           </div>
                           <span class="category-card__passport-text">Диплом проверен</span>
                         </div>
-                        <a href="#" class="category-card__msg category-card__msg--mobile">Написать сообщение</a>
+                        <a href="#" class="category-card__msg category-card__msg--mobile red-button">Написать
+                          сообщение</a>
                         <div class="category-card__text-wrapper">
                           <span class="category-card__text">{{ $text->description }}</span>
                         </div>
@@ -170,7 +171,7 @@
                         </div>*/@endphp
                       </div>
                       <div class="category-card__right">
-                        <a href="/" class="category-card__msg">Написать сообщение</a>
+                        <a href="/" class="category-card__msg red-button">Написать сообщение</a>
                         <span class="category-card__small-title--sidebar">Работает дистанционно</span>
                         <span class="category-card__text">Специалист из Москвы</span>
 

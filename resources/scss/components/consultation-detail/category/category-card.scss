@@ -107,14 +107,14 @@
   &__msg {
     width: 100%;
     font-size: 15px;
-    background-color: #ebebeb;
+    background-color: var(--button-red);
     min-height: 40px;
     margin-bottom: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 7px;
-    color: #a6a6a6;
+    color: #fff;
     &--mobile {
       display: none;
     }
