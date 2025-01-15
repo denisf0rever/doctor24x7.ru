@@ -113,6 +113,8 @@ use App\Helpers\LinkHelper
   <section class="main__experts-list experts-list">
     <h2 class="experts-list__title">Ответы врачей</h2>
     <div class="experts-list__wrapper">
+      <div class="experts-list__slider-button experts-list__slider-button--prev"><span>‹</span></div>
+      <div class="experts-list__slider-button experts-list__slider-button--next"><span>›</span></div>
       @foreach ($consultantsArray as $user)
       @include('consultation.user.userlist', ['user' => $user])
       @endforeach
@@ -289,23 +291,23 @@ use App\Helpers\LinkHelper
         </li>
         @endif
         @endforeach
-		
-		<section class="main__description description">
-    <div class="description__wrapper section-wrapper">
-      <p class="description__small">Консультация врача на форуме предоставляется практикующими экспертами.
-        Медицинское образование проверено
-        администрацией. Сервис несёт моральную и юридическую ответственность. Консультация дается в справочных
-        целях, по итогам консультации, обратитесь к врачу очно, в том числе для выявления возможных
-        противопоказаний. По возможности, будьте готовы ответить на дополнительные вопросы, в противном случае
-        консультация будет дана на основе указанной информации и иметь предположительный характер. Не занимайтесь
-        самолечением, консультация врача онлайн не заменяет очный осмотр.</p>
-    </div>
-  </section>
-  
+
+        <section class="main__description description">
+          <div class="description__wrapper section-wrapper">
+            <p class="description__small">Консультация врача на форуме предоставляется практикующими экспертами.
+              Медицинское образование проверено
+              администрацией. Сервис несёт моральную и юридическую ответственность. Консультация дается в справочных
+              целях, по итогам консультации, обратитесь к врачу очно, в том числе для выявления возможных
+              противопоказаний. По возможности, будьте готовы ответить на дополнительные вопросы, в противном случае
+              консультация будет дана на основе указанной информации и иметь предположительный характер. Не занимайтесь
+              самолечением, консультация врача онлайн не заменяет очный осмотр.</p>
+          </div>
+        </section>
+
       </ul>
     </div>
   </section>
-  
+
 </div>
 @if (session('success'))
 <div class="toast">
