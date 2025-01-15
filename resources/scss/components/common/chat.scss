@@ -14,6 +14,7 @@
     border-radius: 10px;
     display: none;
     z-index: 100;
+    overflow: auto;
     &--active {
       display: flex;
     }
@@ -119,16 +120,50 @@
     display: block;
     margin-bottom: 5px;
   }
+  &__question-wrapper {
+    height: 100px;
+    min-height: 170px;
+    border-radius: 1.5rem;
+    border: 2px solid #f5f5f5;
+    position: relative;
+    background: #f5f5f5;
+    padding: 4px 10px;
+    padding-bottom: 50px;
+  }
   &__question {
     resize: none;
     width: 100%;
-    height: 150px;
-    min-height: 150px;
+    height: 100%;
     box-sizing: border-box;
-    border-radius: 3px;
-    border: 2px solid #f5f5f5;
-    padding: 4px 10px;
+    outline: none;
     background: #f5f5f5;
+    border: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__button-continue {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 32px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    opacity: 0.5;
+    &--active {
+      opacity: 1;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
   &__button-next {
     background-color: #4caf50;
