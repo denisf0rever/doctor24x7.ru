@@ -17,6 +17,7 @@ use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Tariff\TariffController;
+use App\Http\Controllers\Chat\ChatController;
 
 	Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
@@ -60,6 +61,10 @@ use App\Http\Controllers\Tariff\TariffController;
 	Route::post('/set-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'setCookie'])->name('set-cookie');
 	Route::get('/get-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'getCookie'])->name('get-cookie');
 	Route::post('/delete-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'removeCookie'])->name('delete-cookie');
+	
+	Route::get('/chat/{id}', [\App\Http\Controllers\Chat\ChatController::class, 'show'])->name('chat.item');
+	
+	
 
 	// Отзывы
 	Route::get('/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');
