@@ -6,5 +6,6 @@
 
 @section('content')
 
+{{ $consultation->description }}
 
 @endsection
