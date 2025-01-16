@@ -1,4 +1,4 @@
-@extends('appwide')
+@extends('chat')
 @section('title', $consultation->title .' — консультируют врачи на форуме')
 @section('description', 'Консультация врача, вопрос: ' . $consultation->title)
 @section('keywords', '')
