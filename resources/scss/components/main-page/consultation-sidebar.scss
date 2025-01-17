@@ -1,4 +1,7 @@
 .consultation-sidebar {
+  &__wrapper {
+	padding: 15px 20px
+  }
   &__top {
     display: flex;
     align-items: center;
@@ -6,7 +9,7 @@
     margin-bottom: 25px;
   }
   &__title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     line-height: 1.75rem;
     margin: 0;
