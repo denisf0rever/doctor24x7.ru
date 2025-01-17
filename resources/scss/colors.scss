@@ -1,3 +1,20 @@
+$chat-background: #fff;
+$chat-background-dark: #36404a;
+$chat-side-menu-background: #f7f7ff;
+$chat-side-menu-background-dark: #3e4a56;
+$chat-icon: #878a92;
+$chat-icon-dark: #a6b0cf;
+$chat-text: #343a40;
+$chat-text-dark: #fff;
+$chat-secondary-text: #7a7f9a;
+$chat-secondary-text-dark: #abb4d2;
+$chat-dot-border: #fff;
+$chat-dot-border-dark: #262e35;
+$chat-sidebar-background: #f5f7fb;
+$chat-sidebar-background-dark: #303841;
+$chat-item-background: #e6ebf5;
+$chat-item-background-dark: #36404a;
+
 :root {
   --main-bg: #f2f2f2;
   --main-text: #001f31;
@@ -25,4 +42,26 @@
   --custom-select-grey-bg: rgba(11, 31, 53, 0.05);
   --error-color: #ef3124;
   --button-background: rgba(30, 43, 68, 0.08);
+  --chat-background: #{$chat-background};
+  --chat-purple: #7269ef;
+  --chat-side-menu-background: #{$chat-side-menu-background};
+  --chat-icon: #{$chat-icon};
+  --chat-text: #{$chat-text};
+  --chat-secondary-text: #{$chat-secondary-text};
+  --chat-green-dot: #06d6a0;
+  --chat-yellow-dot: #ffd166;
+  --chat-dot-border: #{$chat-dot-border};
+  --chat-sidebar-background: #{$chat-sidebar-background};
+  --chat-item-background: #{$chat-item-background};
+}
+
+.theme-dark {
+  --chat-background: #{$chat-background-dark};
+  --chat-side-menu-background: #{$chat-side-menu-background-dark};
+  --chat-icon: #{$chat-icon-dark};
+  --chat-text: #{$chat-text-dark};
+  --chat-secondary-text: #{$chat-secondary-text-dark};
+  --chat-dot-border: #{$chat-dot-border-dark};
+  --chat-sidebar-background: #{$chat-sidebar-background-dark};
+  --chat-item-background: #{$chat-item-background-dark};
 }

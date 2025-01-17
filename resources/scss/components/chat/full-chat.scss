@@ -1,0 +1,19 @@
+.full-chat {
+  * {
+    transition: all 0.2s linear;
+  }
+  &__wrapper {
+    height: 100vh;
+    display: flex;
+  }
+  &__chat-side-menu {
+    width: 75px;
+    box-shadow: 0 2px 4px #0f223a1f;
+  }
+  &__chat-sidebar {
+    width: 380px;
+  }
+  &__chat-main {
+    flex: 1;
+  }
+}
