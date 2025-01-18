@@ -10,12 +10,12 @@ class ConsultationComposer
 {
 	public function compose(View $view)
     {
-		$consultations = Consultation::select('slug', 'title', 'answer_count')
+		$consultations = Cache::remember('app_consultations', 1440, fn () => Consultation::select('slug', 'title', 'answer_count')
 			->with('comments')
 			->where('is_payed', true)
 			->orderBy('created_at', 'desc')
 			->take(8)
-			->get();
+			->get());
 		
         $view->with('consultations', $consultations);
     }

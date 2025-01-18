@@ -8,6 +8,7 @@ use App\Models\Tariff\Tariff;
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\SubCategories;
 use App\Models\User\CategoryText;
+use Carbon\Carbon;
 
 class ConsultationCategory extends Model
 {
@@ -22,6 +23,11 @@ class ConsultationCategory extends Model
 	public function consultation()
     {
         return $this->hasMany(Consultation::class, 'rubric_id');
+    }
+	
+	public function consultationsToday()
+    {
+		return $this->hasMany(Consultation::class, 'rubric_id')->whereDate('created_at', Carbon::today());
     }
 	
 	public function tariffs()

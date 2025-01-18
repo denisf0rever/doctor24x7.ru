@@ -15,23 +15,46 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
-          <h1 class="main__title">Консультации</h1>
+          <h1 class="main__title">Информация о консультациях</h1>
           <section class="main__info info">
             <div class="info__wrapper">
               <div class="info__element">
-                <h3 class="info__title">Информация о консультациях</h3>
                 <div class="info__text-wrapper">
                   <div class="info__data">
-                    <span class="info__text"></span>
+                    <span class="info__text">Вопросов сегодня: <strong>{{ $consultationsCount }}</strong></span>
                   </div>
                   <div class="info__data">
-                    <span class="info__text"><strong>{{ $paidConsultationsCount }}</strong> консультаций сегодня</span>
-                  </div>
-                  <div class="info__data">
-                    <span class="info__text"><strong>{{ $totalPaymentsToday }} &#8381;</strong> сумма платежей</span>
+                    <span class="info__text">Оплат сегодня: <strong>{{ $paidConsultationsCount }}</strong></span>
                   </div>
                 </div>
               </div>
+			  
+			  <div class="info__element">
+                <div class="info__text-wrapper">
+                  <div class="info__data">
+                    <span class="info__text">Сумма платежей: <strong>{{ $totalPaymentsToday }} &#8381;</strong></span>
+                  </div>
+                  <div class="info__data">
+                    <span class="info__text">Конверсия: <strong>{{ ($paidConsultationsCount * 100) / $consultationsCount }}</strong> %</span>
+                  </div>
+                </div>
+              </div>
+			  
+			   
+            </div>
+            <div class="info__wrapper">
+              <div class="info__element">
+                <div class="info__text-wrapper">
+                  <div class="info__data">
+                    <span class="info__text">Всего с фото сегодня: <strong>{{ $consultationsWithPhotos }}</strong> / Оплачено: <strong>{{ $consultationsWithPhotosPaid }}</strong></span>
+                  </div>
+                  <div class="info__data">
+                    <span class="info__text">Всего с фото вчера: <strong>{{ $consultationsWithPhotosYesterday }}</strong> / Оплачено: <strong>{{ $consultationsWithPhotosYesterdayPaid }}</strong></span>
+                  </div>
+                </div>
+              </div>
+			  
+			 
             </div>
           </section>
 

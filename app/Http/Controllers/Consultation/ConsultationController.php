@@ -220,7 +220,11 @@ class ConsultationController extends Controller
 		
 		return redirect()->back()->with('success', 'Консультация обновлена');
     }
-	 
+	
+	public function online()
+	{
+		return view('');
+	}
 	// Удаление консультации
     public function destroy(string $id)
     {

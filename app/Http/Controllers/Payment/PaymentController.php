@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 use App\Models\Consultation\Consultation;
+use App\Models\Consultation\ConsultationCategory as Category;
+
 use App\Models\Payment\Payment;
 use App\Models\Tariff\Rubric;
 use App\Models\Tariff\Tariff;
@@ -25,6 +27,14 @@ class PaymentController extends Controller
     {
         $payments = Payment::query()
 			->get();
+		 
+		$categories = Category::withCount('consultationsToday')
+			->get();
+			
+		//dd($categories);
+		 
+		$consultationsCount = Consultation::whereDate('created_at', Carbon::today())
+			->count();
 			
 		$paidConsultationsCount = Consultation::where('is_payed', 1)
 			->whereDate('created_at', Carbon::today())
@@ -34,7 +44,33 @@ class PaymentController extends Controller
 			->whereDate('created_at', Carbon::today())
 			->sum('payed_amount');
 			
-		return view('dashboard.payment.index', compact('payments', 'totalPaymentsToday', 'paidConsultationsCount'));
+		$consultationsWithPhotos = DB::table('sf_consultation_comment as consultations')
+			->join('sf_consultation_comment_photo', 'consultations.id', '=', 'sf_consultation_comment_photo.comment_id')
+			->whereDate('consultations.created_at', '=', Carbon::today())
+			->distinct() // Чтобы получить уникальные консультации
+			->count();
+			
+		$consultationsWithPhotosPaid = DB::table('sf_consultation_comment as consultations')
+			->join('sf_consultation_comment_photo', 'consultations.id', '=', 'sf_consultation_comment_photo.comment_id')
+			->whereDate('consultations.created_at', '=', Carbon::today())
+			->where('consultations.is_payed', true)
+			->distinct() // Чтобы получить уникальные консультации
+			->count();
+			
+		$consultationsWithPhotosYesterday = DB::table('sf_consultation_comment as consultations')
+			->join('sf_consultation_comment_photo', 'consultations.id', '=', 'sf_consultation_comment_photo.comment_id')
+			->whereDate('consultations.created_at', '=', Carbon::yesterday())
+			->distinct() // Чтобы получить уникальные консультации
+			->count();
+			
+		$consultationsWithPhotosYesterdayPaid = DB::table('sf_consultation_comment as consultations')
+			->join('sf_consultation_comment_photo', 'consultations.id', '=', 'sf_consultation_comment_photo.comment_id')
+			->whereDate('consultations.created_at', '=', Carbon::yesterday())
+			->where('consultations.is_payed', true)
+			->distinct() // Чтобы получить уникальные консультации
+			->count();
+			
+		return view('dashboard.payment.index', compact('payments', 'totalPaymentsToday', 'paidConsultationsCount', 'consultationsWithPhotos', 'consultationsCount', 'consultationsWithPhotosYesterday', 'categories', 'consultationsWithPhotosPaid', 'consultationsWithPhotosYesterdayPaid'));
     }
 
     /**
