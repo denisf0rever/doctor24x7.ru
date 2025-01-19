@@ -2,31 +2,16 @@
 @section('title', 'Консультация врача онлайн — задать вопрос и получить ответ в течение часа')
 @section('description', 'Консультируют практикующие врачи, документы об образовании проверены администрацией сайта')
 @section('keywords', 'Задать вопрос врачу онлайну, консультация врача онлайн')
-@section('canonical', 'consultation/create')
-
-@section('content')
-@foreach($errors->all() as $error)
-{{ $error }} <br />
-@endforeach
+@section('canonical', 'consultation/comment')
 
 <section class="main__text-service text-service">
   <h1 class="text-service__title">Консультация врача онлайн</h1>
-  <span class="text-service__subtitle">Задать вопрос врачу в простой форме и получить ответ в течение часа
-  </span>
   <div class="text-service__wrapper section-wrapper">
     <ul class="text-service__list">
-      <li class="text-service__item">
-        <b>Через сколько врач отвечает?</b> Обратившиеся ждут ответ в среднем 25 минут.
-      </li>
-      <li class="text-service__item"><b>Гарантии.</b> Мы юридическое лицо и несем ответственность перед
-        законодательством РФ. Нашим сервисом уже воспользовались тысячи людей. Юридическая информация и отзывы <a
-          href="/about-us">тут</a>.
-      </li>
-      <li class="text-service__item"><b>Как проходит консультация?</b> Когда врач предоставит ответ - пришлем на
-        вашу почту уведомление, сможете задать дополнительные вопросы. Мы даем максимум информации, чтобы
-        консультация была полезной. Консультируют практикующие врачи, минимальный стаж 10 лет.</li>
-      <li class="text-service__item"><b>Более 100 врачей</b> предоставляют консультации. При необходимости, может
-        ответить несколько врачей (конференция).</li>
+      <li class="text-service__item"><b>Через сколько ответит врач?</b> Готовим ответ в среднем 25 минут. Наш сервис работает круглосуточно.</li>
+	<li class="text-service__item"><b>Гарантии.</b> Мы юридическое лицо и несем ответственность перед законодательством РФ. Нашим сервисом уже воспользовались более 700.000 пользователей. Юридическая информация и отзывы <a href="/about-us" target="_blank">тут</a>. Документы врачей проверены. Минимальный стаж врачей 8 лет.</li>
+	<li class="text-service__item"><b>Как проходит консультация?</b> Врач предоставит ответ и мы оповестим вас по почте, вы сможете задать дополнительные вопросы в онлайн чате. Ответ максимально подробный, чтобы консультация была полезной для вас.</li>
+	<li class="text-service__item"><b>Как задать вопрос врачу?</b> Чтобы получить консультацию врача, заполните форму и ожидайте ответ в течение часа.</li>
     </ul>
   </div>
 </section>
@@ -245,17 +230,7 @@
                 </div>
                 <input class="consultation-form__age-input" type="number" id="age" name="age" value="{{ old('age') }}">
 
-
-
-
-
-
               </div>
-
-
-
-
-
             </div>
             <div class="consultation-form__tub-item">
               <label class="consultation-form__tub-title">Снимки, анализы (необязательно)
@@ -306,66 +281,6 @@
     </form>
   </div>
 </section>
-
-<!-- <section class="main__form form">
-      <div class="content-block__wrapper">
-        <h1 class="content-block__header">Заявка на онлайн консультацию</h1>
-        <div class="content-block__subtitle-wrapper">
-          <form method="POST" action="" enctype="multipart/form-data">
-            @csrf
-            <div class="form__input-wrapper">
-              <label class="form__label" for="Заголовок вопроса">Заголовок вопроса</label>
-              <input class="form__input" type="text" id="username" name="title" value="{{ old('title') }}">
-            </div>
-            <div class="form__input-wrapper">
-              <label class="form__label" for="Возраст пациента">Возраст пациента</label>
-              <input class="form__input" type="text" id="age" name="age" value="{{ old('age') }}">
-            </div>
-
-            <div class="form__input-wrapper">
-              <label class="form__label" for="Ваше имя">Как к вам обращаться?</label>
-              <input class="form__input" type="text" id="username" name="username" value="{{ old('username') }}">
-            </div>
-
-            <div class="form__input-wrapper">
-              <label class="form__label" for="Ваше имя">Ваш email</label>
-              <input class="form__input" type="text" id="email" name="email" value="{{ old('email') }}">
-            </div>
-
-            <div class="form__input-wrapper">
-              <label class="form__label" for="Ваше имя">Ваш город</label>
-              <input class="form__input" type="text" id="email" name="city_id" value="5633">
-            </div>
-
-            <select id="rubric_id" name="rubric_id" class="form__status-select">
-              @foreach($categories as $category)
-              <option class="" value="{{ $category->id ? $category->id : old('category') }}">
-                {{ $category->short_title }}
-              </option>
-              @endforeach
-            </select>
-
-            <div>
-              <textarea name="description" id="description">{{ old('description') }}</textarea>
-            </div>
-
-            <div>
-
-              <label class="form__label-photo">
-                <img src="/images/dashboard/#.svg" alt="" class="form__input-photo-img">
-                <span class="form__input-photo-text">Загрузить фото</span>
-                <input class="form__input-photo @error('image')input-error @enderror" type="file" name="image">
-              </label>
-            </div>
-
-            <div class="form__input-wrapper">
-              <label class="form__label" for="Ваше имя">Ваш город</label>
-              <input class="form__input" type="submit" value="Отправить">
-            </div>
-          </form>
-        </div>
-      </div>
-    </section> -->
 <section class="main__consultation-plan consultation-plan">
   <div class="consultation-plan__wrapper small-container">
     <div class="consultation-plan__top">
@@ -374,7 +289,7 @@
         всего несколько минут. Наши специалисты ответят в кратчайшие сроки и подскажут, как правильно поступить
         в вашей ситуации. Доверьте решение своей проблемы квалифицированным врачам!
       </div>
-      <img src="" alt="" class="consultation-plan__img">
+      <img src="{{ Storage::url('common/category/firstscreen.svg') }}" alt="" class="consultation-plan__img">
       <div class="consultation-plan__big-text consultation-plan__big-text-last">Качественные консультации
         профессиональных врачей.</div>
     </div>
@@ -396,8 +311,8 @@
           <div class="consultation-plan__number">2</div>
           <span class="consultation-plan__item-title-text">Получите ответы</span>
         </div>
-        <div class="consultation-plan__text">На вопросы отвечают врачи со всей России и Украины. Среднее время
-          ответа на сайте — 45 минут.
+        <div class="consultation-plan__text">На вопросы отвечают врачи онлайн. Среднее время
+          ответа на сайте — 25 минут.
         </div>
       </li>
       <li class="consultation-plan__item">
@@ -414,28 +329,7 @@
 </section>
 <section class="main__description description">
   <div class="description__wrapper section-wrapper small-container">
-    <p>Вас <strong>консультируют практикующие врачи</strong>, которые имеют дипломы об образовании, а также
-      ежедневный опыт работ в медицине. Днем на работе, а вечером - отвечают на вопросы онлайн.</p>
-    <p>Ваш вопрос должен описывать конкретную ситуацию, а также содержать информацию о возрасте, поле, принимаемых
-      медикаментах. Если вы сдавали анализы или проводили обследования, то укажите их результаты. Чем больше у врача
-      информации о вас - тем проще ему работать с вашим вопросом и, вы сможете получить рекомендации по своей
-      проблеме.</p>
-    <p>Вы можете задать вопрос анонимно. Задавая вопрос, вы можете добавить к нему изображение (рентгенограмму,
-      результаты анализов и прочие документы). Уведомление об ответе врача-консультанта поступает автору вопроса
-      <strong>на электронную почту</strong>. Все наши консультанты являются практикующими врачами.
-    </p>
-    <p>Зачастую бывает так, что человек, у которого возникли симптомы какого-либо заболевания или происходят иные
-      изменения в организме, по каким-то причинам отказывается идти в больницу. Факторами, которые оказывают влияние
-      на такие решения могут быть различными: чувство стыда, боязнь больниц, смущение или желание оставаться
-      инкогнито. Иногда у пациента существует реальная потребность в получении дополнительной информации.
-      Консультация врача онлайн станет идеальным вариантом для каждой из этих ситуаций. Получение качественной
-      медицинской консультации по интернету абсолютно анонимно и возможно без регистрации.</p>
-    <p>Предлагаются услуги самых разных специалистов, в том числе и узких специализаций, которых просто может не
-      оказаться в населенном пункте, где находится пациент. Можно задать вопрос врачу в самых разных категориях.
-      Онлайн консультация врача поможет разобраться в спорных вопросах, определить направление лечения, получить
-      необходимую квалифицированную информационную поддержку. <strong>Обратиться к врачу можно
-        круглосуточно</strong>, без телефона и без регистрации. Предусмотрены дополнительные возможности для
-      желающих провести платную консультацию врача онлайн - ответ будет получен уже в течение часа.</p>
+    <p>При формулировании вопроса опишите ваш вопрос подробно, предоставьте информацию о возрасте, поле и принимаемых медикаментах. Если у вас есть результаты анализов или данные обследований, не забудьте их прикрепить. Чем больше информации у врача, тем эффективнее он сможет помочь вам и предоставить индивидуальные рекомендации по вашей проблеме. Вы можете задать вопрос анонимно. Уведомления о ответах врачей поступят вам на электронную почту. Все наши консультанты – это практикующие специалисты.</p><p>Онлайн-консультация с врачом – это идеальное решение чтобы получить альтернативное мнение или получить ответ до посещения врача очно. Мы предлагаем услуги врачей различных специализаций, включая узких специалистов, которых может не быть в вашем населенном пункте. Консультации доступны круглосуточно. Для желающих получить платную консультацию предусмотрены ускоренные ответы – вы можете ожидать ответ уже в течение часа.</p>
   </div>
 </section>
 

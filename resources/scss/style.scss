@@ -148,6 +148,9 @@ p {
     font-weight: bold;
     font-size: 15px;
   }
+  &__ask-question-sidebar:hover {
+    background-color: #005ff9; color:#fff; opacity: 1
+  }
   &__online-waiting {
     margin-top: 20px;
   }

@@ -31,7 +31,17 @@ class PaymentController extends Controller
 		$categories = Category::withCount('consultationsToday')
 			->get();
 			
-		//dd($categories);
+		/*$totalConsultations = Cache::flexible(
+			'Consultations',
+			[720, 725],
+			fn () => Consultation::count()
+		);
+
+		$totalAnswers = Cache::flexible(
+			'Answers',
+			[720, 725],
+			fn () => Comment::count()
+		);*/
 		 
 		$consultationsCount = Consultation::whereDate('created_at', Carbon::today())
 			->count();
