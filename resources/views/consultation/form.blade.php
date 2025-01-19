@@ -1,9 +1,10 @@
 @extends('appsidebarfree')
 @section('title', 'Консультация врача онлайн — задать вопрос и получить ответ в течение часа')
 @section('description', 'Консультируют практикующие врачи, документы об образовании проверены администрацией сайта')
-@section('keywords', 'Задать вопрос врачу онлайну, консультация врача онлайн')
+@section('keywords', 'Задать вопрос врачу онлайн, консультация врача онлайн')
 @section('canonical', 'consultation/comment')
 
+@section('content')
 <section class="main__text-service text-service">
   <h1 class="text-service__title">Консультация врача онлайн</h1>
   <div class="text-service__wrapper section-wrapper">
