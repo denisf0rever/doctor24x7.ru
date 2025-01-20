@@ -35,7 +35,7 @@
                     <span class="info__text">Сумма платежей: <strong>{{ $totalPaymentsToday }} &#8381;</strong></span>
                   </div>
                   <div class="info__data">
-                    <span class="info__text">Конверсия: <strong>{{ ($paidConsultationsCount * 100) / $consultationsCount }}</strong> %</span>
+                    <span class="info__text">Конверсия: <strong>{{ round((($paidConsultationsCount * 100) / $consultationsCount), 2) }}</strong> %</span>
                   </div>
                 </div>
               </div>
