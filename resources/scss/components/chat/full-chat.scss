@@ -4,16 +4,30 @@
   }
   &__wrapper {
     height: 100vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: 75px 384px 1fr;
+    grid-template-rows: 89px 1fr 93px;
   }
   &__chat-side-menu {
     width: 75px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
     box-shadow: 0 2px 4px #0f223a1f;
   }
   &__chat-sidebar {
-    width: 380px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
+  }
+  &__chat-header {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
   }
   &__chat-main {
-    flex: 1;
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+  &__chat-bottom {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
   }
 }

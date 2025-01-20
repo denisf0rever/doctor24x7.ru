@@ -83,12 +83,25 @@
         </ul>
       </div>
     </div>
+    <div class="chat-main__chat-header chat-header">
+      <div class="chat-header__wrapper">
+        <div class="chat-header__avatar">
+          <img src="https://i.pravatar.cc/300" alt="" class="chat-header__avatar-img">
+        </div>
+        <div class="chat-header__fullname-wrapper">
+          <span class="chat-header__fullname">Doris Brown</span>
+          <div class="chat-header__fullname-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z">
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="full-chat__chat-main">
       <div class="chat-main__wrapper">
-        <div class="chat-main__header">
-          <img src="" alt="" class="chat-main__avatar">
-          <div class="chat-main__fullname"></div>
-        </div>
         <div class="chat-main__chat-messages">
           <div class="chat-messages">
             <ul class="chat-messages__list">
@@ -109,12 +122,18 @@
             </ul>
           </div>
         </div>
-        <div class="chat-main__chat-bottom">
-          <div class="chat-bottom__wraper">
-            <textarea name="" id="" class="chat-bottom__textarea"></textarea>
-            <div class="chat-bottom__button"></div>
-          </div>
-        </div>
+      </div>
+    </div>
+    <div class="chat-main__chat-bottom chat-bottom">
+      <div class="chat-bottom__wrapper">
+        <textarea name="" id="" class="chat-bottom__textarea" placeholder="Введите сообщение..."></textarea>
+        <button type="submit" class="chat-bottom__button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
+            <path
+              d="M3 12.9999H9V10.9999H3V1.84558C3 1.56944 3.22386 1.34558 3.5 1.34558C3.58425 1.34558 3.66714 1.36687 3.74096 1.40747L22.2034 11.5618C22.4454 11.6949 22.5337 11.9989 22.4006 12.2409C22.3549 12.324 22.2865 12.3924 22.2034 12.4381L3.74096 22.5924C3.499 22.7255 3.19497 22.6372 3.06189 22.3953C3.02129 22.3214 3 22.2386 3 22.1543V12.9999Z">
+            </path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>

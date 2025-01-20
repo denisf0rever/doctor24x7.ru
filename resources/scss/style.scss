@@ -149,7 +149,9 @@ p {
     font-size: 15px;
   }
   &__ask-question-sidebar:hover {
-    background-color: #005ff9; color:#fff; opacity: 1
+    background-color: #005ff9;
+    color: #fff;
+    opacity: 1;
   }
   &__online-waiting {
     margin-top: 20px;
@@ -237,4 +239,6 @@ p {
 @import "components/chat/full-chat.scss";
 @import "components/chat/chat-side-menu.scss";
 @import "components/chat/chat-sidebar.scss";
+@import "components/chat/chat-header.scss";
+@import "components/chat/chat-bottom.scss";
 @import "media.scss";

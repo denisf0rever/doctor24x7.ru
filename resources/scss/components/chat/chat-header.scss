@@ -1,0 +1,36 @@
+.chat-header {
+  &__wrapper {
+    padding: 24px;
+    background-color: var(--chat-main-background);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  &__avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  &__avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  &__fullname-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  &__fullname {
+    color: var(--chat-text);
+    font-size: 16px;
+    font-weight: 500;
+  }
+  &__fullname-circle {
+    svg {
+      width: 10px;
+      height: 10px;
+      fill: rgb(6, 214, 160);
+    }
+  }
+}
