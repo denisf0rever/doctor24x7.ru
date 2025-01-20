@@ -1,0 +1,36 @@
+.chat-messages {
+  &__wrapper {
+    background-color: var(--chat-main-background);
+    height: 100%;
+    padding: 24px;
+    max-height: calc(100vh - 182px);
+    overflow: auto;
+    scrollbar-width: thin; /* Тонкий скролл */
+    scrollbar-color: #d0d6db transparent; /* Цвет ползунка и трека */
+    &::-webkit-scrollbar {
+      width: 8px; /* Ширина вертикального скроллбара */
+    }
+
+    /* Фон скроллбара */
+    &::-webkit-scrollbar-track {
+      background: transparent; /* Цвет фона */
+      border-radius: 10px; /* Округление трека */
+    }
+
+    /* Ползунок скроллбара */
+    &::-webkit-scrollbar-thumb {
+      background: #d0d6db; /* Цвет ползунка */
+      border-radius: 10px; /* Округление ползунка */
+    }
+
+    /* Ползунок при наведении */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #d0d6db; /* Цвет ползунка при наведении */
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}

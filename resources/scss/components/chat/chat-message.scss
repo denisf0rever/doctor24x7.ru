@@ -1,0 +1,101 @@
+.chat-message {
+  &__wrapper {
+    display: flex;
+    gap: 25px;
+    &.chat-message--own {
+      justify-content: flex-end;
+
+      .chat-message__avatar {
+        order: 2;
+      }
+
+      .chat-message__main {
+        order: 1;
+
+        .chat-message__message-block {
+          border-radius: 8px 8px 0 8px;
+          background-color: var(--chat-sidebar-background);
+
+          &:before {
+            left: auto;
+            right: 0;
+            border: none;
+            border-bottom: 5px solid #0000;
+            border-left: 5px solid #0000;
+            border-right: 5px solid var(--chat-sidebar-background);
+            border-top: 5px solid var(--chat-sidebar-background);
+          }
+        }
+
+        .chat-message__text {
+          color: var(--chat-text);
+        }
+
+        .chat-message__time {
+          color: var(--chat-secondary-text);
+        }
+
+        .chat-message__author {
+          text-align: end;
+        }
+      }
+    }
+  }
+
+  &__avatar {
+    height: 100%;
+    display: flex;
+    margin-top: auto;
+
+    &-img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__message-block {
+    border-radius: 8px 8px 8px 0;
+    padding: 12px 20px;
+    color: #fff;
+    background-color: var(--chat-purple);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 220px;
+    gap: 5px;
+
+    &:before {
+      border-bottom: 5px solid #0000;
+      border-left: 5px solid var(--chat-purple);
+      border-right: 5px solid #0000;
+      border-top: 5px solid var(--chat-purple);
+      bottom: -9px;
+      content: "";
+      left: 0;
+      position: absolute;
+    }
+  }
+
+  &__text,
+  &__time {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  &__author {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--chat-input-text);
+  }
+  &__time {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

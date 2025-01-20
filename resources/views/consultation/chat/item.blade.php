@@ -100,28 +100,98 @@
         </div>
       </div>
     </div>
-    <div class="full-chat__chat-main">
-      <div class="chat-main__wrapper">
-        <div class="chat-main__chat-messages">
-          <div class="chat-messages">
-            <ul class="chat-messages__list">
-              <li class="chat-messages__chat-message chat-messages__chat-message--own">
-                <div class="chat-message__wrapper">
-                  <div class="chat-message__avatar">
-                    <img src="" alt="" class="chat-message__avatar-img">
-                  </div>
-                  <div class="chat-message__main">
-                    <div class="chat-message__message-block chat-message__message-block--own">
-                      <span class="chat-message__text"></span>
-                      <span class="chat-message__time"></span>
-                    </div>
-                    <span class="chat-message__author"></span>
-                  </div>
+    <div class="full-chat__chat-messages chat-messages">
+      <div class="chat-messages__wrapper">
+        <ul class="chat-messages__list">
+          <li class="chat-messages__chat-message chat-message">
+            <div class="chat-message__wrapper">
+              <div class="chat-message__avatar">
+                <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+              </div>
+              <div class="chat-message__main">
+                <div class="chat-message__message-block">
+                  <span class="chat-message__text">This theme is Awesome! </span>
+                  <span class="chat-message__time"> 2:06 min</span>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+                <span class="chat-message__author">Galen Rizo </span>
+              </div>
+            </div>
+          </li>
+          <li class="chat-messages__chat-message chat-message">
+            <div class="chat-message__wrapper">
+              <div class="chat-message__avatar">
+                <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+              </div>
+              <div class="chat-message__main">
+                <div class="chat-message__message-block">
+                  <span class="chat-message__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, quos
+                    placeat. Exercitationem vitae, eos quis quibusdam tempore voluptate provident quas sunt et a itaque
+                    nam, illo cupiditate quaerat ipsa perferendis. </span>
+                  <span class="chat-message__time"> 2:06 min</span>
+                </div>
+                <span class="chat-message__author">Galen Rizo </span>
+              </div>
+            </div>
+          </li>
+          <li class="chat-messages__chat-message chat-message ">
+            <div class="chat-message__wrapper chat-message__wrapper--own">
+              <div class="chat-message__avatar chat-message__avatar--own">
+                <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+              </div>
+              <div class="chat-message__main chat-message__main--own">
+                <div class="chat-message__message-block chat-message__message-block--own">
+                  <span class="chat-message__text">This theme is Awesome! </span>
+                  <span class="chat-message__time"> 2:06 min</span>
+                </div>
+                <span class="chat-message__author chat-message__author--own">Galen Rizo </span>
+              </div>
+            </div>
+          </li>
+          <li class="chat-messages__chat-message chat-message">
+            <div class="chat-message__wrapper">
+              <div class="chat-message__avatar">
+                <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+              </div>
+              <div class="chat-message__main">
+                <div class="chat-message__message-block">
+                  <span class="chat-message__text">This theme is Awesome! </span>
+                  <span class="chat-message__time"> 2:06 min</span>
+                </div>
+                <span class="chat-message__author">Galen Rizo </span>
+              </div>
+            </div>
+          </li>
+          <li class="chat-messages__chat-message chat-message">
+            <div class="chat-message__wrapper">
+              <div class="chat-message__avatar">
+                <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+              </div>
+              <div class="chat-message__main">
+                <div class="chat-message__message-block">
+                  <span class="chat-message__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi, quos
+                    placeat. Exercitationem vitae, eos quis quibusdam tempore voluptate provident quas sunt et a itaque
+                    nam, illo cupiditate quaerat ipsa perferendis. </span>
+                  <span class="chat-message__time"> 2:06 min</span>
+                </div>
+                <span class="chat-message__author">Galen Rizo </span>
+              </div>
+            </div>
+          </li>
+          <li class="chat-messages__chat-message chat-message">
+            <div class="chat-message__wrapper chat-message--own">
+              <div class="chat-message__avatar">
+                <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+              </div>
+              <div class="chat-message__main">
+                <div class="chat-message__message-block">
+                  <span class="chat-message__text">This theme is Awesome!</span>
+                  <span class="chat-message__time">2:06 min</span>
+                </div>
+                <span class="chat-message__author">Galen Rizo</span>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="chat-main__chat-bottom chat-bottom">
