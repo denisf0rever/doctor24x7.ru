@@ -58,10 +58,12 @@
 					<p id="question-age">Телефон: {{ $consultation->phone }}</p>
                 </div>
 				@endif
-
-                <!-- ФОТКИ -->
+				
+				@if ($photos->isNotEmpty())
+				<div class="consultation__item">
+					<p id="question-age">Фото: {{ $photos->count() }} шт</p>
+                </div>
                 <div class="consultation__gallery">
-                  @if ($photos->isNotEmpty())
                   <ul class="consultation__gallery-list">
                     @foreach ($photos as $photo)
                     <li class="consultation__gallery-item"><a class="consultation__gallery-link"
@@ -70,8 +72,7 @@
                           alt="Фото консультации" width="450px"></a></li>
                     @endforeach
                   </ul>
-                  @endif
-                </div>
+                </div>@endif
               </div>
             </div>
           </section>
@@ -79,16 +80,30 @@
           <section class="main__stats stats">
             <div class="stats__wrapper">
               <ul class="stats__list">
-                <li class="stats__item">{{ $currentHour }}
+                <li class="stats__item">
                   <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour <= '08:00' )
                       {{ $consultation->tariff->night_fee * $coefficientLength * $coefficientCity }} @else
-                      {{ $consultation->tariff->fee * $coefficientLength * $coefficientCity }} @endif &#8381;</div>
+                      {{ $consultation->tariff->fee * $coefficientCity }} @endif &#8381;</div>
                       <div class="stats__text">Гонорар</div>
                 </li>
+				<li class="stats__item">
+                  <div class="stats__number">{{ $currentHour }}</div>
+                      <div class="stats__text">Поступил вопрос</div>
+                </li>
+				@if ($coefficientLength > 1) <li class="stats__item" style="background: red;color:white;">
+                  <div class="stats__number">Обратить внимание</div>
+                  <div class="stats__text">{{ $coefficientLength }}</div>
+                </li> @endif
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
                   <div class="stats__text">Оплачено</div>
                 </li>
+				@if (strpos($consultation->payed_amount, '9') !== false)
+				<li class="stats__item">
+                  <div class="stats__number">Чат</div>
+                  <div class="stats__text">Вероятно чат оплачен</div>
+                </li>
+				@endif
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->tariff->sum }} &#8381;</div>
                   <div class="stats__text">Тариф</div>
