@@ -5,6 +5,7 @@
     padding: 24px;
     background-color: var(--chat-main-background);
     height: 100%;
+    border-top: 1px solid var(--chat-border);
   }
   &__textarea {
     display: block;

@@ -16,6 +16,7 @@
   &__list {
     display: flex;
     flex-direction: column;
+    gap: 1px;
   }
   &__item {
     display: grid;
@@ -29,6 +30,9 @@
     padding-right: 70px;
     cursor: pointer;
     &:hover {
+      background-color: var(--chat-item-background);
+    }
+    &--active {
       background-color: var(--chat-item-background);
     }
   }

@@ -18,6 +18,8 @@ $chat-main-background: #fff;
 $chat-main-background-dark: #262e35;
 $chat-input-text: #495057;
 $chat-input-text-dark: #a6b0cf;
+$chat-border: #f0eff5;
+$chat-border-dark: #36404a;
 
 :root {
   --main-bg: #f2f2f2;
@@ -61,6 +63,7 @@ $chat-input-text-dark: #a6b0cf;
   --chat-purple-button: #7269ef;
   --chat-purple-button-hover: #6159cb;
   --chat-input-text: #{$chat-input-text};
+  --chat-border: #{$chat-border};
 }
 
 .theme-dark {
@@ -74,4 +77,5 @@ $chat-input-text-dark: #a6b0cf;
   --chat-item-background: #{$chat-item-background-dark};
   --chat-main-background: #{$chat-main-background-dark};
   --chat-input-text: #{$chat-input-text-dark};
+  --chat-border: #{$chat-border-dark};
 }
