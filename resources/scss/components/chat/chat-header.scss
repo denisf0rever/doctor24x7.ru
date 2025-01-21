@@ -35,4 +35,23 @@
       fill: rgb(6, 214, 160);
     }
   }
+  &__back-btn {
+    display: none;
+    width: 16px;
+    height: 16px;
+    svg {
+      fill: var(--chat-secondary-text);
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  .chat-header {
+    &__wrapper {
+      padding: 16px;
+    }
+    &__back-btn {
+      display: block;
+    }
+  }
 }

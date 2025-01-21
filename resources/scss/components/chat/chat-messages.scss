@@ -34,3 +34,11 @@
     gap: 24px;
   }
 }
+
+@media (max-width: 990px) {
+  .chat-messages {
+    &__wrapper {
+      max-height: calc(100vh - 150px);
+    }
+  }
+}
