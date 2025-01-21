@@ -36,7 +36,7 @@
                   <li class="pages__item pages__item-tariff">
                     <span class="pages__views-id">{{ $tariff->id }}</span>
                     <a class="pages__tariff-name" href="{{ route('dashboard.tariff.edit', $tariff->id)}}" target="_blank"><span>{{ $tariff->name }}</span></a>
-                    <a class="pages__tariff-name" href="/" target="_blank"><span>{{ $tariff->title }}</span></a>
+                    <a class="pages__tariff-name" href="{{ route('dashboard.tariff.edit', $tariff->id)}}" target="_blank"><span>{{ $tariff->title }}</span></a>
                     <span class="pages__views-tariff-number">{{ $tariff->answers_count }}</span>
                     <span class="pages__views-tariff-number">{{ $tariff->sum }} &#8381;</span>
                     <span class="pages__views-tariff-number">{{ $tariff->fee }} &#8381;</span>

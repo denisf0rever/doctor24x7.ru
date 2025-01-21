@@ -57,28 +57,32 @@ class PaymentController extends Controller
 		$consultationsWithPhotos = DB::table('sf_consultation_comment as consultations')
 			->join('sf_consultation_comment_photo', 'consultations.id', '=', 'sf_consultation_comment_photo.comment_id')
 			->whereDate('consultations.created_at', '=', Carbon::today())
-			->distinct() // Чтобы получить уникальные консультации
-			->count();
+			->groupBy('consultations.id') // Группируем по ID консультации
+			->select('consultations.id')
+			->get();
 			
 		$consultationsWithPhotosPaid = DB::table('sf_consultation_comment as consultations')
 			->join('sf_consultation_comment_photo', 'consultations.id', '=', 'sf_consultation_comment_photo.comment_id')
 			->whereDate('consultations.created_at', '=', Carbon::today())
 			->where('consultations.is_payed', true)
-			->distinct() // Чтобы получить уникальные консультации
-			->count();
+			->groupBy('consultations.id') // Группируем по ID консультации
+			->select('consultations.id')
+			->get();
 			
 		$consultationsWithPhotosYesterday = DB::table('sf_consultation_comment as consultations')
 			->join('sf_consultation_comment_photo', 'consultations.id', '=', 'sf_consultation_comment_photo.comment_id')
 			->whereDate('consultations.created_at', '=', Carbon::yesterday())
-			->distinct() // Чтобы получить уникальные консультации
-			->count();
+			->groupBy('consultations.id') // Группируем по ID консультации
+			->select('consultations.id')
+			->get();
 			
 		$consultationsWithPhotosYesterdayPaid = DB::table('sf_consultation_comment as consultations')
 			->join('sf_consultation_comment_photo', 'consultations.id', '=', 'sf_consultation_comment_photo.comment_id')
 			->whereDate('consultations.created_at', '=', Carbon::yesterday())
 			->where('consultations.is_payed', true)
-			->distinct() // Чтобы получить уникальные консультации
-			->count();
+			->groupBy('consultations.id') // Группируем по ID консультации
+			->select('consultations.id')
+			->get();
 			
 		return view('dashboard.payment.index', compact('payments', 'totalPaymentsToday', 'paidConsultationsCount', 'consultationsWithPhotos', 'consultationsCount', 'consultationsWithPhotosYesterday', 'categories', 'consultationsWithPhotosPaid', 'consultationsWithPhotosYesterdayPaid'));
     }

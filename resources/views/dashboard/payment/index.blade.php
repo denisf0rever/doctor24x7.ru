@@ -46,10 +46,10 @@
               <div class="info__element">
                 <div class="info__text-wrapper">
                   <div class="info__data">
-                    <span class="info__text">Всего с фото сегодня: <strong>{{ $consultationsWithPhotos }}</strong> / Оплачено: <strong>{{ $consultationsWithPhotosPaid }}</strong></span>
+                    <span class="info__text">Всего с фото сегодня: <strong>{{ $consultationsWithPhotos->count() }}</strong> / Оплачено: <strong>{{ $consultationsWithPhotosPaid->count() }}</strong></span>
                   </div>
                   <div class="info__data">
-                    <span class="info__text">Всего с фото вчера: <strong>{{ $consultationsWithPhotosYesterday }}</strong> / Оплачено: <strong>{{ $consultationsWithPhotosYesterdayPaid }}</strong></span>
+                    <span class="info__text">Всего с фото вчера: <strong>{{ $consultationsWithPhotosYesterday->count() }}</strong> / Оплачено: <strong>{{ $consultationsWithPhotosYesterdayPaid->count() }}</strong></span>
                   </div>
                 </div>
               </div>
