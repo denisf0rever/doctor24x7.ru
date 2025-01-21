@@ -118,7 +118,8 @@
                 </div>
                 <div class="chat-message__main">
                   <div class="chat-message__message-block">
-                    <span class="chat-message__text">This theme is Awesome! </span>
+                    <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This theme
+                        is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
                     <span class="chat-message__time">
                       <div class="chat-message__time-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -168,7 +169,8 @@
                 </div>
                 <div class="chat-message__main chat-message__main--own">
                   <div class="chat-message__message-block chat-message__message-block--own">
-                    <span class="chat-message__text">This theme is Awesome! </span>
+                    <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This theme
+                        is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
                     <span class="chat-message__time">
                       <div class="chat-message__time-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -191,7 +193,8 @@
                 </div>
                 <div class="chat-message__main">
                   <div class="chat-message__message-block">
-                    <span class="chat-message__text">This theme is Awesome! </span>
+                    <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This theme
+                        is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
                     <span class="chat-message__time">
                       <div class="chat-message__time-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -243,7 +246,8 @@
                 </div>
                 <div class="chat-message__main">
                   <div class="chat-message__message-block">
-                    <span class="chat-message__text">This theme is Awesome!</span>
+                    <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This theme
+                        is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span></span>
                     <span class="chat-message__time">
                       <div class="chat-message__time-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -274,6 +278,13 @@
           </button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">
+  <div class="toast__container">
+    <div class="toast__item">
+      Текст тоста
     </div>
   </div>
 </div>

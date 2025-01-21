@@ -197,6 +197,32 @@ p {
   position: absolute;
 }
 
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  &__container {
+    min-width: 200px;
+    height: 50px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  &__show {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 990px) {
+  .toast {
+    bottom: 90px;
+  }
+}
+
 @import "components/header.scss";
 @import "components/common/description.scss";
 @import "components/common/themes.scss";
