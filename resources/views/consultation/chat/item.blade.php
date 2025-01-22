@@ -53,7 +53,7 @@
       <div class="chat-sidebar__wrapper">
         <div class="chat-sidebar__title">Чаты</div>
         <ul class="chat-sidebar__list">
-          <li class="chat-sidebar__item chat-sidebar__item--active">
+          <li class="chat-sidebar__item">
             <div class="chat-sidebar__avatar chat-sidebar__avatar--green">
               <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg" alt="" class="chat-sidebar__avatar-img">
             </div>
@@ -161,7 +161,7 @@
 <div class="toast" id="toast">
   <div class="toast__container">
     <div class="toast__item">
-      Консультация доступна после оплаты
+      Консультация не оплачена
     </div>
   </div>
 </div>
