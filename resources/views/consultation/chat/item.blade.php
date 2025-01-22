@@ -64,218 +64,208 @@
             <span class="chat-sidebar__last-message">hey! there I'm available</span>
             <span class="chat-sidebar__time">02:50 PM</span>
           </li>
-          <li class="chat-sidebar__item">
-            <div class="chat-sidebar__avatar chat-sidebar__avatar--yellow">
-              <img src="https://i.pravatar.cc/300" alt="" class="chat-sidebar__avatar-img">
-            </div>
-            <span class="chat-sidebar__fullname">Patrick Hendricks</span>
-            <span class="chat-sidebar__last-message">hey! there I'm available</span>
-            <span class="chat-sidebar__time">02:50 PM</span>
-          </li>
-          <li class="chat-sidebar__item">
-            <div class="chat-sidebar__avatar">
-              <img src="https://i.pravatar.cc/300" alt="" class="chat-sidebar__avatar-img">
-            </div>
-            <span class="chat-sidebar__fullname">Patrick Hendricks</span>
-            <span class="chat-sidebar__last-message">hey! there I'm available</span>
-            <span class="chat-sidebar__time">02:50 PM</span>
-          </li>
         </ul>
       </div>
     </div>
     <div class="full-chat__main">
-      <div class="full-chat__chat-header chat-header">
-        <div class="chat-header__wrapper">
-          <div class="chat-header__back-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z">
-              </path>
-            </svg>
-          </div>
-          <div class="chat-header__avatar">
-            <img src="https://i.pravatar.cc/300" alt="" class="chat-header__avatar-img">
-          </div>
-          <div class="chat-header__fullname-wrapper">
-            <span class="chat-header__fullname">Doris Brown</span>
-            <div class="chat-header__fullname-circle">
+      <div class="full-chat__main-wrapper">
+        <div class="full-chat__chat-header chat-header">
+          <div class="chat-header__wrapper">
+            <div class="chat-header__back-btn">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z">
+                  d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z">
                 </path>
               </svg>
             </div>
+            <div class="chat-header__avatar">
+              <img src="https://i.pravatar.cc/300" alt="" class="chat-header__avatar-img">
+            </div>
+            <div class="chat-header__fullname-wrapper">
+              <span class="chat-header__fullname">Doris Brown</span>
+              <div class="chat-header__fullname-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z">
+                  </path>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="full-chat__chat-messages chat-messages">
-        <div class="chat-messages__wrapper">
-          <ul class="chat-messages__list">
-            <li class="chat-messages__chat-message chat-message">
-              <div class="chat-message__wrapper">
-                <div class="chat-message__avatar">
-                  <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
-                </div>
-                <div class="chat-message__main">
-                  <div class="chat-message__message-block">
-                    <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This theme
-                        is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
-                    <span class="chat-message__time">
-                      <div class="chat-message__time-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path
-                            d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                          </path>
-                        </svg>
-                      </div>
-                      <div class="chat-message__time-text">2:06 min</div>
-                    </span>
+        <div class="full-chat__chat-messages chat-messages">
+          <div class="chat-messages__wrapper">
+            <ul class="chat-messages__list">
+              <li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper">
+                  <div class="chat-message__avatar">
+                    <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
                   </div>
-                  <span class="chat-message__author">Galen Rizo </span>
-                </div>
-              </div>
-            </li>
-            <li class="chat-messages__chat-message chat-message">
-              <div class="chat-message__wrapper">
-                <div class="chat-message__avatar">
-                  <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
-                </div>
-                <div class="chat-message__main">
-                  <div class="chat-message__message-block">
-                    <span class="chat-message__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi,
-                      quos
-                      placeat. Exercitationem vitae, eos quis quibusdam tempore voluptate provident quas sunt et a
-                      itaque
-                      nam, illo cupiditate quaerat ipsa perferendis. </span>
-                    <span class="chat-message__time">
-                      <div class="chat-message__time-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path
-                            d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                          </path>
-                        </svg>
-                      </div>
-                      <div class="chat-message__time-text">2:06 min</div>
-                    </span>
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This
+                          theme
+                          is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
+                      <span class="chat-message__time">
+                        <div class="chat-message__time-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="chat-message__time-text">2:06 min</div>
+                      </span>
+                    </div>
+                    <span class="chat-message__author">Galen Rizo </span>
                   </div>
-                  <span class="chat-message__author">Galen Rizo </span>
                 </div>
-              </div>
-            </li>
-            <li class="chat-messages__chat-message chat-message ">
-              <div class="chat-message__wrapper chat-message__wrapper--own">
-                <div class="chat-message__avatar chat-message__avatar--own">
-                  <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
-                </div>
-                <div class="chat-message__main chat-message__main--own">
-                  <div class="chat-message__message-block chat-message__message-block--own">
-                    <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This theme
-                        is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
-                    <span class="chat-message__time">
-                      <div class="chat-message__time-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path
-                            d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                          </path>
-                        </svg>
-                      </div>
-                      <div class="chat-message__time-text">2:06 min</div>
-                    </span>
+              </li>
+              <li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper">
+                  <div class="chat-message__avatar">
+                    <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
                   </div>
-                  <span class="chat-message__author chat-message__author--own">Galen Rizo </span>
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <span class="chat-message__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi,
+                        quos
+                        placeat. Exercitationem vitae, eos quis quibusdam tempore voluptate provident quas sunt et a
+                        itaque
+                        nam, illo cupiditate quaerat ipsa perferendis. </span>
+                      <span class="chat-message__time">
+                        <div class="chat-message__time-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="chat-message__time-text">2:06 min</div>
+                      </span>
+                    </div>
+                    <span class="chat-message__author">Galen Rizo </span>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="chat-messages__chat-message chat-message">
-              <div class="chat-message__wrapper">
-                <div class="chat-message__avatar">
-                  <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+              </li>
+              <li class="chat-messages__chat-message chat-message ">
+                <div class="chat-message__wrapper chat-message__wrapper--own">
+                  <div class="chat-message__avatar chat-message__avatar--own">
+                    <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+                  </div>
+                  <div class="chat-message__main chat-message__main--own">
+                    <div class="chat-message__message-block chat-message__message-block--own">
+                      <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This
+                          theme
+                          is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
+                      <span class="chat-message__time">
+                        <div class="chat-message__time-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="chat-message__time-text">2:06 min</div>
+                      </span>
+                    </div>
+                    <span class="chat-message__author chat-message__author--own">Galen Rizo </span>
+                  </div>
                 </div>
-                <div class="chat-message__main">
-                  <div class="chat-message__message-block">
-                    <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This theme
-                        is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
-                    <span class="chat-message__time">
-                      <div class="chat-message__time-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path
-                            d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                          </path>
-                        </svg>
-                      </div>
-                      <div class="chat-message__time-text">2:06 min</div>
-                    </span>
+              </li>
+              <li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper">
+                  <div class="chat-message__avatar">
+                    <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+                  </div>
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This
+                          theme
+                          is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span> </span>
+                      <span class="chat-message__time">
+                        <div class="chat-message__time-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="chat-message__time-text">2:06 min</div>
+                      </span>
 
+                    </div>
+                    <span class="chat-message__author">Galen Rizo </span>
                   </div>
-                  <span class="chat-message__author">Galen Rizo </span>
                 </div>
-              </div>
-            </li>
-            <li class="chat-messages__chat-message chat-message">
-              <div class="chat-message__wrapper">
-                <div class="chat-message__avatar">
-                  <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
-                </div>
-                <div class="chat-message__main">
-                  <div class="chat-message__message-block">
-                    <span class="chat-message__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi,
-                      quos
-                      placeat. Exercitationem vitae, eos quis quibusdam tempore voluptate provident quas sunt et a
-                      itaque
-                      nam, illo cupiditate quaerat ipsa perferendis. </span>
-                    <span class="chat-message__time">
-                      <div class="chat-message__time-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path
-                            d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                          </path>
-                        </svg>
-                      </div>
-                      <div class="chat-message__time-text">2:06 min</div>
-                    </span>
+              </li>
+              <li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper">
+                  <div class="chat-message__avatar">
+                    <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
+                  </div>
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <span class="chat-message__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi,
+                        quos
+                        placeat. Exercitationem vitae, eos quis quibusdam tempore voluptate provident quas sunt et a
+                        itaque
+                        nam, illo cupiditate quaerat ipsa perferendis. </span>
+                      <span class="chat-message__time">
+                        <div class="chat-message__time-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="chat-message__time-text">2:06 min</div>
+                      </span>
 
+                    </div>
+                    <span class="chat-message__author">Galen Rizo </span>
                   </div>
-                  <span class="chat-message__author">Galen Rizo </span>
                 </div>
-              </div>
-            </li>
-            <li class="chat-messages__chat-message chat-message">
-              <div class="chat-message__wrapper chat-message--own">
-                <div class="chat-message__avatar">
-                  <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
-                </div>
-                <div class="chat-message__main">
-                  <div class="chat-message__message-block">
-                    <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This theme
-                        is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span></span>
-                    <span class="chat-message__time">
-                      <div class="chat-message__time-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path
-                            d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                          </path>
-                        </svg>
-                      </div>
-                      <div class="chat-message__time-text">2:06 min</div>
-                    </span>
+              </li>
+              <li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper chat-message--own">
+                  <div class="chat-message__avatar">
+                    <img src="https://i.pravatar.cc/300" alt="" class="chat-message__avatar-img">
                   </div>
-                  <span class="chat-message__author">Galen Rizo</span>
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <span class="chat-message__text">this theme is Awesome! <span class="chat-message__text">This
+                          theme
+                          is Awesome! <a href="/" class="chat-message__link">Ссылка</a> </span></span>
+                      <span class="chat-message__time">
+                        <div class="chat-message__time-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="chat-message__time-text">2:06 min</div>
+                      </span>
+                    </div>
+                    <span class="chat-message__author">Galen Rizo</span>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="full-chat__chat-bottom chat-bottom">
-        <div class="chat-bottom__wrapper">
-          <textarea name="" id="" class="chat-bottom__textarea" placeholder="Введите сообщение..."></textarea>
-          <button type="submit" class="chat-bottom__button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
-              <path
-                d="M3 12.9999H9V10.9999H3V1.84558C3 1.56944 3.22386 1.34558 3.5 1.34558C3.58425 1.34558 3.66714 1.36687 3.74096 1.40747L22.2034 11.5618C22.4454 11.6949 22.5337 11.9989 22.4006 12.2409C22.3549 12.324 22.2865 12.3924 22.2034 12.4381L3.74096 22.5924C3.499 22.7255 3.19497 22.6372 3.06189 22.3953C3.02129 22.3214 3 22.2386 3 22.1543V12.9999Z">
-              </path>
-            </svg>
-          </button>
+        <div class="full-chat__chat-bottom chat-bottom">
+          <div class="chat-bottom__wrapper">
+            <textarea name="" id="" class="chat-bottom__textarea" placeholder="Введите сообщение..."></textarea>
+            <button type="submit" class="chat-bottom__button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
+                <path
+                  d="M3 12.9999H9V10.9999H3V1.84558C3 1.56944 3.22386 1.34558 3.5 1.34558C3.58425 1.34558 3.66714 1.36687 3.74096 1.40747L22.2034 11.5618C22.4454 11.6949 22.5337 11.9989 22.4006 12.2409C22.3549 12.324 22.2865 12.3924 22.2034 12.4381L3.74096 22.5924C3.499 22.7255 3.19497 22.6372 3.06189 22.3953C3.02129 22.3214 3 22.2386 3 22.1543V12.9999Z">
+                </path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -288,5 +278,4 @@
     </div>
   </div>
 </div>
-
 @endsection

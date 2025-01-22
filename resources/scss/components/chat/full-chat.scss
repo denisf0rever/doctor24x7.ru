@@ -8,6 +8,7 @@
     grid-template-columns: 75px 384px 1fr;
     grid-template-rows: 1fr;
     position: relative;
+    overflow: hidden;
   }
   &__chat-side-menu {
     grid-column: 1 / 2;
@@ -21,11 +22,18 @@
     grid-row: 1 / 2;
   }
   &__main {
+    background-color: var(--chat-main-background);
+  }
+  &__main-wrapper {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
     box-shadow: 0 2px 4px #0f223a1f;
+    display: none;
+    &--show {
+      display: block;
+    }
   }
   &__chat-header {
     height: 89px;
@@ -58,7 +66,7 @@
     &__chat-bottom {
       height: 77px;
     }
-    &__main {
+    &__main-wrapper {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -67,6 +75,7 @@
       height: 100vh;
       transform: translateX(150%);
       z-index: 15;
+      display: flex;
       &--show {
         transform: translateX(0);
       }
