@@ -3,7 +3,7 @@
     transition: all 0.2s linear;
   }
   &__wrapper {
-    height: 100vh;
+    height: 100svh;
     display: grid;
     grid-template-columns: 75px 384px 1fr;
     grid-template-rows: 1fr;
@@ -31,8 +31,9 @@
     flex-direction: column;
     box-shadow: 0 2px 4px #0f223a1f;
     display: none;
+    height: 100%;
     &--show {
-      display: block;
+      display: flex;
     }
   }
   &__chat-header {
@@ -72,7 +73,7 @@
       bottom: 0;
       right: 0;
       left: 0;
-      height: 100vh;
+      height: 100svh;
       transform: translateX(150%);
       z-index: 15;
       display: flex;
