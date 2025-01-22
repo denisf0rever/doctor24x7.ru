@@ -25,6 +25,15 @@ class ConsultationCategory extends Model
         return $this->hasMany(Consultation::class, 'rubric_id');
     }
 	
+	public function wasConsultations()
+    {
+        return $this->hasMany(Consultation::class, 'rubric_id')->whereDate('created_at', '=', Carbon::yesterday()->toDateString());
+    }
+	public function todayConsultations()
+    {
+        return $this->hasMany(Consultation::class, 'rubric_id')->whereDate('created_at', '=', Carbon::today()->toDateString());
+    }
+	
 	public function consultationsToday()
     {
 		return $this->hasMany(Consultation::class, 'rubric_id')->whereDate('created_at', '=', Carbon::today()->toDateString());

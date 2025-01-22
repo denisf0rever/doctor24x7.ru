@@ -53,10 +53,32 @@
               </div>
             </div>
           </section>
-		  
-		  @foreach ($categories as $category)
-    <p>{{ $category->short_title }}: {{ $category->consultations_count }} {{ $category->consultations_today_count > 0 ? $category->consultations_today_count : '0' }} / {{ $category->consultations_yesterday_count > 0 ? $category->consultations_yesterday_count : '0' }}</p>
-@endforeach
+
+		<section class="main__pages pages">
+            <div class="pages__wrapper">
+              <div class="pages__inner">
+                <div class="pages__titles">
+                  <span class="pages__title-id">ID</span>
+                  <span class="pages__title-link">Оплат сегодня</span>
+                  <span class="pages__title-name">Всего сегодня</span>
+                  <span class="pages__title-number-left">Оплат вчера</span>
+                  <span class="pages__title-number">Всего вчера</span>
+                </div>
+                <ul class="pages__list">
+                  @foreach ($categories as $category)
+                  <li class="pages__item">
+                    <span class="pages__views-id">{{ $category->short_title }}</span>
+                    <span class="pages__link">@if ($category->consultations_today_count > 0)<b>{{ $category->consultations_today_count }}</b>@else - @endif</span>
+                    <span class="pages__name">@if ($category->today_consultations_count > 0)<b>{{ $category->today_consultations_count }}</b>@else - @endif</span>
+                    <span class="pages__views-id">@if ($category->consultations_yesterday_count > 0)<b>{{ $category->consultations_yesterday_count }}</b>@else - @endif</span>
+                    <span class="pages__views-number">@if ($category->was_consultations_count > 0)<b>{{ $category->was_consultations_count }}</b>@else - @endif</span>
+                  </li>
+                  @endforeach
+                </ul>
+              </div>
+            </div>
+          </section>
+
 
           <section class="main__pages pages">
             <div class="pages__wrapper">

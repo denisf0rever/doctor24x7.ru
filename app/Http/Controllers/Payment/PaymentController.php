@@ -33,7 +33,9 @@ class PaymentController extends Controller
     },
     'consultationsYesterday' => function ($query) {
         $query->where('is_payed', 1); // Фильтрация по оплаченным консультациям за вчера
-    }
+    }, 
+	'wasConsultations',
+	'todayConsultations'
 	])
 			->get();
 		 
