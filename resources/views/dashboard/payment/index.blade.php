@@ -39,8 +39,6 @@
                   </div>
                 </div>
               </div>
-			  
-			   
             </div>
             <div class="info__wrapper">
               <div class="info__element">
@@ -53,11 +51,12 @@
                   </div>
                 </div>
               </div>
-			  
-			 
             </div>
           </section>
-
+		  
+		  @foreach ($categories as $category)
+    <p>{{ $category->short_title }}: {{ $category->consultations_count }} {{ $category->consultations_today_count > 0 ? $category->consultations_today_count : '0' }} / {{ $category->consultations_yesterday_count > 0 ? $category->consultations_yesterday_count : '0' }}</p>
+@endforeach
 
           <section class="main__pages pages">
             <div class="pages__wrapper">

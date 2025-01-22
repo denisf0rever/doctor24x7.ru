@@ -28,20 +28,14 @@ class PaymentController extends Controller
         $payments = Payment::query()
 			->get();
 		 
-		$categories = Category::withCount('consultationsToday')
+		$categories = Category::withCount(['consultationsToday' => function ($query) {
+        $query->where('is_payed', 1); // Фильтрация по оплаченным консультациям за сегодня
+    },
+    'consultationsYesterday' => function ($query) {
+        $query->where('is_payed', 1); // Фильтрация по оплаченным консультациям за вчера
+    }
+	])
 			->get();
-			
-		/*$totalConsultations = Cache::flexible(
-			'Consultations',
-			[720, 725],
-			fn () => Consultation::count()
-		);
-
-		$totalAnswers = Cache::flexible(
-			'Answers',
-			[720, 725],
-			fn () => Comment::count()
-		);*/
 		 
 		$consultationsCount = Consultation::whereDate('created_at', Carbon::today())
 			->count();
