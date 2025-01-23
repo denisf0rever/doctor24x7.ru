@@ -6,10 +6,10 @@ use App\Events\FakeChat;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\FakeChatNotification;
+use App\Mail\FakeChatNotificationMail;
 use App\Services\TelegramBot\TelegramNotifier;
 
-class FakeChatNotification
+class FakeChatNotificationMail
 {
     public function handle(FakeChat $event): void
     {
@@ -24,7 +24,7 @@ class FakeChatNotification
 		];
 		
 		try {
-			Mail::to($event->email)->send(new FakeChatNotification($details));
+			Mail::to($event->email)->send(new FakeChatNotificationMail($details));
 		} catch (\Exception $e) {
 			//\Log::error('Ошибка отправки почты: ' . $e->getMessage());
     

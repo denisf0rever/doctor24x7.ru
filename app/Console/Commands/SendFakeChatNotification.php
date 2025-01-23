@@ -13,7 +13,7 @@ class SendFakeChatNotification extends Command
     public function handle()
     {
         $data = [
-			'name' => 'Denis',
+			'username' => 'Denis',
 			'email' => 'predlozhi@bk.ru',
 			'consultation_id' => 683921
 		];
