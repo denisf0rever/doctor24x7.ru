@@ -3,28 +3,21 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Events\FakeChat;
 
 class SendFakeChatNotification extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'app:send-fake-chat-notification';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Command description';
-
-    /**
-     * Execute the console command.
-     */
+	protected $signature = 'command:fakechat'; // Имя вашей команды
+    protected $description = 'Отправляем уведомление в чат с предложением оплатить консультацию';
+	
     public function handle()
     {
-        //
+        $data = [
+			'name' => 'Denis',
+			'email' => 'predlozhi@bk.ru',
+			'consultation_id' => 683921
+		];
+				
+		FakeChat::dispatch($data);
     }
 }
