@@ -21,8 +21,8 @@ class FakeChat
     public function __construct(
 		public array $array
 	) {
-		$this->username = $array['username'];
-		$this->email = $array['email'];
-		$this->consultation_id = $array['comment_id'];
+		$this->username = 'Denis';
+		$this->email = 'predlozhi@bk.ru';
+		$this->consultation_id = 683921;
 	}
 }

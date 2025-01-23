@@ -17,7 +17,7 @@ use App\Listeners\AnswerToConsultantNotification;
 use App\Events\ConsultationInWork;
 use App\Listeners\ConsultationInWorkNotification;
 use App\Events\FakeChat;
-use App\Listeners\FakeChatNotification;
+use App\Listeners\FakeChatNotificator;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -48,7 +48,7 @@ class EventServiceProvider extends ServiceProvider
 		],
 		
 		FakeChat::class => [
-			FakeChatNotification::class
+			FakeChatNotificator::class
 		]
     ];
 
@@ -84,7 +84,7 @@ class EventServiceProvider extends ServiceProvider
 		
 		Event::listen(
 			FakeChat::class,
-			FakeChatNotification::class
+			FakeChatNotificator::class
 		);
     }
 				

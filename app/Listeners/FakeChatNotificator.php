@@ -6,17 +6,17 @@ use App\Events\FakeChat;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\FakeChatNotification;
+use App\Mail\FakeChatNotificationMail;
 use App\Services\TelegramBot\TelegramNotifier;
 
-class FakeChatNotification
+class FakeChatNotificator
 {
     public function handle(FakeChat $event): void
     {
         $details = [
 			'name' => 'Denis',
 			'email' => 'predlozhi@bk.ru',
-			'consultation_id' => $event->consultation_id,
+			'consultation_id' => 683921,
 			'app_url' => config('app.url'),
 			'app_name' => config('app.name'),
 			'app_phone' => env('CUSTOM_PHONE'),
@@ -24,7 +24,7 @@ class FakeChatNotification
 		];
 		
 		try {
-			Mail::to($event->email)->send(new FakeChatNotification($details));
+			Mail::to($event->email)->send(new FakeChatNotificationMail($details));
 		} catch (\Exception $e) {
 			//\Log::error('Ошибка отправки почты: ' . $e->getMessage());
     

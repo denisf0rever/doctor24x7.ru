@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\SendFakeChatNotification;
 
 class Kernel extends ConsoleKernel
 {
@@ -12,7 +13,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        //$schedule->command('command:fakechat')->everyTenMinutes();
+        $schedule->command('command:fakechat')->everyFiveMinutes();
     }
 
     /**
@@ -22,7 +24,7 @@ class Kernel extends ConsoleKernel
     {
         $this->load(__DIR__.'/Commands');
 		
-		$this->command(SendFakeChatNotification.php::class);
+		$this->command(SendFakeChatNotification::class);
 
         require base_path('routes/console.php');
     }

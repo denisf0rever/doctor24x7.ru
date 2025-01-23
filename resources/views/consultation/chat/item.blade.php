@@ -100,7 +100,7 @@
                   </div>
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text">{{ $consultation->description }} <a href="/" class="chat-message__link">Ссылка</a> </span>
+                      <span class="chat-message__text">{{ $consultation->description }}<!--<a href="/" class="chat-message__link">Ссылка</a>--></span>
                       <span class="chat-message__time">
                         <div class="chat-message__time-icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
