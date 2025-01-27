@@ -164,5 +164,3 @@ Route::middleware(['auth'])->group(function () {
 	// Чат: оператор
 	Route::get('/dashboard/chat', [\App\Http\Controllers\Chat\ChatController::class, 'index'])->name('dashboard.chat');
 });
-
-
