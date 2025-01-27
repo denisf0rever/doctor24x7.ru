@@ -11,17 +11,16 @@
           <!-- Основной контент -->
           <tr>
             <td style="padding: 15px;">
-              <h1 style="color:#fafafa; font-size: 20px; text-align: left; margin-bottom: 15px;">Здравствуйте, {{
-                $details['name'] }}</h1>
+              <h1 style="color:#fafafa; font-size: 20px; text-align: left; margin-bottom: 15px;">Здравствуйте, {{ $details->username }}</h1>
               <p style="color: #999; line-height: 1.6; font-size: 15px">
-                На ваш вопрос поступило сообщение.<br><br>
+                На ваш вопрос поступило сообщение.
               </p>
             </td>
           </tr>
 		  
           <tr>
             <td align="center" style="padding: 20px;">
-              <a href="https://doctor24x7.ru/chat/{{ $details['consultation_id'] }}"
+              <a href="{{ config('app.url') }}chat/{{ $details->id }}"
                 style="display: inline-block; padding: 15px 25px; background-color:#005ece; color: #ffffff; font-weight: bold; text-decoration: none; border-radius: 5px; cursor:pointer; font-size: 20px">Перейти в чат</a>
             </td>
           </tr>

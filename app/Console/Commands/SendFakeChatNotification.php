@@ -9,6 +9,7 @@ use App\Models\Consultation\Consultation;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FakeChatNotificationMail;
+use App\Services\TelegramBot\TelegramNotifier;
 
 class SendFakeChatNotification extends Command
 {
@@ -16,30 +17,34 @@ class SendFakeChatNotification extends Command
     protected $description = 'Отправляем уведомление в чат с предложением оплатить консультацию';
 	
     public function handle()
-    {
-		//$consultation = Consultation::where('email', '=', 'predlozhi@bk.ru')
-			//->select('id', 'email', 'username')
-			//->first();
+    {	
+		$consultations = Consultation::query()
+			->where('is_payed', false)
+			->where('emailed_at', NULL)
+			->whereDate('created_at', '=', now()->toDateString())
+			->select('id', 'email', 'username')
+			->take(15)
+			->get();
 			
-		$details = [
-				'name' => 'denis',
-				'email' => 'predlozhi@bk.ru',
-				'consultation_id' => 5,
+		$consultations->each(function ($consultation) {
+			$consultation->emailed_at = now()->toDateString();
+			$consultation->save();
+		});
+		
+		foreach($consultations as $details) {
+			/*$details = [
+				'name' => $consultation->username,
+				'email' => $consultation->email,
+				'consultation_id' => $consultation->id,
 				'app_url' => config('app.url'),
 				'app_name' => config('app.name'),
 				'app_phone' => env('CUSTOM_PHONE'),
 				'app_support' => env('CUSTOM_SUPPORT'),
-			];
+			];*/
 			
-			Mail::to('predlozhi@bk.ru')->send(new FakeChatNotificationMail($details));
+			Mail::to($details->email)->send(new FakeChatNotificationMail($details));
 			
-		//foreach($consultations as $consultation) {
-			
-		//}
-				
-		//FakeChat::dispatch($data);
-		
-		
-		
-    }
+		}
+		//FakeChat::dispatch($data);	
+	}
 }

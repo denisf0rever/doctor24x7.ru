@@ -13,8 +13,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        //$schedule->command('command:fakechat')->everyTenMinutes();
-        $schedule->command('command:fakechat')->everyFiveMinutes();
+        $schedule->command('command:fakechat')->everyTenMinutes();
     }
 
     /**
