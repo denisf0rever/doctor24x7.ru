@@ -81,19 +81,10 @@
             <div class="stats__wrapper">
               <ul class="stats__list">
                 <li class="stats__item">
-                  <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour <= '08:00' )
-                      {{ $consultation->tariff->night_fee * $coefficientLength * $coefficientCity }} @else
-                      {{ $consultation->tariff->fee * $coefficientCity }} @endif &#8381;</div>
+                  <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour <= '08:00' ) @else @endif 
+                      {{ $consultation->tariff->fee * $coefficientCity }} &#8381;</div>
                       <div class="stats__text">Гонорар</div>
                 </li>
-				<li class="stats__item">
-                  <div class="stats__number">{{ $currentHour }}</div>
-                      <div class="stats__text">Поступил вопрос</div>
-                </li>
-				@if ($coefficientLength > 1) <li class="stats__item" style="background: red;color:white;">
-                  <div class="stats__number">Обратить внимание</div>
-                  <div class="stats__text">{{ $coefficientLength }}</div>
-                </li> @endif
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
                   <div class="stats__text">Оплачено</div>
@@ -124,10 +115,6 @@
                 <li class="stats__item">
                   <div class="stats__number">Длина</div>
                   <div class="stats__text">{{ $lengthDescription }}</div>
-                </li>
-                <li class="stats__item">
-                  <div class="stats__number">1</div>
-                  <div class="stats__text">Чат</div>
                 </li>
 
                 <li class="stats__item">
