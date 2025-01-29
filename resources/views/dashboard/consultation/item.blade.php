@@ -46,22 +46,22 @@
                 </div>
                 <div class="consultation__item">
                   <p id="question-fullname">{{ $consultation->username }}</p>
-                </div> 
-				<div class="consultation__item">
-                  <p id="question-email">{{ $consultation->email }}</p>
-                </div> 
-				<div class="consultation__item">
-                  <p id="question-age">Возраст пациента: {{ $consultation->age/365 }}</p>
-                </div> 
-				@if ($consultation->phone)
-				<div class="consultation__item">
-					<p id="question-age">Телефон: {{ $consultation->phone }}</p>
                 </div>
-				@endif
-				
-				@if ($photos->isNotEmpty())
-				<div class="consultation__item">
-					<p id="question-age">Фото: {{ $photos->count() }} шт</p>
+                <div class="consultation__item">
+                  <p id="question-email">{{ $consultation->email }}</p>
+                </div>
+                <div class="consultation__item">
+                  <p id="question-age">Возраст пациента: {{ $consultation->age/365 }}</p>
+                </div>
+                @if ($consultation->phone)
+                <div class="consultation__item">
+                  <p id="question-age">Телефон: {{ $consultation->phone }}</p>
+                </div>
+                @endif
+
+                @if ($photos->isNotEmpty())
+                <div class="consultation__item">
+                  <p id="question-age">Фото: {{ $photos->count() }} шт</p>
                 </div>
                 <div class="consultation__gallery">
                   <ul class="consultation__gallery-list">
@@ -86,11 +86,11 @@
                       {{ $consultation->tariff->fee * $coefficientCity }} @endif &#8381;</div>
                       <div class="stats__text">Гонорар</div>
                 </li>
-				<li class="stats__item">
+                <li class="stats__item">
                   <div class="stats__number">{{ $currentHour }}</div>
-                      <div class="stats__text">Поступил вопрос</div>
+                  <div class="stats__text">Поступил вопрос</div>
                 </li>
-				@if ($coefficientLength > 1) <li class="stats__item" style="background: red;color:white;">
+                @if ($coefficientLength > 1) <li class="stats__item" style="background: red;color:white;">
                   <div class="stats__number">Обратить внимание</div>
                   <div class="stats__text">{{ $coefficientLength }}</div>
                 </li> @endif
@@ -98,12 +98,12 @@
                   <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
                   <div class="stats__text">Оплачено</div>
                 </li>
-				@if (strpos($consultation->payed_amount, '9') !== false)
-				<li class="stats__item">
+                @if (strpos($consultation->payed_amount, '9') !== false)
+                <li class="stats__item">
                   <div class="stats__number">Чат</div>
                   <div class="stats__text">Вероятно чат оплачен</div>
                 </li>
-				@endif
+                @endif
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->tariff->sum }} &#8381;</div>
                   <div class="stats__text">Тариф</div>
@@ -149,7 +149,8 @@
           <section class="main__booking booking">
             <div class="booking__wrapper white-block booking__is-free">
               <div class="booking__text">Вы взяли вопрос</div>
-              <a href="{{ route('dashboard.booking.list', $consultation->id) }}" class="booking__button red-button">Отменить бронь</a>
+              <a href="{{ route('dashboard.booking.list', $consultation->id) }}"
+                class="booking__button red-button">Отменить бронь</a>
             </div>
           </section>
           @else
@@ -161,15 +162,16 @@
           @endif
           <section class="main__experts-list experts-list">
             <div class="experts-list__wrapper">
-			@foreach($doctors as $doctor)
+              @foreach($doctors as $doctor)
               <div class="experts-list__expert">
                 <a href="#" class="experts-list__expert-link">
-                  <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $doctor->avatar }}"
-                    alt="" class="experts-list__expert-img">
-                  <div class="experts-list__expert-fullname">{{ $doctor->first_name }}<br />{{ $doctor->last_name }}</div>
+                  <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $doctor->avatar }}" alt=""
+                    class="experts-list__expert-img">
+                  <div class="experts-list__expert-fullname">{{ $doctor->first_name }}<br />{{ $doctor->last_name }}
+                  </div>
                 </a>
               </div>
-			  @endforeach
+              @endforeach
             </div>
           </section>
 
@@ -219,34 +221,40 @@
           </form>
 
           @foreach($consultation->comments as $comment)
+
           <div class="comment" answer-id="{{ $comment->id }}" answer-author_username="{{ $comment->username }}"
             answer-author_email="{{ $comment->email }}">
             <div class="comment__wrapper white-block">
-              <div class="small-menu small-menu__menu-btn custom-select" data-id="{{ $comment->id }}">
-                <svg class="small-menu__menu-btn-svg">
-                  <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
-                  <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
-                  <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
-                </svg>
-                <div class="custom-select__wrapper custom-select__hide small-menu__menu">
-                  <ul class="small-menu__menu-list">
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
-                        href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
-                        href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
-                        href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать ответ</a>
-                    </li>
-                  </ul>
+              <div class="comment__user-link-wrapper">
+                <div class="small-menu small-menu__menu-btn small-menu__menu-btn--comment custom-select"
+                  data-id="{{ $comment->id }}">
+                  <svg class="small-menu__menu-btn-svg">
+                    <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+                    <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+                    <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+                  </svg>
+                  <div class="custom-select__wrapper custom-select__hide small-menu__menu">
+                    <ul class="small-menu__menu-list">
+                      <li class="small-menu__menu-item"><a class="small-menu__menu-item-link delete-link"
+                          href="{{ route('dashboard.consultation.destroy-answer', $comment->id) }}">Удалить</a></li>
+                      <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
+                          href="{{ route('dashboard.consultation.edit-answer', $comment->id) }}">Редактировать</a></li>
+                      <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
+                          href="{{ route('dashboard.consultation.answer.block', $comment->id) }}">Заблокировать
+                          ответ</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+                <a href="{{ $comment->user ? '/profile/'.$comment->user->username.'' : '#' }}"
+                  class="comment__user-link">
+                  <img
+                    src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
+                    class="comment__avatar-main">
+                  <span class="comment__user-name">{{ $comment->username }}</span>
+                  <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
+                </a>
               </div>
-              <a href="{{ $comment->user ? '/profile/'.$comment->user->username.'' : '#' }}" class="comment__user-link">
-                <img
-                  src="{{ $comment->user ? 'https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'' : Storage::url('dashboard/profile-default.svg') }}"
-                  class="comment__avatar-main">
-                <span class="comment__user-name">{{ $comment->username }}</span>
-                <span class="comment__user-subtitle">{{ $comment->user->city ?? null }}</span>
-              </a>
               <div class="comment__text">{{ $comment->description }}</div>
               <div class="comment__answ">
 
@@ -273,8 +281,9 @@
           </div>
         </div>
         @endif
-		
-		<div class="main__statistic">№{{ $consultation->id }}, {{ $consultation->created_at }}, {{ $executionTime }}</div>		
+
+        <div class="main__statistic">№{{ $consultation->id }}, {{ $consultation->created_at }}, {{ $executionTime }}
+        </div>
       </main>
     </div>
   </div>
