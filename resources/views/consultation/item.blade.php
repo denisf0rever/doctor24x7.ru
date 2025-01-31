@@ -234,24 +234,26 @@ use App\Helpers\LinkHelper
         @else
         <li class="comments__item comment">
           <div class="comment__main-comment" id="answer{{ $comment->id }}">
-            <a @if($comment->user) href="/profile/{{ $comment->user->username }}"
-              id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif
-              class="comment__user-link">
-              {!! $comment->user && $comment->user->avatar ?
-              '<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'"
-                class="comment__avatar-main">' :
-              '<div class="comment__avatar-main">' . Str::substr($comment->username, 0, 1) . '</div>'
-              !!}
-              <span class="comment__user-name">{{ $comment->username }}</span>
-              <span
-                class="comment__user-subtitle">{{ $comment->user ? $comment->user->city : $comment->created_at }}</span>
-            </a>
-            <div class="comment__menu-btn" data-id="{{ $comment->id }}">
-              <svg class="comment__menu-btn-svg">
-                <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
-                <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
-                <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
-              </svg>
+            <div class="comment__user-link-wrapper">
+              <a @if($comment->user) href="/profile/{{ $comment->user->username }}"
+                id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif
+                class="comment__user-link">
+                {!! $comment->user && $comment->user->avatar ?
+                '<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'"
+                  class="comment__avatar-main">' :
+                '<div class="comment__avatar-main">' . Str::substr($comment->username, 0, 1) . '</div>'
+                !!}
+                <span class="comment__user-name">{{ $comment->username }}</span>
+                <span
+                  class="comment__user-subtitle">{{ $comment->user ? $comment->user->city : $comment->created_at }}</span>
+              </a>
+              <div class="comment__menu-btn" data-id="{{ $comment->id }}">
+                <svg class="comment__menu-btn-svg">
+                  <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+                  <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+                  <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+                </svg>
+              </div>
             </div>
             <span class="comment__text" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
               <p itemprop="text">{{ $comment->description }}</p>

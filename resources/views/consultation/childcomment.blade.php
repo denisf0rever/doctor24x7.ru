@@ -1,16 +1,25 @@
 @foreach($comments as $comment)
 <div class="comment__sub-comment" id="answer{{ $comment->id }}">
-  <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else
-    href="#answer{{ $comment->id }}"@endif class="comment__user-link">
-    {!! $comment->user && $comment->user->avatar ?
-    '<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'" class="comment__avatar-sub">'
-    :
-    '<div class="comment__avatar-sub">' . Str::substr($comment->username, 0, 1) . '</div>'
-    !!}
-    <span
-      class="comment__user-name">{{ $comment->user ? $comment->user->first_name .' '. $comment->user->middle_name : $comment->username }}</span>
-    <span class="comment__user-subtitle">{{ $comment->user?->city ?? $comment->created_at }}</span>
-  </a>
+  <div class="comment__user-link-wrapper">
+    <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else
+      href="#answer{{ $comment->id }}"@endif class="comment__user-link">
+      {!! $comment->user && $comment->user->avatar ?
+      '<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'" class="comment__avatar-sub">'
+      :
+      '<div class="comment__avatar-sub">' . Str::substr($comment->username, 0, 1) . '</div>'
+      !!}
+      <span
+        class="comment__user-name">{{ $comment->user ? $comment->user->first_name .' '. $comment->user->middle_name : $comment->username }}</span>
+      <span class="comment__user-subtitle">{{ $comment->user?->city ?? $comment->created_at }}</span>
+    </a>
+    <div class="comment__menu-btn" data-id="{{ $comment->id }}">
+      <svg class="comment__menu-btn-svg">
+        <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+        <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+        <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+      </svg>
+    </div>
+  </div>
   <span class="comment__text">
     <p>@if ($comment->to_answer_id)<a href="#answer{{ $comment->to_answer_id }}">
         {{ trim($comment->parentComment->username) }}</a>, @endif{{ $comment->description }}
@@ -42,13 +51,6 @@
         </a>
       </div>
     </div>
-  </div>
-  <div class="comment__menu-btn" data-id="{{ $comment->id }}">
-    <svg class="comment__menu-btn-svg">
-      <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
-      <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
-      <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
-    </svg>
   </div>
 </div>
 @include('consultation.childcomment', ['comments' => $comment->children])
