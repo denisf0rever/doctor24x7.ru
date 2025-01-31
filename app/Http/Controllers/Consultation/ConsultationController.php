@@ -101,6 +101,16 @@ class ConsultationController extends Controller
 		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos', 'executionTime', 'coefficientCity', 'coefficientLength', 'lengthDescription', 'doctors'));
     }
 	
+	public function category($id)
+	{
+		$consultation = Consultation::query()
+			->where('rubric_id', $id)
+			->whereDate('created_at', Carbon::today())
+			->get();
+			
+		return view('dashboard.consultation.category', compact('consultation'));
+	}
+	
     public function index()
     {
 		return view('consultation.list');
