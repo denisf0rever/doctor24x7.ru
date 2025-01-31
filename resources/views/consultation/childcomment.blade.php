@@ -1,6 +1,6 @@
 @foreach($comments as $comment)
 <div class="comment__sub-comment" id="answer{{ $comment->id }}">
-  <div class="comment__user-link-wrapper">
+  <div class="comment__user-link-wrapper comment__user-link-wrapper--child">
     <a @if($comment->user) href="/profile/{{ $comment->user->username }}" id="{{ $comment->user->username }}"@else
       href="#answer{{ $comment->id }}"@endif class="comment__user-link">
       {!! $comment->user && $comment->user->avatar ?

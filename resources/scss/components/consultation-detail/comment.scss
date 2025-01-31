@@ -23,6 +23,9 @@
     background-color: #f7f7f7;
     border-radius: 15px;
     padding: 10px;
+    &--child {
+      background-color: #fff;
+    }
   }
   &__user-link {
     display: grid;
@@ -112,7 +115,6 @@
     align-items: center;
     text-transform: uppercase;
     font-size: 18px;
-    background-color: #f6f6f9;
   }
   &__user-name {
     grid-row: 1/2;
