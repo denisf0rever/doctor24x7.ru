@@ -72,7 +72,7 @@
                 <ul class="pages__list">
                   @foreach ($categories as $category)
                   <li class="pages__item">
-                    <span class="pages__small-name">{{ $category->short_title }}</span>
+                    <span class="pages__small-name"><a href="{{ route('dashboard.consultation.category', $category->id)}}">{{ $category->short_title }}</a></span>
                     <span class="pages__views-number-big">@if ($category->consultations_today_count >
                       0)<b>{{ $category->consultations_today_count }}</b>@else - @endif</span>
                     <span class="pages__views-number-big">@if ($category->today_consultations_count >

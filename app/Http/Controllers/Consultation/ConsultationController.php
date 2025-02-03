@@ -103,12 +103,12 @@ class ConsultationController extends Controller
 	
 	public function category($id)
 	{
-		$consultation = Consultation::query()
+		$consultations = Consultation::query()
 			->where('rubric_id', $id)
 			->whereDate('created_at', Carbon::today())
 			->get();
 			
-		return view('dashboard.consultation.category', compact('consultation'));
+		return view('dashboard.consultation.category', compact('consultations'));
 	}
 	
     public function index()
@@ -188,6 +188,10 @@ class ConsultationController extends Controller
 					->select('u.id', 'u.username', 'u.email_address', 'u.first_name', 'u.last_name', 'u.middle_name', 'u.avatar') // выбор полей о пользователях
 				->get());
 		}
+		
+		$photos = DB::table('sf_consultation_comment_photo')
+			->where('comment_id', $slug)
+			->get();
 			
 		$endTime = microtime(true);
         $executionTime = ($endTime - $startTime); // Время в миллисекундах
@@ -201,7 +205,7 @@ class ConsultationController extends Controller
 		//@endif
 		//$this->incrementView($id);
 		
-		return view('consultation.item', compact('consultation', 'executionTime', 'discussion', 'consultantsArray'));
+		return view('consultation.item', compact('consultation', 'executionTime', 'discussion', 'consultantsArray', 'photos'));
     }
 	
 	// Редактирование консультации
@@ -226,6 +230,7 @@ class ConsultationController extends Controller
 		$consultation->title = $request->input('title');
 		$consultation->description = $request->input('description');
 		$consultation->email = $request->input('email');
+		$consultation->is_special = $request->input('is_special');
 		$consultation->save();
 		
 		return redirect()->back()->with('success', 'Консультация обновлена');

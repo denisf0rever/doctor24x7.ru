@@ -51,6 +51,20 @@ use App\Helpers\LinkHelper
       <div class="question__text">
         <p>{{ $consultation->description }}</p>
         <p>{{ $consultation->created_at }}</p>
+		@if ($photos->isNotEmpty())
+                <div class="consultation__item">
+                  <p id="question-age">Фото: {{ $photos->count() }} шт</p>
+                </div>
+                <div class="consultation__gallery">
+                  <ul class="consultation__gallery-list">
+                    @foreach ($photos as $photo)
+                    <li class="consultation__gallery-item"><a class="consultation__gallery-link"
+                        href="https://puzkarapuz.ru/{{ $photo->path }}" data-fancybox="gallery" target="_blank"><img
+                          src="https://puzkarapuz.ru/{{ $photo->path }}" class="consultation__gallery-img"
+                          alt="Фото консультации" width="450px"></a></li>
+                    @endforeach
+                  </ul>
+                </div>@endif
         <p>Ответов: {{ $consultation->answer_count }}</p>
       </div>
 

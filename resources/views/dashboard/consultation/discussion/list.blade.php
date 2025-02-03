@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title> </title>
+  <title>Список дискуссий</title>
   @include('dashboard.settings')
 </head>
 
@@ -15,7 +15,28 @@
 
       <main class="wrapper__main main">
         <div class="main__wrapper">
-           <section class="main__pages pages">
+          <h1 class="main__title">Дискуссии</h1>
+          <section class="main__info info">
+            <div class="info__wrapper">
+              <div class="info__element">
+                <h3 class="info__title">Информация о дискуссиях</h3>
+                <div class="info__text-wrapper">
+                  <div class="info__data">
+                    <span class="info__text"></span>
+                  </div>
+                  <div class="info__data">
+                    <span class="info__text"><strong>{{ $consultations->count() }}</strong> всего консультаций</span>
+                  </div>
+                  <div class="info__data">
+                    <span class="info__text"><strong></strong> всего ответов</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <section class="main__pages pages">
             <div class="pages__wrapper">
               <h2 class="pages__title">Заголовки страниц</h2>
               <div class="pages__inner">
@@ -24,7 +45,6 @@
                   <span class="pages__title-link">Ссылка</span>
                   <span class="pages__title-name">Название</span>
                   <span class="pages__title-number-left">Дата</span>
-                  <span class="pages__title-number-left">Фото</span>
                   <span class="pages__title-number">Визиты</span>
                   <span class="pages__title-options">Опции</span>
                 </div>
@@ -38,25 +58,11 @@
                     <a class="pages__name" href="{{ route('dashboard.consultation.item', $consultation->id)}}"
                       target="_blank"><span>{{ $consultation->title }}</span></a>
                     <span class="pages__views-id">{{ $consultation->created_at }}</span>
-                     <span class="pages__views-number">
-					 
-					 @if($consultation->photos->isNotEmpty()){{ $consultation->photos->count() }}@endif
-				</span>
                     <span class="pages__views-number">{{ $consultation->visit_count }}</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
-                        <a href="{{ route('dashboard.booking.list', $consultation->id)}}" target="_blank">
-                          <img src="{{ Storage::url('dashboard/booking.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                      <div class="pages__icon">
                         <a href="{{ route('dashboard.consultation.edit', $consultation->id)}}" target="_blank">
                           <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                      <div class="pages__icon">
-                        <a href="{{ route('dashboard.consultation.destroy', $consultation->id) }}">
-                          <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="pages__icon-img">
                         </a>
                       </div>
                     </div>
@@ -66,18 +72,7 @@
               </div>
             </div>
           </section>
-
         </div>
-        @if (session('success'))
-        <div class="toast" id="toast">
-          <div class="toast__container">
-            <div class="toast__item">
-              {{ session('success') }}
-            </div>
-          </div>
-        </div>
-        @endif
       </main>
     </div>
   </div>
-  @include('dashboard.parts.dashboard-popup')

@@ -24,6 +24,7 @@ class ConsultationUpdateRequest extends FormRequest
         return [
             'description' => 'required|string|min:10',
             'email' => 'required|string|max:255',
+            'is_special' => 'nullable|string|max:1',
         ];
     }
 }

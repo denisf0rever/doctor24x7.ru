@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Consultation\Booking;
 use App\Models\Consultation\ConsultationCategory;
+use App\Models\Consultation\Photos;
 use App\Models\Tariff\Tariff;
 use App\Models\Payment\Payment;
 
@@ -29,6 +30,11 @@ class Consultation extends Model
     {
         return $this->belongsTo(ConsultationCategory::class, 'rubric_id');
     }
+	
+	public function photos()
+	{
+		return $this->hasMany(Photos::class, 'comment_id', 'id');
+	}
 		
 	public function comments()
     {

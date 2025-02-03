@@ -40,6 +40,17 @@
                           <input class="form__input @error('name')input-error @enderror" type="text" id="email"
                             name="email" value="{{ $consultation->email }}">
                         </li>
+						
+						<li class="form__input-wrapper">
+                          <div class="form__input-wrapper-row">
+							@if ($consultation->is_special)
+							<input class="form__input" type="checkbox" id="is_active" name="is_special" value="1" checked>
+							@else
+							<input class="form__input" type="checkbox" id="is_active" name="is_special" value="1">
+							@endif
+							<label class="form__label" for="is_special">Отредактировано</label>
+                          </div>
+                        </li>
                         
                     </div>
                   </div>

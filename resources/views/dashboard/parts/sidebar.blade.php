@@ -11,6 +11,9 @@
               <a href="{{ route('dashboard.consultation') }}" class="menu__link">Консультации</a>
             </li>
 			<li class="menu__item">
+              <a href="{{ route('dashboard.consultation.discussion') }}" class="menu__link">Дискуссии</a>
+            </li>
+			<li class="menu__item">
               <a href="{{ route('dashboard.tariff.index') }}" class="menu__link">Тарифы</a>
             </li>
 			<li class="menu__item">
@@ -30,6 +33,9 @@
             </li>
 			<li class="menu-mobile__item">
               <a href="{{ route('dashboard.consultation') }}" class="menu-mobile__link">Консультации</a>
+            </li>
+			<li class="menu-mobile__item">
+              <a href="{{ route('dashboard.consultation.discussion') }}" class="menu-mobile__link">Дискуссии</a>
             </li>
 			<li class="menu-mobile__item">
              <a href="{{ route('dashboard.tariff.index') }}" class="menu-mobile__link">Тарифы</a>

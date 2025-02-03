@@ -10,6 +10,7 @@ use App\Http\Controllers\User\UserCategoryTextController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
+use App\Http\Controllers\Consultation\DiscussionController;
 use App\Http\Controllers\Consultation\ConsultationAnswerController;
 use App\Http\Controllers\Consultation\ConsultationCategoryController;
 use App\Http\Controllers\Consultation\BookingController;
@@ -132,6 +133,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/dashboard/user/{id}', [UserController::class, 'update'])->name('dashboard.user.update');
 	
 	// Консультации
+	Route::get('/dashboard/discussion', [DiscussionController::class, 'index'])->name('dashboard.consultation.discussion');
+	
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
 	Route::get('/dashboard/consultation/categories', [ConsultationCategoryController::class, 'index'])->name('dashboard.consultation.categories');
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
