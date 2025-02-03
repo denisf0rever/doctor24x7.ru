@@ -1,0 +1,57 @@
+.questions-accordion {
+  &__wrapper {
+    background-color: #abc3ff;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 50px 0;
+  }
+  &__title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  &__list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.question-accordion {
+  &__wrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px 15px;
+    cursor: pointer;
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    font-weight: 600;
+    padding-right: 10px;
+  }
+  &__button {
+    min-height: 40px;
+    min-width: 40px;
+    background: #107f8c;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease-in;
+  }
+  &__opened {
+    .question__button {
+      transform: rotate(180deg);
+    }
+  }
+  &__ansver-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
+  }
+}

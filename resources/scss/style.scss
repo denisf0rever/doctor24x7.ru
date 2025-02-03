@@ -47,6 +47,14 @@ ul {
   margin: 0;
 }
 
+.red-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: var(--button-red);
+  padding: 7px 20px;
+  border-radius: 7px;
+}
+
 .container {
   margin: 0 auto;
   position: relative;
@@ -255,6 +263,7 @@ p {
 @import "components/payment/second-radio.scss";
 @import "components/payment/promo.scss";
 @import "components/payment/payment-type.scss";
+@import "components/payment/consultants-pupup.scss";
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "components/login.scss";
@@ -262,6 +271,7 @@ p {
 @import "components/consultation-detail/category/category-info.scss";
 @import "components/consultation-detail/category/category-form.scss";
 @import "components/consultation-detail/category/category-card.scss";
+@import "components/consultation-detail/category/questions-accordion.scss";
 @import "components/chat/full-chat.scss";
 @import "components/chat/chat-side-menu.scss";
 @import "components/chat/chat-sidebar.scss";
