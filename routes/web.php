@@ -118,6 +118,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/dashboard/setting/user/{id}', [UserSettingController::class, 'update'])->name('dashboard.setting.user.update');
 	Route::get('/dashboard/user/{id}/edit', [UserController::class, 'edit'])->name('dashboard.user.edit');
 	
+	Route::get('/dashboard/user/find-user', [UserController::class, 'showForm'])->name('dashboard.user.find-user');
 	Route::get('/dashboard/user/categories', [UserCategoryTextController::class, 'index'])->name('dashboard.user.index');
 	Route::get('/dashboard/user/categories/add-text', [UserCategoryTextController::class, 'form'])->name('dashboard.user.add-text-category');
 	Route::get('/dashboard/user/categories/{id}', [UserCategoryTextController::class, 'show'])->name('dashboard.user.item');
@@ -125,7 +126,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/dashboard/user/text-category', [UserCategoryTextController::class, 'create'])->name('dashboard.user.set-category-text');
 	Route::post('/dashboard/user/text-category/{id}', [UserCategoryTextController::class, 'update'])->name('dashboard.user.update-category-text');
 	Route::get('/dashboard/user/text-category/delete/{id}', [UserCategoryTextController::class, 'destroy'])->name('dashboard.user.destroy-category-text');
-	
 	
 	
 	Route::post('/user/create', [UserController::class, 'create'])->name('dashboard.user.create-user');

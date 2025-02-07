@@ -176,4 +176,10 @@ class UserController extends Controller
 			 return redirect()->route('dashboard.user')->with('success', 'Юзер успешно удален');
 		}
     }
+	
+	public function showForm()
+    {
+        return view('dashboard.user.finduser');
+    }
+
 }

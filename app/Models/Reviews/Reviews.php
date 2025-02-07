@@ -9,12 +9,15 @@ class Reviews extends Model
 {
     use HasFactory;
 	
-	protected $table = 'laravel_reviews';
+	protected $table = 'sf_consultation_comment_testimonial';
 	
 		protected $fillable = [
-		'user_id',
-		'title',
-		'rating',
-		'description'
+			'user_id',
+			'username',
+			'comment_id',
+			'email',
+			'rating',
+			'consultation_answer_id',
+			'description',
 	];
 }

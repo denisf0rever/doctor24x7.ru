@@ -18,7 +18,7 @@ class ConsultationCategoryController extends Controller
 	{
 		$startTime = microtime(true);
 		
-		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name', 'description', 'slug', 'position')
+		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name', 'description', 'slug', 'position', 'meta_description', 'meta_keywords')
 			->where('slug', $slug)
 			->first();
 			

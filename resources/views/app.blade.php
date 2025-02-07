@@ -23,7 +23,8 @@
   <meta property="og:site_name" content="Телемедицина. Платформа медицинских консультаций онлайн">
 
   <meta name="theme-color" content="#fff">
-
+  <meta name="robots" content="noindex, nofollow" />
+  
   <link rel="image_src" href="{{ Storage::url('common/logoimage.jpg') }}" />
   <link rel="icon" href="{{ Storage::url('common/favicon.svg') }}" type="svg+xml">
   <link rel="manifest" href="{{ Storage::url('common/favicon/site.webmanifest') }}">

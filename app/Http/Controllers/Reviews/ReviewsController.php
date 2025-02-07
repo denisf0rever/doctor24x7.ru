@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Reviews;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Reviews\Reviews;
+use App\Services\TelegramBot\TelegramNotifier;
 
 class ReviewsController extends Controller
 {
@@ -22,13 +23,20 @@ class ReviewsController extends Controller
     public function create(Request $request)
     {
         $review = Reviews::create([
-			'user_id' => $request->user_id,
+			'user_id' => $request->specialist_id,
+			'username' => $request->username,
+			'comment_id' => $request->comment_id,
+			'consultation_answer_id' => $request->answer_id,
+			'email' => 'predlozhi@bk.ru',
 			'rating' => $request->review_rating,
-			'title' => $request->review_title,
 			'description' => $request->review_description,
 		]);
 		
 		if ($review) {
+			 
+			 $notifier = new TelegramNotifier('Отзыв добавлен');
+			 $notifier->notify(); 
+			 
 			 return true;
 		} 
 		
