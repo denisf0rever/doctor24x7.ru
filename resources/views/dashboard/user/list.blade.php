@@ -33,16 +33,16 @@
                     style="background-color: #f9597c">
                   <div class="color-block__big-text">Витрина в категориях</div>
                   <div class="color-block__title"></div>
-                  <div class="color-block__small-text">Всего добавлено: </div>
+                  <div class="color-block__small-text"> </div>
                 </a>
               </li>
               <li class="main__block color-block">
-                <a href="{{ route('dashboard.user.finduser') }}" class="color-block__wrapper" style="background-color: #fff4de">
-                  <img src="{{ Storage::url('dashboard/add.svg') }}" alt="" class="color-block__img"
+                <a href="{{ route('dashboard.user.finduser') }}" class="color-block__wrapper" style="background-color: #f7f7f7">
+                  <img src="{{ Storage::url('dashboard/search.svg') }}" alt="" class="color-block__img"
                     style="background-color: #f9597c">
-                  <div class="color-block__big-text">Витрина в категориях</div>
+                  <div class="color-block__big-text">Поиск профиля</div>
                   <div class="color-block__title"></div>
-                  <div class="color-block__small-text">Всего добавлено: </div>
+                  <div class="color-block__small-text"> </div>
                 </a>
               </li>
             </ul>

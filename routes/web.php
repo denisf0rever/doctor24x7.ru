@@ -13,6 +13,7 @@ use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Consultation\DiscussionController;
 use App\Http\Controllers\Consultation\ConsultationAnswerController;
 use App\Http\Controllers\Consultation\ConsultationCategoryController;
+use App\Http\Controllers\Consultation\Form\FileUploadController;
 use App\Http\Controllers\Consultation\BookingController;
 use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
@@ -37,6 +38,7 @@ use App\Http\Controllers\Chat\ChatController;
 	// Консультации
 	Route::get('/consultation', [ConsultationController::class, 'index'])->name('consult.list');
 	Route::get('/consultation/comment', [ConsultationController::class, 'form'])->name('consult.form');
+	Route::post('/consultation/upload', [FileUploadController::class, 'upload'])->name('consultation.file-upload');
 	Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'consultation'])->name('consultation.item');
 	Route::post('/consultation/create', [ConsultationController::class, 'create'])->name('consultation.create');
 	Route::post('/consultation/answer', [ConsultationAnswerController::class, 'createPublicAnswer'])->name('consultation.answer');
@@ -118,7 +120,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/dashboard/setting/user/{id}', [UserSettingController::class, 'update'])->name('dashboard.setting.user.update');
 	Route::get('/dashboard/user/{id}/edit', [UserController::class, 'edit'])->name('dashboard.user.edit');
 	
-	Route::get('/dashboard/user/find-user', [UserController::class, 'showForm'])->name('dashboard.user.find-user');
+	Route::get('/dashboard/user/find-user', [UserController::class, 'showForm'])->name('dashboard.user.finduser');
+	Route::post('/dashboard/user/find', [UserController::class, 'getConsultationIds'])->name('dashboard.user.finduser.get');
 	Route::get('/dashboard/user/categories', [UserCategoryTextController::class, 'index'])->name('dashboard.user.index');
 	Route::get('/dashboard/user/categories/add-text', [UserCategoryTextController::class, 'form'])->name('dashboard.user.add-text-category');
 	Route::get('/dashboard/user/categories/{id}', [UserCategoryTextController::class, 'show'])->name('dashboard.user.item');

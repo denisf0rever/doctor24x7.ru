@@ -134,8 +134,16 @@ class ConsultationController extends Controller
 			'email' => $request->email,
 			'consultation_id' => $consultation->id
 		];
+		
+		if ($consultation) {		
+			if ($request->hasFile('image')) {
+				$imagePath = $request->file('image')->store('consultation');
+				$avatarImage = Str::of($imagePath)->basename();
+				$images['avatarImage'] = $avatarImage;
 				
-		if ($consultation) {
+				return response()->json('Файл успешно загружен');
+			}
+		
 			ConsultationCreated::dispatch($data);
 		
 			return redirect()->route('payment.consultation', $consultation->id)->with('success', 'Консультация добавлена');

@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/payment/status', [PaymentController::class, 'status'])->name('payment.status');
 Route::post('/callback/services', [Services::class, 'sendMessage'])->name('callback.services');
-Route::post('/reviews/doctor', [ReviewsController::class, 'create'])->name('reviews.create');
+Route::post('/reviews/doctor', [ReviewsController::class, 'create'])->name('reviews.doctor.create');
 
 
 Route::post('/analitycs/calculator/ndfl', function () { 

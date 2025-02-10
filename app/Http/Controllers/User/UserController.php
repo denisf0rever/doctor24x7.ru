@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManager;
 use Carbon\Carbon;
 use App\Services\UserService;
@@ -40,7 +41,6 @@ class UserController extends Controller
 			$imagePath = $request->file('avatar')->store('public/avatar');
 			$avatarImage = Str::of($imagePath)->basename();
 			$images['avatarImage'] = $avatarImage;
-			
 		}
 		if ($request->hasFile('avatar_webp')) {
 			$webpPath = $request->file('avatar_webp')->store('public/avatar/webp');
@@ -180,6 +180,22 @@ class UserController extends Controller
 	public function showForm()
     {
         return view('dashboard.user.finduser');
+    }
+	
+	public function getConsultationIds(Request $request)
+    {
+        $request->validate(['user_id' => 'required|integer']);
+
+        $userId = $request->input('user_id');
+
+        $consultationIds = DB::table('sf_consultation_comment_answer as a')
+            ->join('sf_consultation_comment_pin as p', 'a.comment_id', '=', 'p.comment_id')
+            ->where('a.user_id', $userId)
+			->take(20)
+            ->distinct()
+            ->pluck('a.comment_id');
+
+        return response()->json($consultationIds);
     }
 
 }

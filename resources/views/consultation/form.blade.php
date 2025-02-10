@@ -97,6 +97,17 @@
   </div>
 </section>
 
+@if ($errors->any())
+    <div>
+        <strong>Ошибки:</strong>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <section class="main__consultation-form consultation-form">
   <div class="consultation-form__wrapper small-container">
     <h2 class="consultation-form__title">Задать вопрос врачам онлайн </h2>

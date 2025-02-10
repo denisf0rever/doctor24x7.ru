@@ -29,7 +29,7 @@ class ConsultationRequest extends FormRequest
             'age' => 'string|max:200',
             'city_id' => 'required|string|max:255',
 			'rubric_id' => 'required|string|max:100',
-			'image' => 'image|mimes:jpg,jpeg,png,pdf,doc,docx|max:2048'
+			'image' => 'nullable|mimes:jpg,jpeg,png,pdf,doc,docx|max:15000',
         ];
     }
 }
