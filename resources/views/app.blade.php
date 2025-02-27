@@ -24,7 +24,7 @@
 
   <meta name="theme-color" content="#fff">
   <meta name="robots" content="noindex, nofollow" />
-  
+
   <link rel="image_src" href="{{ Storage::url('common/logoimage.jpg') }}" />
   <link rel="icon" href="{{ Storage::url('common/favicon.svg') }}" type="svg+xml">
   <link rel="manifest" href="{{ Storage::url('common/favicon/site.webmanifest') }}">
@@ -34,11 +34,20 @@
 
   <main class="main">
     <div class="main__wrapper-main container">
-		@yield('content')
-	  
-        @include('parts.sidebar')
-		
-	  @include('parts.menu')
+      @yield('content')
+      @include('parts.sidebar')
+      <section class="main__description description">
+        <div class="description__wrapper section-wrapper">
+          <p class="description__small">Консультация врача на форуме предоставляется практикующими экспертами.
+            Медицинское образование проверено
+            администрацией. Сервис несёт моральную и юридическую ответственность. Консультация дается в справочных
+            целях, по итогам консультации, обратитесь к врачу очно, в том числе для выявления возможных
+            противопоказаний. По возможности, будьте готовы ответить на дополнительные вопросы, в противном случае
+            консультация будет дана на основе указанной информации и иметь предположительный характер. Не занимайтесь
+            самолечением, консультация врача онлайн не заменяет очный осмотр.</p>
+        </div>
+      </section>
+      @include('parts.menu')
     </div>
   </main>
 

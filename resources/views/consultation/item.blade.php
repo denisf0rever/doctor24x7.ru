@@ -34,9 +34,9 @@ use App\Helpers\LinkHelper
   </svg>
 </div>
 
-<div class="main__content">
+<div class="main__content section-wrapper">
   <section class="main__question question">
-    <div class="question__wrapper section-wrapper">
+    <div class="question__wrapper">
       <h1 class="question__title">{{ $consultation->title }} {{ $executionTime }}</h1>
       @if ($discussion > 0)
       <ul class="question__discussion-list">
@@ -51,20 +51,20 @@ use App\Helpers\LinkHelper
       <div class="question__text">
         <p>{{ $consultation->description }}</p>
         <p>{{ $consultation->created_at }}</p>
-		@if ($photos->isNotEmpty())
-                <div class="consultation__item">
-                  <p id="question-age">Фото: {{ $photos->count() }} шт</p>
-                </div>
-                <div class="consultation__gallery">
-                  <ul class="consultation__gallery-list">
-                    @foreach ($photos as $photo)
-                    <li class="consultation__gallery-item"><a class="consultation__gallery-link"
-                        href="https://puzkarapuz.ru/{{ $photo->path }}" data-fancybox="gallery" target="_blank"><img
-                          src="https://puzkarapuz.ru/{{ $photo->path }}" class="consultation__gallery-img"
-                          alt="Фото консультации" width="450px"></a></li>
-                    @endforeach
-                  </ul>
-                </div>@endif
+        @if ($photos->isNotEmpty())
+        <div class="consultation__item">
+          <p id="question-age">Фото: {{ $photos->count() }} шт</p>
+        </div>
+        <div class="consultation__gallery">
+          <ul class="consultation__gallery-list">
+            @foreach ($photos as $photo)
+            <li class="consultation__gallery-item"><a class="consultation__gallery-link"
+                href="https://puzkarapuz.ru/{{ $photo->path }}" data-fancybox="gallery" target="_blank"><img
+                  src="https://puzkarapuz.ru/{{ $photo->path }}" class="consultation__gallery-img"
+                  alt="Фото консультации" width="450px"></a></li>
+            @endforeach
+          </ul>
+        </div>@endif
         <p>Ответов: {{ $consultation->answer_count }}</p>
       </div>
 
@@ -89,7 +89,7 @@ use App\Helpers\LinkHelper
   </section>
 
   <section class="main__ask-question ask-question">
-    <div class="ask-question__wrapper section-wrapper">
+    <div class="ask-question__wrapper">
       <div class="ask-question__title">
         Спросите врача онлайн
         <br>
@@ -103,7 +103,7 @@ use App\Helpers\LinkHelper
 
   @if ($consultation->content->count() > 0)
   <section class="contents">
-    <div class="contents__wrapper section-wrapper">
+    <div class="contents__wrapper">
       <div class="contents__title">Содержание консультации</div>
       <ul class="contents__list">
         @foreach ($consultation->content as $content)
@@ -189,7 +189,7 @@ use App\Helpers\LinkHelper
         </ul>
       </div>
     </div>
-    <div class="comments__wrapper section-wrapper">
+    <div class="comments__wrapper">
       <div class="comment__answer-field-fake">
         <div class="comments__form-fake">
           <textarea class="comments__textarea-fake hide" name="description" placeholder="Написать сообщение"
@@ -308,23 +308,13 @@ use App\Helpers\LinkHelper
         @endif
         @endforeach
 
-        <section class="main__description description">
-          <div class="description__wrapper section-wrapper">
-            <p class="description__small">Консультация врача на форуме предоставляется практикующими экспертами.
-              Медицинское образование проверено
-              администрацией. Сервис несёт моральную и юридическую ответственность. Консультация дается в справочных
-              целях, по итогам консультации, обратитесь к врачу очно, в том числе для выявления возможных
-              противопоказаний. По возможности, будьте готовы ответить на дополнительные вопросы, в противном случае
-              консультация будет дана на основе указанной информации и иметь предположительный характер. Не занимайтесь
-              самолечением, консультация врача онлайн не заменяет очный осмотр.</p>
-          </div>
-        </section>
 
       </ul>
     </div>
   </section>
 
 </div>
+
 @if (session('success'))
 <div class="toast">
   <div class="toast__container" id="toast">

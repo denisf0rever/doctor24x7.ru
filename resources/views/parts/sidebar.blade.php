@@ -24,21 +24,21 @@
         @endforeach
       </ul>
       <a href="{{ route('consultation.online') }}" class="consultation-sidebar__button">Все консультации</a>
-    </div>
-  </section>
-  <section class="form-select">
-    <div class="form-select__select-wrapper custom-select section-wrapper">
-      <span class="form-select__status-title" for="status">Выбрать врача</span>
-      <img src="{{ Storage::url('common/expand-more.svg') }}" alt=""
-        class="form-select__status-arrow custom-select__arrow">
-      <div class="form-select__status-select-wrapper custom-select__wrapper custom-select__hide">
-        <ul id="status" class="form-select__status-select">
-          @foreach($categories as $category)
-          <li class="form-select__status-option" value="{{ $category->slug }}"><a
-              href="{{ route('consultation.category', $category->slug) }}"
-              class="form-select__link">{{ $category->short_title }}</a></li>
-          @endforeach
-        </ul>
+      <div class="form-select">
+        <div class="form-select__select-wrapper custom-select">
+          <span class="form-select__status-title" for="status">Выбрать врача</span>
+          <img src="{{ Storage::url('common/expand-more.svg') }}" alt=""
+            class="form-select__status-arrow custom-select__arrow">
+          <div class="form-select__status-select-wrapper custom-select__wrapper custom-select__hide">
+            <ul id="status" class="form-select__status-select">
+              @foreach($categories as $category)
+              <li class="form-select__status-option" value="{{ $category->slug }}"><a
+                  href="{{ route('consultation.category', $category->slug) }}"
+                  class="form-select__link">{{ $category->short_title }}</a></li>
+              @endforeach
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>

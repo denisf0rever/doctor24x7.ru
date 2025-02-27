@@ -50,10 +50,7 @@
         </a>
         <a href="" class="footer__big-link">support@puzkarapuz.ru
         </a>
-        <span class="footer__small-text">19.710517883301
-        </span>
-        <div class="footer__small-title">Для срочных консультаций:
-        </div>
+        <a href="/" class="footer__online-consultation">Онлайн консультация </a>
         <div class="footer__social">
           <a href="/" class="footer__social-link">
             <img src="" alt="" class="footer__social-img">
