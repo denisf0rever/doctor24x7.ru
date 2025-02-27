@@ -62,9 +62,6 @@ class ConsultationController extends Controller
             ->firstOrFail();
 			
 		$lengthDescription = Str::length($consultation->description);
-		$cityId = $consultation->city_id;
-		
-		$coefficientCity = $cityId == 4400 ? 1.1 : 1;
 			
 		$coefficientLength = match(true) {
 			$lengthDescription > 1750 => 1.9,
@@ -98,7 +95,7 @@ class ConsultationController extends Controller
 		$endTime = microtime(true);
         $executionTime = ($endTime - $startTime); // Время в миллисекундах
 		
-		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos', 'executionTime', 'coefficientCity', 'coefficientLength', 'lengthDescription', 'doctors'));
+		return view('dashboard.consultation.item', compact('consultation', 'hasBooking', 'canBooking', 'hasAnswerForm', 'currentHour', 'photos', 'executionTime',  'coefficientLength', 'lengthDescription', 'doctors'));
     }
 	
 	public function category($id)

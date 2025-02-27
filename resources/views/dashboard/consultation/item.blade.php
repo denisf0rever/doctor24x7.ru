@@ -81,8 +81,8 @@
             <div class="stats__wrapper">
               <ul class="stats__list">
                 <li class="stats__item">
-                  <div class="stats__number">@if ($currentHour >= '20:00' || $currentHour <= '08:00' ) @else @endif
-                      {{ $consultation->tariff->fee * $coefficientCity }} &#8381;</div>
+                  <div class="stats__number">
+                      {{ $consultation->tariff->fee }} &#8381;</div>
                       <div class="stats__text">Гонорар</div>
                 </li>
                 <li class="stats__item">
