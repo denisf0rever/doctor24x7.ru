@@ -140,7 +140,14 @@ use App\Helpers\LinkHelper
     <div class="comment__menu comment-menu comment-menu__hide">
       <div class="comment-menu__wrapper">
         <div class="comment-menu__header">Меню</div>
-        <img src="{{ Storage::url('common/close.svg') }}" class="comment-menu__hide-button">
+        <div class="comment-menu__hide-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23">
+            <g fill="none" fill-rule="evenodd">
+              <path fill="#515151" d="M.04 21.753L21.253.54l.707.707L.747 22.46z" />
+              <path fill="#525252" d="M21.96 21.753L.747.54l-.707.707L21.253 22.46z" />
+            </g>
+          </svg>
+        </div>
         @if(Auth::check())
         <div class="comment-menu__buttons">
           <a href="{{ route('consultation.destroy-answer') }}"
