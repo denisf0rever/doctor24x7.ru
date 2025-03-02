@@ -17,11 +17,8 @@ use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Consultation\Contents;
 use App\Models\UserMain;
 use App\Models\Settings\UserSettings as Settings;
-use App\Http\Requests\ConsultationRequest;
 use App\Http\Requests\ConsultationUpdateRequest;
-use App\Services\ConsultationService;
 use App\Services\BookingService;
-use App\Events\ConsultationCreated;
 use App\Helpers\LinkHelper;
 use Carbon\Carbon;
 
@@ -111,44 +108,8 @@ class ConsultationController extends Controller
     public function index()
     {
 		return view('consultation.list');
-    }
-
-	// Форма для подачи вопроса
-    public function form()
-    {
-		$categories = Category::select('id', 'short_title')->get();
-		
-		return view('consultation.form', compact('categories'));
-    } 
+    }    
 	
-	// Создание консультации
-	public function create(ConsultationRequest $request, ConsultationService $service)
-    {
-		$consultation = $service->create($request->validated());
-
-		$data = [
-			'name' => $request->username,
-			'email' => $request->email,
-			'consultation_id' => $consultation->id
-		];
-		
-		if ($consultation) {		
-			if ($request->hasFile('image')) {
-				$imagePath = $request->file('image')->store('consultation');
-				$avatarImage = Str::of($imagePath)->basename();
-				$images['avatarImage'] = $avatarImage;
-				
-				return response()->json('Файл успешно загружен');
-			}
-		
-			ConsultationCreated::dispatch($data);
-		
-			return redirect()->route('payment.consultation', $consultation->id)->with('success', 'Консультация добавлена');
-		} else {
-			return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');
-		}
-    }
-
 	// Просмотр консультации в паблике
     public function consultation(string $slug)
     {		

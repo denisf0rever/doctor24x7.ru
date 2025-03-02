@@ -20,11 +20,10 @@ final class ConsultationService
 				'rubric_id' => $consultation['rubric_id']
 			]);
 			
-		$consultation->slug = $consultation->id;
-		$consultation->save();
+			$consultation->slug = $consultation->id;
+			$consultation->save();
 		
-		return $consultation;
-		
+			return $consultation;
 		});	
 		
 		return $result;

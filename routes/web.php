@@ -10,10 +10,10 @@ use App\Http\Controllers\User\UserCategoryTextController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
+use App\Http\Controllers\Consultation\ConsultationFormController;
 use App\Http\Controllers\Consultation\DiscussionController;
 use App\Http\Controllers\Consultation\ConsultationAnswerController;
 use App\Http\Controllers\Consultation\ConsultationCategoryController;
-use App\Http\Controllers\Consultation\Form\FileUploadController;
 use App\Http\Controllers\Consultation\BookingController;
 use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
@@ -37,15 +37,15 @@ use App\Http\Controllers\Chat\ChatController;
 	
 	// Консультации
 	Route::get('/consultation', [ConsultationController::class, 'index'])->name('consult.list');
-	Route::get('/consultation/comment', [ConsultationController::class, 'form'])->name('consult.form');
-	Route::post('/consultation/upload', [FileUploadController::class, 'upload'])->name('consultation.file-upload');
 	Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'consultation'])->name('consultation.item');
-	Route::post('/consultation/create', [ConsultationController::class, 'create'])->name('consultation.create');
 	Route::post('/consultation/answer', [ConsultationAnswerController::class, 'createPublicAnswer'])->name('consultation.answer');
 	Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
 	Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
-	
 	Route::get('/consultation/online', [ConsultationAnswerController::class, 'online'])->name('consultation.online');
+	
+	// Консультации: Форма, Создание
+	Route::get('/consultation/comment', [ConsultationFormController::class, 'form'])->name('consult.form');
+	Route::post('/consultation/create', [ConsultationFormController::class, 'create'])->name('consultation.create');
 	
 	// Категории консультаций
 	Route::get('/consultation/{categorySlug}/', [ConsultationCategoryController::class, 'category'])->name('consultation.category');

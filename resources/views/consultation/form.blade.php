@@ -263,7 +263,7 @@
                 <span class="consultation-form__input-photo-text">Загрузить фото</span>
               </label>
               <input class="consultation-form__input-photo @error('image')input-error @enderror" type="file"
-                id="file-upload" name="image">
+                id="file-upload" name="images[]">
 
               <div class="consultation-form__additional-photos">
 
