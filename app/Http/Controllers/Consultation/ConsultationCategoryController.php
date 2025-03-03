@@ -48,7 +48,22 @@ class ConsultationCategoryController extends Controller
 		return view('dashboard.consultation.category.index', compact('categories'));
 	}
 	
-	public function getSubRubricUrl($categorySlug, $subcategorySlug)
+	public function subcategory($categorySlug, $subcategorySlug)
 	{
-	}
+		$mainCategory = Category::where('slug', $categorySlug)
+			->select('id')
+			->first();
+		
+        if (!$mainCategory) {
+            abort(404, 'Категория не найдена');
+        }
+
+        $subCategory = SubCategories::where('slug', $subcategorySlug)->first();
+
+        if (!$subCategory) {
+            abort(404, 'Подкатегория не найдена');
+        }
+		
+        return view('consultation.category.subcategory', compact('subCategory'));
+    }
 }

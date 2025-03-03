@@ -48,8 +48,8 @@ use App\Http\Controllers\Chat\ChatController;
 	Route::post('/consultation/create', [ConsultationFormController::class, 'create'])->name('consultation.create');
 	
 	// Категории консультаций
-	Route::get('/consultation/{categorySlug}/', [ConsultationCategoryController::class, 'category'])->name('consultation.category');
-	Route::get('/consultation/rubric/{categorySlug}/{subcategorySlug}/', [ConsultationCategoryController::class, 'getSubRubricUrl'])->name('consultation.subrubric');
+	Route::get('/consultation/{categorySlug}', [ConsultationCategoryController::class, 'category'])->name('consultation.category');
+	Route::get('/consultation/rubric/{categorySlug}/{subcategorySlug}', [ConsultationCategoryController::class, 'subcategory'])->name('consultation.subrubric');
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');
@@ -67,8 +67,6 @@ use App\Http\Controllers\Chat\ChatController;
 	
 	Route::get('/chat/{id}', [\App\Http\Controllers\Chat\ChatController::class, 'show'])->name('chat.item');
 	
-	
-
 	// Отзывы
 	Route::get('/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');
 

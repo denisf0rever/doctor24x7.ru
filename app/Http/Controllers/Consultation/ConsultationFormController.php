@@ -25,18 +25,18 @@ class ConsultationFormController extends Controller
     {
 		$consultation = $service->create($request->validated());
 
-		$data = [
-			'name' => $request->username,
-			'email' => $request->email,
-			'consultation_id' => $consultation->id
-		];
+		if (is_object($consultation)) {
+			
+			$data = [
+				'name' => $request->username,
+				'email' => $request->email,
+				'consultation_id' => $consultation->id
+			];
 		
-		if ($consultation) {
 			if ($request->hasFile('images')) {
-				dd($request->file('images'));
 				 //foreach ($request->file('images') as $file) {
 					// Сохраняем каждый файл в нужной директории
-					$file->store('consultation'); // Папка, куда будут сохраняться файлы
+					//$file->store('consultation'); // Папка, куда будут сохраняться файлы
 					
 				//$imagePath = $request->file('image')->store('consultation');
 				//$consultationImage = Str::of($imagePath)->basename();
@@ -45,9 +45,9 @@ class ConsultationFormController extends Controller
 			}
 			
 			//\Log::info('Dispatching ConsultationCreated event', $data);
-			//ConsultationCreated::dispatch($data);
 			
-			//return redirect()->route('payment.consultation', $consultation->id)->with('success', 'Консультация добавлена');		
+			ConsultationCreated::dispatch($data);
+			return redirect()->route('payment.consultation', $consultation->id)->with('success', 'Консультация добавлена');		
 			
 		} else {
 			return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');
