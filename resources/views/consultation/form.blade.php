@@ -98,14 +98,14 @@
 </section>
 
 @if ($errors->any())
-    <div>
-        <strong>Ошибки:</strong>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+<div>
+  <strong>Ошибки:</strong>
+  <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
 @endif
 
 <section class="main__consultation-form consultation-form">
@@ -258,15 +258,15 @@
             <div class="consultation-form__tub-item">
               <label class="consultation-form__tub-title">Снимки, анализы (необязательно)
               </label>
-              <label class="consultation-form__photo-wrapper" for="file-upload">
-                <img src="/images/dashboard/#.svg" alt="" class="consultation-form__input-photo-img">
-                <span class="consultation-form__input-photo-text">Загрузить фото</span>
-              </label>
-              <input class="consultation-form__input-photo @error('image')input-error @enderror" type="file"
-                id="file-upload" name="images[]">
-
-              <div class="consultation-form__additional-photos">
-
+              <div class="consultation-form__photos">
+                <div class="consultation-form__photo-item">
+                  <label class="consultation-form__photo-wrapper" for="file-upload">
+                    <img src="/images/dashboard/#.svg" alt="" class="consultation-form__input-photo-img">
+                    <span class="consultation-form__input-photo-text">Загрузить фото</span>
+                  </label>
+                  <input class="consultation-form__input-photo @error('image')input-error @enderror" type="file"
+                    id="file-upload" name="images[]">
+                </div>
               </div>
               <span class="consultation-form__add-photo">Добавить изображение</span>
             </div>
