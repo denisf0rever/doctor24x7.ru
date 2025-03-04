@@ -143,9 +143,9 @@
               </div>
               <div class="consultation-form__subtitle">Выберите категорию </div>
             </div>
-            <div class="consultation-form__tub-item">
-              <div class="consultation-form__radio-list">
-                <div class="consultation-form__radio-wrapper">
+            <div class="consultation-form__tub-item consultation-form__radio-slider">
+              <div class="consultation-form__radio-list swiper-wrapper">
+                <div class="consultation-form__radio-wrapper swiper-slide" >
                   <input checked class="consultation-form__radio" hidden id="radio-first" type="radio" name="radio"
                     value="1">
                   <label for="radio-first" class="consultation-form__radio-label">
@@ -163,7 +163,7 @@
                     </div>
                   </label>
                 </div>
-                <div class="consultation-form__radio-wrapper">
+                <div class="consultation-form__radio-wrapper swiper-slide">
                   <input class="consultation-form__radio" hidden id="radio-second" type="radio" name="radio" value="2">
                   <label for="radio-second" class="consultation-form__radio-label">
                     <div class="consultation-form__radio-text">
@@ -180,7 +180,7 @@
                     </div>
                   </label>
                 </div>
-                <div class="consultation-form__radio-wrapper">
+                <div class="consultation-form__radio-wrapper swiper-slide">
                   <input class="consultation-form__radio" hidden id="radio-third" type="radio" name="radio" value="3">
                   <label for="radio-third" class="consultation-form__radio-label">
                     <div class="consultation-form__radio-text">

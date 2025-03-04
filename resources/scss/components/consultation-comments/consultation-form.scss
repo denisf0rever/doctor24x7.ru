@@ -329,8 +329,12 @@
     }
     &__radio-list {
         display: flex;
-        flex-wrap: wrap;
         gap: 10px;
+        padding: 0 5px;
+    }
+    &__radio-slider {
+        padding-right: 27px;
+        padding-left: 5px;
     }
     &__radio-wrapper {
         width: 150px;
