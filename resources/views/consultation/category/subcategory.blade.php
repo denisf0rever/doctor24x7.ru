@@ -28,6 +28,115 @@
           консультация</a>
         <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
       </div>
+
+
+
+
+      <div class="consultants-form">
+        <div class="consultants-form__wrapper">
+          <div class="consultants-form__header">
+            <span class="consultants-form__title">Выберите специалиста</span>
+          </div>
+          <div class="consultants-form__main">
+            <div class="consultants-form__left-list">
+              <ul class="consultants-form__categories">
+                <li class="consultants-form__category" id="free-specialist">
+                  <span class="consultants-form__category-title">Задать вопрос свободному врачу</span>
+                  <div class="consultants-form__category-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
+                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black"
+                        d="M5 3L11 8L5 13">
+                      </path>
+                    </svg>
+                  </div>
+                </li>
+                <li class="consultants-form__category consultants-form__category--specialists" id="specialists-list">
+                  <span class="consultants-form__category-title">Специалисты</span>
+                  <div class="consultants-form__category-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
+                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black"
+                        d="M5 3L11 8L5 13">
+                      </path>
+                    </svg>
+                  </div>
+                </li>
+              </ul>
+              <div class="consultants-form__specialists-wrapper">
+                <ul class="consultants-form__specialists">
+                  <li class="consultants-form__specialist">
+                    <a href="/" class="consultants-form__specialist-link">
+                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
+                      <span class="consultants-form__specialist-fullname">Тестовое имя 1</span>
+                      <span class="consultants-form__specialist-subtitle">Subtitle</span>
+                    </a>
+                  </li>
+                  <li class="consultants-form__specialist">
+                    <a href="/" class="consultants-form__specialist-link">
+                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
+                      <span class="consultants-form__specialist-fullname">Тестовое имя 2</span>
+                      <span class="consultants-form__specialist-subtitle">Subtitle</span>
+                    </a>
+                  </li>
+                  <li class="consultants-form__specialist">
+                    <a href="/" class="consultants-form__specialist-link">
+                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
+                      <span class="consultants-form__specialist-fullname">Тестовое имя 3</span>
+                      <span class="consultants-form__specialist-subtitle">Lorem ipsum dolor</span>
+                    </a>
+                  </li>
+                  <li class="consultants-form__specialist">
+                    <a href="/" class="consultants-form__specialist-link">
+                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
+                      <span class="consultants-form__specialist-fullname">Тестовое имя 4</span>
+                      <span class="consultants-form__specialist-subtitle">Subtitle</span>
+                    </a>
+                  </li>
+                  <li class="consultants-form__specialist">
+                    <a href="/" class="consultants-form__specialist-link">
+                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
+                      <span class="consultants-form__specialist-fullname">Тестовое имя 5</span>
+                      <span class="consultants-form__specialist-subtitle">Lorem ipsum</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="consultants-form__right-list">
+              <div class="consultants-form__back-btn">
+                <div class="consultants-form__back-btn-img">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 17L3 12M3 12L8 7M3 12H21" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <span class="consultants-form__back-btn-text">
+                  Назад
+                </span>
+
+              </div>
+              <div class="consultants-form__active-specialist-wrapper">
+
+              </div>
+              <div class="category-form">
+                <div class="category-form__wrapper">
+                  <h2 class="category-form__title">Задать вопрос врачу онлайн</h2>
+                  <form action="/" class="category-form__form">
+                    <textarea name="text" class="category-form__textarea"
+                      placeholder="Опишите детали для {{ $subCategory->name_v }}, которые важны для ответа."></textarea>
+                    <input type="submit" value="Продолжить →" class="category-form__submit">
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
       <div class="main__сategory-info сategory-info">
         <div class="category-info__wrapper">
           <div class="category-info__inner">
@@ -77,7 +186,7 @@
               <div class="category-info__tab-content subCategory-info__tab-content--active" id="tab-2">
 
                 <div class="category-info__subCategory-card-wrapper">
-                  
+
                 </div>
               </div>
             </div>
