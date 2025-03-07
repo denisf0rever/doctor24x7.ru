@@ -64,35 +64,35 @@
               <div class="consultants-form__specialists-wrapper">
                 <ul class="consultants-form__specialists">
                   <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link">
+                    <a href="/" class="consultants-form__specialist-link" data-id="1">
                       <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
                       <span class="consultants-form__specialist-fullname">Тестовое имя 1</span>
                       <span class="consultants-form__specialist-subtitle">Subtitle</span>
                     </a>
                   </li>
                   <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link">
+                    <a href="/" class="consultants-form__specialist-link" data-id="2">
                       <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
                       <span class="consultants-form__specialist-fullname">Тестовое имя 2</span>
                       <span class="consultants-form__specialist-subtitle">Subtitle</span>
                     </a>
                   </li>
                   <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link">
+                    <a href="/" class="consultants-form__specialist-link" data-id="3">
                       <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
                       <span class="consultants-form__specialist-fullname">Тестовое имя 3</span>
                       <span class="consultants-form__specialist-subtitle">Lorem ipsum dolor</span>
                     </a>
                   </li>
                   <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link">
+                    <a href="/" class="consultants-form__specialist-link" data-id="4">
                       <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
                       <span class="consultants-form__specialist-fullname">Тестовое имя 4</span>
                       <span class="consultants-form__specialist-subtitle">Subtitle</span>
                     </a>
                   </li>
                   <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link">
+                    <a href="/" class="consultants-form__specialist-link" data-id="5">
                       <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
                       <span class="consultants-form__specialist-fullname">Тестовое имя 5</span>
                       <span class="consultants-form__specialist-subtitle">Lorem ipsum</span>
@@ -121,6 +121,7 @@
                 <div class="category-form__wrapper">
                   <h2 class="category-form__title">Задать вопрос врачу онлайн</h2>
                   <form action="/" class="category-form__form">
+                    <input hidden type="text" class="category-form__form-input" name="specialist-id" id="specialist-id">
                     <textarea name="text" class="category-form__textarea"
                       placeholder="Опишите детали для {{ $subCategory->name_v }}, которые важны для ответа."></textarea>
                     <input type="submit" value="Продолжить →" class="category-form__submit">
