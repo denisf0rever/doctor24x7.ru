@@ -50,6 +50,9 @@ use App\Http\Controllers\Chat\ChatController;
 	// Категории консультаций
 	Route::get('/consultation/{categorySlug}', [ConsultationCategoryController::class, 'category'])->name('consultation.category');
 	Route::get('/consultation/rubric/{categorySlug}/{subcategorySlug}', [ConsultationCategoryController::class, 'subcategory'])->name('consultation.subrubric');
+		
+	Route::get('/consultation/city/{city}', [ConsultationCategoryController::class, 'city'])->name('consultation.city');
+	Route::get('/consultation/{categorySlug}/{city}', [ConsultationCategoryController::class, 'categoryCity'])->name('consultation.categorycity');
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');

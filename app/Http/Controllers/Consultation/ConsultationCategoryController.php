@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Consultation\SubCategories;
 use App\Models\User\CategoryText as Text;
+use App\Models\City\City;
+
 use App\Services\DoctorService;
 
 class ConsultationCategoryController extends Controller
@@ -65,5 +67,35 @@ class ConsultationCategoryController extends Controller
         }
 		
         return view('consultation.category.subcategory', compact('subCategory'));
+    }
+	
+	public function city($city)
+	{
+        $city = City::where('slug', $city)->first();
+		
+        if ($city === false) {
+            abort(404, 'Подкатегория не найдена');
+        }
+		
+        return view('consultation.category.city', compact('city'));
+    }
+	
+	public function categoryCity($categorySlug, $city)
+	{
+		$category = Category::where('slug', $categorySlug)
+			->select('id', 'name_v', 'name_v_m', 'amount_doctors', 'font_color')
+			->first();
+		
+        if ($category === false) {
+            abort(404, 'Категория не найдена');
+        }
+
+        $city = City::where('slug', $city)->first();
+
+        if ($city === false) {
+            abort(404, 'Подкатегория не найдена');
+        }
+		
+        return view('consultation.category.citycategory', compact('category', 'city'));
     }
 }
