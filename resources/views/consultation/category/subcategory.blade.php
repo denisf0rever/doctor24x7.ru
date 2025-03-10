@@ -32,111 +32,6 @@
 
 
 
-      <div class="consultants-form">
-        <div class="consultants-form__wrapper">
-          <div class="consultants-form__header">
-            <span class="consultants-form__title">Выберите специалиста</span>
-          </div>
-          <div class="consultants-form__main">
-            <div class="consultants-form__left-list">
-              <ul class="consultants-form__categories">
-                <li class="consultants-form__category" id="free-specialist">
-                  <span class="consultants-form__category-title">Задать вопрос свободному врачу</span>
-                  <div class="consultants-form__category-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black"
-                        d="M5 3L11 8L5 13">
-                      </path>
-                    </svg>
-                  </div>
-                </li>
-                <li class="consultants-form__category consultants-form__category--specialists" id="specialists-list">
-                  <span class="consultants-form__category-title">Специалисты</span>
-                  <div class="consultants-form__category-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black"
-                        d="M5 3L11 8L5 13">
-                      </path>
-                    </svg>
-                  </div>
-                </li>
-              </ul>
-              <div class="consultants-form__specialists-wrapper">
-                <ul class="consultants-form__specialists">
-                  <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link" data-id="1">
-                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
-                      <span class="consultants-form__specialist-fullname">Тестовое имя 1</span>
-                      <span class="consultants-form__specialist-subtitle">Subtitle</span>
-                    </a>
-                  </li>
-                  <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link" data-id="2">
-                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
-                      <span class="consultants-form__specialist-fullname">Тестовое имя 2</span>
-                      <span class="consultants-form__specialist-subtitle">Subtitle</span>
-                    </a>
-                  </li>
-                  <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link" data-id="3">
-                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
-                      <span class="consultants-form__specialist-fullname">Тестовое имя 3</span>
-                      <span class="consultants-form__specialist-subtitle">Lorem ipsum dolor</span>
-                    </a>
-                  </li>
-                  <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link" data-id="4">
-                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
-                      <span class="consultants-form__specialist-fullname">Тестовое имя 4</span>
-                      <span class="consultants-form__specialist-subtitle">Subtitle</span>
-                    </a>
-                  </li>
-                  <li class="consultants-form__specialist">
-                    <a href="/" class="consultants-form__specialist-link" data-id="5">
-                      <img src="https://i.pravatar.cc/300" alt="" class="consultants-form__specialist-avatar">
-                      <span class="consultants-form__specialist-fullname">Тестовое имя 5</span>
-                      <span class="consultants-form__specialist-subtitle">Lorem ipsum</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="consultants-form__right-list">
-              <div class="consultants-form__back-btn">
-                <div class="consultants-form__back-btn-img">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 17L3 12M3 12L8 7M3 12H21" stroke="#000000" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <span class="consultants-form__back-btn-text">
-                  Назад
-                </span>
-
-              </div>
-              <div class="consultants-form__active-specialist-wrapper">
-
-              </div>
-              <div class="category-form">
-                <div class="category-form__wrapper">
-                  <h2 class="category-form__title">Задать вопрос врачу онлайн</h2>
-                  <form action="/" class="category-form__form">
-                    <input hidden type="text" class="category-form__form-input" name="specialist-id" id="specialist-id">
-                    <textarea name="text" class="category-form__textarea"
-                      placeholder="Опишите детали для {{ $subCategory->name_v }}, которые важны для ответа."></textarea>
-                    <input type="submit" value="Продолжить →" class="category-form__submit">
-                  </form>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
 
       <div class="main__сategory-info сategory-info">
         <div class="category-info__wrapper">
@@ -198,82 +93,67 @@
   </div>
 </section>
 
-
-
-<section class="main__questions-accordion questions-accordion">
-  <div class="questions-accordion__wrapper">
-    <div class="questions-accordion__inner container">
-      <h2 class="questions-accordion__title">Частые вопросы</h2>
-      <ul class="questions-accordion__list">
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Сколько по времени занимает оплата зарубежного сервиса?</span>
-              <div class="question-accordion__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="currentColor"></path>
-                </svg>
-              </div>
+<section class="main__consultation-slider consultation-slider">
+  <h2 class="consultation-slider__title">Медицинские консультации предоставляют</h2>
+  <span class="consultation-slider__subtitle">В онлайн сервисе работает более 100 врачей, всех специализаций
+  </span>
+  <div class="consultation-slider__wrapper">
+    <div class="consultation-slider__arrow consultation-slider__arrow-before"><span>&lsaquo;</span></div>
+    <div class="consultation-slider__arrow consultation-slider__arrow-after"><span>&rsaquo;</span></div>
+    <div class="consultation-slider__slider">
+      <ul class="consultation-slider__slider-wrapper swiper-wrapper">
+        <li class="consultation-slider__slide swiper-slide consultation-slide">
+          <div class="consultation-slide__wrapper">
+            <div class="consultation-slide__img-wrapper">
+              <img src="/" alt="" class="consultation-slide__img">
             </div>
-            <div class="question-accordion__ansver-wrapper">
-              <span class="question-accordion__ansver-text">От нескольких минут до нескольких часов.</span>
+            <div class="consultation-slide__text">
+              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
+              <span class="consultation-slide__specialization">Гематолог</span>
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Сколько по времени занимает оплата зарубежного сервиса?</span>
-              <div class="question-accordion__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="currentColor"></path>
-                </svg>
-              </div>
+        <li class="consultation-slider__slide swiper-slide consultation-slide">
+          <div class="consultation-slide__wrapper">
+            <div class="consultation-slide__img-wrapper">
+              <img src="/" alt="" class="consultation-slide__img">
             </div>
-            <div class="question-accordion__ansver-wrapper">
-              <span class="question-accordion__ansver-text">От нескольких минут до нескольких часов.</span>
+            <div class="consultation-slide__text">
+              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
+              <span class="consultation-slide__specialization">Гематолог</span>
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Сколько по времени занимает оплата зарубежного сервиса?</span>
-              <div class="question-accordion__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="currentColor"></path>
-                </svg>
-              </div>
+        <li class="consultation-slider__slide swiper-slide consultation-slide">
+          <div class="consultation-slide__wrapper">
+            <div class="consultation-slide__img-wrapper">
+              <img src="/" alt="" class="consultation-slide__img">
             </div>
-            <div class="question-accordion__ansver-wrapper">
-              <span class="question-accordion__ansver-text">От нескольких минут до нескольких часов.</span>
+            <div class="consultation-slide__text">
+              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
+              <span class="consultation-slide__specialization">Гематолог</span>
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Сколько по времени занимает оплата зарубежного сервиса?</span>
-              <div class="question-accordion__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="currentColor"></path>
-                </svg>
-              </div>
+        <li class="consultation-slider__slide swiper-slide consultation-slide">
+          <div class="consultation-slide__wrapper">
+            <div class="consultation-slide__img-wrapper">
+              <img src="/" alt="" class="consultation-slide__img">
             </div>
-            <div class="question-accordion__ansver-wrapper">
-              <span class="question-accordion__ansver-text">От нескольких минут до нескольких часов.</span>
+            <div class="consultation-slide__text">
+              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
+              <span class="consultation-slide__specialization">Гематолог</span>
+            </div>
+          </div>
+        </li>
+        <li class="consultation-slider__slide swiper-slide consultation-slide">
+          <div class="consultation-slide__wrapper">
+            <div class="consultation-slide__img-wrapper">
+              <img src="/" alt="" class="consultation-slide__img">
+            </div>
+            <div class="consultation-slide__text">
+              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
+              <span class="consultation-slide__specialization">Гематолог</span>
             </div>
           </div>
         </li>
@@ -281,6 +161,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="main__description description">
   <div class="description__wrapper section-wrapper small-container">

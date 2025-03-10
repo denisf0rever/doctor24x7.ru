@@ -24,74 +24,170 @@
   </div>
 </section>
 
-<section class="main__consultation-slider consultation-slider">
-  <h2 class="consultation-slider__title">Медицинские консультации предоставляют</h2>
-  <span class="consultation-slider__subtitle">В онлайн сервисе работает более 100 врачей, всех специализаций
-  </span>
-  <div class="consultation-slider__wrapper">
-    <div class="consultation-slider__arrow consultation-slider__arrow-before"><span>&lsaquo;</span></div>
-    <div class="consultation-slider__arrow consultation-slider__arrow-after"><span>&rsaquo;</span></div>
-    <div class="consultation-slider__slider">
-      <ul class="consultation-slider__slider-wrapper swiper-wrapper">
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
+<section class="consultants-pupup">
+  <div class="consultants-pupup__open red-button" id="consultants-pupup">Консультанты</div>
+  <div class="consultants-pupup__overlay"></div>
+  <div class="consultants-pupup__wrapper">
+    <div class="consultants-pupup__header">
+      <span class="consultants-pupup__title">Выберите специалиста</span>
+      <div class="consultants-pupup__close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23">
+          <g fill="none" fill-rule="evenodd">
+            <path fill="#515151" d="M.04 21.753L21.253.54l.707.707L.747 22.46z"></path>
+            <path fill="#525252" d="M21.96 21.753L.747.54l-.707.707L21.253 22.46z"></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="consultants-pupup__main">
+      <div class="consultants-pupup__left-list">
+        <ul class="consultants-pupup__categories">
+          <li class="consultants-pupup__category" data-category="gematolog">
+            <span class="consultants-pupup__category-title">Гематолог</span>
+            <div class="consultants-pupup__category-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black" d="M5 3L11 8L5 13">
+                </path>
+              </svg>
             </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
+          </li>
+          <li class="consultants-pupup__category" data-category="surgeon">
+            <span class="consultants-pupup__category-title">Хирург</span>
+            <div class="consultants-pupup__category-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black" d="M5 3L11 8L5 13">
+                </path>
+              </svg>
             </div>
+          </li>
+          <li class="consultants-pupup__category" data-category="gematolog">
+            <span class="consultants-pupup__category-title">Гематолог</span>
+            <div class="consultants-pupup__category-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black" d="M5 3L11 8L5 13">
+                </path>
+              </svg>
+            </div>
+          </li>
+          <li class="consultants-pupup__category" data-category="surgeon">
+            <span class="consultants-pupup__category-title">Хирург</span>
+            <div class="consultants-pupup__category-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black" d="M5 3L11 8L5 13">
+                </path>
+              </svg>
+            </div>
+          </li>
+          <li class="consultants-pupup__category" data-category="gematolog">
+            <span class="consultants-pupup__category-title">Гематолог</span>
+            <div class="consultants-pupup__category-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black" d="M5 3L11 8L5 13">
+                </path>
+              </svg>
+            </div>
+          </li>
+          <li class="consultants-pupup__category" data-category="surgeon">
+            <span class="consultants-pupup__category-title">Хирург</span>
+            <div class="consultants-pupup__category-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 16 16" height="16" width="16">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black" d="M5 3L11 8L5 13">
+                </path>
+              </svg></div>
+          </li>
+          <li class="consultants-pupup__category" data-category="gematolog">
+            <span class="consultants-pupup__category-title">Гематолог</span>
+            <div class="consultants-pupup__category-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 16 16" height="16" width="16">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black" d="M5 3L11 8L5 13">
+                </path>
+              </svg></div>
+          </li>
+          <li class="consultants-pupup__category" data-category="surgeon">
+            <span class="consultants-pupup__category-title">Хирург</span>
+            <div class="consultants-pupup__category-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 16 16" height="16" width="16">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="black" d="M5 3L11 8L5 13">
+                </path>
+              </svg></div>
+          </li>
+        </ul>
+      </div>
+      <div class="consultants-pupup__right-list">
+        <div class="consultants-pupup__back-btn">
+          <div class="consultants-pupup__back-btn-img">
+            <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+              <path d="M8 17L3 12M3 12L8 7M3 12H21" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </div>
-        </li>
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-      </ul>
+          <span class="consultants-pupup__back-btn-text">
+            Назад
+          </span>
+
+        </div>
+        <ul class="consultants-pupup__specialists">
+          <li class="consultants-pupup__specialist">
+            <a href="/" class="consultants-pupup__specialist-link">
+              <img src="https://i.pravatar.cc/300" alt="" class="consultants-pupup__specialist-avatar">
+              <span class="consultants-pupup__specialist-fullname">Тестовое имя</span>
+              <span class="consultants-pupup__specialist-subtitle">Subtitle</span>
+            </a>
+          </li>
+          <li class="consultants-pupup__specialist">
+            <a href="/" class="consultants-pupup__specialist-link">
+              <img src="https://i.pravatar.cc/300" alt="" class="consultants-pupup__specialist-avatar">
+              <span class="consultants-pupup__specialist-fullname">Тестовое имя</span>
+              <span class="consultants-pupup__specialist-subtitle">Subtitle</span>
+            </a>
+          </li>
+          <li class="consultants-pupup__specialist">
+            <a href="/" class="consultants-pupup__specialist-link">
+              <img src="https://i.pravatar.cc/300" alt="" class="consultants-pupup__specialist-avatar">
+              <span class="consultants-pupup__specialist-fullname">Тестовое имя</span>
+              <span class="consultants-pupup__specialist-subtitle">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. At, cum? Velit, ab! Quod mollitia quas repudiandae praesentium accusamus quis quos nostrum, nemo
+                tenetur atque, explicabo, a iure officiis! Quasi, laborum?</span>
+            </a>
+          </li>
+          <li class="consultants-pupup__specialist">
+            <a href="/" class="consultants-pupup__specialist-link">
+              <img src="https://i.pravatar.cc/300" alt="" class="consultants-pupup__specialist-avatar">
+              <span class="consultants-pupup__specialist-fullname">Тестовое имя</span>
+              <span class="consultants-pupup__specialist-subtitle">Subtitle</span>
+            </a>
+          </li>
+          <li class="consultants-pupup__specialist">
+            <a href="/" class="consultants-pupup__specialist-link">
+              <img src="https://i.pravatar.cc/300" alt="" class="consultants-pupup__specialist-avatar">
+              <span class="consultants-pupup__specialist-fullname">Тестовое имя</span>
+              <span class="consultants-pupup__specialist-subtitle">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. At, cum? Velit, ab! Quod mollitia quas repudiandae praesentium accusamus quis quos nostrum, nemo
+                tenetur atque, explicabo, a iure officiis! Quasi, laborum?</span>
+            </a>
+          </li>
+          <li class="consultants-pupup__specialist">
+            <a href="/" class="consultants-pupup__specialist-link">
+              <img src="https://i.pravatar.cc/300" alt="" class="consultants-pupup__specialist-avatar">
+              <span class="consultants-pupup__specialist-fullname">Тестовое имя</span>
+              <span class="consultants-pupup__specialist-subtitle">Subtitle</span>
+            </a>
+          </li>
+          <li class="consultants-pupup__specialist">
+            <a href="/" class="consultants-pupup__specialist-link">
+              <img src="https://i.pravatar.cc/300" alt="" class="consultants-pupup__specialist-avatar">
+              <span class="consultants-pupup__specialist-fullname">Тестовое имя</span>
+              <span class="consultants-pupup__specialist-subtitle">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. At, cum? Velit, ab! Quod mollitia quas repudiandae praesentium accusamus quis quos nostrum, nemo
+                tenetur atque, explicabo, a iure officiis! Quasi, laborum?</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
+
 
 @if ($errors->any())
 <div>
