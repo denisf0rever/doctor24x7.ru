@@ -363,6 +363,98 @@
 </section>
 @endif
 
+<section class="main__reviews-slider reviews-slider">
+  <div class="reviews-slider__wrapper">
+    <div class="reviews-slider__header">
+      <h3 class="reviews-slider__title">Отзывы клиентов</h3>
+      <a href="/" class="reviews-slider__header-button">Все предложения</a>
+    </div>
+    <ul class="reviews-slider__tabs">
+      <li class="reviews-slider__tab reviews-slider__tab--active">Все</li>
+      <li class="reviews-slider__tab">Инвестиции</li>
+      <li class="reviews-slider__tab">Дебетовые карты</li>
+      <li class="reviews-slider__tab">Кредитные карты</li>
+      <li class="reviews-slider__tab">Все</li>
+      <li class="reviews-slider__tab">Инвестиции</li>
+      <li class="reviews-slider__tab">Дебетовые карты</li>
+      <li class="reviews-slider__tab">Кредитные карты</li>
+      <li class="reviews-slider__tab">Все</li>
+    </ul>
+    <div class="reviews-slider__slider">
+      <div class="swiper-wrapper">
+        <div class="reviews-slider__slide swiper-slide">
+          <div class="reviews-slider__slide-top">
+            <img src="https://i.pravatar.cc/300" alt="" class="reviews-slider__avatar">
+            <div class="reviews-slider__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat
+              explicabo quaerat tempora, veritatis inventore unde corporis animi. Quidem enim, cupiditate odio illum
+              officia
+              dolore magni a. Molestias, consectetur iusto.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat
+              explicabo quaerat tempora, veritatis inventore unde corporis animi. Quidem enim, cupiditate odio illum
+              officia
+              dolore magni a. Molestias, consectetur iusto.</div>
+          </div>
+          <div class="reviews-slider__slide-bottom">
+            <span class="reviews-slider__date">2025-01-01 00:00:01</span>
+          </div>
+        </div>
+        <div class="reviews-slider__slide swiper-slide">
+          <div class="reviews-slider__slide-top">
+            <img src="https://i.pravatar.cc/300" alt="" class="reviews-slider__avatar">
+            <div class="reviews-slider__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat
+              explicabo quaerat tempora, veritatis inventore unde corporis animi. Quidem enim, cupiditate odio illum
+              officia
+              dolore magni a. Molestias, consectetur iusto.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat
+              explicabo quaerat tempora, veritatis inventore unde corporis animi. Quidem enim, cupiditate odio illum
+              officia
+              dolore magni a. Molestias, consectetur iusto.</div>
+          </div>
+          <div class="reviews-slider__slide-bottom">
+            <span class="reviews-slider__date">2025-01-01 00:00:01</span>
+          </div>
+        </div>
+        <div class="reviews-slider__slide swiper-slide">
+          <div class="reviews-slider__slide-top">
+            <img src="https://i.pravatar.cc/300" alt="" class="reviews-slider__avatar">
+            <div class="reviews-slider__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat
+              explicabo quaerat tempora, veritatis inventore unde corporis animi. Quidem enim, cupiditate odio illum
+              officia
+              dolore magni a. Molestias, consectetur iusto.</div>
+          </div>
+          <div class="reviews-slider__slide-bottom">
+            <span class="reviews-slider__date">2025-01-01 00:00:01</span>
+          </div>
+        </div>
+        <div class="reviews-slider__slide swiper-slide">
+          <div class="reviews-slider__slide-top">
+            <img src="https://i.pravatar.cc/300" alt="" class="reviews-slider__avatar">
+            <div class="reviews-slider__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat
+              explicabo quaerat tempora, veritatis inventore unde corporis animi. Quidem enim, cupiditate odio illum
+              officia
+              dolore magni a. Molestias, consectetur iusto.</div>
+          </div>
+          <div class="reviews-slider__slide-bottom">
+            <span class="reviews-slider__date">2025-01-01 00:00:01</span>
+          </div>
+        </div>
+        <div class="reviews-slider__slide swiper-slide">
+          <div class="reviews-slider__slide-top">
+            <img src="https://i.pravatar.cc/300" alt="" class="reviews-slider__avatar">
+            <div class="reviews-slider__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat
+              explicabo quaerat tempora, veritatis inventore unde corporis animi. Quidem enim, cupiditate odio illum
+              officia
+              dolore magni a. Molestias, consectetur iusto.</div>
+          </div>
+          <div class="reviews-slider__slide-bottom">
+            <span class="reviews-slider__date">2025-01-01 00:00:01</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="main__description description">
   <div class="description__wrapper section-wrapper small-container">
     {!! $category->description !!}

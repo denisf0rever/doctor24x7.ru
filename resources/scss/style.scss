@@ -163,9 +163,6 @@ p {
     &__online-waiting {
         margin-top: 20px;
     }
-    &__description {
-        margin-top: 50px;
-    }
 }
 
 @media (max-width: 930px) {
@@ -276,6 +273,7 @@ p {
 @import "components/payment/promo.scss";
 @import "components/payment/payment-type.scss";
 @import "components/common/consultants-form.scss";
+@import "components/common/reviews-slider.scss";
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "components/login.scss";

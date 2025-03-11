@@ -1,0 +1,100 @@
+.reviews-slider {
+    &__wrapper {
+        padding: 0 15px;
+    }
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 26px;
+    }
+    &__header-button {
+        padding: 12px 15px;
+        border-radius: 7px;
+        background-color: #e7e8ec;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.2s linear;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    &__tabs {
+        display: flex;
+        gap: 15px;
+        overflow: auto;
+    }
+    &__tab {
+        padding: 10px 20px;
+        background-color: #e7e8ec;
+        transition: all 0.3s linear;
+        cursor: pointer;
+        border-radius: 15px;
+        font-size: 12px;
+        white-space: nowrap;
+        &:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        &--active {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    &__slider {
+        margin-top: 30px;
+        overflow: hidden;
+    }
+    &__slide {
+        background-color: #e7e8ec;
+        padding: 15px;
+        width: calc((100% - 60px) / 4);
+        border-radius: 15px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__avatar {
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        float: left;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    &__date {
+        padding-top: 5px;
+        display: block;
+        font-size: 12px;
+        color: var(--secondary-text);
+    }
+}
+
+@media (max-width: 992px) {
+    .reviews-slider {
+        &__slide {
+            width: calc((100% - 60px) / 3);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews-slider {
+        &__slide {
+            width: calc((100% - 60px) / 2);
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .reviews-slider {
+        &__slide {
+            width: calc((100% - 60px));
+        }
+    }
+}
