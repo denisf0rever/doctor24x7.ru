@@ -28,6 +28,39 @@
           консультация</a>
         <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
       </div>
+      <div class="category-intro__experts-cards expert-cards">
+        <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">
+          <div class="expert-card__text">
+            <span class="expert-card__title">Джамил Интигамович</span>
+            <div class="expert-card__subtitle">Онколог</div>
+          </div>
+          <img src="https://i.pravatar.cc/300" alt="консультация онколога онлайн" class="expert-card__img">
+        </a>
+
+        <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">
+          <div class="expert-card__text">
+            <span class="expert-card__title">Анастасия Андреевна</span>
+            <div class="expert-card__subtitle">Онколог</div>
+          </div>
+          <img src="https://i.pravatar.cc/300" alt="консультация онколога онлайн" class="expert-card__img">
+        </a>
+
+        <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">
+          <div class="expert-card__text">
+            <span class="expert-card__title">Азамат Рашитович</span>
+            <div class="expert-card__subtitle">Онколог</div>
+          </div>
+          <img src="https://i.pravatar.cc/300" alt="консультация онколога онлайн" class="expert-card__img">
+        </a>
+
+        <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">
+          <div class="expert-card__text">
+            <span class="expert-card__title">Мадина Магомедовна</span>
+            <div class="expert-card__subtitle">Онколог</div>
+          </div>
+          <img src="https://i.pravatar.cc/300" alt="консультация онколога онлайн" class="expert-card__img">
+        </a>
+      </div>
     </div>
   </div>
 </section>
