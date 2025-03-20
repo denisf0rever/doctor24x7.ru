@@ -34,14 +34,13 @@ class ConsultationFormController extends Controller
 			];
 		
 			if ($request->hasFile('images')) {
-				 //foreach ($request->file('images') as $file) {
-					// Сохраняем каждый файл в нужной директории
-					//$file->store('consultation'); // Папка, куда будут сохраняться файлы
+				 foreach ($request->file('images') as $file) {
+					$file->store('consultation'); // Папка, куда будут сохраняться файлы
 					
-				//$imagePath = $request->file('image')->store('consultation');
-				//$consultationImage = Str::of($imagePath)->basename();
-				//$images['avatarImage'] = $consultationImage;
-				//}
+				$imagePath = $file->store('consultation');
+				$consultationImage = Str::of($imagePath)->basename();
+				$images['avatarImage'] = $consultationImage;
+				}
 			}
 			
 			//\Log::info('Dispatching ConsultationCreated event', $data);

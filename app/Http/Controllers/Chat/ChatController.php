@@ -23,7 +23,7 @@ class ChatController extends Controller
 		$consultation = Consultation::query()
 			->with('category')
 			->where('id', $id)
-			->select('id', 'title', 'description', 'username', 'created_at', 'rubric_id')
+			->select('id', 'title', 'description', 'username', 'created_at', 'rubric_id', 'is_payed')
 			->first();
 			
 		return view('consultation.chat.item', compact('consultation'));

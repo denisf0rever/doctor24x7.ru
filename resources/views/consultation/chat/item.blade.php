@@ -1,5 +1,5 @@
 @extends('chat')
-@section('title', $consultation->title .' — консультируют врачи на форуме')
+@section('title', $consultation->title)
 @section('description', 'Консультация врача, вопрос: ' . $consultation->title)
 @section('keywords', '')
 
@@ -123,7 +123,11 @@
                   </div>
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text">Здравствуйте, Ваш вопрос получен, готовы предоставить консультацию здесь в чате либо по телефону. <span class="chat-message__text"><a href="https://puzkarapuz.ru/sfConsultationComment/payment/slug/{{ $consultation->id }}" class="chat-message__link" target="_target">Оплатить консультацию</a></span>
+                      @if ($consultation->is_payed == 0)
+						  <span class="chat-message__text">Здравствуйте, Ваш вопрос получен, готовы предоставить консультацию здесь в чате либо по телефону. <span class="chat-message__text"><a href="https://puzkarapuz.ru/sfConsultationComment/payment/slug/{{ $consultation->id }}" class="chat-message__link" target="_target">Оплатить консультацию</a></span>
+						@else 
+							 <span class="chat-message__text">Здравствуйте, Ваша консультация оплачена, ожидайте ответ на почту, мы ответим вам согласно условиям выбранного тарифа.</span>
+					  @endif
                       <span class="chat-message__time">
                         <div class="chat-message__time-icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -158,11 +162,16 @@
     </div>
   </div>
 </div>
-<div class="toast" id="toast">
+ @if ($consultation->is_payed == 0)
+						  <div class="toast" id="toast">
   <div class="toast__container">
     <div class="toast__item">
       Консультация не оплачена
     </div>
   </div>
 </div>
+						@else 
+							  
+					  @endif
+					
 @endsection
