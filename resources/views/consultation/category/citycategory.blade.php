@@ -33,11 +33,11 @@
         </div>
       </div>
       <div class="category-intro__button-block">
-        <a href="/consultation/comment?rubric_id={{ $city->id }}" class="category-intro__button-link">Онлайн
-          консультация</a>
+        <a href="/consultation/comment?rubric_id={{ $city->id }}" class="category-intro__button-link">Задать вопрос
+          →</a>
         <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
       </div>
-      <div class="main__сategory-info сategory-info">
+      <div class="main__сategory-info сategory-info ">
         <div class="category-info__wrapper">
           <div class="category-info__inner">
             <ul class="category-info__tabs">
