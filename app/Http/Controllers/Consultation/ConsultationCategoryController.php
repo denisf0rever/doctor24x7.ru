@@ -98,4 +98,14 @@ class ConsultationCategoryController extends Controller
 		
         return view('consultation.category.citycategory', compact('category', 'city'));
     }
+	
+	public function addDoctor()
+	{
+		return view('dashboard.consultation.category.showcase');
+	}
+	
+	public function showcase()
+	{
+		return view('dashboard.consultation.category.showcase');
+	}
 }

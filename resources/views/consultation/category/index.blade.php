@@ -12,21 +12,13 @@
       <div class="category-intro__top">
         <h1 class="category-intro__title">{{ $category->h1 }}</h1>
         <div class="category-intro__text">
-          <p class="category-intro__p">Работаем круглосуточно. Практикующие врачи и психологи. Консультацию
-            {{ $category->name_v }} можно получить через разные способы коммуникации. В онлайн чате вы можете быстро
-            задать вопрос и получить ответ в режиме реального времени, а по телефону — обсудить свои проблемы более
-            подробно.
-          </p>
-          <p class="category-intro__p">
-            Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как
-            мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.
-          </p>
+          <p class="category-intro__p">Консультацию {{ $category->name_v }} можно получить в онлайн чате, задайте вопрос {{ $category->button_name }} и получите ответ в режиме реального времени прямо сейчас, а по телефону — можете обсудить свои проблемы более подробно.</p><p class="category-intro__p">Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.</p>
         </div>
       </div>
       <div class="category-intro__button-block">
         <a href="/consultation/comment?rubric_id={{ $category->id }}" class="category-intro__button-link">Задать вопрос
           →</a>
-        <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
+        <div class="category-intro__button-text">Ответ в течение 25 минут</div>
       </div>
       <div class="category-intro__experts-cards expert-cards">
         <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">

@@ -38,11 +38,11 @@
                   <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list">
-                  @foreach ($categories as $category)
+                 
                   <li class="pages__item">
-                    <span class="pages__views-id">{{ $category->id }}</span></a>
+                    <span class="pages__views-id"> </span></a>
                     <a class="pages__name" href=""
-                      target="_blank"><span>{{ $category->short_title }}</span></a>
+                      target="_blank"><span> </span></a>
                     <div class="pages__icons">
                       <div class="pages__icon">
                         <a href="" target="_blank">
@@ -56,7 +56,6 @@
                       </div>
                     </div>
                   </li>
-                  @endforeach
                 </ul>
               </div>
             </div>

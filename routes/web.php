@@ -141,6 +141,10 @@ Route::middleware(['auth'])->group(function () {
 	
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
 	Route::get('/dashboard/consultation/categories', [ConsultationCategoryController::class, 'index'])->name('dashboard.consultation.categories');
+	
+	Route::get('/dashboard/consultation/categories/showcase/add-doctor', [ConsultationCategoryController::class, 'addDoctor'])->name('dashboard.consultation.categories.showcase.add-doctor');
+	Route::post('/dashboard/consultation/categories/showcase', [ConsultationCategoryController::class, 'showcase'])->name('dashboard.consultation.categories.showcase');
+	
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
 	Route::get('/dashboard/consultation/category/{id}', [ConsultationController::class, 'category'])->name('dashboard.consultation.category');
 	Route::get('/dashboard/booking/{id}', [BookingController::class, 'show'])->name('dashboard.booking.list');
