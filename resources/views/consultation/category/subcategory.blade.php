@@ -165,7 +165,7 @@
 
 <section class="main__description description">
   <div class="description__wrapper section-wrapper small-container">
-    {!! $subCategory->description !!}
+    ТЕКСТ
   </div>
 </section>
 

@@ -98,13 +98,6 @@
 </section>
 
 
-
-<section class="main__description description">
-  <div class="description__wrapper section-wrapper small-container">
-    {!! $city->description !!}
-  </div>
-</section>
-
 <div class="main__chat chat">
   <form action="/" id="chat-form" class="chat__form">
     <div class="chat__wrapper">
