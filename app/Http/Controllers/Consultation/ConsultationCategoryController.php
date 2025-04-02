@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
 use App\Models\Consultation\ConsultationCategory as Category;
+use App\Models\Consultation\CategoryShowcase as Showcase;
 use App\Models\Consultation\SubCategories;
 use App\Models\User\CategoryText as Text;
 use App\Models\City\City;
@@ -23,6 +24,12 @@ class ConsultationCategoryController extends Controller
 		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name', 'description', 'slug', 'position', 'meta_description', 'meta_keywords')
 			->where('slug', $slug)
 			->first();
+			
+		$showcase = Showcase::query()
+			->where('category_id', $category->id)
+			->select('category_id', 'user_id', 'position')
+			->orderBy('position')
+			->get();
 			
 		$texts = Text::query()
 			->where('category_id', $category->id)
@@ -40,7 +47,7 @@ class ConsultationCategoryController extends Controller
 		$endTime = microtime(true);
         $executionTime = ($endTime - $startTime); // Время в миллисекундах
 		
-	return view('consultation.category.index', compact('category', 'texts', 'groupedSubcategories', 'executionTime'));
+	return view('consultation.category.index', compact('category', 'texts', 'groupedSubcategories', 'executionTime', 'showcase'));
 	}
 	
 	public function index()
@@ -101,11 +108,22 @@ class ConsultationCategoryController extends Controller
 	
 	public function addDoctor()
 	{
-		return view('dashboard.consultation.category.showcase');
+		$showcase = Showcase::query()
+			->get();
+		
+		return view('dashboard.consultation.category.showcase', compact('showcase'));
 	}
 	
-	public function showcase()
+	public function showcase(Request $request)
 	{
-		return view('dashboard.consultation.category.showcase');
+		$validatedData = $request->validate([
+			'category_id' => 'required|integer',
+			'user_id' => 'required|integer',
+			'position' => 'required|integer',
+		]);
+		
+		$showcase = Showcase::create($validatedData);
+		
+		return redirect()->back()->with('success', 'Элемент успешно добавлен в showcase!');
 	}
 }

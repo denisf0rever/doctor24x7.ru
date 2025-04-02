@@ -14,6 +14,7 @@ use App\Http\Controllers\Consultation\ConsultationFormController;
 use App\Http\Controllers\Consultation\DiscussionController;
 use App\Http\Controllers\Consultation\ConsultationAnswerController;
 use App\Http\Controllers\Consultation\ConsultationCategoryController;
+use App\Http\Controllers\Consultation\CategoryShowcaseController;
 use App\Http\Controllers\Consultation\BookingController;
 use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
@@ -144,6 +145,7 @@ Route::middleware(['auth'])->group(function () {
 	
 	Route::get('/dashboard/consultation/categories/showcase/add-doctor', [ConsultationCategoryController::class, 'addDoctor'])->name('dashboard.consultation.categories.showcase.add-doctor');
 	Route::post('/dashboard/consultation/categories/showcase', [ConsultationCategoryController::class, 'showcase'])->name('dashboard.consultation.categories.showcase');
+	Route::delete('/dashboard/consultation/categories/showcase/destroy/{id}', [CategoryShowcaseController::class, 'destroy'])->name('dashboard.consultation.categories.showcase.destroy');
 	
 	Route::get('/dashboard/consultation/{id}', [ConsultationController::class, 'show'])->name('dashboard.consultation.item');
 	Route::get('/dashboard/consultation/category/{id}', [ConsultationController::class, 'category'])->name('dashboard.consultation.category');

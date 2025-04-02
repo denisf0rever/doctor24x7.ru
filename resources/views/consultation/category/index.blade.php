@@ -20,39 +20,19 @@
           →</a>
         <div class="category-intro__button-text">Ответ в течение 25 минут</div>
       </div>
+	  @if ($showcase->IsNotEmpty())	  
       <div class="category-intro__experts-cards expert-cards">
-        <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">
+		@foreach($showcase as $item)
+        <div class="expert-card js-lawyer-popup-open">
           <div class="expert-card__text">
-            <span class="expert-card__title">Джамил Интигамович</span>
-            <div class="expert-card__subtitle">Онколог</div>
+            <span class="expert-card__title">{{ $item->user->first_name .' '. $item->user->middle_name }}</span>
+            <div class="expert-card__subtitle">{{ $item->category->short_title }}</div>
           </div>
-          <img src="https://i.pravatar.cc/300" alt="консультация онколога онлайн" class="expert-card__img">
-        </a>
-
-        <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">
-          <div class="expert-card__text">
-            <span class="expert-card__title">Анастасия Андреевна</span>
-            <div class="expert-card__subtitle">Онколог</div>
-          </div>
-          <img src="https://i.pravatar.cc/300" alt="консультация онколога онлайн" class="expert-card__img">
-        </a>
-
-        <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">
-          <div class="expert-card__text">
-            <span class="expert-card__title">Азамат Рашитович</span>
-            <div class="expert-card__subtitle">Онколог</div>
-          </div>
-          <img src="https://i.pravatar.cc/300" alt="консультация онколога онлайн" class="expert-card__img">
-        </a>
-
-        <a href="#" class="expert-card js-lawyer-popup-open" data-popup="popup-lawyer">
-          <div class="expert-card__text">
-            <span class="expert-card__title">Мадина Магомедовна</span>
-            <div class="expert-card__subtitle">Онколог</div>
-          </div>
-          <img src="https://i.pravatar.cc/300" alt="консультация онколога онлайн" class="expert-card__img">
-        </a>
+          <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $item->user->avatar }}" alt="{{ $item->category->h1 }}" class="expert-card__img">
+        </div>
+		@endforeach
       </div>
+	  @endif
     </div>
   </div>
 </section>
