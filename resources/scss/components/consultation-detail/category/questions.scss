@@ -1,4 +1,4 @@
-.questions-accordion {
+.questions {
     &__wrapper {
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
@@ -13,7 +13,7 @@
     }
 }
 
-.question-accordion {
+.question {
     &__wrapper {
         background-color: #fff;
         border-radius: 32px;
@@ -46,7 +46,7 @@
             transform: rotate(180deg);
         }
     }
-    &__ansver-wrapper {
+    &__answer-wrapper {
         max-height: 0;
         overflow: hidden;
         transition: all 0.3s ease-in;

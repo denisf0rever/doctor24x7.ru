@@ -12,7 +12,12 @@
       <div class="category-intro__top">
         <h1 class="category-intro__title">{{ $category->h1 }}</h1>
         <div class="category-intro__text">
-          <p class="category-intro__p">Консультацию {{ $category->name_v }} можно получить в онлайн чате, задайте вопрос {{ $category->button_name }} и получите ответ в режиме реального времени прямо сейчас, а по телефону — можете обсудить свои проблемы более подробно.</p><p class="category-intro__p">Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.</p>
+          <p class="category-intro__p">Консультацию {{ $category->name_v }} можно получить в онлайн чате, задайте вопрос
+            {{ $category->button_name }} и получите ответ в режиме реального времени прямо сейчас, а по телефону —
+            можете обсудить свои проблемы более подробно.</p>
+          <p class="category-intro__p">Видеоконсультация позволяет врачам видеть пациента и проводить более полное
+            обследование, в то время как мессенджеры обеспечивают удобство общения в любое время, позволяя делиться
+            медицинскими документами и фото.</p>
         </div>
       </div>
       <div class="category-intro__button-block">
@@ -20,19 +25,20 @@
           →</a>
         <div class="category-intro__button-text">Ответ в течение 25 минут</div>
       </div>
-	  @if ($showcase->IsNotEmpty())	  
+      @if ($showcase->IsNotEmpty())
       <div class="category-intro__experts-cards expert-cards">
-		@foreach($showcase as $item)
+        @foreach($showcase as $item)
         <div class="expert-card js-lawyer-popup-open">
           <div class="expert-card__text">
             <span class="expert-card__title">{{ $item->user->first_name .' '. $item->user->middle_name }}</span>
             <div class="expert-card__subtitle">{{ $item->category->short_title }}</div>
           </div>
-          <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $item->user->avatar }}" alt="{{ $item->category->h1 }}" class="expert-card__img">
+          <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $item->user->avatar }}"
+            alt="{{ $item->category->h1 }}" class="expert-card__img">
         </div>
-		@endforeach
+        @endforeach
       </div>
-	  @endif
+      @endif
     </div>
   </div>
 </section>
@@ -238,87 +244,6 @@
   </div>
 </section>
 
-<section class="main__questions-accordion questions-accordion">
-  <div class="questions-accordion__wrapper">
-    <div class="questions-accordion__inner container">
-      <ul class="questions-accordion__list">
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Сколько по времени занимает оплата зарубежного сервиса?</span>
-              <div class="question-accordion__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question-accordion__ansver-wrapper">
-              <span class="question-accordion__ansver-text">От нескольких минут до нескольких часов.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Сколько по времени занимает оплата зарубежного сервиса?</span>
-              <div class="question-accordion__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question-accordion__ansver-wrapper">
-              <span class="question-accordion__ansver-text">От нескольких минут до нескольких часов.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Сколько по времени занимает оплата зарубежного сервиса?</span>
-              <div class="question-accordion__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question-accordion__ansver-wrapper">
-              <span class="question-accordion__ansver-text">От нескольких минут до нескольких часов.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Сколько по времени занимает оплата зарубежного сервиса?</span>
-              <div class="question-accordion__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question-accordion__ansver-wrapper">
-              <span class="question-accordion__ansver-text">От нескольких минут до нескольких часов.</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 @if ($category->subcategories->isNotEmpty())
 <section class="main__themes themes">
   <div class="themes__wrapper section-wrapper small-container">
@@ -460,11 +385,14 @@
   </div>
 </section>
 
-<section class="main__description description">
-  <div class="description__wrapper section-wrapper small-container">
-    {!! $category->description !!}
+<section class="main__questionsn questions">
+  <div class="questions__wrapper">
+    <div class="questions__inner container">
+      {!! $category->description !!}
+    </div>
   </div>
 </section>
+
 
 <div class="main__chat chat">
   <form action="/" id="chat-form" class="chat__form">

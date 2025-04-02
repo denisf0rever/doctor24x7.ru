@@ -35,25 +35,25 @@ use App\Helpers\LinkHelper
 </div>
 
 <div class="main__content section-wrapper">
-  <section class="main__question question">
-    <div class="question__wrapper">
-      <h1 class="question__title">{{ $consultation->title }} {{ $executionTime }}</h1>
+  <section class="main__question consultation-question">
+    <div class="consultation-question__wrapper">
+      <h1 class="consultation-question__title">{{ $consultation->title }} {{ $executionTime }}</h1>
       @if ($discussion > 0)
-      <ul class="question__discussion-list">
-        <li class="question__discussion-item">
+      <ul class="consultation-question__discussion-list">
+        <li class="consultation-question__discussion-item">
           <a href="{{ route('consultation.subrubric', ['categorySlug' => $consultation->discussion->subcategory->category->slug, 
 		  'subcategorySlug' => $consultation->discussion->subcategory->slug]) }}"
-            class="question__discussion-link">{{ $consultation->discussion->subcategory->short_title }}</a>
+            class="consultation-question__discussion-link">{{ $consultation->discussion->subcategory->short_title }}</a>
         </li>
       </ul>
       @endif
 
-      <div class="question__text">
+      <div class="consultation-question__text">
         <p>{{ $consultation->description }}</p>
         <p>{{ $consultation->created_at }}</p>
         @if ($photos->isNotEmpty())
         <div class="consultation__item">
-          <p id="question-age">Фото: {{ $photos->count() }} шт</p>
+          <p id="consultation-question-age">Фото: {{ $photos->count() }} шт</p>
         </div>
         <div class="consultation__gallery">
           <ul class="consultation__gallery-list">
@@ -68,16 +68,18 @@ use App\Helpers\LinkHelper
         <p>Ответов: {{ $consultation->answer_count }}</p>
       </div>
 
-      <div class="question__icons">
+      <div class="consultation-question__icons">
         @if(Auth::check())
-        <div class="question__icon question__icon-link question__icon-last custom-select">
-          <img src="{{ Storage::url('common/question/click.svg') }}" alt=""
-            class="question__icon-img question__icon-actions-img">
-          <div class="question__icon-value">Действия</div>
-          <div class="question__select-wrapper custom-select__wrapper custom-select__hide">
-            <ul class="question__select-list">
-              <li class="question__option">
-                <a href="{{ route('dashboard.consultation.item', $consultation->id) }}" class="question__link">
+        <div
+          class="consultation-question__icon consultation-question__icon-link consultation-question__icon-last custom-select">
+          <img src="{{ Storage::url('common/consultation-question/click.svg') }}" alt=""
+            class="consultation-question__icon-img consultation-question__icon-actions-img">
+          <div class="consultation-question__icon-value">Действия</div>
+          <div class="consultation-question__select-wrapper custom-select__wrapper custom-select__hide">
+            <ul class="consultation-question__select-list">
+              <li class="consultation-question__option">
+                <a href="{{ route('dashboard.consultation.item', $consultation->id) }}"
+                  class="consultation-question__link">
                   В панель
                 </a>
               </li>
