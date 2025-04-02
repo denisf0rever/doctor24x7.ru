@@ -39,7 +39,7 @@
 
 <section class="main__ask-question-form ask-question-form">
   <div class="ask-question-form__wrapper">
-    <h2 class="ask-question-form__title">Задать вопрос гематологу онлайн </h2>
+    <h2 class="ask-question-form__title">Задать вопрос {{ $category->button_name }}</h2>
     <ul class="ask-question-form__blocks">
       <li class="ask-question-form__block">
         <img src="{{ asset('storage/category/first-step.svg') }}" class="ask-question-form__block-img">
