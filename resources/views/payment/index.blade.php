@@ -22,44 +22,31 @@
           <span class="payment__small-title">Количество консультантов</span>
           <div class="payment__amount-list">
 
-
-
-
             <label class="payment__amount-item" for="amount_1">
               <input class="payment__amount-input" hidden="" checked="" type="radio" name="Sum" value="500"
                 id="amount_1" data-id="14">
               <span class="payment__amount-radio">1</span>
             </label>
 
-
-
-
             <label class="payment__amount-item" for="amount_2">
               <input class="payment__amount-input" hidden="" type="radio" name="Sum" value="1200" id="amount_2"
                 data-id="19">
               <span class="payment__amount-radio">2</span>
             </label>
-
-
-
-
+			
             <label class="payment__amount-item" for="amount_3">
               <input class="payment__amount-input" hidden="" type="radio" name="Sum" value="2400" id="amount_3"
                 data-id="1">
               <span class="payment__amount-radio">3</span>
             </label>
 
-
-
-
             <label class="payment__amount-item" for="amount_4">
               <input class="payment__amount-input" hidden="" type="radio" name="Sum" value="2500" id="amount_4"
                 data-id="4">
               <span class="payment__amount-radio">4</span>
             </label>
-
-
           </div>
+		  
           <span class="payment__small-title">Стоимость консультации</span>
 
           <div class="payment__urgency-list">
@@ -100,42 +87,15 @@
                   <div class="payment-checkbox__inner">
                     <img src="https://consjurist.ru/images/svg/payment/chat.svg" alt="" class="payment-checkbox__img">
                     <div class="payment-checkbox__text-block">
-                      <div class="payment-checkbox__title">
-                        Диалоги в консультации
+                      <div class="payment-checkbox__title">Диалоги с врачом (чат)
                         <span class="payment-checkbox__grey-text"></span>
                       </div>
-                      <div class="payment-checkbox__text">
-                        Чтобы написать уточнение, дополнить свой вопрос
-                      </div>
+                      <div class="payment-checkbox__text">Написать уточнение, дополнить вопрос</div>
                     </div>
                     <div class="payment-checkbox__right">
                       <div class="payment-checkbox__price">349 ₽</div>
                       <label class="payment-checkbox__switch form-switch">
-                        <input type="checkbox" class="form-switch__checkbox" name="option_1" value="349">
-                        <span class="form-switch__slider"> </span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="payment__checkbox payment-checkbox">
-                <div class="payment-checkbox__wrapper">
-                  <div class="payment-checkbox__inner">
-                    <img src="https://consjurist.ru/images/svg/payment/private.svg" alt=""
-                      class="payment-checkbox__img">
-                    <div class="payment-checkbox__text-block">
-                      <div class="payment-checkbox__title">
-                        Анонимный вопрос
-                        <span class="payment-checkbox__grey-text"></span>
-                      </div>
-                      <div class="payment-checkbox__text">
-                        Видит только врач
-                      </div>
-                    </div>
-                    <div class="payment-checkbox__right">
-                      <div class="payment-checkbox__price">99 ₽</div>
-                      <label class="payment-checkbox__switch form-switch">
-                        <input type="checkbox" class="form-switch__checkbox" name="option_2" value="99">
+                        <input type="checkbox" class="form-switch__checkbox" name="option_1" value="349" checked>
                         <span class="form-switch__slider"> </span>
                       </label>
                     </div>

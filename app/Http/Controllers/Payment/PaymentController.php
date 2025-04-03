@@ -178,14 +178,19 @@ class PaymentController extends Controller
 	
     public function init(Request $request)
     {
+		$request->request->remove('_token');
+		
 		$data = [
-			'Amount' => $request->Sum*100,
-			'Description' => 'Подарочная карта на 1000 рублей',
+			'Amount' => $request->Sum,
+			'Data' =>json_encode($request->all()),
+			'Description' => 'Оплата консультации с врачом',
 			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
-			'OrderId' => 'Тест1234',
+			'OrderId' => $request->OrderId . '357',
 			'Password' => 'UNUKBp3_0OMdREha',
 			'TerminalKey' => '1729778851371'
 		];
+		
+		dd($data);
 		
 		$values = array_values($data);
 		 
@@ -200,13 +205,18 @@ class PaymentController extends Controller
 		$postDataJson = json_encode($data);
 		
 		$response = Http::post('https://securepay.tinkoff.ru/v2/Init', $data);
-	
+			
 		$decode_response = json_decode($response, true);
 		
 		if (isset($decode_response['PaymentURL'])) {
 			$paymentUrl = $decode_response['PaymentURL'];
 			return redirect($paymentUrl);
 		} else {
+			
+			if($decode_response['ErrorCode'] == 8) {
+				dd($decode_response);
+			}
+			
 			return response()->json(['error' => 'Ошибка при отправке запроса'], $response->status());
 		}
 	}
