@@ -5,7 +5,7 @@
       border-radius: 32px;
     }
     &__title {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         font-weight: 500;
         line-height: 0.98;
         margin-bottom: 2rem;
@@ -103,7 +103,8 @@
 @media (max-width: 768px) {
     .ask-question-form {
         &__wrapper {
-            padding: 0 15px;
+          padding-left: 15px;
+          padding-right: 15px;
         }
         &__form-wrapper {
             padding: 20px 15px;

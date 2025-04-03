@@ -7,8 +7,8 @@
 @section('content')
 
 <div class="new-section-wrapper">
-<section class="main__intro сategory-intro">
-  <div class="category-intro__wrapper section-wrapper">
+<section class="main__intro category-intro">
+  <div class="category-intro__wrapper">
     <div class="category-intro__inner">
       <div class="category-intro__top">
         <h1 class="category-intro__title">{{ $subCategory->h1 }}</h1>
@@ -34,9 +34,49 @@
 
 
 
-      <div class="main__сategory-info сategory-info ">
+
+    </div>
+  </div>
+</section>
+<section class="main__ask-question-form ask-question-form">
+  <div class="ask-question-form__wrapper">
+    <h2 class="ask-question-form__title">Задать вопрос PLACEHOLDER</h2>
+    <ul class="ask-question-form__blocks">
+      <li class="ask-question-form__block">
+        <img src="{{ asset('storage/category/first-step.svg') }}" class="ask-question-form__block-img">
+        <div class="ask-question-form__separator"></div>
+        <div class="ask-question-form__text-wrapper">
+          <span class="ask-question-form__block-title">Спросите врача онлайн </span>
+          <span class="ask-question-form__block-subtitle">Напишите свой вопрос </span>
+        </div>
+      </li>
+      <li class="ask-question-form__block">
+        <img src="{{ asset('storage/category/second-step.svg') }}" class="ask-question-form__block-img">
+        <div class="ask-question-form__separator"></div>
+        <div class="ask-question-form__text-wrapper">
+          <span class="ask-question-form__block-title">Укажите данные для связи </span>
+          <span class="ask-question-form__block-subtitle">Телефон или почта </span>
+        </div>
+      </li>
+      <li class="ask-question-form__block">
+        <img src="{{ asset('storage/category/third-step.svg') }}" class="ask-question-form__block-img">
+        <div class="ask-question-form__text-wrapper">
+          <span class="ask-question-form__block-title">Ожидайте ответ </span>
+          <span class="ask-question-form__block-subtitle">Максимальное ожидание ~25 минут</span>
+        </div>
+      </li>
+    </ul>
+    <div class="ask-question-form__form-wrapper">
+      <form action="" class="ask-question-form__form">
+        <textarea name="" id="" class="ask-question-form__textarea"></textarea>
+        <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
+      </form>
+    </div>
+  </div>
+</section>
+<section class="main__сategory-info сategory-info ">
         <div class="category-info__wrapper">
-          <div class="category-info__inner">
+          <div class="category-info__inner small-container">
             <ul class="category-info__tabs">
               <li class="category-info__tab" data-tab="1">Задать вопрос</li>
               <li class="category-info__tab subCategory-info__tab--active" data-tab="2">Специалисты</li>
@@ -89,15 +129,12 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 </div>
 
 
 
-<section class="main__consultation-slider consultation-slider">
+<!-- <section class="main__consultation-slider consultation-slider">
   <h2 class="consultation-slider__title">Медицинские консультации предоставляют</h2>
   <span class="consultation-slider__subtitle">В онлайн сервисе работает более 100 врачей, всех специализаций
   </span>
@@ -164,14 +201,14 @@
       </ul>
     </div>
   </div>
-</section>
+</section> -->
 
 
-<section class="main__description description">
+<!-- <section class="main__description description">
   <div class="description__wrapper section-wrapper small-container">
     ТЕКСТ
   </div>
-</section>
+</section> -->
 
 <div class="main__chat chat">
   <form action="/" id="chat-form" class="chat__form">

@@ -83,7 +83,7 @@
 
 <section class="main__category-info category-info">
   <div class="category-info__wrapper">
-    <div class="category-info__inner container">
+    <div class="category-info__inner small-container">
       <ul class="category-info__tabs">
         <li class="category-info__tab" data-tab="1">Задать вопрос</li>
         <li class="category-info__tab category-info__tab--active" data-tab="2">Специалисты</li>

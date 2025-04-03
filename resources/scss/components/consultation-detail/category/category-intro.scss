@@ -65,12 +65,16 @@
 
 @media (max-width: 767px) {
     .category-intro {
+        &__wrapper{
+          padding: 15px;
+        }
         &__top {
             background: none;
         }
-
         &__title {
-            font-size: 25px;
+          font-size: 1.7rem;
+          text-align: center;
+          line-height: 35.36px;
         }
     }
 }

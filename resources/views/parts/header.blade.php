@@ -5,9 +5,9 @@
     <div class="header__wrapper container">
       <div class="header__top">
         <a href="/" class="header__logo">
-          <!-- <img src="{{ Storage::url('common/logo.svg') }}" alt="" class="header__logo-img"> -->
-           <h1 class="header__logo-text">Консультации врачей</h1>
-          <div class="header__title">КРУГЛОСУТОЧНО ОНЛАЙН</div>
+          <img src="{{ Storage::url('common/logo.svg') }}" alt="" class="header__logo-img">
+           <!-- <h1 class="header__logo-text">Консультации врачей</h1>
+          <div class="header__title">КРУГЛОСУТОЧНО ОНЛАЙН</div> -->
         </a>
         <nav class="header__nav">
           <ul class="header__nav-list">
