@@ -33,7 +33,7 @@
   @include('parts.header')
 
   <main class="main">
-    <div class="main__wrapper">
+    <div class="main__wrapper big-container">
       @yield('content')
     </div>
   </main>

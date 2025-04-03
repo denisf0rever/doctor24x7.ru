@@ -6,6 +6,7 @@
 
 @section('content')
 
+<div class="new-section-wrapper">
 <section class="main__intro сategory-intro">
   <div class="category-intro__wrapper section-wrapper">
     <div class="category-intro__inner">
@@ -92,6 +93,9 @@
     </div>
   </div>
 </section>
+</div>
+
+
 
 <section class="main__consultation-slider consultation-slider">
   <h2 class="consultation-slider__title">Медицинские консультации предоставляют</h2>

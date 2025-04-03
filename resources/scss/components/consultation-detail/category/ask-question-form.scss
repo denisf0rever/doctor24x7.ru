@@ -1,4 +1,9 @@
 .ask-question-form {
+    &__wrapper{
+      background: rgba(38, 55, 88, 0.06);
+      padding: 35px 0 25px 0;
+      border-radius: 32px;
+    }
     &__title {
         font-size: 1.5rem;
         font-weight: 500;
@@ -59,7 +64,7 @@
     }
     &__form-wrapper {
         display: flex;
-        margin: 40px auto 40px auto;
+        margin: 40px auto 0 auto;
         max-width: 720px;
         padding: 0px 60px;
     }

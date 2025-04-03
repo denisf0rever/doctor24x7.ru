@@ -12,6 +12,7 @@
 
 @section('content')
 
+<div class="new-section-wrapper">
 <section class="main__intro сategory-intro">
   <div class="category-intro__wrapper section-wrapper">
     <div class="category-intro__inner">
@@ -96,6 +97,9 @@
     </div>
   </div>
 </section>
+</div>
+
+
 
 
 <div class="main__chat chat">

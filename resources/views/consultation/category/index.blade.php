@@ -6,8 +6,9 @@
 
 @section('content')
 
+<div class="new-section-wrapper">
 <section class="main__intro category-intro">
-  <div class="category-intro__wrapper section-wrapper">
+  <div class="category-intro__wrapper">
     <div class="category-intro__inner">
       <div class="category-intro__top">
         <h1 class="category-intro__title">{{ $category->h1 }}</h1>
@@ -81,8 +82,8 @@
 </section>
 
 <section class="main__category-info category-info">
-  <div class="category-info__wrapper section-wrapper">
-    <div class="category-info__inner">
+  <div class="category-info__wrapper">
+    <div class="category-info__inner container">
       <ul class="category-info__tabs">
         <li class="category-info__tab" data-tab="1">Задать вопрос</li>
         <li class="category-info__tab category-info__tab--active" data-tab="2">Специалисты</li>
@@ -243,6 +244,8 @@
     </div>
   </div>
 </section>
+</div>
+
 
 @if ($category->subcategories->isNotEmpty())
 <section class="main__themes themes">
@@ -385,11 +388,9 @@
   </div>
 </section>
 
-<section class="main__questionsn questions">
-  <div class="questions__wrapper">
-    <div class="questions__inner container">
+<section class="main__description description">
+  <div class="description__wrapper container">
       {!! $category->description !!}
-    </div>
   </div>
 </section>
 
