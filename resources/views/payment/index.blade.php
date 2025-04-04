@@ -51,7 +51,7 @@
               <input class="payment__urgency-input" checked="" hidden="" type="radio" name="urgency" value="300"
                 id="urgency_1">
               <div class="payment__urgency-radio">
-                <img src="https://consjurist.ru/images/svg/payment/rocket.svg" alt="" class="payment__urgency-img">
+                <img src="{{ Storage::url('payment/rocket.svg') }}" alt="" class="payment__urgency-img">
                 <div class="payment__urgency-title">800 ₽</div>
                 <div class="payment__urgency-subtitle">В течение часа</div>
                 <div class="payment__urgency-text">Ожидание ~25м</div>
@@ -60,7 +60,7 @@
             <label class="payment__urgency-item" for="urgency_2">
               <input class="payment__urgency-input" hidden="" type="radio" name="urgency" value="0" id="urgency_2">
               <div class="payment__urgency-radio">
-                <img src="https://consjurist.ru/images/svg/payment/turtle.svg" alt="" class="payment__urgency-img">
+                <img src="{{ Storage::url('payment/turtle.svg') }}" alt="" class="payment__urgency-img">
                 <div class="payment__urgency-title">500 ₽</div>
                 <div class="payment__urgency-subtitle">Не срочно</div>
                 <div class="payment__urgency-text">Ожидание ~2-5ч</div>
@@ -69,7 +69,7 @@
             <label class="payment__urgency-item" for="urgency_3">
               <input class="payment__urgency-input" hidden="" type="radio" name="urgency" value="200" id="urgency_3">
               <div class="payment__urgency-radio">
-                <img src="https://consjurist.ru/images/svg/payment/scooter.svg" alt="" class="payment__urgency-img">
+                <img src="{{ Storage::url('payment/scooter.svg') }}" alt="" class="payment__urgency-img">
                 <div class="payment__urgency-title">700 ₽</div>
                 <div class="payment__urgency-subtitle">В течение пары часов</div>
                 <div class="payment__urgency-text">Ожидание ~1-2ч</div>
@@ -82,7 +82,7 @@
               <li class="payment__checkbox payment-checkbox">
                 <div class="payment-checkbox__wrapper">
                   <div class="payment-checkbox__inner">
-                    <img src="https://consjurist.ru/images/svg/payment/chat.svg" alt="" class="payment-checkbox__img">
+                    <img src="{{ Storage::url('payment/chat.svg') }}" alt="" class="payment-checkbox__img">
                     <div class="payment-checkbox__text-block">
                       <div class="payment-checkbox__title">Диалоги с врачом (чат)
                         <span class="payment-checkbox__grey-text"></span>
@@ -102,7 +102,7 @@
               <li class="payment__checkbox payment-checkbox">
                 <div class="payment-checkbox__wrapper">
                   <div class="payment-checkbox__inner">
-                    <img src="/images/svg/form-add/pill.svg" alt="" class="payment-checkbox__img">
+                    <img src="{{ Storage::url('payment/pill.svg') }}" alt="" class="payment-checkbox__img">
                     <div class="payment-checkbox__text-block">
                       <div class="payment-checkbox__title">
                         Фармацевт
@@ -125,7 +125,7 @@
               <li class="payment__checkbox payment-checkbox">
                 <div class="payment-checkbox__wrapper">
                   <div class="payment-checkbox__inner">
-                    <img src="https://consjurist.ru/images/svg/payment/phone.svg" alt="" class="payment-checkbox__img">
+                    <img src="{{ Storage::url('payment/phone.svg') }}" alt="" class="payment-checkbox__img">
                     <div class="payment-checkbox__text-block">
                       <div class="payment-checkbox__title">
                         Консультация по телефону
@@ -155,7 +155,7 @@
               <li class="payment__checkbox payment-checkbox">
                 <div class="payment-checkbox__wrapper">
                   <div class="payment-checkbox__inner">
-                    <img src="https://consjurist.ru/images/svg/payment/video-call.svg" alt=""
+                    <img src="{{ Storage::url('payment/video-call.svg') }}" alt=""
                       class="payment-checkbox__img">
                     <div class="payment-checkbox__text-block">
                       <div class="payment-checkbox__title">
@@ -201,7 +201,7 @@
               <input type="radio" name="paymentType" class="payment-method__input" value="AC" id="ac">
               <label for="ac" class="payment-method__label">
                 <div class="payment-method__icon">
-                  <img src="https://consjurist.ru/images/svg/payment/card.svg">
+                  <img src="{{ Storage::url('payment/card.svg') }}">
                 </div>
                 <div class="payment-method__body">
                   <span class="payment-method__title">Банковская карта</span>
@@ -214,7 +214,7 @@
               <input type="radio" name="paymentType" class="payment-method__input" value="SB" id="SB">
               <label for="SB" class="payment-method__label">
                 <div class="payment-method__icon">
-                  <img src="https://consjurist.ru/images/svg/payment/SB.svg">
+                  <img src="{{ Storage::url('payment/SB.svg') }}">
                 </div>
                 <div class="payment-method__body">
                   <span class="payment-method__title">SberPay</span>
@@ -227,7 +227,7 @@
               <input type="radio" name="paymentType" class="payment-method__input" value="PC" id="pc">
               <label for="pc" class="payment-method__label">
                 <div class="payment-method__icon">
-                  <img src="/images/svg/payment/yad.svg">
+                  <img src="{{ Storage::url('payment/yad.svg') }}">
                 </div>
                 <div class="payment-method__body">
                   <span class="payment-method__title">ЮMoney</span>
@@ -240,7 +240,7 @@
               <input type="radio" name="paymentType" class="payment-method__input" value="MC" id="mts">
               <label for="mts" class="payment-method__label">
                 <div class="payment-method__icon">
-                  <img src="/images/svg/payment/mts.svg">
+                  <img src="{{ Storage::url('payment/mts.svg') }}">
                 </div>
                 <div class="payment-method__body">
                   <span class="payment-method__title">МТС</span>
@@ -253,7 +253,7 @@
               <input type="radio" name="paymentType" class="payment-method__input" value="MC" id="beeline">
               <label for="beeline" class="payment-method__label">
                 <div class="payment-method__icon">
-                  <img src="/images/svg/payment/beeline.svg">
+                  <img src="{{ Storage::url('payment/beeline.svg') }}">
                 </div>
                 <div class="payment-method__body">
                   <span class="payment-method__title">Билайн</span>

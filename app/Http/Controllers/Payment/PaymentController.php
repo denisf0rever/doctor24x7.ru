@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\ConsultationCategory as Category;
@@ -169,11 +170,11 @@ class PaymentController extends Controller
 	
 	public function status(Request $request)
     {
-		//Log::channel('payment')->info('Payment Notification:', $request->all());
+		Log::channel('payment')->info('Payment Notification:', $request->all());
 		
-		//Mail::to('predlozhi@bk.ru')->send(new PaymentStatus('ff'));
+		Mail::to('predlozhi@bk.ru')->send(new PaymentStatus('ff'));
 		
-        return response('', 200);
+        return response('OK', 200);
     }
 	
     public function init(Request $request)
@@ -181,16 +182,18 @@ class PaymentController extends Controller
 		$request->request->remove('_token');
 		
 		$data = [
-			'Amount' => $request->Sum,
-			'Data' =>json_encode($request->all()),
+			'Amount' => 10 * 100,
+			//'Data' => json_encode($request->all()),
 			'Description' => 'Оплата консультации с врачом',
 			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
-			'OrderId' => $request->OrderId . '357',
+			//'OrderId' => $request->OrderId . '3574',
+			'OrderId' => Str::uuid(),
 			'Password' => 'UNUKBp3_0OMdREha',
-			'TerminalKey' => '1729778851371'
+			'SuccessURL' => 'https://doctor24x7.ru/payment/status/' . $request->OrderId,
+			'TerminalKey' => '1729778851371',
 		];
 		
-		dd($data);
+		//dd($data);
 		
 		$values = array_values($data);
 		 
