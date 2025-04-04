@@ -170,9 +170,9 @@ class PaymentController extends Controller
 	
 	public function status(Request $request)
     {
-		Log::channel('payment')->info('Payment Notification:', $request->all());
+		//Log::channel('payment')->info('Payment Notification:', $request->all());
 		
-		Mail::to('predlozhi@bk.ru')->send(new PaymentStatus('ff'));
+		//Mail::to('predlozhi@bk.ru')->send(new PaymentStatus('ff'));
 		
         return response('OK', 200);
     }

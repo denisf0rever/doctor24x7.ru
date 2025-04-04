@@ -1,8 +1,5 @@
 @extends('appwide')
-@section('title', $consultation->title)
-@section('description', $consultation->metadescription)
-@section('keywords', $consultation->metakey)
-@section('canonical', 'consultation/'. $consultation->id)
+@section('title', 'Оплата консультации')
 
 @section('content')
 <section class="main__payment-form payment-form big-container new-section-wrapper">
