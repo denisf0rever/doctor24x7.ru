@@ -16,15 +16,15 @@
           <span class="payment__small-title">Количество консультантов</span>
           <div class="payment__amount-list">
 
-			@foreach($tariffArray as $key => $tariff)
-			<label class="payment__amount-item" for="amount_{{ $key+1}}">
-              <input class="payment__amount-input" hidden="" type="radio" name="sum" value="{{ $tariff->sum }}"
-                id="amount_<?=$key+1; ?>" data-id="{{ $tariff->id }}"<?php if($key == 0): ?>checked=""<? endif;?> >
-              <span class="payment__amount-radio">{{ $key+1 }}</span>
+            @foreach($tariffArray as $key => $tariff)
+            <label class="payment__amount-item" for="amount_{{ $key + 1 }}">
+              <input class="payment__amount-input" hidden type="radio" name="sum" value="{{ $tariff->sum }}"
+                id="amount_{{ $key + 1 }}" data-id="{{ $tariff->id }}" @if ($key==0) checked @endif>
+              <span class="payment__amount-radio">{{ $key + 1 }}</span>
             </label>
-			@endforeach
+            @endforeach
           </div>
-		  
+
           <span class="payment__small-title">Стоимость консультации</span>
 
           <div class="payment__urgency-list">
@@ -136,8 +136,7 @@
               <li class="payment__checkbox payment-checkbox">
                 <div class="payment-checkbox__wrapper">
                   <div class="payment-checkbox__inner">
-                    <img src="{{ Storage::url('payment/video-call.svg') }}" alt=""
-                      class="payment-checkbox__img">
+                    <img src="{{ Storage::url('payment/video-call.svg') }}" alt="" class="payment-checkbox__img">
                     <div class="payment-checkbox__text-block">
                       <div class="payment-checkbox__title">
                         Видео-консультация
@@ -176,8 +175,16 @@
           <div>
             <h1 class="payment__normal-title">Выберите способ оплаты</h1>
           </div>
+          <div class="payment-method__tabs">
+            <input class="payment-method__radio-input" type="radio" id="payment_type_1" name="payment_type"
+              value="t_bank" checked>
+            <label class="payment-method__radio-label" for="payment_type_1">Т-банк касса</label>
 
-          <div class="payment-method__list">
+            <input class="payment-method__radio-input" type="radio" id="payment_type_2" name="payment_type"
+              value="u_kassa">
+            <label class="payment-method__radio-label" for="payment_type_2">Юкасса</label>
+          </div>
+          <div class="payment-method__list" data-id="payment_type_1">
             <div class="payment-method__item">
               <input type="radio" name="paymentType" class="payment-method__input" value="AC" id="ac">
               <label for="ac" class="payment-method__label">
@@ -216,6 +223,11 @@
                 </div>
               </label>
             </div>
+
+
+          </div>
+          <div class="payment-method__list" data-id="payment_type_2">
+
 
             <div class="payment-method__item">
               <input type="radio" name="paymentType" class="payment-method__input" value="MC" id="mts">

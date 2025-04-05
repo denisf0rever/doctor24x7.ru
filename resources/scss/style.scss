@@ -105,10 +105,10 @@ p {
     padding: 15px;
 }
 
-.new-section-wrapper{
-  background: #fff;
-  box-shadow: rgb(0 0 0 / 5%) 0 2px 0;
-  border-radius: 32px;
+.new-section-wrapper {
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 5%) 0 2px 0;
+    border-radius: 32px;
 }
 
 .custom-select {
@@ -280,6 +280,7 @@ p {
 @import "components/common/consultants-form.scss";
 @import "components/common/reviews-slider.scss";
 @import "components/common/expert-card.scss";
+@import "components/common/doc-list.scss";
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "components/login.scss";

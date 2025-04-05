@@ -256,8 +256,8 @@
             background-color: #f2f1f0;
         }
     }
-    &__method{
-      padding-bottom: 30px;
+    &__method {
+        padding-bottom: 30px;
     }
 }
 .form-switch {
@@ -314,6 +314,28 @@
 }
 
 .payment-method {
+    &__radio-input {
+        display: none;
+    }
+    &__tabs {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    &__radio-input:checked + &__radio-label {
+        border-bottom: 3px solid #f7a600;
+        font-weight: 500;
+        color: inherit;
+    }
+    &__radio-label {
+        cursor: pointer;
+        position: relative;
+        padding-bottom: 10px;
+        color: #a6abb6;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s linear;
+    }
     &__list {
         display: flex;
         padding: 15px 0 15px 0;
@@ -434,8 +456,8 @@
 }
 
 @media (max-width: 1024px) {
-  .payment-form__inner{
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+    .payment-form__inner {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
