@@ -122,7 +122,7 @@ class PaymentController extends Controller
 		
 		$tariffArray = [];
 		$is_show = false;
-		
+				
 		foreach ($tariffs as $tariff) {
 			if (null === $tariff->condition_id) {
 				$is_show = true;
@@ -179,14 +179,15 @@ class PaymentController extends Controller
 	
     public function init(Request $request)
     {
-		$request->request->remove('_token');
+		//$tariff_id = $request->;
+		
+		dd($request);
 		
 		$data = [
-			'Amount' => 10 * 100,
-			//'Data' => json_encode($request->all()),
+			'Amount' => $request->Sum * 100,
+			'Data' => json_encode(),
 			'Description' => 'Оплата консультации с врачом',
 			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
-			//'OrderId' => $request->OrderId . '3574',
 			'OrderId' => Str::uuid(),
 			'Password' => 'UNUKBp3_0OMdREha',
 			'SuccessURL' => 'https://doctor24x7.ru/payment/status/' . $request->OrderId,
