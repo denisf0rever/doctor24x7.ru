@@ -16,29 +16,13 @@
           <span class="payment__small-title">Количество консультантов</span>
           <div class="payment__amount-list">
 
-            <label class="payment__amount-item" for="amount_1">
-              <input class="payment__amount-input" hidden="" checked="" type="radio" name="sum" value="500"
-                id="amount_1" data-id="14">
-              <span class="payment__amount-radio">1</span>
+			@foreach($tariffArray as $key => $tariff)
+			<label class="payment__amount-item" for="amount_{{ $key+1}}">
+              <input class="payment__amount-input" hidden="" type="radio" name="sum" value="{{ $tariff->sum }}"
+                id="amount_<?=$key+1; ?>" data-id="{{ $tariff->id }}"<?php if($key == 0): ?>checked=""<? endif;?> >
+              <span class="payment__amount-radio">{{ $key+1 }}</span>
             </label>
-
-            <label class="payment__amount-item" for="amount_2">
-              <input class="payment__amount-input" hidden="" type="radio" name="sum" value="1200" id="amount_2"
-                data-id="19">
-              <span class="payment__amount-radio">2</span>
-            </label>
-			
-            <label class="payment__amount-item" for="amount_3">
-              <input class="payment__amount-input" hidden="" type="radio" name="sum" value="2400" id="amount_3"
-                data-id="1">
-              <span class="payment__amount-radio">3</span>
-            </label>
-
-            <label class="payment__amount-item" for="amount_4">
-              <input class="payment__amount-input" hidden="" type="radio" name="sum" value="2500" id="amount_4"
-                data-id="4">
-              <span class="payment__amount-radio">4</span>
-            </label>
+			@endforeach
           </div>
 		  
           <span class="payment__small-title">Стоимость консультации</span>
