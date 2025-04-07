@@ -396,15 +396,15 @@
     </form>
   </div>
 </section>
-<section class="main__questions-accordion questions-accordion">
-  <div class="questions-accordion__wrapper">
-    <div class="questions-accordion__inner container">
-      <ul class="questions-accordion__list">
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Чем занимается наш сервис?</span>
-              <div class="question-accordion__button">
+<section class="main__questions questions">
+  <div class="questions__wrapper">
+    <div class="questions__inner container">
+      <ul class="questions__list">
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Чем занимается наш сервис?</span>
+              <div class="question__button">
                 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
                   class="Accordion__icon">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -413,8 +413,8 @@
                 </svg>
               </div>
             </div>
-            <div class="question-accordion__ansver-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question-accordion__ansver-text">Наш сервис позволяет пациентам получать медицинскую помощь
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Наш сервис позволяет пациентам получать медицинскую помощь
                 онлайн, не выходя из дома. Врачи разных специальностей консультируют по видео, аудио или в чате,
                 помогают с расшифровкой анализов, назначением лечения и вторым мнением. Это удобно для занятых людей,
                 жителей удалённых регионов и тех, кому нужна срочная консультация. Доступ к квалифицированной медицине
@@ -422,11 +422,11 @@
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">В каких случаях можно проконсультироваться с врачом онлайн?</span>
-              <div class="question-accordion__button">
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">В каких случаях можно проконсультироваться с врачом онлайн?</span>
+              <div class="question__button">
                 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
                   class="Accordion__icon">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -435,8 +435,8 @@
                 </svg>
               </div>
             </div>
-            <div class="question-accordion__ansver-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question-accordion__ansver-text">Проконсультироваться с врачом онлайн можно при появлении
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Проконсультироваться с врачом онлайн можно при появлении
                 тревожных симптомов, для расшифровки анализов, подбора лечения или уточнения диагноза. Это удобно при
                 хронических заболеваниях, ОРВИ, кожных высыпаниях, аллергии, нарушениях сна и пищеварения. Врач онлайн
                 поможет с профилактикой, даст рекомендации по лекарствам и направит на очный приём, если потребуется.
@@ -444,11 +444,11 @@
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Как задать вопрос врачу?</span>
-              <div class="question-accordion__button">
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Как задать вопрос врачу?</span>
+              <div class="question__button">
                 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
                   class="Accordion__icon">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -457,8 +457,8 @@
                 </svg>
               </div>
             </div>
-            <div class="question-accordion__ansver-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question-accordion__ansver-text">Чтобы получить консультацию врача, напишите свой вопрос как
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Чтобы получить консультацию врача, напишите свой вопрос как
                 можно подробнее, укажите пол и возраст пациента. Если есть результаты обследования, прикрепите их или
                 перепишите результаты. Чем больше информации получит врач, тем более эффективной будет консультация.
                 Задать вопрос можно анонимно. Полностью заполните форму, оплатите консультацию и ожидайте ответ. Вопрос
@@ -466,11 +466,11 @@
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Через сколько ответит врач?</span>
-              <div class="question-accordion__button">
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Через сколько ответит врач?</span>
+              <div class="question__button">
                 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
                   class="Accordion__icon">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -479,19 +479,19 @@
                 </svg>
               </div>
             </div>
-            <div class="question-accordion__ansver-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question-accordion__ansver-text">Наш сервис работает круглосуточно. В среднем ответ готовится
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Наш сервис работает круглосуточно. В среднем ответ готовится
                 в течение 25 минут. Но нужно учитывать занятость врача на момент получения вопроса, а также
                 необходимость изучения результатов обследования и заключений, которые вы прислали. Максимум в течение
                 часа вы гарантированно получите ответ.</span>
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Как проходит консультация онлайн?</span>
-              <div class="question-accordion__button">
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Как проходит консультация онлайн?</span>
+              <div class="question__button">
                 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
                   class="Accordion__icon">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -500,8 +500,8 @@
                 </svg>
               </div>
             </div>
-            <div class="question-accordion__ansver-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question-accordion__ansver-text">Врач изучает ваш вопрос и результаты обследования (если они
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Врач изучает ваш вопрос и результаты обследования (если они
                 есть) и после этого предоставляет ответ на сайте. Мы оповестим вас по почте, для этого пришлём письмо с
                 ссылкой на ответ врача. Вы сможете задать дополнительные вопросы в онлайн чате, для этого нужно либо
                 сразу оплатить диалог с врачом, либо сделать это после того как задали дополнительный вопрос. Врачи
@@ -509,11 +509,11 @@
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Гарантии</span>
-              <div class="question-accordion__button">
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Гарантии</span>
+              <div class="question__button">
                 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
                   class="Accordion__icon">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -522,8 +522,8 @@
                 </svg>
               </div>
             </div>
-            <div class="question-accordion__ansver-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question-accordion__ansver-text">Мы юридическое лицо и несем ответственность согласно
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Мы юридическое лицо и несем ответственность согласно
                 законодательству РФ. Наш сервис гарантирует безопасность личных данных, конфиденциальность медицинской
                 информации и высокое качество оказанных услуг. Все специалисты имеют действующие лицензии и опыт работы
                 в профильной области, что позволяет доверять их рекомендациям. Минимальный стаж врачей - от 8
@@ -531,11 +531,11 @@
             </div>
           </div>
         </li>
-        <li class="questions-accordion__item question-accordion">
-          <div class="question-accordion__wrapper">
-            <div class="question-accordion__inner">
-              <span class="question-accordion__title">Почему выбирают наш сервис?</span>
-              <div class="question-accordion__button">
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Почему выбирают наш сервис?</span>
+              <div class="question__button">
                 <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
                   class="Accordion__icon">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -544,8 +544,8 @@
                 </svg>
               </div>
             </div>
-            <div class="question-accordion__ansver-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question-accordion__ansver-text">Наш сервис — это удобство, скорость и профессионализм. Мы
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Наш сервис — это удобство, скорость и профессионализм. Мы
                 отбираем только квалифицированных специалистов, гарантируем конфиденциальность данных и обеспечиваем
                 поддержку 24/7. Консультации проходят в удобном формате — чат, аудио или видео-консультации. Вы
                 получаете точные рекомендации, расшифровку анализов и помощь в выборе лечения без очередей и долгого
