@@ -12,6 +12,7 @@ use App\Models\Consultation\CategoryShowcase as Showcase;
 use App\Models\Consultation\SubCategories;
 use App\Models\User\CategoryText as Text;
 use App\Models\City\City;
+use App\Models\Doctors\Doctors;
 
 use App\Services\DoctorService;
 
@@ -90,7 +91,7 @@ class ConsultationCategoryController extends Controller
 	public function categoryCity($categorySlug, $city)
 	{
 		$category = Category::where('slug', $categorySlug)
-			->select('id', 'name_v', 'name_v_m', 'amount_doctors', 'font_color')
+			->select('id', 'name_v', 'name_v_m', 'amount_doctors', 'font_color', 'button_name')
 			->first();
 		
         if ($category === false) {
@@ -102,6 +103,10 @@ class ConsultationCategoryController extends Controller
         if ($city === false) {
             abort(404, 'Подкатегория не найдена');
         }
+		
+		$doctors = Doctors::getDoctors();
+		
+		dd($doctors);
 		
         return view('consultation.category.citycategory', compact('category', 'city'));
     }
