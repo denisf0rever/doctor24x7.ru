@@ -170,31 +170,70 @@ class PaymentController extends Controller
 	
 	public function status(Request $request)
     {
-		//Log::channel('payment')->info('Payment Notification:', $request->all());
+		Log::channel('payment')->info('Payment Notification:', $request->all());
 		
-		//Mail::to('predlozhi@bk.ru')->send(new PaymentStatus('ff'));
+		Mail::to('predlozhi@bk.ru')->send(new PaymentStatus($request->all()));
 		
         return response('OK', 200);
     }
 	
     public function init(Request $request)
-    {
-		//$tariff_id = $request->;
+	{
+		$request->validate([
+			'payment_type' => 'required|string|in:t_bank,u_kassa'
+		]);
+
+		return match ($request->payment_type) {
+			't_bank' => $this->tbank($request),
+			'u_kassa' => $this->ukassa(),
+			default => redirect()->back()->with('error', 'Недопустимый тип платежа.'), // Этот случай валидации уже обрабатывается
+		};
+	}
+	
+	public function tBank($request)
+	{
+		$tariff_id = $request->tariff_id;
+		$total_sum = $request->Sum;
+		$urgency = $request->urgency ?? 0;
+		$amount = $request->amount;
+		$chat = $request->chat ?? 0;
+		$order_id = $request->OrderId;
 		
-		dd($request);
+		$preparedData = [
+			'amount' => $amount,
+			'chat' => $chat,
+			'order_id' => $order_id,
+			'tariff_id' => $tariff_id,
+			'total_sum' => $total_sum,
+			'urgency' => $urgency,
+			];
 		
+		$arr = [
+    "TinkoffPayWeb" => "true",
+    "Device" => "Desktop",
+    "DeviceOs" => "iOS",
+    "DeviceWebView" => "true",
+    "DeviceBrowser" => "Safari"
+];
+
+$d = $arr;
+
+$array = [
+'Phone' => '+71234567890',
+'Email' => 'a@test.com'
+];
+
 		$data = [
-			'Amount' => $request->Sum * 100,
-			'Data' => json_encode(),
+			'Amount' => 10 * 100,
 			'Description' => 'Оплата консультации с врачом',
 			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
-			'OrderId' => Str::uuid(),
+			'OrderId' => (string) Str::uuid(),
 			'Password' => 'UNUKBp3_0OMdREha',
-			'SuccessURL' => 'https://doctor24x7.ru/payment/status/' . $request->OrderId,
+			'SuccessURL' => 'https://doctor24x7.ru/chat/' . $request->OrderId,
 			'TerminalKey' => '1729778851371',
 		];
 		
-		//dd($data);
+		//dd(json_encode($data));
 		
 		$values = array_values($data);
 		 
@@ -205,23 +244,37 @@ class PaymentController extends Controller
 		unset($data['Password']);
 		
 		$data['Token'] = $hashedString;
+		$data['DATA'] = $preparedData;
+		
+		ksort($data);
 		
 		$postDataJson = json_encode($data);
 		
-		$response = Http::post('https://securepay.tinkoff.ru/v2/Init', $data);
+		try {
 			
-		$decode_response = json_decode($response, true);
+			$response = Http::post('https://securepay.tinkoff.ru/v2/Init', $data);
+			
+			$decode_response = json_decode($response, true);
 		
-		if (isset($decode_response['PaymentURL'])) {
-			$paymentUrl = $decode_response['PaymentURL'];
-			return redirect($paymentUrl);
-		} else {
+			if (isset($decode_response['PaymentURL'])) {
+				$paymentUrl = $decode_response['PaymentURL'];
+				return redirect($paymentUrl);
+			} else {
 			
-			if($decode_response['ErrorCode'] == 8) {
-				dd($decode_response);
+				if($decode_response['ErrorCode'] == 8) {
+					dd($decode_response);
+				}
 			}
+		} catch (Exception $e) {
+			echo $e->message;
 			
 			return response()->json(['error' => 'Ошибка при отправке запроса'], $response->status());
 		}
+		
+	}
+	
+	public function ukassa()
+	{
+		return 'OK';
 	}
 }
