@@ -153,7 +153,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/dashboard/consultation/categories', [ConsultationCategoryController::class, 'index'])->name('dashboard.consultation.categories');
 	Route::get('/dashboard/consultation/subcategories', [SubCategoryController::class, 'index'])->name('dashboard.consultation.subcategories.index');
 	Route::get('/dashboard/consultation/subcategory/{slug}', [SubCategoryController::class, 'subcategory'])->name('dashboard.consultation.subcategories.slug');
-	Route::post('/dashboard/consultation/subcategory', [SubCategoryController::class, 'create'])->name('dashboard.consultation.subcategories.create');
+	Route::post('/dashboard/consultation/subcategory/{id}', [SubCategoryController::class, 'update'])->name('dashboard.consultation.subcategories.update');
 	
 	Route::get('/dashboard/consultation/categories/showcase/add-doctor', [ConsultationCategoryController::class, 'addDoctor'])->name('dashboard.consultation.categories.showcase.add-doctor');
 	Route::post('/dashboard/consultation/categories/showcase', [ConsultationCategoryController::class, 'showcase'])->name('dashboard.consultation.categories.showcase');

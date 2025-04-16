@@ -7,6 +7,8 @@ use App\Models\Consultation\ConsultationCategory;
 
 class SubCategories extends Model
 {
+	public $timestamps = false;
+	
     protected $table = 'sf_consultation_sub_rubric';
 	
 	public function consultation()

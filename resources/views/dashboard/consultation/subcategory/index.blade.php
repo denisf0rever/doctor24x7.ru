@@ -35,15 +35,19 @@
                 <div class="pages__titles">
                   <span class="pages__title-id">ID</span>
                   <span class="pages__title-name">Название</span>
+                  <span class="pages__title-name">Title</span>
+                  <span class="pages__title-name">h1</span>
                   <span class="pages__title-name">WordStat</span>
                 </div>
                 <ul class="pages__list">
                   @foreach ($subcategories as $category)
-                  <li class="pages__item">
+                  <li class="pages__item" @if ($category->is_edited) style="background-color:red;" @endif>
                     <a href="{{ route('consultation.subrubric', ['categorySlug' => $category->category->slug, 
 		  'subcategorySlug' => $category->slug]) }}" class="pages__views-id" target="_blank"><span>{{ $category->id }}</span></a>
-                    <a class="pages__name" href="{{ route('dashboard.consultation.subcategories.slug', $category->slug) }}"
+					 <a class="pages__name" href="{{ route('dashboard.consultation.subcategories.slug', $category->slug) }}"
                       target="_blank"><span>{{ $category->short_title }}</span></a>
+					<span class="pages__name" >{{ $category->title }}</span>
+					<span class="pages__name">{{ $category->h1 }}</span>
                     <a class="pages__name" href="https://wordstat.yandex.ru/?region=all&view=table&words={{ $category->short_title }}"
                       target="_blank"><span>{{ $category->short_title }}</span></a>
                   </li>

@@ -18,7 +18,7 @@
 		<h1 class="main__title">Редактирование подкатегории {{ $subcategory->h1 }}</h1>
           <section class="main__form form">
             <div class="form__wrapper">
-              <form action="{{ route('dashboard.consultation.update.consultation', $subcategory->id) }}" method="post" class="form__inner-form" enctype="multipart/form-data">
+              <form action="{{ route('dashboard.consultation.subcategories.update', $subcategory->id) }}" method="post" class="form__inner-form" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form__inner">
@@ -26,20 +26,16 @@
                     <div class="form__tab form__tab-active">
                       <ul class="form__inputs">
 						<li class="form__input-wrapper">
-                          <label class="form__label" for="name">Заголовок</label>
+                          <label class="form__label" for="name">Title</label>
                           <input class="form__input @error('name')input-error @enderror" type="text" id="title"
                             name="title" value="{{ $subcategory->title }}">
                         </li>
-                       <li class="form__input-wrapper">
-                          <label class="form__label" for="description_short">Дательное описание</label>
-                          <textarea class="form__input @error('description_short')input-error @enderror" type="text"
-                            id="description" name="description"></textarea>
-                        </li>
 						<li class="form__input-wrapper">
-                          <label class="form__label" for="name">Название</label>
-                          <input class="form__input @error('name')input-error @enderror" type="text" id="email"
-                            name="email" value="">
+                          <label class="form__label" for="name">h1</label>
+                          <input class="form__input @error('name')input-error @enderror" type="text" id="title"
+                            name="h1" value="{{ $subcategory->h1 }}">
                         </li>
+						<textarea class="consultation-textarea__textarea ckeditor" name="banner_image">{{ $subcategory->banner_image }}</textarea>
 						
 						<li class="form__input-wrapper">
                           <div class="form__input-wrapper-row">
