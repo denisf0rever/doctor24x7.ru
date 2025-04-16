@@ -150,14 +150,14 @@
                       <label class="payment-checkbox__switch payment-checkbox__switch-connect form-switch"
                         id="contact-switch">
                         <input type="checkbox" class="form-switch__checkbox form-switch__checkbox-connect"
-                          name="vide_consultation" value="2500">
+                          name="video_consultation" value="2500">
                         <span class="form-switch__slider"> </span>
                       </label>
                     </div>
                   </div>
                   <div class="payment-checkbox__additional-input-wrapper payment-checkbox__hidden">
                     <input type="text" required="" disabled="" class="payment-checkbox__additional-input"
-                      id="contact-input" placeholder="Контакт" name="vide_consultation">
+                      id="contact-input" placeholder="Контакт" name="video_consultation">
                   </div>
                 </div>
               </li>

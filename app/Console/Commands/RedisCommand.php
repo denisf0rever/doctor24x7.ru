@@ -4,7 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Redis;
-
+use App\Models\Doctors\Doctors;
+ 
 class RedisCommand extends Command
 {
     /**
@@ -26,6 +27,6 @@ class RedisCommand extends Command
      */
     public function handle()
     {
-       echo phpinfo();
+         dd(Doctors::getPriorityDoctors()->toArray());
     }
 }

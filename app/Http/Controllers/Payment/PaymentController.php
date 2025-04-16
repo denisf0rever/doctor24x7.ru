@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 use App\Models\Consultation\Consultation;
@@ -15,15 +14,18 @@ use App\Models\Consultation\ConsultationCategory as Category;
 use App\Models\Payment\Payment;
 use App\Models\Tariff\Rubric;
 use App\Models\Tariff\Tariff;
-use App\Mail\Payment\PaymentStatus;
 use Carbon\Carbon;
-use Log;
 
 class PaymentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+	//protected static $terminal_key = '1729778851371';
+	//protected static $password = 'UNUKBp3_0OMdREha';
+	
+	/** test **/
+	
+	private static string $terminal_key = '1729778851350DEMO';
+	private static string $password = '1iaDILU&TIstEwxv';
+	
     public function index()
     {
         $payments = Payment::query()
@@ -168,15 +170,6 @@ class PaymentController extends Controller
         //
     }
 	
-	public function status(Request $request)
-    {
-		Log::channel('payment')->info('Payment Notification:', $request->all());
-		
-		Mail::to('predlozhi@bk.ru')->send(new PaymentStatus($request->all()));
-		
-        return response('OK', 200);
-    }
-	
     public function init(Request $request)
 	{
 		$request->validate([
@@ -192,48 +185,27 @@ class PaymentController extends Controller
 	
 	public function tBank($request)
 	{
-		$tariff_id = $request->tariff_id;
-		$total_sum = $request->Sum;
-		$urgency = $request->urgency ?? 0;
-		$amount = $request->amount;
-		$chat = $request->chat ?? 0;
-		$order_id = $request->OrderId;
-		
 		$preparedData = [
-			'amount' => $amount,
-			'chat' => $chat,
-			'order_id' => $order_id,
-			'tariff_id' => $tariff_id,
-			'total_sum' => $total_sum,
-			'urgency' => $urgency,
-			];
-		
-		$arr = [
-    "TinkoffPayWeb" => "true",
-    "Device" => "Desktop",
-    "DeviceOs" => "iOS",
-    "DeviceWebView" => "true",
-    "DeviceBrowser" => "Safari"
-];
-
-$d = $arr;
-
-$array = [
-'Phone' => '+71234567890',
-'Email' => 'a@test.com'
-];
+			'amount' => $request->amount,
+			'chat' => $request->chat ?? 0,
+			'order_id' => $request->OrderId,
+			'tariff_id' => $request->tariff_id ?? 0,
+			'total_sum' => $request->Sum,
+			'urgency' => $request->urgency ?? 0,
+			'pharma' => $request->pharma ?? 0,
+			'option_phone' => $request->option_phone ?? 0,
+			'video_consultation' => $request->video_consultation ?? 0,
+		];
 
 		$data = [
 			'Amount' => 10 * 100,
 			'Description' => 'Оплата консультации с врачом',
 			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
 			'OrderId' => (string) Str::uuid(),
-			'Password' => 'UNUKBp3_0OMdREha',
+			'Password' => self::$password,
 			'SuccessURL' => 'https://doctor24x7.ru/chat/' . $request->OrderId,
-			'TerminalKey' => '1729778851371',
+			'TerminalKey' => self::$terminal_key,
 		];
-		
-		//dd(json_encode($data));
 		
 		$values = array_values($data);
 		 
@@ -244,7 +216,7 @@ $array = [
 		unset($data['Password']);
 		
 		$data['Token'] = $hashedString;
-		$data['DATA'] = $preparedData;
+		//$data['DATA'] = $preparedData;
 		
 		ksort($data);
 		
@@ -255,6 +227,8 @@ $array = [
 			$response = Http::post('https://securepay.tinkoff.ru/v2/Init', $data);
 			
 			$decode_response = json_decode($response, true);
+			
+			dd($decode_response);
 		
 			if (isset($decode_response['PaymentURL'])) {
 				$paymentUrl = $decode_response['PaymentURL'];

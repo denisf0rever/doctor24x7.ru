@@ -14,6 +14,7 @@ use App\Http\Controllers\Consultation\ConsultationFormController;
 use App\Http\Controllers\Consultation\DiscussionController;
 use App\Http\Controllers\Consultation\ConsultationAnswerController;
 use App\Http\Controllers\Consultation\ConsultationCategoryController;
+use App\Http\Controllers\Consultation\SubCategoryController;
 use App\Http\Controllers\Consultation\CategoryShowcaseController;
 use App\Http\Controllers\Consultation\BookingController;
 use App\Http\Controllers\Setting\User\UserSettingController;
@@ -22,7 +23,12 @@ use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Tariff\TariffController;
 use App\Http\Controllers\Chat\ChatController;
 
-	Route::get('/', [HomePageController::class, 'index'])->name('homepage');
+use App\Http\Controllers\Test\TestController;
+
+// Тесты
+Route::get('/test', [TestController::class, 'index']);
+
+Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 	// Авторизирация
 	Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -141,7 +147,13 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/dashboard/discussion', [DiscussionController::class, 'index'])->name('dashboard.consultation.discussion');
 	
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
+	
+	// Категории
+	
 	Route::get('/dashboard/consultation/categories', [ConsultationCategoryController::class, 'index'])->name('dashboard.consultation.categories');
+	Route::get('/dashboard/consultation/subcategories', [SubCategoryController::class, 'index'])->name('dashboard.consultation.subcategories.index');
+	Route::get('/dashboard/consultation/subcategory/{slug}', [SubCategoryController::class, 'subcategory'])->name('dashboard.consultation.subcategories.slug');
+	Route::post('/dashboard/consultation/subcategory', [SubCategoryController::class, 'create'])->name('dashboard.consultation.subcategories.create');
 	
 	Route::get('/dashboard/consultation/categories/showcase/add-doctor', [ConsultationCategoryController::class, 'addDoctor'])->name('dashboard.consultation.categories.showcase.add-doctor');
 	Route::post('/dashboard/consultation/categories/showcase', [ConsultationCategoryController::class, 'showcase'])->name('dashboard.consultation.categories.showcase');

@@ -11,9 +11,14 @@
           <!-- Основной контент -->
           <tr>
             <td style="padding: 15px;">
-              <h1 style="color:#fafafa; font-size: 20px; text-align: left; margin-bottom: 15px;">Консультация оплачена</h1>
+              <h1 style="color:#fafafa; font-size: 20px; text-align: left; margin-bottom: 15px;">Поступил платный вопрос</h1>
               <p style="color: #fff; line-height: 1.6; font-size: 18px">
+				Тариф: {{ $details['tariff'] }}<br />
+				Оплачено: {{ $details['price'] }} <br />
 				
+				{{ $details['consultation_id'] }}
+				
+				Текст вопроса: {{ $details['description'] }}<br />
 				
               </p>
             </td>
@@ -22,7 +27,7 @@
 		  <!-- Кнопка -->
           <tr>
             <td align="center" style="padding: 20px;">
-              <a href=" "
+              <a href="payment/consultation/{{ $details['consultation_id'] }}"
                 style="display: inline-block; padding: 15px 25px; background-color:#005ece; color: #ffffff; font-weight: bold; text-decoration: none; border-radius: 5px; cursor:pointer; font-size: 20px">Перейти к ответу</a>
             </td>
           </tr>

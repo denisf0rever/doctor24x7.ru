@@ -29,12 +29,6 @@
           вопрос →</a>
         <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
       </div>
-
-
-
-
-
-
     </div>
   </div>
 </section>
@@ -43,7 +37,7 @@
     <h2 class="ask-question-form__title">Задать вопрос PLACEHOLDER</h2>
     <ul class="ask-question-form__blocks">
       <li class="ask-question-form__block">
-        <img src="{{ asset('storage/category/first-step.svg') }}" class="ask-question-form__block-img">
+        <img src="{{ Storage::url('common/category/first-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__separator"></div>
         <div class="ask-question-form__text-wrapper">
           <span class="ask-question-form__block-title">Спросите врача онлайн </span>
@@ -51,7 +45,7 @@
         </div>
       </li>
       <li class="ask-question-form__block">
-        <img src="{{ asset('storage/category/second-step.svg') }}" class="ask-question-form__block-img">
+        <img src="{{ Storage::url('common/category/second-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__separator"></div>
         <div class="ask-question-form__text-wrapper">
           <span class="ask-question-form__block-title">Укажите данные для связи </span>
@@ -59,7 +53,7 @@
         </div>
       </li>
       <li class="ask-question-form__block">
-        <img src="{{ asset('storage/category/third-step.svg') }}" class="ask-question-form__block-img">
+        <img src="{{ Storage::url('common/category/third-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__text-wrapper">
           <span class="ask-question-form__block-title">Ожидайте ответ </span>
           <span class="ask-question-form__block-subtitle">Максимальное ожидание ~25 минут</span>
@@ -74,141 +68,7 @@
     </div>
   </div>
 </section>
-<section class="main__сategory-info сategory-info ">
-        <div class="category-info__wrapper">
-          <div class="category-info__inner small-container">
-            <ul class="category-info__tabs">
-              <li class="category-info__tab" data-tab="1">Задать вопрос</li>
-              <li class="category-info__tab subCategory-info__tab--active" data-tab="2">Специалисты</li>
-            </ul>
-            <ul class="category-info__tabs--mobile">
-              <li class="category-info__tab" data-tab="1">
-                <div class="category-info__tab-icon">
-                  <svg width="1em" height="1em" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="ui_YpY4A">
-                    <path
-                      d="M13.039 2.63884C12.8853 2.1965 12.4683 1.9 12 1.9C11.5317 1.9 11.1147 2.1965 10.961 2.63884L8.97872 8.34156L2.94255 8.46457C2.47435 8.47411 2.06351 8.77904 1.9188 9.22442C1.77409 9.6698 1.92722 10.158 2.3004 10.4409L7.11146 14.0884L5.36317 19.8671C5.22756 20.3154 5.39061 20.8003 5.76948 21.0756C6.14834 21.3508 6.65994 21.3561 7.04434 21.0886L12 17.6401L16.9557 21.0886C17.3401 21.3561 17.8517 21.3508 18.2305 21.0756C18.6094 20.8003 18.7724 20.3154 18.6368 19.8671L16.8885 14.0884L21.6996 10.4409C22.0728 10.158 22.2259 9.6698 22.0812 9.22442C21.9365 8.77904 21.5257 8.47411 21.0574 8.46457L15.0213 8.34156L13.039 2.63884Z"
-                      stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"></path>
-                  </svg>
-                </div>
-                <span class="category-info__tab-icon-text">Задать вопрос</span>
-              </li>
-              <li class="category-info__tab subCategory-info__tab--active" data-tab="2">
-                <div class="category-info__tab-icon">
-                  <svg width="1em" height="1em" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="ui_YpY4A">
-                    <path
-                      d="M13.039 2.63884C12.8853 2.1965 12.4683 1.9 12 1.9C11.5317 1.9 11.1147 2.1965 10.961 2.63884L8.97872 8.34156L2.94255 8.46457C2.47435 8.47411 2.06351 8.77904 1.9188 9.22442C1.77409 9.6698 1.92722 10.158 2.3004 10.4409L7.11146 14.0884L5.36317 19.8671C5.22756 20.3154 5.39061 20.8003 5.76948 21.0756C6.14834 21.3508 6.65994 21.3561 7.04434 21.0886L12 17.6401L16.9557 21.0886C17.3401 21.3561 17.8517 21.3508 18.2305 21.0756C18.6094 20.8003 18.7724 20.3154 18.6368 19.8671L16.8885 14.0884L21.6996 10.4409C22.0728 10.158 22.2259 9.6698 22.0812 9.22442C21.9365 8.77904 21.5257 8.47411 21.0574 8.46457L15.0213 8.34156L13.039 2.63884Z"
-                      stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"></path>
-                  </svg>
-                </div>
-                <span class="category-info__tab-icon-text">Специалисты</span>
-              </li>
-            </ul>
-            <div class="category-info__tab-content-list">
-              <div class="category-info__tab-content" id="tab-1">
-                <div class="category-info__form subCategory-form">
-                  <div class="category-form__wrapper">
-                    <h2 class="category-form__title">Задать вопрос {{ $subCategory->button_name }} онлайн</h2>
-                    <form action="/" class="category-form__form">
-                      <textarea name="text" class="category-form__textarea"
-                        placeholder="Опишите детали для {{ $subCategory->name_v }}, которые важны для ответа."></textarea>
-                      <input type="submit" value="Продолжить →" class="category-form__submit">
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="category-info__tab-content subCategory-info__tab-content--active" id="tab-2">
-
-                <div class="category-info__subCategory-card-wrapper">
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 </div>
-
-
-
-<!-- <section class="main__consultation-slider consultation-slider">
-  <h2 class="consultation-slider__title">Медицинские консультации предоставляют</h2>
-  <span class="consultation-slider__subtitle">В онлайн сервисе работает более 100 врачей, всех специализаций
-  </span>
-  <div class="consultation-slider__wrapper">
-    <div class="consultation-slider__arrow consultation-slider__arrow-before"><span>&lsaquo;</span></div>
-    <div class="consultation-slider__arrow consultation-slider__arrow-after"><span>&rsaquo;</span></div>
-    <div class="consultation-slider__slider">
-      <ul class="consultation-slider__slider-wrapper swiper-wrapper">
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-        <li class="consultation-slider__slide swiper-slide consultation-slide">
-          <div class="consultation-slide__wrapper">
-            <div class="consultation-slide__img-wrapper">
-              <img src="/" alt="" class="consultation-slide__img">
-            </div>
-            <div class="consultation-slide__text">
-              <span class="consultation-slide__fullname">Альбина Альбертовна</span>
-              <span class="consultation-slide__specialization">Гематолог</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section> -->
-
-
-<!-- <section class="main__description description">
-  <div class="description__wrapper section-wrapper small-container">
-    ТЕКСТ
-  </div>
-</section> -->
 
 <div class="main__chat chat">
   <form action="/" id="chat-form" class="chat__form">

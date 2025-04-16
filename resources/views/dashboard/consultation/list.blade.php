@@ -28,6 +28,16 @@
                   <div class="color-block__small-text">Всего добавлено:  </div>
                 </a>
               </li>
+              <li class="main__block color-block">
+                <a href="{{ route('dashboard.consultation.subcategories.index'); }}" class="color-block__wrapper"
+                  style="background-color: #ffe2e6">
+                  <img src="{{ Storage::url('dashboard/category.svg') }}" alt="" class="color-block__img"
+                    style="background-color: #f9597c">
+                  <div class="color-block__big-text">Подкатегории</div>
+                  <div class="color-block__title"></div>
+                  <div class="color-block__small-text">Всего добавлено:  </div>
+                </a>
+              </li>
             </ul>
           </div>
           <section class="main__info info">

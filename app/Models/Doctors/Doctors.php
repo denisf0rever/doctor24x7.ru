@@ -10,6 +10,14 @@ class Doctors extends Model
 	
 	public static function getDoctors()
 	{
-		return self::where('is_consultant_request', 1)->first();
+		return self::where('is_consultant_request', 1)
+			->first();
+	}
+	
+	public static function getPriorityDoctors()
+	{
+		return self::where('is_priority_user', 1)
+			->select('email_address')
+			->get();
 	}
 }
