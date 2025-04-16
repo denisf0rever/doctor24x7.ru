@@ -36,29 +36,16 @@
                   <span class="pages__title-id">ID</span>
                   <span class="pages__title-name">Название</span>
                   <span class="pages__title-name">WordStat</span>
-                  <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list">
                   @foreach ($subcategories as $category)
-                  <a href="{{ route('consultation.subrubric', ['categorySlug' => $category->category->slug, 
-		  'subcategorySlug' => $category->slug])  }}" class="pages__item">
-                    <span class="pages__views-id">{{ $category->id }}</span></a>
-                    <a class="pages__name" href=""
+                  <li class="pages__item">
+                    <a href="{{ route('consultation.subrubric', ['categorySlug' => $category->category->slug, 
+		  'subcategorySlug' => $category->slug]) }}" class="pages__views-id" target="_blank"><span>{{ $category->id }}</span></a>
+                    <a class="pages__name" href="{{ route('dashboard.consultation.subcategories.slug', $category->slug) }}"
                       target="_blank"><span>{{ $category->short_title }}</span></a>
                     <a class="pages__name" href="https://wordstat.yandex.ru/?region=all&view=table&words={{ $category->short_title }}"
                       target="_blank"><span>{{ $category->short_title }}</span></a>
-                    <div class="pages__icons">
-                      <div class="pages__icon">
-                        <a href="" target="_blank">
-                          <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                      <div class="pages__icon">
-                        <a href="">
-                          <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                    </div>
                   </li>
                   @endforeach
                 </ul>

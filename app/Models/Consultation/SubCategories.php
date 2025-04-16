@@ -3,6 +3,7 @@
 namespace App\Models\Consultation;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Consultation\ConsultationCategory;
 
 class SubCategories extends Model
 {
@@ -15,7 +16,7 @@ class SubCategories extends Model
 	
 	public function category()
 	{
-		return $this->belongsTo(ConsultationCategory::class, 'parent_id');
+		return $this->belongsTo(ConsultationCategory::class, 'parent_id', 'id')->select('id', 'slug');
 	}
 	
 	public function discussion()
