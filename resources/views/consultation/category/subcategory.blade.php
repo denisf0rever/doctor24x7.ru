@@ -13,15 +13,11 @@
       <div class="category-intro__top">
         <h1 class="category-intro__title">{{ $subCategory->h1 }}</h1>
         <div class="category-intro__text">
-          <p class="category-intro__p">Работаем круглосуточно. Практикующие врачи и психологи. Консультацию
-            {{ $subCategory->name_v }} можно получить через разные способы коммуникации. В онлайн чате вы можете быстро
-            задать вопрос и получить ответ в режиме реального времени, а по телефону — обсудить свои проблемы более
-            подробно.
-          </p>
-          <p class="category-intro__p">
-            Видеоконсультация позволяет врачам видеть пациента и проводить более полное обследование, в то время как
-            мессенджеры обеспечивают удобство общения в любое время, позволяя делиться медицинскими документами и фото.
-          </p>
+          <p class="category-intro__p">@if ($subCategory->banner_image)
+		  {{ $subCategory->banner_image }}
+	  @else
+		  Сервис онлайн-консультаций {{ $subCategory->button_name }} предлагает профессиональную медицинскую поддержку. Наши специалисты готовы предоставить вам подробные рекомендации, которые подходят для вашего конкретного случая. На консультации вы сможете обсудить существующие симптомы, а также узнать о возможных побочных эффектах и взаимодействиях с медикаментами. Наша цель — помочь вам сориентироваться, дать четкие и обоснованные советы, чтобы вы могли принимать информированные решения о своем здоровье. Мы гарантируем полную конфиденциальность и поддержку на каждом этапе общения, чтобы сделать процесс получения медицинской информации максимально комфортным и безопасным.</p>
+	  @endif
         </div>
       </div>
       <div class="category-intro__button-block">
@@ -34,7 +30,7 @@
 </section>
 <section class="main__ask-question-form ask-question-form">
   <div class="ask-question-form__wrapper">
-    <h2 class="ask-question-form__title">Задать вопрос PLACEHOLDER</h2>
+    <h2 class="ask-question-form__title">Задать вопрос {{ $subCategory->button_name }}</h2>
     <ul class="ask-question-form__blocks">
       <li class="ask-question-form__block">
         <img src="{{ Storage::url('common/category/first-step.svg') }}" class="ask-question-form__block-img">
