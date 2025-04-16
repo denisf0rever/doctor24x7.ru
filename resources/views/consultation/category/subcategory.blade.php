@@ -36,22 +36,22 @@
         <img src="{{ Storage::url('common/category/first-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__separator"></div>
         <div class="ask-question-form__text-wrapper">
-          <span class="ask-question-form__block-title">Спросите врача онлайн </span>
-          <span class="ask-question-form__block-subtitle">Напишите свой вопрос </span>
+          <span class="ask-question-form__block-title">Спросите врача онлайн</span>
+          <span class="ask-question-form__block-subtitle">Напишите свой вопрос</span>
         </div>
       </li>
       <li class="ask-question-form__block">
         <img src="{{ Storage::url('common/category/second-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__separator"></div>
         <div class="ask-question-form__text-wrapper">
-          <span class="ask-question-form__block-title">Укажите данные для связи </span>
-          <span class="ask-question-form__block-subtitle">Телефон или почта </span>
+          <span class="ask-question-form__block-title">Укажите данные для связи</span>
+          <span class="ask-question-form__block-subtitle">Телефон или почта</span>
         </div>
       </li>
       <li class="ask-question-form__block">
         <img src="{{ Storage::url('common/category/third-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__text-wrapper">
-          <span class="ask-question-form__block-title">Ожидайте ответ </span>
+          <span class="ask-question-form__block-title">Ожидайте ответ</span>
           <span class="ask-question-form__block-subtitle">Максимальное ожидание ~25 минут</span>
         </div>
       </li>
@@ -109,15 +109,15 @@
       </div>
       <div class="chat__additional-fields hide">
         <div class="chat__additional-field">
-          <span class="chat__label">Заголовок вопроса </span>
+          <span class="chat__label">Заголовок вопроса</span>
           <input type="text" class="chat__input">
         </div>
         <div class="chat__additional-field">
-          <span class="chat__label">Ваше имя </span>
+          <span class="chat__label">Ваше имя</span>
           <input type="text" class="chat__input">
         </div>
         <div class="chat__additional-field">
-          <span class="chat__label">Ваш email </span>
+          <span class="chat__label">Ваш email</span>
           <input type="text" class="chat__input">
         </div>
       </div>
