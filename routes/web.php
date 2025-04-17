@@ -22,6 +22,7 @@ use App\Http\Controllers\Reviews\ReviewsController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Tariff\TariffController;
 use App\Http\Controllers\Chat\ChatController;
+use App\Http\Controllers\Testimonials\TestimonialController;
 
 use App\Http\Controllers\Test\TestController;
 
@@ -35,7 +36,7 @@ Route::get('/sitemap', function () {
 
 
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
-
+	
 	// Авторизирация
 	Route::get('/login', [AuthController::class, 'index'])->name('login');
 	Route::post('/login/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
@@ -55,6 +56,9 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
 	Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
 	Route::get('/consultation/online', [ConsultationAnswerController::class, 'online'])->name('consultation.online');
+
+	// Отзывы о консультациях
+	Route::get('/consultation/testimonials', [TestimonialController::class, 'index'])->name('consultation.testimonials');
 	
 	// Консультации: Форма, Создание
 	Route::get('/consultation/comment', [ConsultationFormController::class, 'form'])->name('consult.form');
@@ -66,6 +70,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 		
 	Route::get('/consultation/city/{city}', [ConsultationCategoryController::class, 'city'])->name('consultation.city');
 	Route::get('/consultation/{categorySlug}/{city}', [ConsultationCategoryController::class, 'categoryCity'])->name('consultation.categorycity');
+	
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');

@@ -75,6 +75,7 @@
     <div class="ask-question-form__form-wrapper">
       <form action="" class="ask-question-form__form">
         <textarea name="" id="" class="ask-question-form__textarea"></textarea>
+		<input type="hidden" name="rubric_id" value="{{ $category->id }}">
         <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
       </form>
     </div>
@@ -120,6 +121,7 @@
               <form action="/" class="category-form__form">
                 <textarea name="text" class="category-form__textarea"
                   placeholder="Опишите детали для {{ $category->name_v }}, которые важны для ответа."></textarea>
+				  <input type="hidden" name="rubric_id" value="{{ $category->id }}">
                 <input type="submit" value="Продолжить →" class="category-form__submit">
               </form>
             </div>
