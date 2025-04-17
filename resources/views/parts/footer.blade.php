@@ -6,33 +6,11 @@
           <li class="footer__links-item">
             <a href="/" class="footer__link">О нас</a>
           </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Контакты</a>
-          </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Отзывы о нас</a>
-          </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Пользовательское соглашение</a>
-          </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Правила сайта</a>
-          </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Комментарии</a>
-          </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Вопросы по годам</a>
-          </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Форум</a>
-          </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Спросить юриста</a>
-          </li>
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">Архив</a>
-          </li>
+		  Кто консультирует на сайте О нас Контакты Отзывы о нас Пользовательское соглашение Правила сайта 
+		  <li class="footer__links-item">
+            <a href="/page/sitemap" class="footer__link">Карта сайта</a>
+          </li> Комментарии Форум Спросить юриста Архив
+		  
           <li class="footer__links-item">
             <a href="{{ route('login') }}" class="footer__link">Войти</a>
           </li>

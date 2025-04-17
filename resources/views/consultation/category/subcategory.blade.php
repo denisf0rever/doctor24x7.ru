@@ -1,5 +1,5 @@
 @extends('appwide')
-@section('title', $subCategory->title . ' — спросить врача онлайн, консультация')
+@section('title', $subCategory->title . ' — спросить врача онлайн консультация')
 @section('description', $subCategory->meta_description)
 @section('keywords', $subCategory->meta_keywords)
 @section('canonical', 'consultation/'. $subCategory->slug)

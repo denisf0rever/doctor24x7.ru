@@ -15,7 +15,7 @@
 
 	<main class="wrapper__main main">
         <div class="main__wrapper">
-		<h1 class="main__title">Редактирование подкатегории {{ $subcategory->h1 }}</h1>
+		<h1 class="main__title">Редактирование подкатегории {{ $subcategory->short_title }}</h1>
           <section class="main__form form">
             <div class="form__wrapper">
               <form action="{{ route('dashboard.consultation.subcategories.update', $subcategory->id) }}" method="post" class="form__inner-form" enctype="multipart/form-data">
@@ -32,8 +32,18 @@
                         </li>
 						<li class="form__input-wrapper">
                           <label class="form__label" for="name">h1</label>
-                          <input class="form__input @error('name')input-error @enderror" type="text" id="title"
+                          <input class="form__input @error('name')input-error @enderror" type="text" id="h1"
                             name="h1" value="{{ $subcategory->h1 }}">
+                        </li>
+						<li class="form__input-wrapper">
+                          <label class="form__label" for="name">Short_title</label>
+                          <input class="form__input @error('name')input-error @enderror" type="text" id="short_title"
+                            name="short_title" value="{{ $subcategory->short_title }}">
+                        </li>
+						<li class="form__input-wrapper">
+                          <label class="form__label" for="name">button_name</label>
+                          <input class="form__input @error('name')input-error @enderror" type="text" id="button_name"
+                            name="button_name" value="{{ $subcategory->button_name }}">
                         </li>
 						<textarea class="consultation-textarea__textarea ckeditor" name="banner_image">{{ $subcategory->banner_image }}</textarea>
 						

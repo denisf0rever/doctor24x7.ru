@@ -28,6 +28,12 @@ use App\Http\Controllers\Test\TestController;
 // Тесты
 Route::get('/test', [TestController::class, 'index']);
 
+// Старые адреса, убрать через месяц
+Route::get('/sitemap', function () {
+    return response()->redirectTo('/page/sitemap', 301);
+});
+
+
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 	// Авторизирация

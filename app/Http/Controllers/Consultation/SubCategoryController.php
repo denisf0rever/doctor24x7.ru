@@ -36,7 +36,9 @@ class SubCategoryController extends Controller
 			
 		$subcategory->title = $request->input('title');
 		$subcategory->h1 = $request->input('h1');
+		$subcategory->short_title = $request->input('short_title');
 		$subcategory->banner_image = $request->input('banner_image');
+		$subcategory->button_name = $request->input('button_name');
 		$subcategory->is_edited = $request->input('is_edited');
 		$subcategory->save();
 		
