@@ -11,7 +11,7 @@ class SubCategoryController extends Controller
 {
     public function index()
 	{
-		$subcategories = Cache::remember('subcategories', 60*60*60, fn () => SubCategories::query()
+		$subcategories = Cache::forever('subcategories', 2592000, fn () => SubCategories::query()
 			->orderBy('short_title', 'asc')
 			->get()
 			);

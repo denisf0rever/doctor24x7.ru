@@ -74,7 +74,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.consultation.init');	
 	
 	// Профиль
-	Route::get('/profile/{slug}', [\App\Http\Controllers\User\UserController::class, 'show'])->name('user.profile.item');
+	Route::get('/profile/{slug}', [\App\Http\Controllers\User\UserController::class, 'show'])->name('profile.user.item');
 	
 	// Чат
 	Route::post('/set-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'setCookie'])->name('set-cookie');

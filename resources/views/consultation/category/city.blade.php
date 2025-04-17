@@ -17,12 +17,6 @@
           <p class="category-intro__p">Онлайн-консультации врачей - возможность быстро и удобно получить квалифицированную медицинскую помощь, не выходя из дома. Наша команда готова ответить на ваши вопросы, провести диагностику и предложить рекомендации по лечению заболеваний. Мы ценим ваше время и здоровье, поэтому гарантируем безопасность и конфиденциальность ваших данных. Используя современные технологии, мы обеспечиваем доступ к медицинским консультациям в любое время.</p>
         </div>
       </div>
-      <div class="category-intro__button-block">
-        <a href="/consultation/comment?rubric_id={{ $city->id }}" class="category-intro__button-link">Задать вопрос
-          →</a>
-        <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
-      </div>
-      
     </div>
   </div>
 </section>
@@ -63,4 +57,22 @@
   </div>
 </section>
 </div>
+
+@if ($doctors->isNotEmpty())
+<section class="main__doc-list doc-list">
+  <div class="doc-list__wrapper container">
+    <h3 class="doc-list__title">Врачи нашего сервиса</h3>
+    <span class="doc-list__subtitle">Консультации онлайн в реальном времени, без записей и очередей. Задайте вопрос и ожидайте ответ в течение часа.</span>
+    <div class="doc-list__list">
+	@foreach ($doctors as $doctor)
+      <a href="{{ route('profile.user.item', $doctor->username) }}" class="doc-list__link">
+        <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $doctor->avatar }}" alt="" class="doc-list__img">
+        <span class="doc-list__fullname">{{ $doctor->id }} {{ $doctor->first_name }} {{ $doctor->middle_name }}</span>
+        <span class="doc-list__specialization">{{ $doctor->icq }}</span>
+      </a>
+	 @endforeach
+    </div>
+  </div>
+</section>
+@endif
 @endsection

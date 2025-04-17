@@ -63,10 +63,6 @@ class ConsultationCategoryController extends Controller
 		$mainCategory = Category::where('slug', $categorySlug)
 			->select('id')
 			->first();
-		
-        if (!$mainCategory) {
-            abort(404, 'Категория не найдена');
-        }
 
         $subCategory = SubCategories::where('slug', $subcategorySlug)->first();
 
@@ -74,41 +70,38 @@ class ConsultationCategoryController extends Controller
             abort(404, 'Подкатегория не найдена');
         }
 		
-        return view('consultation.category.subcategory', compact('subCategory'));
+		$showcase = Cache::remember('subcategories_showcase_' . $mainCategory->id, 2592000, fn () => Showcase::query()
+			->where('category_id', $mainCategory->id)
+			->select('category_id', 'user_id', 'position')
+			->orderBy('position')
+			->get()
+		);
+		
+        return view('consultation.category.subcategory', compact('subCategory', 'showcase'));
     }
 	
 	public function city($city)
 	{
-        $city = City::where('slug', $city)->first();
+        $city = City::where('slug', $city)
+			->firstOrFail();
 		
-        if ($city === false) {
-            abort(404, 'Подкатегория не найдена');
-        }
+		$doctors = $this->getCachedDoctor();
 		
-        return view('consultation.category.city', compact('city'));
+        return view('consultation.category.city', compact('city', 'doctors'));
     }
 	
 	public function categoryCity($categorySlug, $city)
 	{
 		$category = Category::where('slug', $categorySlug)
 			->select('id', 'name_v', 'name_v_m', 'amount_doctors', 'font_color', 'button_name')
-			->first();
-		
-        if ($category === false) {
-            abort(404, 'Категория не найдена');
-        }
+			->firstOrFail();
 
-        $city = City::where('slug', $city)->first();
-
-        if ($city === false) {
-            abort(404, 'Подкатегория не найдена');
-        }
+        $city = City::where('slug', $city)
+			->firstOrFail();
 		
 		$doctors = Doctors::getDoctors();
 		
-		dd($doctors);
-		
-        return view('consultation.category.citycategory', compact('category', 'city'));
+        return view('consultation.category.citycategory', compact('category', 'city', 'doctors'));
     }
 	
 	public function addDoctor()
@@ -130,5 +123,12 @@ class ConsultationCategoryController extends Controller
 		$showcase = Showcase::create($validatedData);
 		
 		return redirect()->back()->with('success', 'Элемент успешно добавлен в showcase!');
+	}
+	
+	public function getCachedDoctor()
+	{		
+		$showcase = Cache::remember('cached_all_doctors', 2592000, fn () => Doctors::getDoctors());
+		
+		return $showcase;
 	}
 }

@@ -20,11 +20,20 @@
 	  @endif
         </div>
       </div>
-      <div class="category-intro__button-block">
-        <a href="/consultation/comment?rubric_id={{ $subCategory->id }}" class="category-intro__button-link">Задать
-          вопрос →</a>
-        <div class="category-intro__button-text">Предоставим ответ в течение 25 минут</div>
+	  @if ($showcase->IsNotEmpty())
+      <div class="category-intro__experts-cards expert-cards">
+        @foreach($showcase as $item)
+        <div class="expert-card js-lawyer-popup-open">
+          <div class="expert-card__text">
+            <span class="expert-card__title">{{ $item->user->first_name .' '. $item->user->middle_name }}</span>
+            <div class="expert-card__subtitle">{{ $item->category->short_title }}</div>
+          </div>
+          <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $item->user->avatar }}"
+            alt="{{ $item->category->h1 }}" class="expert-card__img">
+        </div>
+        @endforeach
       </div>
+      @endif
     </div>
   </div>
 </section>

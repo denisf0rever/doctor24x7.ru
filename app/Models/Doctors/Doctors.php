@@ -11,7 +11,7 @@ class Doctors extends Model
 	public static function getDoctors()
 	{
 		return self::where('is_consultant_request', 1)
-			->first();
+			->get();
 	}
 	
 	public static function getPriorityDoctors()

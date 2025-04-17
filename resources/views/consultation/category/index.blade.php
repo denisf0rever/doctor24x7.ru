@@ -49,7 +49,7 @@
     <h2 class="ask-question-form__title">Задать вопрос {{ $category->button_name }}</h2>
     <ul class="ask-question-form__blocks">
       <li class="ask-question-form__block">
-        <img src="{{ asset('storage/category/first-step.svg') }}" class="ask-question-form__block-img">
+        <img src="{{ Storage::url('common/category/first-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__separator"></div>
         <div class="ask-question-form__text-wrapper">
           <span class="ask-question-form__block-title">Спросите врача онлайн </span>
@@ -57,7 +57,7 @@
         </div>
       </li>
       <li class="ask-question-form__block">
-        <img src="{{ asset('storage/category/second-step.svg') }}" class="ask-question-form__block-img">
+        <img src="{{ Storage::url('common/category/second-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__separator"></div>
         <div class="ask-question-form__text-wrapper">
           <span class="ask-question-form__block-title">Укажите данные для связи </span>
@@ -65,7 +65,7 @@
         </div>
       </li>
       <li class="ask-question-form__block">
-        <img src="{{ asset('storage/category/third-step.svg') }}" class="ask-question-form__block-img">
+        <img src="{{ Storage::url('common/category/third-step.svg') }}" class="ask-question-form__block-img">
         <div class="ask-question-form__text-wrapper">
           <span class="ask-question-form__block-title">Ожидайте ответ </span>
           <span class="ask-question-form__block-subtitle">Максимальное ожидание ~25 минут</span>
@@ -135,12 +135,12 @@
               <div class="category-card__wrapper">
                 <div class="category-card__left">
                   <div class="category-card__header-info">
-                    <a href="{{ route('user.profile.item', $text->user->username) }}"
+                    <a href="{{ route('profile.user.item', $text->user->username) }}"
                       class="category-card__avatar-link">
                       <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $text->user->avatar }}" alt=""
                         class="category-card__avatar">
                     </a>
-                    <a href="{{ route('user.profile.item', $text->user->username) }}"
+                    <a href="{{ route('profile.user.item', $text->user->username) }}"
                       class="category-card__fullname">{{ $text->user->first_name .' '. $text->user->middle_name }}</a>
                     <span class="category-card__online">{{ 
     $text->user->last_activity > now()->subMinutes(5) 
