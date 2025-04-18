@@ -219,6 +219,26 @@ p {
     position: absolute;
 }
 
+.r-star {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-image: url("/storage/common/star.svg");
+}
+
+.r-star-hollow {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-image: url("/images/svg/star-hollow.svg");
+}
+
 .toast {
     position: fixed;
     bottom: 20px;
@@ -281,6 +301,9 @@ p {
 @import "components/common/reviews-slider.scss";
 @import "components/common/expert-card.scss";
 @import "components/common/doc-list.scss";
+@import "components/common/testimonials-grid.scss";
+@import "components/common/reviews-header.scss";
+@import "components/common/new-reviews.scss";
 @import "components/mobile-panel.scss";
 @import "components/footer.scss";
 @import "components/login.scss";

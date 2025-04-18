@@ -1,0 +1,134 @@
+.reviews-header {
+    &__tabs {
+        display: flex;
+        gap: 15px;
+        overflow: auto;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__tab {
+        padding: 10px 20px;
+        background-color: #e7e8ec;
+        transition: all 0.3s linear;
+        cursor: pointer;
+        border-radius: 15px;
+        font-size: 12px;
+        white-space: nowrap;
+
+        &:hover,
+        &--active {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+
+    &__wrapper {
+        margin-top: 30px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid hsla(0, 0%, 5%, 0.1);
+    }
+
+    &__title {
+        line-height: 48px;
+        font-weight: 700;
+        font-size: 40px;
+        margin: 0;
+        margin-bottom: 40px;
+    }
+
+    &__header {
+        display: flex;
+        gap: 32px;
+        margin-top: 32px;
+    }
+
+    &__total-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__total-value {
+        line-height: 36px;
+        font-weight: 700;
+        font-size: 30px;
+    }
+
+    &__total-text {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.4;
+    }
+
+    &__radios {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    &__radio {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        border: 1.5px solid;
+        border-radius: 4px;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: #f2f3f5;
+        border-color: #898991;
+        margin: 0;
+        position: relative;
+
+        &-svg {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__input {
+        &:checked + .reviews-header__radio {
+            background-color: #ef3124;
+
+            .reviews-header__radio-svg {
+                display: block;
+            }
+        }
+    }
+
+    &__line {
+        width: 208px;
+        height: 2px;
+        background-color: #dcdee2;
+
+        &-value {
+            background-color: #ef3124;
+            height: 2px;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    .reviews-header__header {
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+    .reviews-header__line {
+        flex-grow: 1;
+        max-width: 208px;
+        width: auto;
+    }
+}
