@@ -99,7 +99,7 @@ class ConsultationCategoryController extends Controller
         $city = City::where('slug', $city)
 			->firstOrFail();
 		
-		$doctors = Doctors::getDoctors();
+		$doctors = $this->getCachedDoctor();
 		
         return view('consultation.category.citycategory', compact('category', 'city', 'doctors'));
     }

@@ -91,7 +91,7 @@
                   <li class="pages__item">
                     <span class="pages__views-id">{{ $user->id }}</span>
                     <span class="pages__login"><b>{{ $user->username }}</b></span>
-                    <a class="pages__fullname" href="{{ route('user.profile.item', $user->id)}}"
+                    <a class="pages__fullname" href="{{ route('profile.user.item', $user->id)}}"
                       target="_blank"><span>{{ $user->full_name }}</span></a>
                     <span class="pages__views-number">{{ $user->views }}</span>
                     <div class="pages__icons">

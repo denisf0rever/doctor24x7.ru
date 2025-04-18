@@ -68,43 +68,21 @@
   </section>
 </div>
 
+@if ($doctors->isNotEmpty())
 <section class="main__doc-list doc-list">
   <div class="doc-list__wrapper container">
-    <h3 class="doc-list__title">Нужна помощь {{ $category->name_v }}? </h3>
-    <span class="doc-list__subtitle">Консультация {{ $category->name_v }} онлайн в реальном времени </span>
+    <h3 class="doc-list__title">Помощь {{ $category->name_v }}</h3>
+    <span class="doc-list__subtitle">Консультации онлайн в реальном времени, без записей и очередей. Задайте вопрос и ожидайте ответ в течение часа.</span>
     <div class="doc-list__list">
-      <a href="/" class="doc-list__link">
-        <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt="" class="doc-list__img">
-        <span class="doc-list__fullname">Виктория Витальевна</span>
-        <span class="doc-list__specialization">Врач, онлайн консультант</span>
+	@foreach ($doctors as $doctor)
+      <a href="{{ route('profile.user.item', $doctor->username) }}" class="doc-list__link">
+        <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $doctor->avatar }}" alt="" class="doc-list__img">
+        <span class="doc-list__fullname">{{ $doctor->id }} {{ $doctor->first_name }} {{ $doctor->middle_name }}</span>
+        <span class="doc-list__specialization">{{ $doctor->icq }}</span>
       </a>
-      <a href="/" class="doc-list__link">
-        <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt="" class="doc-list__img">
-        <span class="doc-list__fullname">Виктория Витальевна</span>
-        <span class="doc-list__specialization">Врач, онлайн консультант</span>
-      </a>
-      <a href="/" class="doc-list__link">
-        <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt="" class="doc-list__img">
-        <span class="doc-list__fullname">Виктория Витальевна</span>
-        <span class="doc-list__specialization">Врач, онлайн консультант</span>
-      </a>
-      <a href="/" class="doc-list__link">
-        <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt="" class="doc-list__img">
-        <span class="doc-list__fullname">Виктория Витальевна</span>
-        <span class="doc-list__specialization">Врач, онлайн консультант</span>
-      </a>
-      <a href="/" class="doc-list__link">
-        <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt="" class="doc-list__img">
-        <span class="doc-list__fullname">Виктория Витальевна</span>
-        <span class="doc-list__specialization">Врач, онлайн консультант</span>
-      </a>
-      <a href="/" class="doc-list__link">
-        <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt="" class="doc-list__img">
-        <span class="doc-list__fullname">Виктория Витальевна</span>
-        <span class="doc-list__specialization">Врач, онлайн консультант</span>
-      </a>
+	 @endforeach
     </div>
   </div>
 </section>
-
+@endif
 @endsection
