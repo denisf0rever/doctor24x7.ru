@@ -24,25 +24,29 @@ use App\Http\Controllers\Tariff\TariffController;
 use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Testimonials\TestimonialController;
 
+use App\Http\Controllers\Page\PageController;
+
+use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\Test\TestController;
 
 // Тесты
 Route::get('/test', [TestController::class, 'index']);
 
 // Старые адреса, убрать через месяц
-Route::get('/sitemap', function () {
-    return response()->redirectTo('/page/sitemap', 301);
-});
+Route::get('/sitemap', [RedirectController::class, 'sitemap']);
+Route::get('/about-us', [RedirectController::class, 'aboutus']);
 
-
+// Статичные страницы
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
-	
-	// Авторизирация
-	Route::get('/login', [AuthController::class, 'index'])->name('login');
-	Route::post('/login/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
-	Route::get('/register', [RegistrationController::class, 'show'])->name('registration');
-	Route::post('/register', [RegistrationController::class, 'register'])->name('register.post');
-	Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/page/sitemap', [PageController::class, 'sitemap'])->name('page.about-sitemap');
+Route::get('/page/about-us', [PageController::class, 'about'])->name('page.about-us');
+
+// Авторизирация
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+Route::get('/register', [RegistrationController::class, 'show'])->name('registration');
+Route::post('/register', [RegistrationController::class, 'register'])->name('register.post');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	
 	// Статьи
 	Route::get('/articles', [PostController::class, 'list'])->name('articles.list');

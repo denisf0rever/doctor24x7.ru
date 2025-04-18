@@ -28,7 +28,7 @@
         </a>
         <a href="" class="footer__big-link">support@puzkarapuz.ru
         </a>
-        <a href="/" class="footer__online-consultation">Онлайн консультация </a>
+        <a href="{{ route('consult.form') }}" class="footer__online-consultation">Онлайн консультация </a>
         <div class="footer__social">
           <a href="/" class="footer__social-link">
             <img src="" alt="" class="footer__social-img">

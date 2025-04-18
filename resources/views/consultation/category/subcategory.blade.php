@@ -39,7 +39,7 @@
 </section>
 <section class="main__ask-question-form ask-question-form">
   <div class="ask-question-form__wrapper">
-    <h2 class="ask-question-form__title">Задать вопрос {{ $subCategory->button_name }}</h2>
+    <h2 class="ask-question-form__title">Задать вопрос врачу онлайн</h2>
     <ul class="ask-question-form__blocks">
       <li class="ask-question-form__block">
         <img src="{{ Storage::url('common/category/first-step.svg') }}" class="ask-question-form__block-img">
@@ -66,13 +66,22 @@
       </li>
     </ul>
     <div class="ask-question-form__form-wrapper">
-      <form action="" class="ask-question-form__form">
-        <textarea name="" id="" class="ask-question-form__textarea"></textarea>
-        <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
-      </form>
+      <form action="{{ route('consult.form') }}" method="get" class="ask-question-form__form">
+			@csrf
+          <textarea name="description" id="description" class="ask-question-form__textarea"></textarea>
+		  <input type="hidden" name="rubric_id" value="{{ $subCategory->category->id }}">
+          <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
+        </form>
     </div>
   </div>
 </section>
+
+@if ($discussions->isNotEmpty())
+
+@foreach($discussions as $discussion)
+<p><a href="{{ route('consultation.item', $discussion->comment_id) }}">{{ $discussion->title }}</p>
+@endforeach
+@endif
 </div>
 
 <div class="main__chat chat">

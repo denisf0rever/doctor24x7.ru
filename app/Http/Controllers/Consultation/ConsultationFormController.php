@@ -49,7 +49,9 @@ class ConsultationFormController extends Controller
 			return redirect()->route('payment.consultation', $consultation->id)->with('success', 'Консультация добавлена');		
 			
 		} else {
-			return redirect()->back()->with('error', 'Какая-то ошибка при добавлении');
+			return redirect()->back()
+               ->withInput()
+			   ->with('error', 'Какая-то ошибка при добавлении');
 		}
     }
 }

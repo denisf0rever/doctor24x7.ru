@@ -13,6 +13,7 @@ use App\Models\Consultation\SubCategories;
 use App\Models\User\CategoryText as Text;
 use App\Models\City\City;
 use App\Models\Doctors\Doctors;
+use App\Models\Consultation\Discussion;
 
 use App\Services\DoctorService;
 
@@ -62,13 +63,10 @@ class ConsultationCategoryController extends Controller
 	{
 		$mainCategory = Category::where('slug', $categorySlug)
 			->select('id')
-			->first();
+			->firstOrFail();
 
-        $subCategory = SubCategories::where('slug', $subcategorySlug)->first();
-
-        if (!$subCategory) {
-            abort(404, 'Подкатегория не найдена');
-        }
+        $subCategory = SubCategories::where('slug', $subcategorySlug)
+			->firstOrFail();
 		
 		$showcase = Cache::remember('subcategories_showcase_' . $mainCategory->id, 2592000, fn () => Showcase::query()
 			->where('category_id', $mainCategory->id)
@@ -77,7 +75,12 @@ class ConsultationCategoryController extends Controller
 			->get()
 		);
 		
-        return view('consultation.category.subcategory', compact('subCategory', 'showcase'));
+		$discussions = Cache::remember('discussions_' . $mainCategory->id, 2592000, fn() => Discussion::where('subrubric_id', $subCategory->id)
+			->select('title', 'comment_id')
+			->get()
+			);
+		
+        return view('consultation.category.subcategory', compact('subCategory', 'showcase', 'discussions'));
     }
 	
 	public function city($city)

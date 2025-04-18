@@ -49,10 +49,11 @@
       </li>
     </ul>
     <div class="ask-question-form__form-wrapper">
-      <form action="" class="ask-question-form__form">
-        <textarea name="" id="" class="ask-question-form__textarea"></textarea>
-        <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
-      </form>
+      <form action="{{ route('consult.form') }}" method="get" class="ask-question-form__form">
+			@csrf
+          <textarea name="description" id="description" class="ask-question-form__textarea"></textarea>
+          <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
+        </form>
     </div>
   </div>
 </section>
