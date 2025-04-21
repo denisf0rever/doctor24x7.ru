@@ -1,0 +1,43 @@
+.sitemap {
+    &__title {
+        font-size: 28px;
+        font-weight: 500;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 15px;
+        margin-top: 30px;
+    }
+    &__item {
+        width: calc(100% / 4 - 20px);
+        font-size: 14px;
+        line-height: 1.5;
+        color: #6f8392;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        &__item {
+            width: calc(100% / 3 - 20px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__item {
+            width: calc(100% / 2 - 15px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        &__list {
+            text-align: center;
+        }
+        &__item {
+            width: 100%;
+        }
+    }
+}
