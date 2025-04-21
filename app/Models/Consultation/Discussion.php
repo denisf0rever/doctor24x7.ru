@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Discussion extends Model
 {
+	public $timestamps = false;
+	
     protected $table = 'sf_consultation_comment_pin';
+	
+	protected $fillable = [
+		'title',
+		'comment_id',
+		'subrubric_id'
+	];
 	
 	public function consultation()
 	{

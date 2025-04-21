@@ -16,19 +16,6 @@
       <main class="wrapper__main main">
         <div class="main__wrapper">
           <h1 class="main__title">Дискуссии</h1>
-		  <div class="main__blocks-wrapper">
-            <ul class="main__blocks">
-              <li class="main__block color-block">
-                <a href="{{ route('dashboard.consultation.discussion.store') }}" class="color-block__wrapper" style="background-color: #ffe2e6">
-                  <img src="/storage/dashboard/category.svg" alt="" class="color-block__img" style="background-color: #f9597c">
-                  <div class="color-block__big-text">Создать</div>
-                  <div class="color-block__title"></div>
-                  <div class="color-block__small-text">Всего добавлено: </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-
           <section class="main__pages pages">
             <div class="pages__wrapper">
               <h2 class="pages__title">Заголовки страниц</h2>
@@ -42,19 +29,16 @@
                   <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list">
-                  @foreach ($consultations as $consultation)
+                  @foreach ($discussions as $discussion)
                   <li class="pages__item">
-                    <span class="pages__views-id">{{ $consultation->id }}</span></a>
-                    <a href="{{ route('consultation.item', $consultation->id) }}" target="_blank" class="pages__link">
+                    <span class="pages__views-id">{{ $discussion->id }}</span>
+                    <a href="{{ route('consultation.item', $discussion->id) }}" target="_blank" class="pages__link">
                       <img src="{{ Storage::url('dashboard/link.svg') }}" alt="" class="pages__link-img">
                     </a>
-                    <a class="pages__name" href="{{ route('dashboard.consultation.item', $consultation->id)}}"
-                      target="_blank"><span>{{ $consultation->title }}</span></a>
-                    <span class="pages__views-id">{{ $consultation->created_at }}</span>
-                    <span class="pages__views-number">{{ $consultation->visit_count }}</span>
+                    <span class="pages__name">{{ $discussion->title }}</span>
                     <div class="pages__icons">
                       <div class="pages__icon">
-                        <a href="{{ route('dashboard.consultation.edit', $consultation->id)}}" target="_blank">
+                        <a href="{{ route('dashboard.consultation.edit', $discussion->id)}}" target="_blank">
                           <img src="{{ Storage::url('dashboard/edit.svg') }}" alt="" class="pages__icon-img">
                         </a>
                       </div>

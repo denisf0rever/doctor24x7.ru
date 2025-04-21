@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Consultation\SubCategories;
+use App\Models\Consultation\Discussion;
 
 class SubCategoryController extends Controller
 {
     public function index()
 	{
-		$subcategories = Cache::forever('subcategories', 2592000, fn () => SubCategories::query()
+		$subcategories = Cache::remember('subcategories', 2592000, fn () => SubCategories::query()
 			->orderBy('short_title', 'asc')
 			->get()
 			);
@@ -23,9 +24,22 @@ class SubCategoryController extends Controller
 	{
 		$subcategory = SubCategories::query()
 			->where('slug', $slug)
-			->first();
+			->firstOrFail();
 			
 		return view('dashboard.consultation.subcategory.edit', compact('subcategory'));
+	}
+	
+	public function discussions($slug)
+	{
+		$subcategory = SubCategories::query()
+			->where('slug', $slug)
+			->firstOrFail();
+			
+		$discussions = Discussion::where('subrubric_id', $subcategory->id)
+			->select('id', 'comment_id', 'title')
+			->get();
+			
+		return view('dashboard.consultation.subcategory.discussions', compact('discussions'));
 	}
 	
 	public function update(Request $request, $id)

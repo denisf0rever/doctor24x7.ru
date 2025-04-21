@@ -46,7 +46,8 @@
 		  'subcategorySlug' => $category->slug]) }}" class="pages__views-id" target="_blank"><span>{{ $category->id }}</span></a>
 					 <a class="pages__name" href="{{ route('dashboard.consultation.subcategories.slug', $category->slug) }}"
                       target="_blank"><span>{{ $category->short_title }}</span></a>
-					<span class="pages__name" >{{ $category->title }}</span>
+					 <a class="pages__name" href="{{ route('dashboard.consultation.subcategories.discussions', $category->slug) }}"
+                      target="_blank"><span>{{ $category->short_title }}</span></a>
 					<span class="pages__name">{{ $category->h1 }}</span>
                     <a class="pages__name" href="https://wordstat.yandex.ru/?region=all&view=table&words={{ $category->short_title }}"
                       target="_blank"><span>{{ $category->short_title }}</span></a>

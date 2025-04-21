@@ -158,16 +158,19 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.user.destroy');
 	Route::post('/dashboard/user/{id}', [UserController::class, 'update'])->name('dashboard.user.update');
 	
-	// Консультации
-	Route::get('/dashboard/discussion', [DiscussionController::class, 'index'])->name('dashboard.consultation.discussion');
+	// Дискуссии
+	Route::get('/dashboard/discussions', [DiscussionController::class, 'index'])->name('dashboard.consultation.discussion');
+	Route::get('/dashboard/discussions/create', [DiscussionController::class, 'store'])->name('dashboard.consultation.discussion.store');
+	Route::get('/dashboard/discussions/delete/{id}', [DiscussionController::class, 'destroy'])->name('dashboard.consultation.discussion.destroy');
+	Route::post('/dashboard/discussion', [DiscussionController::class, 'create'])->name('dashboard.consultation.discussion.create');
 	
 	Route::get('/dashboard/consultation', [ConsultationController::class, 'dashboard'])->name('dashboard.consultation');
 	
 	// Категории
-	
 	Route::get('/dashboard/consultation/categories', [ConsultationCategoryController::class, 'index'])->name('dashboard.consultation.categories');
 	Route::get('/dashboard/consultation/subcategories', [SubCategoryController::class, 'index'])->name('dashboard.consultation.subcategories.index');
 	Route::get('/dashboard/consultation/subcategory/{slug}', [SubCategoryController::class, 'subcategory'])->name('dashboard.consultation.subcategories.slug');
+	Route::get('/dashboard/consultation/subcategory/{slug}/discussions', [SubCategoryController::class, 'discussions'])->name('dashboard.consultation.subcategories.discussions');
 	Route::post('/dashboard/consultation/subcategory/{id}', [SubCategoryController::class, 'update'])->name('dashboard.consultation.subcategories.update');
 	
 	Route::get('/dashboard/consultation/categories/showcase/add-doctor', [ConsultationCategoryController::class, 'addDoctor'])->name('dashboard.consultation.categories.showcase.add-doctor');
