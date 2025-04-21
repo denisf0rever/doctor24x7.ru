@@ -22,7 +22,7 @@ class BookingController extends Controller
 				
 			$service = new BookingService($consultation_id, $user_id);
 			$result = $service->createBooking();
-			
+						
 			if ($result) {
 				$userId = auth()->id();
 				ConsultationAddBooking::dispatch($userId);

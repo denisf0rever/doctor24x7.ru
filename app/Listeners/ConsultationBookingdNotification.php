@@ -10,11 +10,13 @@ class ConsultationBookingdNotification
 {
     public function handle(ConsultationAddBooking $event): void
     {
-        $token = "5532676446:AAEfcknO5o71mfYqKfKlv1VLdX_4YoLOqZw";
-		$telegram_admin_id = 108494029;
+        $token = config('telegram.consultation_token');
+		$telegram_admin_id = [108494029, 5824577988];
 		$message = "ПК: Платная консультация в работе";
 		$message .= $event->userId;
-
-		file_get_contents('https://api.telegram.org/bot'.$token.'/sendMessage?chat_id='.$telegram_admin_id.'&text='.$message.'');
+		
+		foreach($telegram_admin_id as $admin) {
+			file_get_contents('https://api.telegram.org/bot'.$token.'/sendMessage?chat_id='.$admin.'&text='.$message.'');
+		}
     }
 }
