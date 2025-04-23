@@ -639,4 +639,33 @@ window.onload = () => {
     }
 
     /* ДЕЙСТВИЯ КОНСУЛЬТАЦИИ */
+
+    /*ФИЛЬТР */
+
+    const filterInput = document.querySelector(".pages__filter-input");
+    const filterItems = document.querySelectorAll(".pages__item");
+    const filterClear = document.querySelector(".pages__filter-clear");
+
+    if (filterInput && filterItems.length > 0 && filterClear) {
+        filterInput.addEventListener("input", function () {
+            const filter = filterInput.value.toLowerCase();
+
+            filterItems.forEach((item) => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+        filterClear.addEventListener("click", function () {
+            filterInput.value = "";
+            filterItems.forEach((item) => {
+                item.style.display = "";
+            });
+        });
+    }
+
+    /*ФИЛЬТР */
 };
