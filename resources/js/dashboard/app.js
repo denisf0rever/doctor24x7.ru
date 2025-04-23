@@ -384,61 +384,59 @@ window.onload = () => {
     /* БРОНИРОВАНИЕ КОНСУЛЬТАЦИИ */
 
     /* ПОДТВЕРЖДЕНИЕ УДАЛЕНИЯ */
-
     const dashboardPopup = document.querySelector(".dashboard-popup");
     const dashboardPopupClose = document.querySelector(
         ".dashboard-popup__close"
     );
     const dashboardItem = document.querySelectorAll(".dashboard-popup__item");
-
     const deleteLinks = document.querySelectorAll(".delete-link");
 
     if (deleteLinks.length > 0) {
         deleteLinks.forEach((el) => {
             el.addEventListener("click", (event) => {
-                event.preventDefault(); // Предотвращает стандартное поведение ссылки
+                event.preventDefault();
 
-                if (dashboardPopup) {
-                    dashboardPopup.classList.remove("dashboard-popup__hide");
+                if (!dashboardPopup) return;
 
-                    // Закрытие попапа при клике на кнопку закрытия
-                    dashboardPopupClose.onclick = () => {
-                        dashboardPopup.classList.add("dashboard-popup__hide");
-                    };
+                dashboardPopup.classList.remove("dashboard-popup__hide");
 
-                    // Закрытие попапа при клике на элементы списка
-                    dashboardItem.forEach((itemEL) => {
-                        itemEL.onclick = () => {
-                            if (
-                                itemEL.getAttribute("popup-action") === "resume"
-                            ) {
-                                window.location.href = el.href;
-                                dashboardPopup.classList.add(
-                                    "dashboard-popup__hide"
-                                );
-                            }
-                            if (
-                                itemEL.getAttribute("popup-action") === "cancel"
-                            ) {
-                                dashboardPopup.classList.add(
-                                    "dashboard-popup__hide"
-                                );
-                            }
-                        };
-                    });
+                // Закрытие попапа при клике на кнопку закрытия
+                dashboardPopupClose.onclick = () => {
+                    dashboardPopup.classList.add("dashboard-popup__hide");
+                    removeDocumentClickHandler();
+                };
 
-                    // Закрытие попапа при клике вне него
-                    document.addEventListener("click", (event) => {
-                        // Проверяем, был ли клик вне попапа и его дочерних элементов
-                        if (
-                            !dashboardPopup.contains(event.target) &&
-                            event.target !== el
-                        ) {
-                            dashboardPopup.classList.add(
-                                "dashboard-popup__hide"
-                            );
+                // Закрытие попапа при клике на элементы списка
+                dashboardItem.forEach((itemEL) => {
+                    itemEL.onclick = () => {
+                        const action = itemEL.getAttribute("popup-action");
+
+                        if (action === "resume") {
+                            window.location.href = el.href;
                         }
-                    });
+
+                        dashboardPopup.classList.add("dashboard-popup__hide");
+                        removeDocumentClickHandler();
+                    };
+                });
+
+                // Отложенное добавление обработчика клика вне попапа
+                setTimeout(() => {
+                    document.addEventListener("click", documentClickHandler);
+                }, 0);
+
+                function documentClickHandler(event) {
+                    if (
+                        !dashboardPopup.contains(event.target) &&
+                        event.target !== el
+                    ) {
+                        dashboardPopup.classList.add("dashboard-popup__hide");
+                        removeDocumentClickHandler();
+                    }
+                }
+
+                function removeDocumentClickHandler() {
+                    document.removeEventListener("click", documentClickHandler);
                 }
             });
         });
