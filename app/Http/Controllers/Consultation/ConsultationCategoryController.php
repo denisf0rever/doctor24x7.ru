@@ -17,6 +17,8 @@ use App\Models\Consultation\Discussion;
 
 use App\Services\DoctorService;
 
+use App\Services\Cached\CachedData;
+
 class ConsultationCategoryController extends Controller
 {
 	public function category($slug)
@@ -68,17 +70,14 @@ class ConsultationCategoryController extends Controller
         $subCategory = SubCategories::where('slug', $subcategorySlug)
 			->firstOrFail();
 		
-		$showcase = Cache::remember('subcategories_showcase_' . $mainCategory->id, 2592000, fn () => Showcase::query()
+		$showcase = Cache::remember('subcategories_showcase_' . $subCategory->id, 2592000, fn () => Showcase::query()
 			->where('category_id', $mainCategory->id)
 			->select('category_id', 'user_id', 'position')
 			->orderBy('position')
 			->get()
 		);
 		
-		$discussions = Cache::remember('discussions_' . $mainCategory->id, 2592000, fn() => Discussion::where('subrubric_id', $subCategory->id)
-			->select('title', 'comment_id')
-			->get()
-			);
+		$discussions = CachedData::getCachedDiscussions($subCategory->id);
 		
         return view('consultation.category.subcategory', compact('subCategory', 'showcase', 'discussions'));
     }
@@ -133,5 +132,10 @@ class ConsultationCategoryController extends Controller
 		$showcase = Cache::remember('cached_all_doctors', 2592000, fn () => Doctors::getDoctors());
 		
 		return $showcase;
+	}
+	
+	public function getCachedShowCase()
+	{
+		
 	}
 }

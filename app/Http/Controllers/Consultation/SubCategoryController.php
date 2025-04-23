@@ -39,7 +39,7 @@ class SubCategoryController extends Controller
 			->select('id', 'comment_id', 'title')
 			->get();
 			
-		return view('dashboard.consultation.subcategory.discussions', compact('discussions'));
+		return view('dashboard.consultation.subcategory.discussions', compact('subcategory', 'discussions'));
 	}
 	
 	public function update(Request $request, $id)

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Consultation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use App\Events\DiscussionCreated;
 
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\Discussion;
@@ -33,31 +35,30 @@ class DiscussionController extends Controller
 	
 	public function create(Request $request)
 	{
-		$discussion = Discussion::create(
-			[
+		$discussion = Discussion::create([
 			'comment_id' => $request->comment_id, 
 			'subrubric_id' => $request->subrubric_id,
 			'title' => $request->title
-			]);
+		]);
 			
-			return redirect()->back()->with('success', 'Дискуссия создана');
-			
+		Cache::forget('discussions_' . $request->subrubric_id);
+		
+		DiscussionCreated::dispatch($request->title);
+		
+		return redirect()->back()->with('success', 'Дискуссия создана');
 	}
 	
 	public function destroy(string $id)
     {
-		$comment = Comment::query()
+		$comment = Discussion::query()
             ->where('id', $id)
             ->firstOrFail();
 		
-		$consultation_slug = $comment->consultation->slug;
+		Cache::forget('discussions_' . $comment->subrubric_id);
+		
 		$comment->delete();
 		
-		ClearConsultationCache::clear($consultation_slug);
-				
-		if ($comment) {
-			 return redirect()->back()->with('success', 'Ответ удален');
-		}
+		return redirect()->back()->with('success', 'Дискуссия удалена');
 	}
 	
 }

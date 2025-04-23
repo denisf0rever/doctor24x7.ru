@@ -65,18 +65,18 @@ class UserController extends Controller
         return view('dashboard.user.add-user');
     }
 
-    public function show(string $id)
+    public function show(string $slug)
     {
-		$user = User::query()
-			->where('id', $id)
+		$user = UserMain::query()
+			->where('username', $slug)
 			->firstOrFail();
+		
+		$user->increment('views');
 		
 		$dateString = $user->created_at;
 		$createdAt = Carbon::parse($dateString);
 		\Carbon\Carbon::setLocale('ru');
 		$date = $createdAt->translatedFormat('j F Y') . ' года';
-		
-		$user->increment('views');
 		
 		return view('user.profile.item', compact('user', 'date'));
     }

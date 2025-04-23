@@ -1,4 +1,4 @@
-@extends('app')
+@extends('appsidebarfree')
 @section('title', $user->full_name)
 @section('description', '2')
 @section('keywords', '3')
@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-@include('parts.sidebar')
+
 <div class="main-profile__field">
   <section class="main-profile__profile profile">
     <div class="profile__wrapper">

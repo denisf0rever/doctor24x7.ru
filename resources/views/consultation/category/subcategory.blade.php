@@ -78,8 +78,9 @@
 
 @if ($discussions->isNotEmpty())
 
+<h3>Популярные консультации по теме «{{ $subCategory->h1 }}»</h3>
 @foreach($discussions as $discussion)
-<p><a href="{{ route('consultation.item', $discussion->comment_id) }}">{{ $discussion->title }}</p>
+<p><a href="{{ route('consultation.item', $discussion->comment_id) }}">{{ $discussion->title }}</a></p>
 @endforeach
 @endif
 </div>
