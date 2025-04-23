@@ -184,7 +184,7 @@
             <label class="payment-method__radio-label" for="payment_type_2">Юкасса</label>
           </div>
           <div class="payment-method__list" data-id="payment_type_1">
-		  
+
             <div class="payment-method__item">
               <input type="radio" name="paymentType" class="payment-method__input" value="any_card" id="any_card">
               <label for="any_card" class="payment-method__label">
@@ -197,7 +197,7 @@
                 </div>
               </label>
             </div>
-			<div class="payment-method__item">
+            <div class="payment-method__item">
               <input type="radio" name="paymentType" class="payment-method__input" value="TPay" id="TPay">
               <label for="TPay" class="payment-method__label">
                 <div class="payment-method__icon">
@@ -223,7 +223,7 @@
             </div>
           </div>
           <div class="payment-method__list" data-id="payment_type_2">
-			<div class="payment-method__item">
+            <div class="payment-method__item">
               <input type="radio" name="paymentType" class="payment-method__input" value="ac" id="ac">
               <label for="ac" class="payment-method__label">
                 <div class="payment-method__icon">
