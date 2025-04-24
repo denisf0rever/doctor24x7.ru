@@ -57,6 +57,20 @@ return [
 			'path' => storage_path('logs/payment.log'),
 			'level' => 'info',
 		],
+		
+		'email' => [
+           'driver' => 'single',
+           'path' => storage_path('logs/email.log'),
+           'level' => 'error',
+           'bubble' => true,
+		],
+		
+		'telegram' => [
+           'driver' => 'single',
+           'path' => storage_path('logs/telegram.log'),
+           'level' => 'error',
+           'bubble' => true,
+		],
 	
         'stack' => [
             'driver' => 'stack',

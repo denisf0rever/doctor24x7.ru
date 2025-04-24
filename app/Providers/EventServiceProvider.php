@@ -6,18 +6,6 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use App\Events\ConsultationCreated;
-use App\Listeners\ConsultationCreatedNotification;
-use App\Events\ConsultationAddBooking;
-use App\Listeners\ConsultationBookingdNotification;
-use App\Events\AnswerToAuthorCreated;
-use App\Listeners\AnswerNotification;
-use App\Events\AnswerToConsultantCreated;
-use App\Listeners\AnswerToConsultantNotification;
-use App\Events\ConsultationInWork;
-use App\Listeners\ConsultationInWorkNotification;
-use App\Events\DiscussionCreated;
-use App\Listeners\DiscussionCreatedNotification;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -57,35 +45,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-		Event::listen(
-			ConsultationCreated::class,
-			ConsultationCreatedNotification::class,
-		);
 		
-		Event::listen(
-			ConsultationAddBooking::class,
-			ConsultationBookingdNotification::class
-		);
-		
-		Event::listen(
-			AnswerToAuthorCreated::class,
-			AnswerNotification::class
-		);
-		
-		Event::listen(
-			AnswerToConsultantCreated::class,
-			AnswerToConsultantNotification::class
-		);
-		
-		Event::listen(
-			ConsultationInWork::class,
-			ConsultationInWorkNotification::class
-		);
-		
-		Event::listen(
-			DiscussionCreated::class,
-			DiscussionCreatedNotification::class
-		);
     }
 				
     /**

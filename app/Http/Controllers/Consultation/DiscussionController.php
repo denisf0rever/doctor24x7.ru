@@ -10,6 +10,11 @@ use App\Events\DiscussionCreated;
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\Discussion;
 
+use Log;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Discussion\DiscussionCreated as DiscussionCreatedMail;
+
 class DiscussionController extends Controller
 {
     public function index()
