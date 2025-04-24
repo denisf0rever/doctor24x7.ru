@@ -326,14 +326,17 @@ window.onload = () => {
 
         if (makeBookingBtn) {
             makeBookingBtn.onclick = () => {
-                makeBooking();
+                makeBooking(makeBookingBtn);
                 makeBookingBtn.style.display = "none";
             };
         }
 
-        async function makeBooking() {
+        async function makeBooking(btn) {
             const answerFullname = document.querySelector("#question-fullname");
             const answerEmail = document.querySelector("#question-email");
+
+            addLoader(btn); // Показать лоадер перед началом запроса
+
             try {
                 const response = await fetch(bookingUrl, {
                     method: "POST",
@@ -349,13 +352,12 @@ window.onload = () => {
                     }),
                 });
 
-                // Проверка успешности ответа
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
-                // Получение данных из ответа (в формате JSON)
                 const data = await response.json();
+
                 if (data.message) {
                     document.querySelector(".booking__text").innerHTML =
                         data.message;
@@ -363,6 +365,7 @@ window.onload = () => {
                     document.querySelector(".booking__text").innerHTML =
                         "Произошла ошибка";
                 }
+
                 document.querySelector(".booking__button").style.display =
                     "none";
 
@@ -376,7 +379,9 @@ window.onload = () => {
                         .classList.add("booking__is-free");
                 }
             } catch (error) {
-                console.error("Ошибка при выполнении запрос: ", error);
+                console.error("Ошибка при выполнении запроса: ", error);
+            } finally {
+                removeLoader(); // Удалить лоадер после завершения запроса (в любом случае)
             }
         }
     }
@@ -666,4 +671,23 @@ window.onload = () => {
     }
 
     /*ФИЛЬТР */
+
+    /*ЛОАДЕР */
+
+    const loader = `<span class="loader"></span>`;
+
+    const addLoader = (el) => {
+        if (el) {
+            el.insertAdjacentHTML("afterend", loader);
+        }
+    };
+
+    const removeLoader = () => {
+        const loaderEl = document.querySelector(".loader");
+        if (loaderEl) {
+            loaderEl.remove();
+        }
+    };
+
+    /*ЛОАДЕР */
 };

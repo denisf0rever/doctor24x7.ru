@@ -82,8 +82,8 @@
               <ul class="stats__list">
                 <li class="stats__item">
                   <div class="stats__number">
-                      {{ $consultation->tariff->fee }} &#8381;</div>
-                      <div class="stats__text">Гонорар</div>
+                    {{ $consultation->tariff->fee }} &#8381;</div>
+                  <div class="stats__text">Гонорар</div>
                 </li>
                 <li class="stats__item">
                   <div class="stats__number">{{ $consultation->payed_amount }} &#8381;</div>
@@ -124,7 +124,6 @@
               </ul>
             </div>
           </section>
-
           @if ($canBooking && !$hasBooking)
           <section class="main__booking booking">
             <div class="booking__wrapper white-block">
