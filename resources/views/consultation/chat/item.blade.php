@@ -43,7 +43,8 @@
             </div>
           </li>
           <li class="chat-side-menu__item">
-            <img class="chat-side-menu__avatar-img" src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg">
+            <img class="chat-side-menu__avatar-img"
+              src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg">
           </li>
         </ul>
       </div>
@@ -54,7 +55,8 @@
         <ul class="chat-sidebar__list">
           <li class="chat-sidebar__item">
             <div class="chat-sidebar__avatar chat-sidebar__avatar--green">
-              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg" alt="" class="chat-sidebar__avatar-img">
+              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg"
+                alt="" class="chat-sidebar__avatar-img">
             </div>
             <span class="chat-sidebar__fullname">{{ $consultation->category->short_title }}</span>
             <span class="chat-sidebar__last-message">Вам ответил врач</span>
@@ -75,7 +77,8 @@
               </svg>
             </div>
             <div class="chat-header__avatar">
-              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg" alt="" class="chat-header__avatar-img">
+              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg"
+                alt="" class="chat-header__avatar-img">
             </div>
             <div class="chat-header__fullname-wrapper">
               <span class="chat-header__fullname">Светлана Васильевна</span>
@@ -94,12 +97,11 @@
             <ul class="chat-messages__list">
               <li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper">
-                  <div class="chat-message__avatar">
-					<span class="chat-message__avatar-img">{{ Str::substr($consultation->username, 0, 1) }}</span>
-                  </div>
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text">{{ $consultation->description }}<!--<a href="/" class="chat-message__link">Ссылка</a>--></span>
+                      <span class="chat-message__text">{{ $consultation->description }}
+                        <!--<a href="/" class="chat-message__link">Ссылка</a>-->
+                      </span>
                       <span class="chat-message__time">
                         <div class="chat-message__time-icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -117,16 +119,43 @@
               </li>
               <li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper chat-message--own">
-                  <div class="chat-message__avatar">
-					<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg" class="chat-message__avatar-img">
-                  </div>
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
                       @if ($consultation->is_payed == 0)
-						  <span class="chat-message__text">Здравствуйте, Ваш вопрос получен, готовы предоставить консультацию здесь в чате либо по телефону. <span class="chat-message__text"><a href="https://puzkarapuz.ru/sfConsultationComment/payment/slug/{{ $consultation->id }}" class="chat-message__link" target="_target">Оплатить консультацию</a></span>
-						@else 
-							 <span class="chat-message__text">Здравствуйте, Ваша консультация оплачена, ожидайте ответ на почту, мы ответим вам согласно условиям выбранного тарифа.</span>
-					  @endif
+                      <span class="chat-message__text">Здравствуйте, Ваш вопрос получен, готовы предоставить
+                        консультацию здесь в чате либо по телефону. <span class="chat-message__text"><a
+                            href="https://puzkarapuz.ru/sfConsultationComment/payment/slug/{{ $consultation->id }}"
+                            class="chat-message__link" target="_target">Оплатить консультацию</a></span>
+                        @else
+                        <span class="chat-message__text">Здравствуйте, Ваша консультация оплачена, ожидайте ответ на
+                          почту, мы ответим вам согласно условиям выбранного тарифа.</span>
+                        @endif
+                        <span class="chat-message__time">
+                          <div class="chat-message__time-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path
+                                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                              </path>
+                            </svg>
+                          </div>
+                          <div class="chat-message__time-text"> 2025-04-23 13:17:31
+                          </div>
+                        </span>
+                    </div>
+                    <span class="chat-message__author">Светлана Васильевна</span>
+                  </div>
+                </div>
+              </li>
+              <li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper chat-message--own">
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <span class="chat-message__text">Lorem ipsum dolor sit</span>
+                      <span class="chat-message__price">350 ₽</span>
+                      <div class="chat-message__buttons">
+                        <a href="/" class="chat-message__button red-button">Отправить</a>
+                        <a href="/" class="chat-message__button grey-button">Отказаться</a>
+                      </div>
                       <span class="chat-message__time">
                         <div class="chat-message__time-icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -135,7 +164,8 @@
                             </path>
                           </svg>
                         </div>
-                        <div class="chat-message__time-text"> </div>
+                        <div class="chat-message__time-text"> 2025-04-23 13:17:31
+                        </div>
                       </span>
                     </div>
                     <span class="chat-message__author">Светлана Васильевна</span>
@@ -161,17 +191,38 @@
     </div>
   </div>
 </div>
- @if ($consultation->is_payed == 0)
-						  <div class="toast" id="toast">
+@if ($consultation->is_payed == 0)
+<div class="toast" id="toast">
   <div class="toast__container">
     <div class="toast__item">
       Консультация не оплачена
     </div>
   </div>
 </div>
-						@else 
-							  
-					  @endif
-<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(100803902, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/100803902" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->			
-@endsection
+@else
 
+@endif
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m, e, t, r, i, k, a) {
+  m[i] = m[i] || function() {
+    (m[i].a = m[i].a || []).push(arguments)
+  };
+  m[i].l = 1 * new Date();
+  for (var j = 0; j < document.scripts.length; j++) {
+    if (document.scripts[j].src === r) {
+      return;
+    }
+  }
+  k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ym(100803902, "init", {
+  clickmap: true,
+  trackLinks: true,
+  accurateTrackBounce: true,
+  webvisor: true
+});
+</script> <noscript>
+  <div><img src="https://mc.yandex.ru/watch/100803902" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript> <!-- /Yandex.Metrika counter -->
+@endsection

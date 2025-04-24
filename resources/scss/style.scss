@@ -53,6 +53,14 @@ ul {
     border-radius: 7px;
 }
 
+.grey-button {
+    color: var(--main-text);
+    cursor: pointer;
+    background-color: #f0f0f0;
+    padding: 7px 20px;
+    border-radius: 7px;
+}
+
 .container {
     margin: 0 auto;
     position: relative;
