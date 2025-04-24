@@ -646,6 +646,12 @@ body {
     &__item {
         display: flex;
         align-items: center;
+        padding: 5px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: #f0f1f5;
+        }
     }
     &__name {
         width: 50%;
