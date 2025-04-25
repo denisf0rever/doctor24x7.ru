@@ -45,6 +45,15 @@ class DiscussionController extends Controller
 			'subrubric_id' => $request->subrubric_id,
 			'title' => $request->title
 		]);
+		
+		$consultation = Consultation::query()
+			->where('id', $request->comment_id)
+			->firstOrFail();
+			
+		$consultation->title = $request->title;
+		$consultation->short_title = $request->title;
+
+		$consultation->save();
 			
 		Cache::forget('discussions_' . $request->subrubric_id);
 		

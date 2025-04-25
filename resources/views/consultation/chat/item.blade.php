@@ -146,14 +146,16 @@
                   </div>
                 </div>
               </li>
+			  
+			@if ($consultation->invoice && !empty($consultation->invoice->cost))
               <li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper chat-message--own">
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text">Lorem ipsum dolor sit</span>
-                      <span class="chat-message__price">350 ₽</span>
+                      <span class="chat-message__text">Консультант предлагает оплатить консультацию в чате</span>
+                      <span class="chat-message__price">{{ $consultation->invoice->cost }} ₽</span>
                       <div class="chat-message__buttons">
-                        <a href="/" class="chat-message__button red-button">Отправить</a>
+                        <a href="/" class="chat-message__button greenery-button">Перейти к оплате</a>
                         <a href="/" class="chat-message__button grey-button">Отказаться</a>
                       </div>
                       <span class="chat-message__time">
@@ -172,6 +174,7 @@
                   </div>
                 </div>
               </li>
+			  @endif
             </ul>
           </div>
         </div>

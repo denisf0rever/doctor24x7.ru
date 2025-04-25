@@ -9,6 +9,7 @@ use App\Models\Consultation\ConsultationCategory;
 use App\Models\Consultation\Photos;
 use App\Models\Tariff\Tariff;
 use App\Models\Payment\Payment;
+use App\Models\Invoice\Invoice;
 
 class Consultation extends Model
 {
@@ -65,6 +66,11 @@ class Consultation extends Model
 	{
 		return $this->hasOne(Payment::class, 'consultation_id');
 	}
+	
+	public function invoice()
+    {
+        return $this->hasOne(Invoice::class, 'comment_id');
+    }
 	
 	// Вернет false если брони нет, и true если бронь есть
 	public static function hasBooking($consultation_id, $user_id): bool

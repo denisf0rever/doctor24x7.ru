@@ -25,7 +25,7 @@ class ChatController extends Controller
 			->where('id', $id)
 			->select('id', 'title', 'description', 'username', 'created_at', 'rubric_id', 'is_payed')
 			->firstOrFail();
-			
+						
 		return view('consultation.chat.item', compact('consultation'));
 	}
 }
