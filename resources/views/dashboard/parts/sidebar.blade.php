@@ -19,6 +19,9 @@
 			<li class="menu__item">
               <a href="{{ route('dashboard.payment.index') }}" class="menu__link">Платежи</a>
             </li>
+			<li class="menu__item">
+              <a href="{{ route('dashboard.invoice.index') }}" class="menu__link">Счета</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -42,6 +45,9 @@
             </li>
 			<li class="menu-mobile__item">
              <a href="{{ route('dashboard.payment.index') }}" class="menu-mobile__link">Платежи</a>
+            </li>
+			<li class="menu-mobile__item">
+             <a href="{{ route('dashboard.invoice.index') }}" class="menu-mobile__link">Счета</a>
             </li>
           </ul>
         </div>

@@ -23,6 +23,7 @@ use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Tariff\TariffController;
 use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Testimonials\TestimonialController;
+use App\Http\Controllers\Invoice\InvoiceController;
 
 use App\Http\Controllers\Page\PageController;
 
@@ -78,6 +79,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	
 	// Оплата консультаций
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');
+	Route::get('/payment/chat/test', [PaymentController::class, 'test'])->name('payment.chat.test');
 	Route::get('/payment/answer/{id}', [PaymentController::class, 'payAnswer'])->name('payment.answer');
 	Route::post('/payment/consultation', [PaymentController::class, 'create'])->name('payment.consultation.create');
 	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.consultation.init');	
@@ -153,7 +155,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/dashboard/user/text-category/{id}', [UserCategoryTextController::class, 'update'])->name('dashboard.user.update-category-text');
 	Route::get('/dashboard/user/text-category/delete/{id}', [UserCategoryTextController::class, 'destroy'])->name('dashboard.user.destroy-category-text');
 	
-	
 	Route::post('/user/create', [UserController::class, 'create'])->name('dashboard.user.create-user');
 	Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.user.destroy');
 	Route::post('/dashboard/user/{id}', [UserController::class, 'update'])->name('dashboard.user.update');
@@ -201,6 +202,12 @@ Route::middleware(['auth'])->group(function () {
 	// Платежи
 	Route::get('/dashboard/payment', [PaymentController::class, 'index'])->name('dashboard.payment.index');
 	Route::get('/dashboard/payment/{id}', [PaymentController::class, 'item'])->name('dashboard.payment.item');
+	
+	// Счета
+	Route::get('/dashboard/invoices', [InvoiceController::class, 'index'])->name('dashboard.invoice.index');
+	Route::get('/dashboard/invoices/{id}/create', [InvoiceController::class, 'addInvoice'])->name('dashboard.invoice.add-invoice');
+	Route::post('/dashboard/invoice', [InvoiceController::class, 'create'])->name('dashboard.invoice.create');
+	Route::get('/dashboard/invoices/delete/{id}', [InvoiceController::class, 'destroy'])->name('dashboard.invoice.destroy');
 	
 	// Букинг
 	Route::post('/dashboard/fetch/booking/{id}', [BookingController::class, 'makeRequest'])->name('dashboard.consultation.booking');

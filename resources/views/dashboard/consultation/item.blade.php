@@ -28,6 +28,9 @@
                 <div class="custom-select__wrapper custom-select__hide small-menu__menu">
                   <ul class="small-menu__menu-list">
                     <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
+                        href="{{ route('dashboard.invoice.add-invoice', $consultation->id )}}">Добавить счет</a>
+                    </li>
+                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link"
                         href="{{ route('dashboard.consultation.edit', $consultation->id )}}">Редактировать</a>
                     </li>
                     <li class="small-menu__menu-item"><a class="small-menu__menu-item-link small-menu__link-doc"

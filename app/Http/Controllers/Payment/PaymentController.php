@@ -216,7 +216,7 @@ class PaymentController extends Controller
 		unset($data['Password']);
 		
 		$data['Token'] = $hashedString;
-		//$data['DATA'] = $preparedData;
+		$data['DATA'] = $preparedData;
 		
 		ksort($data);
 		
@@ -250,5 +250,10 @@ class PaymentController extends Controller
 	public function ukassa()
 	{
 		return 'OK';
+	}
+	
+	public function test()
+	{
+		return view('payment.chat-test');
 	}
 }
