@@ -40,7 +40,7 @@ class Booking extends Model
 			
 		$booking_amount = $consultation->bookings->count();
 			
-		$answers_count = $consultation->tariff->answers_count;
+		$answers_count = $consultation->tariff->answers_count ?? 1;
 		
 		return $booking_amount < $answers_count ? true : false;
     }

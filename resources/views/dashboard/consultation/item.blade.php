@@ -85,7 +85,7 @@
               <ul class="stats__list">
                 <li class="stats__item">
                   <div class="stats__number">
-                    {{ $consultation->tariff->fee }} &#8381;</div>
+                    {{ $consultation->tariff->fee ?? 0}} &#8381;</div>
                   <div class="stats__text">Гонорар</div>
                 </li>
                 <li class="stats__item">
@@ -99,11 +99,11 @@
                 </li>
                 @endif
                 <li class="stats__item">
-                  <div class="stats__number">{{ $consultation->tariff->sum }} &#8381;</div>
+                  <div class="stats__number">{{ $consultation->tariff->sum ?? 0 }} &#8381;</div>
                   <div class="stats__text">Тариф</div>
                 </li>
                 <li class="stats__item">
-                  <div class="stats__number">{{ $consultation->tariff->title }}</div>
+                  <div class="stats__number">{{ $consultation->tariff->title ?? 0 }}</div>
                   <div class="stats__text">Сценарий</div>
                 </li>
                 <li class="stats__item">

@@ -117,6 +117,36 @@
                   </div>
                 </div>
               </li>
+			  
+			@if ($invoice)
+              <li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper chat-message--own">
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <span class="chat-message__text">Консультант предлагает оплатить консультацию в чате</span>
+                      <span class="chat-message__price">{{ $invoice->cost }} ₽</span>
+                      <div class="chat-message__buttons">
+                        <a href="{{ route('payment.chat.test') }}" class="chat-message__button greenery-button">Перейти к оплате</a>
+                        <a href="https://puzkarapuz.ru/" class="chat-message__button grey-button" target="_blank">Отказаться</a>
+                      </div>
+                      <span class="chat-message__time">
+                        <div class="chat-message__time-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="chat-message__time-text"> </div>
+                      </span>
+                    </div>
+                    <span class="chat-message__author">Светлана Васильевна</span>
+                  </div>
+                </div>
+              </li>
+			  
+			  @else
+				  
               <li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper chat-message--own">
                   <div class="chat-message__main">
@@ -138,37 +168,8 @@
                               </path>
                             </svg>
                           </div>
-                          <div class="chat-message__time-text"> 2025-04-23 13:17:31
-                          </div>
+                          <div class="chat-message__time-text"> </div>
                         </span>
-                    </div>
-                    <span class="chat-message__author">Светлана Васильевна</span>
-                  </div>
-                </div>
-              </li>
-			  
-			@if ($consultation->invoice && !empty($consultation->invoice->cost))
-              <li class="chat-messages__chat-message chat-message">
-                <div class="chat-message__wrapper chat-message--own">
-                  <div class="chat-message__main">
-                    <div class="chat-message__message-block">
-                      <span class="chat-message__text">Консультант предлагает оплатить консультацию в чате</span>
-                      <span class="chat-message__price">{{ $consultation->invoice->cost }} ₽</span>
-                      <div class="chat-message__buttons">
-                        <a href="/" class="chat-message__button greenery-button">Перейти к оплате</a>
-                        <a href="/" class="chat-message__button grey-button">Отказаться</a>
-                      </div>
-                      <span class="chat-message__time">
-                        <div class="chat-message__time-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                            </path>
-                          </svg>
-                        </div>
-                        <div class="chat-message__time-text"> 2025-04-23 13:17:31
-                        </div>
-                      </span>
                     </div>
                     <span class="chat-message__author">Светлана Васильевна</span>
                   </div>

@@ -38,6 +38,10 @@ class EventServiceProvider extends ServiceProvider
 		DiscussionCreated::class => [
 			DiscussionCreatedNotification::class,
 		],
+		
+		App\Events\Invoice\DiscussionCreated::class => [
+			App\Listeners\DiscussionCreatedNotification::class,
+		],
     ];
 
     /**

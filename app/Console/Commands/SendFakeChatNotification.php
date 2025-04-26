@@ -13,7 +13,7 @@ use App\Services\TelegramBot\TelegramNotifier;
 
 class SendFakeChatNotification extends Command
 {
-	protected $signature = 'command:fakechat'; // Имя вашей команды
+	protected $signature = 'command:fakechat';
     protected $description = 'Отправляем уведомление в чат с предложением оплатить консультацию';
 	
     public function handle()
@@ -43,8 +43,10 @@ class SendFakeChatNotification extends Command
 			];*/
 			
 			Mail::to($details->email)->send(new FakeChatNotificationMail($details));
-			
+			Mail::to('predlozhi@bk.ru')->send(new FakeChatNotificationMail($details));
 		}
+		
+		
 		//FakeChat::dispatch($data);	
 	}
 }
