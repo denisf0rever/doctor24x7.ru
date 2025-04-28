@@ -43,7 +43,8 @@ class SendFakeChatNotification extends Command
 			];*/
 			
 			Mail::to($details->email)->send(new FakeChatNotificationMail($details));
-			Mail::to('predlozhi@bk.ru')->send(new FakeChatNotificationMail($details));
+			
+			//Mail::to('predlozhi@bk.ru')->send(new FakeChatNotificationMail($details));
 		}
 		
 		

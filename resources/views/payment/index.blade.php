@@ -10,6 +10,7 @@
         <input type="hidden" name="OrderId" value="{{ $consultation->id }}">
         <input type="hidden" id="tariff_id" name="tariff_id" value="14">
         <input type="hidden" name="Sum" id="total_price" value="500">
+        <input type="hidden" name="payment_purpose" id="payment_purpose" value="consultation">
 
         <div class="payment__wrapper container-p">
           <span class="payment__title">Оплата консультации</span>
@@ -175,11 +176,11 @@
             <h1 class="payment__normal-title">Выберите способ оплаты</h1>
           </div>
           <div class="payment-method__tabs">
-            <input class="payment-method__radio-input" type="radio" id="payment_type_1" name="payment_type"
+            <input class="payment-method__radio-input" type="radio" id="payment_type_1" name="payment_method"
               value="t_bank" checked>
             <label class="payment-method__radio-label" for="payment_type_1">Т-банк</label>
 
-            <input class="payment-method__radio-input" type="radio" id="payment_type_2" name="payment_type"
+            <input class="payment-method__radio-input" type="radio" id="payment_type_2" name="payment_method"
               value="u_kassa">
             <label class="payment-method__radio-label" for="payment_type_2">Юкасса</label>
           </div>

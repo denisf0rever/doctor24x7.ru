@@ -18,12 +18,12 @@ class SuccessfulPaymentController extends Controller
 			
 			$message = json_encode($data);
 		
-			//Log::channel('payment')->info('Payment Notification:', $request->all());
+			Log::channel('payment')->info('Payment Notification:', $request->all());
 			
-			Mail::to(env('CUSTOM_ADMIN_MAIL'))->send(new PaymentStatus($message));
+			Mail::to(config('config.admin_mail'))->send(new PaymentStatus($message));
 			
-			$token = config('telegram.consultation_token');
-			$telegram_admin_id = config('telegram.telegram_admin_id');
+			$token = config('config.rublitaken_token');
+			$telegram_admin_id = config('config.telegram_admin_id');
 
 			file_get_contents('https://api.telegram.org/bot'.$token.'/sendMessage?chat_id='.$telegram_admin_id.'&text='.$message.'');
 		}

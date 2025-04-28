@@ -173,10 +173,11 @@ class PaymentController extends Controller
     public function init(Request $request)
 	{
 		$request->validate([
-			'payment_type' => 'required|string|in:t_bank,u_kassa'
+			'payment_method' => 'required|string|in:t_bank,u_kassa,',
+			'payment_purpose' => 'required|string|in:chat,consultation'
 		]);
 
-		return match ($request->payment_type) {
+		return match ($request->payment_method) {
 			't_bank' => $this->tbank($request),
 			'u_kassa' => $this->ukassa(),
 			default => redirect()->back()->with('error', 'Недопустимый тип платежа.'), // Этот случай валидации уже обрабатывается
@@ -186,6 +187,8 @@ class PaymentController extends Controller
 	public function tBank($request)
 	{
 		$preparedData = [
+			'payment_purpose' => $request->payment_purpose,
+			'payment_method' => $request->payment_method,
 			'amount' => $request->amount,
 			'chat' => $request->chat ?? 0,
 			'order_id' => $request->OrderId,

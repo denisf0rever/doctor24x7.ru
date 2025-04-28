@@ -14,6 +14,8 @@ class InvoiceCreatedNotification
 {
     public function handle(InvoiceCreated $events): void
     {			
+		$email = $events->details['email'];
+		
 		$details = [
 			'username' => $events->details['username'],
 			'consultation_id' => $events->details['consultation_id'],
@@ -24,6 +26,7 @@ class InvoiceCreatedNotification
 		];
 		
 		try {
+			//Mail::to($email)->send(new InvoiceCreatedMail($details));
 			Mail::to('predlozhi@bk.ru')->send(new InvoiceCreatedMail($details));
 		} catch (Exception $e) {
 			Log::channel('email')->error('Ошибка при отправке почты ' . __CLASS__ . $e->getMessage());
