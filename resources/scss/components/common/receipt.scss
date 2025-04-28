@@ -71,6 +71,10 @@
         cursor: pointer;
         transition: all 0.3s ease;
         border-radius: 10px;
+        &--active {
+            background-color: #00c853;
+            color: #fff;
+        }
         &:hover {
             opacity: 0.8;
         }
@@ -82,6 +86,35 @@
         gap: 20px;
         padding: 0 15px;
     }
+    &__checkbox {
+        display: none;
+    }
+
+    &__custom-checkbox {
+        min-width: 18px;
+        min-height: 18px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    &__checkbox:checked + &__custom-checkbox {
+        background-color: #00c853;
+    }
+
+    &__checkbox:checked + &__custom-checkbox::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 6px;
+        width: 5px;
+        height: 8px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
     &__checkbox-wrapper {
         display: flex;
         align-items: center;
@@ -90,5 +123,13 @@
     }
     &__payment-method {
         margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .receipt {
+        &__label {
+            font-size: 42px;
+        }
     }
 }

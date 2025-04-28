@@ -7,11 +7,13 @@
 <section class="main__receipt receipt">
   <div class="receipt__wrapper">
     <form action="" class="receipt__form">
-      <input type="number" hidden class="receipt__total-price">
+      <input type="hidden" class="receipt__total-price">
+      <input type="hidden" name="payment_purpose" id="payment_purpose" value="chat">
+      <input type="hidden" class="receipt__minimal-price" value="1000">
       <div class="receipt__main-field">
         <span class="receipt__title">Итого к оплате</span>
         <label for="price" class="receipt__label">
-          <input type="number" class="receipt__price" id="price" name="price" value="1000"
+          <input type="number" class="receipt__price" readonly id="price" name="price" value="1000"
             oninput="this.value = this.value.replace(/\D/g, '')">
           <span class="receipt__currency">₽</span>
           <span class="receipt__input-mirror"></span>
@@ -22,11 +24,9 @@
       </div>
       <div class="receipt__checkboxes">
         <label for="checkbox_1" class="receipt__checkbox-wrapper">
+          <input type="hidden" class="receipt__comission" value="3">
           <input type="checkbox" id="checkbox_1" class="receipt__checkbox">
-          <span class="receipt__checkbox-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-        </label>
-        <label for="checkbox_2" class="receipt__checkbox-wrapper">
-          <input type="checkbox" id="checkbox_2" class="receipt__checkbox">
+          <span class="receipt__custom-checkbox"></span>
           <span class="receipt__checkbox-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
         </label>
       </div>
