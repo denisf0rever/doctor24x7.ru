@@ -30,17 +30,7 @@
 
           <div class="payment__urgency-list">
             <label class="payment__urgency-item" for="urgency_1">
-              <input class="payment__urgency-input" checked="" hidden="" type="radio" name="urgency" value="300"
-                id="urgency_1">
-              <div class="payment__urgency-radio">
-                <img src="{{ Storage::url('payment/rocket.svg') }}" alt="" class="payment__urgency-img">
-                <div class="payment__urgency-title">800 ₽</div>
-                <div class="payment__urgency-subtitle">Срочно</div>
-                <div class="payment__urgency-text">Ожидание ~25м</div>
-              </div>
-            </label>
-            <label class="payment__urgency-item" for="urgency_2">
-              <input class="payment__urgency-input" hidden="" type="radio" name="urgency" value="0" id="urgency_2">
+              <input class="payment__urgency-input" hidden="" type="radio" name="urgency" value="0" id="urgency_1">
               <div class="payment__urgency-radio">
                 <img src="{{ Storage::url('payment/turtle.svg') }}" alt="" class="payment__urgency-img">
                 <div class="payment__urgency-title">500 ₽</div>
@@ -48,13 +38,23 @@
                 <div class="payment__urgency-text">Ожидание ~2-5ч</div>
               </div>
             </label>
-            <label class="payment__urgency-item" for="urgency_3">
-              <input class="payment__urgency-input" hidden="" type="radio" name="urgency" value="200" id="urgency_3">
+            <label class="payment__urgency-item" for="urgency_2">
+              <input class="payment__urgency-input" hidden="" type="radio" name="urgency" value="200" id="urgency_2">
               <div class="payment__urgency-radio">
                 <img src="{{ Storage::url('payment/scooter.svg') }}" alt="" class="payment__urgency-img">
                 <div class="payment__urgency-title">700 ₽</div>
                 <div class="payment__urgency-subtitle">Что-то среднее</div>
                 <div class="payment__urgency-text">Ожидание ~1-2ч</div>
+              </div>
+            </label>
+            <label class="payment__urgency-item" for="urgency_3">
+              <input class="payment__urgency-input" checked="" hidden="" type="radio" name="urgency" value="300"
+                id="urgency_3">
+              <div class="payment__urgency-radio">
+                <img src="{{ Storage::url('payment/rocket.svg') }}" alt="" class="payment__urgency-img">
+                <div class="payment__urgency-title">800 ₽</div>
+                <div class="payment__urgency-subtitle">Срочно</div>
+                <div class="payment__urgency-text">Ожидание ~25м</div>
               </div>
             </label>
           </div>
