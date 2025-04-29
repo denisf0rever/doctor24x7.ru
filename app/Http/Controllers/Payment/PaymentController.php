@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\ConsultationCategory as Category;
 
 use App\Models\Payment\Payment;
+use App\Models\Invoice\Invoice;
 use App\Models\Tariff\Rubric;
 use App\Models\Tariff\Tariff;
 use Carbon\Carbon;
@@ -107,7 +107,7 @@ class PaymentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function consultation(string $id)
     {
         $consultation = Consultation::query()
             ->where('id', $id)
@@ -196,8 +196,12 @@ class PaymentController extends Controller
 		return 'OK';
 	}
 	
-	public function test()
+	public function chat(string $id)
 	{
-		return view('payment.chat-test');
+		$invoice = Invoice::query()
+			->where('id', $id)
+			->firstOrFail();
+			
+		return view('payment.chat', compact('invoice'));
 	}
 }

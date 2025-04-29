@@ -78,8 +78,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	
 	
 	// Оплата консультаций
-	Route::get('/payment/consultation/{id}', [PaymentController::class, 'show'])->name('payment.consultation');
-	Route::get('/payment/chat/test', [PaymentController::class, 'test'])->name('payment.chat.test');
+	Route::get('/payment/consultation/{id}', [PaymentController::class, 'consultation'])->name('payment.consultation');
+	Route::get('/payment/chat/{id}', [PaymentController::class, 'chat'])->name('payment.chat');
 	Route::get('/payment/answer/{id}', [PaymentController::class, 'payAnswer'])->name('payment.answer');
 	Route::post('/payment/consultation', [PaymentController::class, 'create'])->name('payment.consultation.create');
 	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.consultation.init');	

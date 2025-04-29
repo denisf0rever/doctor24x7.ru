@@ -126,7 +126,7 @@
                       <span class="chat-message__text">Консультант предлагает оплатить консультацию в чате</span>
                       <span class="chat-message__price">{{ $invoice->cost }} ₽</span>
                       <div class="chat-message__buttons">
-                        <a href="{{ route('payment.chat.test') }}" class="chat-message__button greenery-button">Перейти к оплате</a>
+                        <a href="{{ route('payment.chat', $invoice->id) }}" class="chat-message__button greenery-button">Перейти к оплате</a>
                         <a href="https://puzkarapuz.ru/" class="chat-message__button grey-button" target="_blank">Отказаться</a>
                       </div>
                       <span class="chat-message__time">
