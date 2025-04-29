@@ -52,20 +52,18 @@
         padding: 0;
     }
     &__input-mirror {
-        .receipt__input-mirror {
-            position: absolute;
-            top: 0;
-            left: 0;
-            visibility: hidden;
-            white-space: pre;
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-            letter-spacing: inherit;
-            padding: 0;
-            margin: 0;
-            border: 0;
-        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        white-space: pre;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        padding: 0;
+        margin: 0;
+        border: 0;
     }
     &__custom-price {
         width: 100%;
