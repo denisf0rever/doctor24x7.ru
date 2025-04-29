@@ -17,6 +17,14 @@
           <span class="payment__small-title">Количество консультантов</span>
           <div class="payment__amount-list">
 
+@if ($errors->any())
+	<ul>
+@foreach ($errors->all() as $error)
+               <li>{{ $error }}</li>
+           @endforeach
+</ul>
+@endif
+
             @foreach($tariffArray as $key => $tariff)
             <label class="payment__amount-item" for="amount_{{ $key + 1 }}">
               <input class="payment__amount-input" hidden type="radio" name="amount" value="{{ $tariff->sum }}"
