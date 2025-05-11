@@ -58,7 +58,7 @@
               <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg"
                 alt="" class="chat-sidebar__avatar-img">
             </div>
-            <span class="chat-sidebar__fullname">{{ $consultation->category->short_title }}</span>
+            <span class="chat-sidebar__fullname">Светлана Васильевна</span>
             <span class="chat-sidebar__last-message">Вам ответил врач</span>
             <span class="chat-sidebar__time"> </span>
           </li>
@@ -89,6 +89,7 @@
                   </path>
                 </svg>
               </div>
+			  <span>{{ $consultation->category->short_title }}</span>
             </div>
           </div>
         </div>
@@ -118,15 +119,15 @@
                 </div>
               </li>
 			  
-			@if ($invoice)
+			@if ($consultation->invoice && $consultation->invoice->isNotPaid())
               <li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper chat-message--own">
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
                       <span class="chat-message__text">Консультант предлагает оплатить консультацию в чате</span>
-                      <span class="chat-message__price">{{ $invoice->cost }} ₽</span>
+                      <span class="chat-message__price">{{ $consultation->invoice->cost }} ₽</span>
                       <div class="chat-message__buttons">
-                        <a href="{{ route('payment.chat', $invoice->id) }}" class="chat-message__button greenery-button">Перейти к оплате</a>
+                        <a href="{{ route('payment.chat', $consultation->invoice->id) }}" class="chat-message__button greenery-button">Перейти к оплате</a>
                         <a href="https://puzkarapuz.ru/" class="chat-message__button grey-button" target="_blank">Отказаться</a>
                       </div>
                       <span class="chat-message__time">

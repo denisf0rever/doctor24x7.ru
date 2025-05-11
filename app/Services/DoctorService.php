@@ -22,7 +22,7 @@ final class DoctorService
 			->where('id',  $data['id'])
 			->firstOrFail();
 			
-		$userByCategoryuserByCategory->user_id = $data['user_id'];
+		$userByCategory->user_id = $data['user_id'];
 		$userByCategory->category_id = $data['category_id'];
 		$userByCategor->save();
 		

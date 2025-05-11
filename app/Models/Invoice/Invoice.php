@@ -19,4 +19,14 @@ class Invoice extends Model
 	{
 		return $this->belongsTo(Consultation::class, 'comment_id');
 	}
+	
+	public static function findByCommentId($id)
+    {
+        return self::where('comment_id', $id)->firstOrFail();
+    }
+	
+	public function isNotPaid(): int
+	{
+		return $this->is_paid === 0;
+	}
 }

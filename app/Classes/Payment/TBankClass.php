@@ -8,8 +8,8 @@ use Illuminate\Support\Str;
 
 class TBankClass
 {
-	private static string $terminal_key = '1729778851350DEMO';
-	private static string $password = '1iaDILU&TIstEwxv';
+	protected static $terminal_key = '1729778851371';
+	protected static $password = 'UNUKBp3_0OMdREha';
 	
 	public static function init(Request $request)
 	{
@@ -18,7 +18,7 @@ class TBankClass
 			'payment_method' => $request->payment_method,
 			'amount' => $request->amount,
 			'chat' => $request->chat ?? 0,
-			'order_id' => $request->OrderId,
+			'order_id' => $request->OrderId ?? 0,
 			'tariff_id' => $request->tariff_id ?? 0,
 			'total_sum' => $request->Sum,
 			'urgency' => $request->urgency ?? 0,
@@ -28,12 +28,12 @@ class TBankClass
 		];
 
 		$data = [
-			'Amount' => 10 * 100,
+			'Amount' => $request->Sum * 100,
 			'Description' => 'Оплата консультации с врачом',
 			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
 			'OrderId' => (string) Str::uuid(),
 			'Password' => self::$password,
-			'SuccessURL' => 'https://doctor24x7.ru/chat/' . $request->OrderId,
+			'SuccessURL' => 'https://doctor24x7.ru/payment/chat/success',
 			'TerminalKey' => self::$terminal_key,
 		];
 		
@@ -50,6 +50,7 @@ class TBankClass
 		
 		ksort($data);
 		
+		// Затестить что это?
 		$postDataJson = json_encode($data);
 		
 		try {
@@ -58,7 +59,7 @@ class TBankClass
 			
 			$decode_response = json_decode($response, true);
 			
-			dd($decode_response);
+			//dd($decode_response);
 		
 			if (isset($decode_response['PaymentURL'])) {
 				$paymentUrl = $decode_response['PaymentURL'];
@@ -66,12 +67,10 @@ class TBankClass
 			} else {
 			
 				if($decode_response['ErrorCode'] == 8) {
-					dd($decode_response);
+					//dd($decode_response);
 				}
 			}
 		} catch (Exception $e) {
-			echo $e->message;
-			
 			return response()->json(['error' => 'Ошибка при отправке запроса'], $response->status());
 		}	
 	}

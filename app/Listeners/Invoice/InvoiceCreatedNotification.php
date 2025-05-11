@@ -7,6 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\Events\Invoice\InvoiceCreated;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Invoice\InvoiceCreated as InvoiceCreatedMail;
+
 use Illuminate\Support\Facades\Log;
 use Exception;
 
@@ -25,9 +26,9 @@ class InvoiceCreatedNotification
 			'app_support' => config('config.custom_support'),
 		];
 		
-		try {
-			//Mail::to($email)->send(new InvoiceCreatedMail($details));
-			Mail::to('predlozhi@bk.ru')->send(new InvoiceCreatedMail($details));
+		try {			
+			Mail::to($email)->send(new InvoiceCreatedMail($details));
+			
 		} catch (Exception $e) {
 			Log::channel('email')->error('Ошибка при отправке почты ' . __CLASS__ . $e->getMessage());
 		}

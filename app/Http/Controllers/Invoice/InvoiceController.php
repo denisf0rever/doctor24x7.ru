@@ -48,6 +48,17 @@ class InvoiceController extends Controller
 				
 		InvoiceCreated::dispatch($array);
 		
-		return redirect()->back()->with('success', 'Инвойс успешно создан!');
+		return redirect()->back()->with('success', 'Инвойс успешно создан');
+	}
+	
+	public function destroy(int $id)
+	{
+		$invoice = Invoice::query()
+			->where('id', $id)
+			->firstOrFail();
+			
+		$invoice->delete();
+		
+		return redirect()->back()->with('success', 'Инвойс успешно удален');
 	}
 }

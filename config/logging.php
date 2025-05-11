@@ -58,6 +58,12 @@ return [
 			'level' => 'info',
 		],
 		
+		'payment_error' => [
+			'driver' => 'single',
+			'path' => storage_path('logs/payment_error.log'),
+			'level' => 'error',
+		],
+		
 		'email' => [
            'driver' => 'single',
            'path' => storage_path('logs/email.log'),

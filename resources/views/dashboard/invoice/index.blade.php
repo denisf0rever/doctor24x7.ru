@@ -66,6 +66,7 @@
                   <span class="pages__title-small-name">ID</span>
                   <span class="pages__title-number-big">Оплат сегодня</span>
                   <span class="pages__title-number-big">Оплат вчера</span>
+				  <span class="pages__title-options">Опции</span>
                 </div>
                 <ul class="pages__list">
 				@foreach ($invoices as $invoice)
@@ -73,6 +74,14 @@
                     <a href="" class="pages__views-id"><span>{{ $invoice->id }}</span></a> 
 					<span class="pages__small-name">{{ $invoice->comment_id }}</span>
                     <span class="pages__views-number-big">{{ $invoice->cost }}</span>
+                    <div class="pages__icons">
+                      <div class="pages__icon">
+                        <a href="{{ route('dashboard.invoice.destroy', $invoice->id) }}"
+                          class="delete-link" target="_blank">
+                          <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="pages__icon-img">
+                        </a>
+                      </div>
+                    </div>
                   </li>
 				 @endforeach
                 </ul>

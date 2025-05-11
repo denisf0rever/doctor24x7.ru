@@ -45,36 +45,6 @@
               </form>
             </div>
           </section>
-		  
-          <section class="main__pages pages">
-            <div class="pages__wrapper">
-              <h2 class="pages__title">Заголовки страниц</h2>
-              <div class="pages__inner">
-                <div class="pages__titles">
-                  <span class="pages__title-id">ID</span>
-                  <span class="pages__title-name">Название</span>
-                  <span class="pages__title-options">Опции</span>
-                </div>
-                <ul class="pages__list">
-                 
-                  <li class="pages__item">
-                    <span class="pages__views-id"> </span>
-                    <a href=" " class="pages__name"
-                      target="_blank"><span> </span></a>
-                    <div class="pages__icons">
-                      <div class="pages__icon">
-                        <a href=" "
-                          class="delete-link" target="_blank">
-                          <img src="{{ Storage::url('dashboard/del.svg') }}" alt="" class="pages__icon-img">
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                
-                </ul>
-              </div>
-            </div>
-          </section>
         </div>
 
         @if (session('success'))

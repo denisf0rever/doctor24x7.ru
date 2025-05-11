@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Redirect;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Invoice\Invoice;
 
 class RedirectController extends Controller
 {

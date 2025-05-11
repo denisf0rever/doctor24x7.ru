@@ -3,13 +3,14 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Events\FakeChat;
 
 use App\Models\Consultation\Consultation;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FakeChatNotificationMail;
 use App\Services\TelegramBot\TelegramNotifier;
+use App\Models\Config\Config;
+use App\Services\Cached\CachedConfig;
 
 class SendFakeChatNotification extends Command
 {
@@ -18,6 +19,8 @@ class SendFakeChatNotification extends Command
 	
     public function handle()
     {	
+		$cached_setting = CachedConfig::getCachedConfig('invoice');
+			
 		$consultations = Consultation::query()
 			->where('is_payed', false)
 			->where('emailed_at', NULL)
@@ -42,12 +45,11 @@ class SendFakeChatNotification extends Command
 				'app_support' => env('CUSTOM_SUPPORT'),
 			];*/
 			
-			Mail::to($details->email)->send(new FakeChatNotificationMail($details));
-			
-			//Mail::to('predlozhi@bk.ru')->send(new FakeChatNotificationMail($details));
-		}
-		
-		
-		//FakeChat::dispatch($data);	
+			if($cached_setting) {
+				Mail::to(config('config.admin_mail'))->send(new FakeChatNotificationMail($details));
+			} else {
+				Mail::to($details->email)->send(new FakeChatNotificationMail($details));
+			}
+		} 
 	}
 }

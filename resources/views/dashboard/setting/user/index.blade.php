@@ -51,6 +51,19 @@
                               </span>
                             </span>
                           </label>
+                          <label class="form__switch form-switch">
+                            <input type="hidden" id="answer_form_hidden" value="0" name="answer_form">
+                            <input type="checkbox" id="answer_form" class="form-switch__checkbox" name="answer_form"
+                              value="1" {{ $invoice->invoice ? 'checked' : '' }}>
+                            <span class="form-switch__slider">
+                              <span class="form-switch__on-text">
+                                Вкл
+                              </span>
+                              <span class="form-switch__off-text">
+                                Выкл
+                              </span>
+                            </span>
+                          </label>
                         </li>
                       </ul>
                       <input class="form__submit" type="submit"> </input>

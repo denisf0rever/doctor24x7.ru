@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Payment;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Payment\PaymentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -12,6 +13,7 @@ use App\Models\Consultation\ConsultationCategory as Category;
 
 use App\Models\Payment\Payment;
 use App\Models\Invoice\Invoice;
+use App\Models\Config\Config;
 use App\Models\Tariff\Rubric;
 use App\Models\Tariff\Tariff;
 use Carbon\Carbon;
@@ -20,14 +22,6 @@ use App\Classes\Payment\TBankClass;
 
 class PaymentController extends Controller
 {
-	//protected static $terminal_key = '1729778851371';
-	//protected static $password = 'UNUKBp3_0OMdREha';
-	
-	/** test **/
-	
-	private static string $terminal_key = '1729778851350DEMO';
-	private static string $password = '1iaDILU&TIstEwxv';
-	
     public function index()
     {
         $payments = Payment::query()
@@ -172,28 +166,13 @@ class PaymentController extends Controller
         //
     }
 	
-    public function init(Request $request)
-	{
-		$request->validate([
-			'payment_method' => 'required|string|in:t_bank,u_kassa,',
-			'payment_purpose' => 'required|string|in:chat,consultation'
-		]);
-				
+    public function init(PaymentRequest $request)
+	{	
 		return match ($request->payment_method) {
 			't_bank' => TBankClass::init($request),
-			'u_kassa' => $this->ukassa(),
+			'u_kassa' => 'OK',
 			default => redirect()->back()->with('error', 'Недопустимый тип платежа.'), // Этот случай валидации уже обрабатывается
 		};
-	}
-	
-	public function tBank($request)
-	{
-		
-	}
-	
-	public function ukassa()
-	{
-		return 'OK';
 	}
 	
 	public function chat(string $id)
@@ -203,5 +182,10 @@ class PaymentController extends Controller
 			->firstOrFail();
 			
 		return view('payment.chat', compact('invoice'));
+	}
+	
+	public function success()
+	{
+		return view('payment.success');
 	}
 }

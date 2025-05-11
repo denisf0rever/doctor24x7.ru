@@ -27,11 +27,12 @@ use App\Http\Controllers\Invoice\InvoiceController;
 
 use App\Http\Controllers\Page\PageController;
 
-use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\Redirect\RedirectController;
 use App\Http\Controllers\Test\TestController;
 
 // Тесты
 Route::get('/test', [TestController::class, 'index']);
+Route::get('/test/invoice', [TestController::class, 'invoice']);
 
 // Старые адреса, убрать через месяц
 Route::get('/sitemap', [RedirectController::class, 'sitemap']);
@@ -78,6 +79,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	
 	
 	// Оплата консультаций
+	Route::get('/payment/chat/success', [PaymentController::class, 'success'])->name('payment.success');
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'consultation'])->name('payment.consultation');
 	Route::get('/payment/chat/{id}', [PaymentController::class, 'chat'])->name('payment.chat');
 	Route::get('/payment/answer/{id}', [PaymentController::class, 'payAnswer'])->name('payment.answer');
