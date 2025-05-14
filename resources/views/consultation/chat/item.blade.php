@@ -1,4 +1,4 @@
-@extends('chat')
+﻿@extends('chat')
 @section('title', $consultation->title)
 @section('description', 'Консультация врача, вопрос: ' . $consultation->title)
 @section('keywords', '')
@@ -114,7 +114,7 @@
                         <div class="chat-message__time-text">{{ $consultation->created_at }}</div>
                       </span>
                     </div>
-                    <span class="chat-message__author">{{ $consultation->username }}</span>
+                    <!--<span class="chat-message__author">{{ $consultation->username }}</span>-->
                   </div>
                 </div>
               </li>
@@ -124,7 +124,7 @@
                 <div class="chat-message__wrapper chat-message--own">
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text">Консультант предлагает оплатить консультацию в чате</span>
+                      <span class="chat-message__text">Здравствуйте. Готова оказать консультацию в чате. Предлагаю стоимость:</span>
                       <span class="chat-message__price">{{ $consultation->invoice->cost }} ₽</span>
                       <div class="chat-message__buttons">
                         <a href="{{ route('payment.chat', $consultation->invoice->id) }}" class="chat-message__button greenery-button">Перейти к оплате</a>
@@ -141,7 +141,7 @@
                         <div class="chat-message__time-text"> </div>
                       </span>
                     </div>
-                    <span class="chat-message__author">Светлана Васильевна</span>
+                    <!--<span class="chat-message__author">Светлана Васильевна</span>-->
                   </div>
                 </div>
               </li>
@@ -172,7 +172,7 @@
                           <div class="chat-message__time-text"> </div>
                         </span>
                     </div>
-                    <span class="chat-message__author">Светлана Васильевна</span>
+                    <!--<span class="chat-message__author"> </span>-->
                   </div>
                 </div>
               </li>

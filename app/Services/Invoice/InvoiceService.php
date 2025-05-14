@@ -3,6 +3,7 @@
 namespace App\Services\Invoice;
 
 use App\Models\Invoice\Invoice;
+use App\Models\Consultation\Consultation;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Payment\PaymentStatus;
 use Illuminate\Support\Facades\Http;
@@ -16,6 +17,12 @@ final class InvoiceService
 
         $invoice->is_paid = 1;
         $invoice->save();
+		
+        $consultation = Consultation::findByCommentId($id);
+		
+        $consultation->is_payed = 1;
+		$consultation->payed_amount = $data['Amount'] / 100;
+        $consultation->save();
 		
 		$message = 'Оплачено ' . $data['Amount'] / 100 . PHP_EOL;
 				$message .= 'Тариф ' . $data['Data']['tariff_id'] . PHP_EOL;

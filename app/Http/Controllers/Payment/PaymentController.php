@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Services\TelegramBot\TelegramNotifierS;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Payment\PaymentRequest;
 use Illuminate\Http\Request;
@@ -28,14 +29,14 @@ class PaymentController extends Controller
 			->get();
 		 
 		$categories = Category::withCount(['consultationsToday' => function ($query) {
-        $query->where('is_payed', 1); // Фильтрация по оплаченным консультациям за сегодня
-    },
-    'consultationsYesterday' => function ($query) {
-        $query->where('is_payed', 1); // Фильтрация по оплаченным консультациям за вчера
-    }, 
-	'wasConsultations',
-	'todayConsultations'
-	])
+			$query->where('is_payed', 1); // Фильтрация по оплаченным консультациям за сегодня
+		},
+		'consultationsYesterday' => function ($query) {
+			$query->where('is_payed', 1); // Фильтрация по оплаченным консультациям за вчера
+		}, 
+		'wasConsultations',
+		'todayConsultations'
+		])
 			->get();
 		 
 		$consultationsCount = Consultation::whereDate('created_at', Carbon::today())
@@ -105,6 +106,7 @@ class PaymentController extends Controller
     {
         $consultation = Consultation::query()
             ->where('id', $id)
+			->select('id', 'rubric_id')
             ->firstOrFail();
 			
 		$tariffs = DB::table('sf_consultation_tariff')
@@ -120,7 +122,7 @@ class PaymentController extends Controller
 		
 		$tariffArray = [];
 		$is_show = false;
-				
+		
 		foreach ($tariffs as $tariff) {
 			if (null === $tariff->condition_id) {
 				$is_show = true;
@@ -167,7 +169,9 @@ class PaymentController extends Controller
     }
 	
     public function init(PaymentRequest $request)
-	{	
+	{
+		TelegramNotifierS::notify();
+		
 		return match ($request->payment_method) {
 			't_bank' => TBankClass::init($request),
 			'u_kassa' => 'OK',

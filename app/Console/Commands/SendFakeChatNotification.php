@@ -6,11 +6,15 @@ use Illuminate\Console\Command;
 
 use App\Models\Consultation\Consultation;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FakeChatNotificationMail;
+use App\Mail\FakeChatNotificationToAdminMail;
 use App\Services\TelegramBot\TelegramNotifier;
 use App\Models\Config\Config;
 use App\Services\Cached\CachedConfig;
+use App\Repositories\Tariff\TariffRepository;
+use App\Models\Invoice\Invoice;
 
 class SendFakeChatNotification extends Command
 {
@@ -47,7 +51,22 @@ class SendFakeChatNotification extends Command
 			
 			if($cached_setting) {
 				Mail::to(config('config.admin_mail'))->send(new FakeChatNotificationMail($details));
+				
+				$token = config('config.rublitaken_token');
+				$telegram_admin_id = config('config.telegram_admin_id');
+				
+				$response = Http::post('https://api.telegram.org/bot' . $token . '/sendMessage', [
+					'chat_id' => $telegram_admin_id,
+					'text' => 'Консультация создана'
+				]);
 			} else {
+				$tarif = TariffRepository::onlySum($details->id);
+			
+				$invoice = Invoice::firstOrCreate(
+					['comment_id' => $details->id],
+					['cost' => $tarif]
+				);
+				
 				Mail::to($details->email)->send(new FakeChatNotificationMail($details));
 			}
 		} 

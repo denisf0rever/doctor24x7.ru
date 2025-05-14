@@ -80,4 +80,9 @@ class Consultation extends Model
                 ->where('user_id', $user_id)
                 ->exists();
 	}
+	
+	public static function findByCommentId($id)
+    {
+        return self::where('id', $id)->firstOrFail();
+    }
 }

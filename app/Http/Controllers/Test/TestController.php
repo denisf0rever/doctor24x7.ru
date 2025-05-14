@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Test;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Services\MailNotification\PriorityNofitication;
 use App\Models\Config\Config;
 use Illuminate\Support\Facades\Cache;
+
 
 class TestController extends Controller
 {	
     public function index(PriorityNofitication $service)
 	{
 		//$service->send();
+		
 		
 	}
 	
