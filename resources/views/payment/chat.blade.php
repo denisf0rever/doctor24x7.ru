@@ -5,7 +5,7 @@
 <section class="main__receipt receipt">
   <div class="receipt__wrapper">
     <form action="{{ route('payment.consultation.init') }}" method="post" class="receipt__form">
-	@csrf
+      @csrf
       <input type="hidden" name="Sum" class="receipt__total-price">
       <input type="hidden" name="payment_purpose" id="payment_purpose" value="chat">
       <input type="hidden" name="OrderId" value="{{ $invoice->comment_id }}">
@@ -32,12 +32,12 @@
       </div>
       <div class="receipt__payment-method payment-method">
         <div class="payment-method__tabs">
-          <input class="payment-method__radio-input" type="radio" id="payment_type_1" name="payment_method" value="t_bank"
-            checked>
+          <input class="payment-method__radio-input" type="radio" id="payment_type_1" name="payment_method"
+            value="t_bank" checked>
           <label class="payment-method__radio-label" for="payment_type_1">Т-банк</label>
           <input class="payment-method__radio-input" type="radio" id="payment_type_2" name="payment_method"
             value="u_kassa">
-         <!-- <label class="payment-method__radio-label" for="payment_type_2">Юкасса</label>-->
+          <!-- <label class="payment-method__radio-label" for="payment_type_2">Юкасса</label>-->
         </div>
         <div class="payment-method__list" data-id="payment_type_1">
           <div class="payment-method__item">
@@ -98,7 +98,10 @@
             </label>
           </div>
         </div>
-        <input type="submit" value="Оплатить консультацию" class="payment-method__submit">
+        <div class="payment-method__submit-wrapper">
+          <span class="payment-method__submit-text">Мы гарантируем безопасность и сохранность ваших данных </span>
+          <input type="submit" value="Оплатить консультацию" class="payment-method__submit">
+        </div>
       </div>
     </form>
   </div>
