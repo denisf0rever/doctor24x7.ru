@@ -89,7 +89,7 @@
                   </path>
                 </svg>
               </div>
-			  <span>{{ $consultation->category->short_title }}</span>
+              <span>{{ $consultation->category->short_title }}</span>
             </div>
           </div>
         </div>
@@ -118,17 +118,20 @@
                   </div>
                 </div>
               </li>
-			  
-			@if ($consultation->invoice && $consultation->invoice->isNotPaid())
+
+              @if ($consultation->invoice && $consultation->invoice->isNotPaid())
               <li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper chat-message--own">
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text">Здравствуйте. Готова оказать консультацию в чате. Предлагаю стоимость:</span>
+                      <span class="chat-message__text">Здравствуйте. Готова оказать консультацию в чате. Предлагаю
+                        стоимость:</span>
                       <span class="chat-message__price">{{ $consultation->invoice->cost }} ₽</span>
                       <div class="chat-message__buttons">
-                        <a href="{{ route('payment.chat', $consultation->invoice->id) }}" class="chat-message__button greenery-button">Перейти к оплате</a>
-                        <a href="https://puzkarapuz.ru/" class="chat-message__button grey-button" target="_blank">Отказаться</a>
+                        <a href="{{ route('payment.chat', $consultation->invoice->id) }}"
+                          class="chat-message__button greenery-button">Перейти к оплате</a>
+                        <a href="https://puzkarapuz.ru/" class="chat-message__button grey-button"
+                          target="_blank">Отказаться</a>
                       </div>
                       <span class="chat-message__time">
                         <div class="chat-message__time-icon">
@@ -145,9 +148,9 @@
                   </div>
                 </div>
               </li>
-			  
-			  @else
-				  
+
+              @else
+
               <li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper chat-message--own">
                   <div class="chat-message__main">
@@ -176,7 +179,28 @@
                   </div>
                 </div>
               </li>
-			  @endif
+              @endif
+              <!-- <li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper chat-message--own">
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <audio controls src="/storage/sounds/test-sound.mp3">
+                        Ваш браузер не поддерживает элемент <code>audio</code>.
+                      </audio>
+                      <span class="chat-message__time">
+                        <div class="chat-message__time-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="chat-message__time-text"> </div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -209,24 +233,24 @@
 @endif
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
-(function(m, e, t, r, i, k, a) {
-  m[i] = m[i] || function() {
-    (m[i].a = m[i].a || []).push(arguments)
-  };
-  m[i].l = 1 * new Date();
-  for (var j = 0; j < document.scripts.length; j++) {
-    if (document.scripts[j].src === r) {
-      return;
+  (function(m, e, t, r, i, k, a) {
+    m[i] = m[i] || function() {
+      (m[i].a = m[i].a || []).push(arguments)
+    };
+    m[i].l = 1 * new Date();
+    for (var j = 0; j < document.scripts.length; j++) {
+      if (document.scripts[j].src === r) {
+        return;
+      }
     }
-  }
-  k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-ym(100803902, "init", {
-  clickmap: true,
-  trackLinks: true,
-  accurateTrackBounce: true,
-  webvisor: true
-});
+    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+  })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  ym(100803902, "init", {
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true
+  });
 </script> <noscript>
   <div><img src="https://mc.yandex.ru/watch/100803902" style="position:absolute; left:-9999px;" alt="" /></div>
 </noscript> <!-- /Yandex.Metrika counter -->

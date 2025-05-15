@@ -38,11 +38,6 @@
         -webkit-appearance: none;
         appearance: none;
         margin: 0;
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
         border: none;
         outline: none;
         background: inherit;
@@ -50,6 +45,11 @@
         min-width: 1ch;
         text-align: right;
         padding: 0;
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     }
     &__input-mirror {
         position: absolute;
