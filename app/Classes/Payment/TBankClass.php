@@ -31,7 +31,7 @@ class TBankClass
 			'Amount' => $request->Sum * 100,
 			'Description' => 'Оплата консультации с врачом',
 			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
-			'OrderId' => (string) Str::uuid(),
+			'OrderId' => Str::uuid()->toString(),
 			'Password' => self::$password,
 			'SuccessURL' => 'https://doctor24x7.ru/payment/chat/success',
 			'TerminalKey' => self::$terminal_key,
