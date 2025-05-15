@@ -9,8 +9,8 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule): void
     {
-		$schedule->command('command:fakechat')->everyTenMinutes();
-		$schedule->command('command:invoice')->everyTenMinutes();
+		$schedule->command('command:fakechat')->everyTwentyMinutes();
+		//$schedule->command('command:invoice')->everyTenMinutes();
     }
 	
     protected function commands(): void

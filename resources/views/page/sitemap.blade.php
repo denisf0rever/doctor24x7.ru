@@ -5,20 +5,13 @@
 @section('canonical', 'page/sitemap')
 
 @section('content')
-
 <section class="sitemap">
   <div class="sitemap__wrapper container">
-    <h3 class="sitemap__title">Lorem ipsum dolor </h3>
+    <h1 class="sitemap__title">Консультации</h1>
     <div class="sitemap__list">
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
-      <a href="/" class="sitemap__item">Lorem ipsum dolor</a>
+      @foreach ($categories as $category)
+		<a href="{{ route('consultation.category', $category->slug) }}" class="sitemap__item">{{ $category->short_title }}</a>
+	@endforeach
     </div>
   </div>
 </section>
