@@ -16,7 +16,8 @@
             <p class="category-intro__p">Консультацию {{ $category->name_v }} можно получить в онлайн чате, задайте
               вопрос
               {{ $category->button_name }} и получите ответ в режиме реального времени прямо сейчас, а по телефону —
-              можете обсудить свои проблемы более подробно.</p>
+              можете обсудить свои проблемы более подробно.
+            </p>
             <p class="category-intro__p">Видеоконсультация позволяет врачам видеть пациента и проводить более полное
               обследование, в то время как мессенджеры обеспечивают удобство общения в любое время, позволяя делиться
               медицинскими документами и фото.</p>
@@ -76,9 +77,9 @@
       </ul>
       <div class="ask-question-form__form-wrapper">
         <form action="{{ route('consult.form') }}" method="get" class="ask-question-form__form">
-			@csrf
+          @csrf
           <textarea name="description" id="description" class="ask-question-form__textarea"></textarea>
-		  <input type="hidden" name="rubric_id" value="{{ $category->id }}">
+          <input type="hidden" name="rubric_id" value="{{ $category->id }}">
           <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
         </form>
       </div>
@@ -147,7 +148,7 @@
                       </a>
                       <a href="{{ route('profile.user.item', $text->user->username) }}"
                         class="category-card__fullname">{{ $text->user->first_name .' '. $text->user->middle_name }}</a>
-                      <span class="category-card__online">{{ 
+                      <span class="category-card__online">{{
     $text->user->last_activity > now()->subMinutes(5) 
     ? 'Сейчас онлайн' 
     : ($text->user->gender === 0 
