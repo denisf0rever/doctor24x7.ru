@@ -98,7 +98,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	Route::get('/chat/{id}', [\App\Http\Controllers\Chat\ChatController::class, 'show'])->name('chat.item');
 	Route::get('/chat/consultant/{id}', [\App\Http\Controllers\Chat\ChatController::class, 'form'])->name('chat.form');
 	Route::get('/chat/room/{uuid}', [\App\Http\Controllers\Chat\ChatController::class, 'room'])->name('chat.room');
+	Route::get('/admin/chat/room/{uuid}', [\App\Http\Controllers\Chat\ChatController::class, 'room'])->name('chat.admin.room');
 	Route::post('/chat/create', [\App\Http\Controllers\Chat\ChatController::class, 'create'])->name('chat.create');
+	Route::post('/chat/message/create', [\App\Http\Controllers\Chat\ChatController::class, 'message'])->name('chat.message.create');
 	
 	// Отзывы
 	Route::get('/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');

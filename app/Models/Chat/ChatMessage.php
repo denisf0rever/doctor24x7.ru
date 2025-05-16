@@ -4,12 +4,12 @@ namespace App\Models\Chat;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ChatUser extends Model
+class ChatMessage extends Model
 {
-    protected $table = 'sf_chat_user';
+    protected $table = 'sf_chat_message';
 	
 	protected $fillable = [
-		'email'
+		'chat_id',
+		'message'
 	];
-	
 }

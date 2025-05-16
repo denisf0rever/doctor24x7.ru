@@ -8,10 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\UserMain as User;
 use App\Models\Chat\Chat;
+use App\Models\Chat\ChatMessage;
+use App\Models\Chat\ChatUser;
 use Illuminate\Support\Str;
 
 use App\Services\Telegram\Notifier\TelegramNotifier;
 use App\Http\Requests\Chat\ChatRequest;
+use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
@@ -43,14 +46,37 @@ class ChatController extends Controller
 				'uuid' => Str::uuid()->toString()
 			]);
 			
+			$user = ChatUser::createOrFail([
+				'email' => $request->email
+			]);
+			
 			return $chat->uuid;
 		});
 
 		return redirect()->route('chat.room', $chatId);
 	}
 	
+	public function message(Request $request)
+	{
+		$chat = ChatMessage::create([
+			'chat_id' => $request->chat_id,
+			'user_id' => $request->user_id,
+			'message' => $request->message
+		]);
+		
+		return redirect()->back();
+	}
+	
 	public function room(string $uuid)
 	{
-		return view('consultation.chat.room');
+		$chat = Chat::query()
+			->where('uuid', $uuid)
+			->firstOrFail();
+			
+		$messages = ChatMessage::query()
+			->where('chat_id', $chat->id)
+			->get();
+			
+		return view('consultation.chat.room', compact('chat', 'messages'));
 	}
 }
