@@ -469,7 +469,7 @@
     }
     &__submit-text{
       line-height: 16px;
-      font-size: 12px;
+      font-size: 14px;
       color: rgba(4, 4, 19, .55);
     }
     &__avatar{
@@ -493,6 +493,19 @@
       margin-top: 15px;
       margin-bottom: 15px;
       font-size: 16px;
+    }
+    &__email-input-wrapper{
+      border-radius: 24px;
+      background-color: #f2f3f5;
+      padding: 20px 16px;
+      margin-bottom: 10px;
+    }
+    &__email-input{
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      width: 100%;
     }
 }
 
