@@ -33,7 +33,7 @@
           <input type="hidden" class="receipt__checkbox2-value" value="349">
           <input type="checkbox" id="checkbox_2" class="receipt__checkbox">
           <span class="receipt__custom-checkbox"></span>
-          <span class="receipt__checkbox-text">+349</span>
+          <span class="receipt__checkbox-text">Продолжительные диалоги</span>
         </label>
       </div>
       <div class="receipt__payment-method payment-method">
