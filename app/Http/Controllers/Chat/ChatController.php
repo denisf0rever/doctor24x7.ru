@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Chat;
 use App\Http\Controllers\Controller;
 use App\Models\Consultation\Consultation;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\UserMain as User;
 use App\Models\Chat\Chat;
@@ -42,17 +44,24 @@ class ChatController extends Controller
 	{
 		$chatId = DB::transaction(function () use ($request) {
 			$chat = Chat::create([
-				'user_id' => $request->user_id,
+				'consultant_id' => $request->consultant_id,
+				'ip' => $request->ip(),
+				'chat_key' => Str::random(8),
 				'uuid' => Str::uuid()->toString()
 			]);
 			
-			$user = ChatUser::createOrFail([
-				'email' => $request->email
+			$password = Str::random(10);
+			
+			$user = ChatUser::firstOrCreate([
+				'email' => $request->email,
+				'password' => Hash::make($password)
 			]);
+			
+			Auth::login($user);
 			
 			return $chat->uuid;
 		});
-
+		
 		return redirect()->route('chat.room', $chatId);
 	}
 	
@@ -69,14 +78,23 @@ class ChatController extends Controller
 	
 	public function room(string $uuid)
 	{
+		$user_id = auth()->user()->id ?? 1;
+		
 		$chat = Chat::query()
 			->where('uuid', $uuid)
 			->firstOrFail();
+			
+			
 			
 		$messages = ChatMessage::query()
 			->where('chat_id', $chat->id)
 			->get();
 			
-		return view('consultation.chat.room', compact('chat', 'messages'));
+			
+		$chats = Chat::query()
+			->where('consultant_id', 1)
+			->get();
+			
+		return view('consultation.chat.room', compact('chat', 'chats', 'messages', 'user_id'));
 	}
 }

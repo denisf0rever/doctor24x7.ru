@@ -9,7 +9,8 @@ class ChatUser extends Model
     protected $table = 'sf_chat_user';
 	
 	protected $fillable = [
-		'email'
+		'email',
+		'password'
 	];
 	
 }

@@ -9,7 +9,9 @@ class Chat extends Model
     protected $table = 'sf_chat';
 	
 	protected $fillable = [
-		'user_id',
+		'consultant_id',
+		'ip',
+		'chat_key',
 		'uuid'
 	];
 }

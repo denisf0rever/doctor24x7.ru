@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+		
+		'chats' => [
+            'driver' => 'session',
+            'provider' => 'chats',
+        ],
     ],
 
     /*
@@ -63,6 +68,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+		
+		'chats' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Chat\ChatUser::class),
         ],
 
         // 'users' => [

@@ -10,6 +10,7 @@
         alt="" class="payment-method__avatar">
       <span class="payment-method__big-name">ИМЯ</span>
       <div class="payment-method__email-input-wrapper">
+        <input type="hidden" name="consultant_id" value="{{ $user->id }}">
         <input type="email" name="email" class="payment-method__email-input" placeholder="Введите свою почту" value="">
       </div>
       <div class="payment-method__submit-wrapper">

@@ -52,7 +52,7 @@
       <div class="chat-sidebar__wrapper">
         <div class="chat-sidebar__title">Чаты</div>
         <ul class="chat-sidebar__list">
-          <li class="chat-sidebar__item">
+		<li class="chat-sidebar__item">
             <div class="chat-sidebar__avatar chat-sidebar__avatar--green">
               <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg"
                 alt="" class="chat-sidebar__avatar-img">
@@ -61,6 +61,9 @@
             <span class="chat-sidebar__last-message">Вам ответил врач</span>
             <span class="chat-sidebar__time"> </span>
           </li>
+		@foreach ($chats as $chat)
+          
+		 @endforeach
         </ul>
       </div>
     </div>
@@ -88,7 +91,8 @@
           <div class="chat-messages__wrapper">
             <ul class="chat-messages__list">
 			@foreach ($messages as $message)
-				@if ($message->user_id !== null)
+			
+				@if (true)
 				<li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper chat-message--own">
                   <div class="chat-message__main">
