@@ -10,6 +10,7 @@
       <input type="hidden" name="payment_purpose" id="payment_purpose" value="chat">
       <input type="hidden" name="OrderId" value="{{ $invoice->comment_id }}">
       <input type="hidden" class="receipt__minimal-price" value="{{ $invoice->cost }}">
+      <input type="hidden" class="receipt__basic-price" value="0">
       <div class="receipt__main-field">
         <span class="receipt__title">Итого к оплате</span>
         <label for="price" class="receipt__label">
