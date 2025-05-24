@@ -54,11 +54,11 @@
         <ul class="chat-sidebar__list">
 		<li class="chat-sidebar__item">
             <div class="chat-sidebar__avatar chat-sidebar__avatar--green">
-              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg"
+              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $consultant->avatar }}"
                 alt="" class="chat-sidebar__avatar-img">
             </div>
-            <span class="chat-sidebar__fullname">Светлана Васильевна</span>
-            <span class="chat-sidebar__last-message">Вам ответил врач</span>
+            <span class="chat-sidebar__fullname">{{ $consultant->first_name .' '. $consultant->middle_name }}</span>
+            <span class="chat-sidebar__last-message">Перейти к чату</span>
             <span class="chat-sidebar__time"> </span>
           </li>
 		@foreach ($chats as $chat)
@@ -79,28 +79,37 @@
               </svg>
             </div>
             <div class="chat-header__avatar">
-              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg"
+              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $consultant->avatar }}"
                 alt="" class="chat-header__avatar-img">
             </div>
             <div class="chat-header__fullname-wrapper">
-              <span class="chat-header__fullname">Светлана Васильевна</span>
+              <span class="chat-header__fullname">{{ $consultant->first_name .' '. $consultant->middle_name }}</span>
             </div>
           </div>
         </div>
         <div class="full-chat__chat-messages chat-messages">
           <div class="chat-messages__wrapper">
             <ul class="chat-messages__list">
-			@foreach ($messages as $message)
-			
-				@if (true)
-				<li class="chat-messages__chat-message chat-message">
-                <div class="chat-message__wrapper chat-message--own">
+			<li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper">
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text"> {{ $message->message }}
+                      <span class="chat-message__text">Здравствуйте, это системное сообщение. Если вы готовы оплачивать консультацию, можете сформулировать свой вопрос, врач его изучит и предоставит ответ после оплаты.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+			@foreach ($messages as $message)
+				@if ($message->user_id === $user_id)
+				<li class="chat-messages__chat-message chat-message">
+                <div class="chat-message__wrapper">
+                  <div class="chat-message__main">
+                    <div class="chat-message__message-block">
+                      <span class="chat-message__text">{{ $message->message }}
                         <!--<a href="/" class="chat-message__link">Ссылка</a>-->
                       </span>
-                      <span class="chat-message__time">
+                     <!-- <span class="chat-message__time">
                         <div class="chat-message__time-icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path
@@ -108,8 +117,8 @@
                             </path>
                           </svg>
                         </div>
-                        <div class="chat-message__time-text"> </div>
-                      </span>
+                        <!--<div class="chat-message__time-text">{{ $message->created_at }}</div>
+                      </span>-->
                     </div>
                     <!--<span class="chat-message__author"> </span>-->
                   </div>
@@ -117,13 +126,14 @@
               </li>
 			  @else
 				<li class="chat-messages__chat-message chat-message">
-                <div class="chat-message__wrapper">
+                <div class="chat-message__wrapper chat-message--own">
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text"> {{ $message->message }}
+                      <span class="chat-message__text">{{ $message->message }}
+					  
                         <!--<a href="/" class="chat-message__link">Ссылка</a>-->
                       </span>
-                      <span class="chat-message__time">
+                      <!--<span class="chat-message__time">
                         <div class="chat-message__time-icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path
@@ -131,8 +141,8 @@
                             </path>
                           </svg>
                         </div>
-                        <div class="chat-message__time-text"> </div>
-                      </span>
+                        <div class="chat-message__time-text">{{ $message->created_at }}</div>
+                      </span>-->
                     </div>
                     <!--<span class="chat-message__author"> </span>-->
                   </div>
@@ -141,7 +151,6 @@
 			  @endif
 			@endforeach
 			
-              
             </ul>
           </div>
         </div>
@@ -149,7 +158,7 @@
           <form action="{{ route('chat.message.create') }}" method="POST" class="chat-bottom__wrapper">
 			@csrf
 			<input type="hidden" name="chat_id" value="{{ $chat->id }}">
-			<input type="hidden" name="user_id" value="{{ auth()->user()->id ?? '' }}">
+			<input type="hidden" name="user_id" value="{{ $user_id }}">
             <textarea name="message" id="message" class="chat-bottom__textarea" placeholder="Введите сообщение..."></textarea>
             <button type="submit" class="chat-bottom__button">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Payment;
 
-use App\Services\TelegramBot\TelegramNotifierS;
+use App\Services\Telegram\Notifier\TelegramNotifier;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Payment\PaymentRequest;
 use Illuminate\Http\Request;
@@ -170,7 +170,7 @@ class PaymentController extends Controller
 	
     public function init(PaymentRequest $request)
 	{
-		TelegramNotifierS::notify();
+		TelegramNotifier::notify('Переход на оплату', 'event');
 		
 		return match ($request->payment_method) {
 			't_bank' => TBankClass::init($request),

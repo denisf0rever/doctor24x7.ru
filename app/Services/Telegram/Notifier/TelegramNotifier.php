@@ -12,7 +12,12 @@ final class TelegramNotifier
 
 	public static function notify(string $message, string $channel = null)
 	{
-		$token = config('config.rublitaken_token');
+		$token = match ($channel) {
+			'payment' => config('config.rublitaken_token'),
+			'event' => config('config.event_token'),
+			default => ''
+		};
+		
 		$telegram_admin_id = config('config.telegram_admin_id');
 		
 		try {

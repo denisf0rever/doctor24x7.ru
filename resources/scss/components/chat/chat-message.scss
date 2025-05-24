@@ -40,8 +40,7 @@
     &__message-block {
         border-radius: 8px;
         padding: 12px 20px;
-        color: #fff;
-        background-color: var(--chat-purple);
+        background-color: var(--chat-message-wrapper);
         position: relative;
         display: flex;
         flex-direction: column;
@@ -52,7 +51,6 @@
     &__text,
     &__time {
         font-size: 14px;
-        font-weight: 500;
     }
     &__link {
         text-decoration: underline;

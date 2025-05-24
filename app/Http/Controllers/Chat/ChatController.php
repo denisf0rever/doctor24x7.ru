@@ -7,6 +7,7 @@ use App\Models\Consultation\Consultation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 use App\Models\UserMain as User;
 use App\Models\Chat\Chat;
@@ -33,11 +34,14 @@ class ChatController extends Controller
 	
 	public function form(int $id)
 	{
-		$user = User::query()
+		$consultant = User::query()
 			->where('id', $id)
+			->select('id', 'first_name', 'middle_name', 'avatar')
 			->firstOrFail();
+		
+		TelegramNotifier::notify('Форма создания чата', 'event');
 			
-		return view('consultation.chat.newchat', compact('user'));
+		return view('consultation.chat.newchat', compact('consultant'));
 	}
 	
 	public function create(ChatRequest $request)
@@ -50,14 +54,19 @@ class ChatController extends Controller
 				'uuid' => Str::uuid()->toString()
 			]);
 			
-			$password = Str::random(10);
+			$email = $request->input('email');
+			$user = ChatUser::where('email', $email)->first();
 			
-			$user = ChatUser::firstOrCreate([
-				'email' => $request->email,
-				'password' => Hash::make($password)
-			]);
-			
-			Auth::login($user);
+			if ($user === null) {
+				$password = Str::random(10);
+				
+				$user = ChatUser::firstOrCreate([
+					'email' => $request->email,
+					'password' => Hash::make($password)
+				]);
+							
+				Auth::login($user);
+			}
 			
 			return $chat->uuid;
 		});
@@ -67,34 +76,53 @@ class ChatController extends Controller
 	
 	public function message(Request $request)
 	{
-		$chat = ChatMessage::create([
+		$toEmail = 'predlozhi@bk.ru';
+        $subject = 'Новое сообщение';
+		
+		$message = ChatMessage::create([
 			'chat_id' => $request->chat_id,
 			'user_id' => $request->user_id,
 			'message' => $request->message
 		]);
+		
+		$message1 = 'Новое сообщение в чате' . PHP_EOL;
+        $message1 .= 'https://doctor24x7.ru/chat/room/' . $message->chat->uuid;
+
+		
+		Mail::raw($message1, function ($mail) use ($toEmail, $subject) {
+            $mail->to($toEmail)
+                 ->subject($subject);
+        });
 		
 		return redirect()->back();
 	}
 	
 	public function room(string $uuid)
 	{
-		$user_id = auth()->user()->id ?? 1;
+		$user_id = Auth::id();
 		
-		$chat = Chat::query()
-			->where('uuid', $uuid)
-			->firstOrFail();
-			
-			
-			
-		$messages = ChatMessage::query()
-			->where('chat_id', $chat->id)
-			->get();
-			
-			
-		$chats = Chat::query()
-			->where('consultant_id', 1)
-			->get();
-			
-		return view('consultation.chat.room', compact('chat', 'chats', 'messages', 'user_id'));
+		if ($user_id) {
+
+			$chat = Chat::query()
+				->where('uuid', $uuid)
+				->firstOrFail();
+							
+			$consultant = User::query()
+				->where('id', $chat->consultant_id)
+				->select('first_name', 'middle_name', 'avatar')
+				->first();
+				
+			$messages = ChatMessage::query()
+				->where('chat_id', $chat->id)
+				->get();
+				
+			$chats = Chat::query()
+				->where('consultant_id', 1)
+				->get();
+				
+			return view('consultation.chat.room', compact('chat', 'chats', 'messages', 'user_id', 'consultant'));
+		} 
+		
+		return abort(403);
 	}
 }
