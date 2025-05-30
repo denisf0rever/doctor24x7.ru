@@ -159,7 +159,7 @@
 			@csrf
 			<input type="hidden" name="chat_id" value="{{ $chat->id }}">
 			<input type="hidden" name="user_id" value="{{ $user_id }}">
-            <textarea name="message" id="message" class="chat-bottom__textarea" placeholder="Введите сообщение..."></textarea>
+            <textarea name="message" id="message" class="chat-bottom__textarea" required placeholder="Введите сообщение..."></textarea>
             <button type="submit" class="chat-bottom__button">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
                 <path

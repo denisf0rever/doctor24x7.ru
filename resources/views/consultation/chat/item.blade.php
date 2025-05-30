@@ -206,7 +206,7 @@
         </div>
         <div class="full-chat__chat-bottom chat-bottom">
           <div class="chat-bottom__wrapper">
-            <textarea name="" id="" class="chat-bottom__textarea" placeholder="Введите сообщение..."></textarea>
+            <textarea name="" id="" class="chat-bottom__textarea" required placeholder="Введите сообщение..."></textarea>
             <button type="submit" class="chat-bottom__button">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
                 <path
