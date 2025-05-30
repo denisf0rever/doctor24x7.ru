@@ -94,10 +94,10 @@ class ChatController extends Controller
 		$message1 = 'Новое сообщение в чате' . PHP_EOL;
         $message1 .= 'https://doctor24x7.ru/chat/room/' . $message->chat->uuid;
 
-		// Mail::raw($message1, function ($mail) use ($toEmail, $subject) {
-    //         $mail->to([$toEmail, $toEmail])
-    //              ->subject($subject);
-    //     });
+		Mail::raw($message1, function ($mail) use ($toEmail, $subject) {
+            $mail->to([$toEmail, $toEmail])
+                 ->subject($subject);
+        });
 		
 		return redirect()->back();
 	}
