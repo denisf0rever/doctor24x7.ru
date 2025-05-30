@@ -17,18 +17,20 @@ use Illuminate\Support\Str;
 
 use App\Services\Telegram\Notifier\TelegramNotifier;
 use App\Http\Requests\Chat\ChatRequest;
+use App\Http\Requests\Chat\MessageRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class ChatController extends Controller
 {
 	public function show(int $id)
 	{
 		$consultation = Consultation::query()
-			->with(['category', 'invoice'])
+			->with(['category:id,short_title', 'invoice:id,comment_id,cost,is_paid'])
 			->where('id', $id)
 			->select('id', 'title', 'description', 'username', 'created_at', 'rubric_id', 'is_payed', 'tariff_id')
 			->firstOrFail();
-						
+		
 		return view('consultation.chat.item', compact('consultation'));
 	}
 	
@@ -38,8 +40,8 @@ class ChatController extends Controller
 			->where('id', $id)
 			->select('id', 'first_name', 'middle_name', 'avatar')
 			->firstOrFail();
-		
-		TelegramNotifier::notify('Форма создания чата', 'event');
+				
+		//TelegramNotifier::notify('Форма создания чата', 'event');
 			
 		return view('consultation.chat.newchat', compact('consultant'));
 	}
@@ -64,9 +66,9 @@ class ChatController extends Controller
 					'email' => $request->email,
 					'password' => Hash::make($password)
 				]);
-							
-				Auth::login($user);
 			}
+			
+			Auth::login($user);
 			
 			return $chat->uuid;
 		});
@@ -74,8 +76,12 @@ class ChatController extends Controller
 		return redirect()->route('chat.room', $chatId);
 	}
 	
-	public function message(Request $request)
+	public function message(MessageRequest $request)
 	{
+		if ($request->message === null) {
+			return response()->json(['error' => 'Message can\'t be null'], 400);
+		}
+	
 		$toEmail = 'predlozhi@bk.ru';
         $subject = 'Новое сообщение';
 		
@@ -88,9 +94,8 @@ class ChatController extends Controller
 		$message1 = 'Новое сообщение в чате' . PHP_EOL;
         $message1 .= 'https://doctor24x7.ru/chat/room/' . $message->chat->uuid;
 
-		
 		Mail::raw($message1, function ($mail) use ($toEmail, $subject) {
-            $mail->to($toEmail)
+            $mail->to([$toEmail, $toEmail])
                  ->subject($subject);
         });
 		
@@ -101,28 +106,54 @@ class ChatController extends Controller
 	{
 		$user_id = Auth::id();
 		
-		if ($user_id) {
-
-			$chat = Chat::query()
-				->where('uuid', $uuid)
-				->firstOrFail();
-							
-			$consultant = User::query()
-				->where('id', $chat->consultant_id)
-				->select('first_name', 'middle_name', 'avatar')
-				->first();
-				
-			$messages = ChatMessage::query()
-				->where('chat_id', $chat->id)
-				->get();
-				
-			$chats = Chat::query()
-				->where('consultant_id', 1)
-				->get();
-				
-			return view('consultation.chat.room', compact('chat', 'chats', 'messages', 'user_id', 'consultant'));
+		if (!$user_id) {
+			return abort(403);
 		} 
+
+		$chat = Chat::query()
+			->where('uuid', $uuid)
+			->firstOrFail();
+							
+		$consultant = User::query()
+			->where('id', $chat->consultant_id)
+			->select('first_name', 'middle_name', 'avatar')
+			->first();
+				
+		$messages = ChatMessage::query()
+			->where('chat_id', $chat->id)
+			->get();
+			
+		$chats = Chat::query()
+			->where('consultant_id', 1)
+			->get();
+				
+		return view('consultation.chat.room', compact('chat', 'chats', 'messages', 'user_id', 'consultant'));
+	}
+	
+	public function messages(int $chat_id): JsonResponse
+	{
+		$messages = ChatMessage::where('chat_id', $chat_id)
+			->with('chat:id,is_locked')
+			->get()
+			->makeHidden('chat_id');
 		
-		return abort(403);
+		$isLocked = $messages->isNotEmpty() ? $messages->first()->chat->is_locked : null;
+		
+		$response = [
+			'chat_id' => $chat_id,
+			'status' => $isLocked,
+			'messages' => $messages->map(function($message) {
+				return [
+					'id' => $message->id,
+					'user_id' => $message->user_id,
+					'message' => $message->message,
+					'is_read' => $message->is_read,
+					'created_at' => $message->created_at,
+					'updated_at' => $message->updated_at,
+				];
+			}),
+		];
+
+		return response()->json($response);
 	}
 }

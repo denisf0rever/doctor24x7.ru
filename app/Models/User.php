@@ -26,7 +26,6 @@ class User extends Authenticatable
 		'last_name',
 		'middle_name',
 		'city',
-		'middle_name',
 		'views',
 		'avatar',
 		'webp_avatar',

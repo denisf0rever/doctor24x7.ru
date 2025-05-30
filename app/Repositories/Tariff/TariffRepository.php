@@ -36,9 +36,9 @@ class TariffRepository
 			->count();
 			
 		if ($hasPhoto > 0) {
-			return 1000;
+			return 1000 * 0.7;
 		}
 		
-		return $tariff->sum ?? 500; 
+		return $tariff->sum * 0.7 ?? 500; 
 	}
 }

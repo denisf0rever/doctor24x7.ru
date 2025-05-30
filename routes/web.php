@@ -30,6 +30,8 @@ use App\Http\Controllers\Page\PageController;
 use App\Http\Controllers\Redirect\RedirectController;
 use App\Http\Controllers\Test\TestController;
 
+\Debugbar::disable();
+
 // Тесты
 Route::get('/test', [TestController::class, 'index']);
 Route::get('/test/invoice', [TestController::class, 'invoice']);
@@ -101,6 +103,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	Route::get('/admin/chat/room/{uuid}', [\App\Http\Controllers\Chat\ChatController::class, 'room'])->name('chat.admin.room');
 	Route::post('/chat/create', [\App\Http\Controllers\Chat\ChatController::class, 'create'])->name('chat.create');
 	Route::post('/chat/message/create', [\App\Http\Controllers\Chat\ChatController::class, 'message'])->name('chat.message.create');
+	
+	// JSON
+	Route::get('/chat/messages/{id}', [\App\Http\Controllers\Chat\ChatController::class, 'messages'])->name('chat.messages');
 	
 	// Отзывы
 	Route::get('/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');
