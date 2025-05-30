@@ -100,6 +100,7 @@
                   </div>
                 </div>
               </li>
+              {{--
 			@foreach ($messages as $message)
 				@if ($message->user_id === $user_id)
 				<li class="chat-messages__chat-message chat-message">
@@ -150,7 +151,7 @@
               </li>
 			  @endif
 			@endforeach
-			
+			--}}
             </ul>
           </div>
         </div>
