@@ -48,26 +48,29 @@ class ChatController extends Controller
 	
 	public function create(ChatRequest $request)
 	{
-		$chatId = DB::transaction(function () use ($request) {
-			$chat = Chat::create([
+		$userData = [
 				'consultant_id' => $request->consultant_id,
-				'ip' => $request->ip(),
+				'email' => $request->email,
+				'password' => '15respect15',
+				'ip' => $request->ip()
+		];
+		
+		$chatId = DB::transaction(function () use ($userData) {
+			$chat = Chat::create([
+				'consultant_id' => $userData['consultant_id'],
+				'ip' => $userData['ip'],
 				'chat_key' => Str::random(8),
 				'uuid' => Str::uuid()->toString()
 			]);
 			
-			$email = $request->input('email');
-			$user = ChatUser::where('email', $email)->first();
-			
-			if ($user === null) {
-				$password = Str::random(10);
-				
-				$user = ChatUser::firstOrCreate([
-					'email' => $request->email,
-					'password' => Hash::make($password)
+			$user = ChatUser::create([
+					'email' => $userData['email'],
+					'password' => Hash::make($userData['password'])
 				]);
-			}
 			
+			$user->remember_token = Str::random(60);
+			$user->save();
+					
 			Auth::login($user);
 			
 			return $chat->uuid;
@@ -103,7 +106,7 @@ class ChatController extends Controller
 	}
 	
 	public function room(string $uuid)
-	{
+	{		
 		$user_id = Auth::id();
 		
 		if (!$user_id) {

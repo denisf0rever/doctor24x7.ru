@@ -25,12 +25,12 @@ use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Testimonials\TestimonialController;
 use App\Http\Controllers\Invoice\InvoiceController;
 
+use App\Http\Controllers\Forum\ForumController;
+
 use App\Http\Controllers\Page\PageController;
 
 use App\Http\Controllers\Redirect\RedirectController;
 use App\Http\Controllers\Test\TestController;
-
-\Debugbar::disable();
 
 // Тесты
 Route::get('/test', [TestController::class, 'index']);
@@ -79,7 +79,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	Route::get('/consultation/city/{city}', [ConsultationCategoryController::class, 'city'])->name('consultation.city');
 	Route::get('/consultation/{categorySlug}/{city}', [ConsultationCategoryController::class, 'categoryCity'])->name('consultation.categorycity');
 	
-	
 	// Оплата консультаций
 	Route::get('/payment/chat/success', [PaymentController::class, 'success'])->name('payment.success');
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'consultation'])->name('payment.consultation');
@@ -103,6 +102,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	Route::get('/admin/chat/room/{uuid}', [\App\Http\Controllers\Chat\ChatController::class, 'room'])->name('chat.admin.room');
 	Route::post('/chat/create', [\App\Http\Controllers\Chat\ChatController::class, 'create'])->name('chat.create');
 	Route::post('/chat/message/create', [\App\Http\Controllers\Chat\ChatController::class, 'message'])->name('chat.message.create');
+	
+	Route::get('/forum', [\App\Http\Controllers\Forum\ForumController::class, 'index'])->name('forum.index');
+	Route::get('/forum/top', [\App\Http\Controllers\Forum\ForumController::class, 'top'])->name('forum.top');
+	
 	
 	// JSON
 	Route::get('/chat/messages/{id}', [\App\Http\Controllers\Chat\ChatController::class, 'messages'])->name('chat.messages');

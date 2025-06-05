@@ -7,6 +7,8 @@ use App\Models\Consultation\Consultation;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Payment\PaymentStatus;
 use Illuminate\Support\Facades\Http;
+use App\Services\Telegram\Notifier\TelegramNotifier;
+
 use Log;
 
 final class InvoiceService
@@ -42,9 +44,26 @@ final class InvoiceService
 				
 				Mail::to(config('config.admin_mail'))->send(new PaymentStatus($message));
 				
+				//TelegramNotifier::notify('Оплачено', 'payment');
+				$keyboard = [
+					'inline_keyboard' => [
+						[
+							[
+								'text' => 'Дашбоард', 
+								'url' => 'https://doctor24x7.ru/dashboard/consultation/' . $data['Data']['order_id']
+							],
+							[
+								'text' => 'Карапуз', 
+								'url' => 'https://puzkarapuz.ru/consultation/detail/' . $data['Data']['order_id']
+							]
+						]
+					]
+				];
+
 				$response = Http::post('https://api.telegram.org/bot' . $token . '/sendMessage', [
 					'chat_id' => $telegram_admin_id,
 					'text' => $message,
+					'reply_markup' => json_encode($keyboard)
 				]);
 				
 				if (!$response->successful()) {

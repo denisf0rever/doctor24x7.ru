@@ -11,6 +11,9 @@ class TBankClass
 	protected static $terminal_key = '1729778851371';
 	protected static $password = 'UNUKBp3_0OMdREha';
 	
+	//protected static $terminal_key = '1729778851350DEMO';
+	//protected static $password = '1iaDILU&TIstEwxv';
+	
 	public static function init(Request $request)
 	{
 		$preparedData = [
