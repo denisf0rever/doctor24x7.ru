@@ -41,9 +41,12 @@
   }
   &__chat-messages {
     flex: 1;
+    position: relative;
   }
   &__chat-bottom {
     height: 93px;
+    position: relative;
+    z-index: 100;
   }
 }
 

@@ -52,18 +52,18 @@
       <div class="chat-sidebar__wrapper">
         <div class="chat-sidebar__title">Чаты</div>
         <ul class="chat-sidebar__list">
-		<li class="chat-sidebar__item">
+          <li class="chat-sidebar__item">
             <div class="chat-sidebar__avatar chat-sidebar__avatar--green">
-              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $consultant->avatar }}"
-                alt="" class="chat-sidebar__avatar-img">
+              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $consultant->avatar }}" alt=""
+                class="chat-sidebar__avatar-img">
             </div>
             <span class="chat-sidebar__fullname">{{ $consultant->first_name .' '. $consultant->middle_name }}</span>
             <span class="chat-sidebar__last-message">Перейти к чату</span>
             <span class="chat-sidebar__time"> </span>
           </li>
-		@foreach ($chats as $chat)
-          
-		 @endforeach
+          @foreach ($chats as $chat)
+
+          @endforeach
         </ul>
       </div>
     </div>
@@ -79,8 +79,8 @@
               </svg>
             </div>
             <div class="chat-header__avatar">
-              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $consultant->avatar }}"
-                alt="" class="chat-header__avatar-img">
+              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $consultant->avatar }}" alt=""
+                class="chat-header__avatar-img">
             </div>
             <div class="chat-header__fullname-wrapper">
               <span class="chat-header__fullname">{{ $consultant->first_name .' '. $consultant->middle_name }}</span>
@@ -89,12 +89,24 @@
         </div>
         <div class="full-chat__chat-messages chat-messages">
           <div class="chat-messages__wrapper">
+            <div class="chat-messages__scroll-button">
+              <div class="chat-messages__scroll-button-counter"></div>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px"
+                height="17.5px" viewBox="0 0 960 560" enable-background="new 0 0 960 560" xml:space="preserve">
+                <g>
+                  <path
+                    d="M480,344.181L268.869,131.889c-15.756-15.859-41.3-15.859-57.054,0c-15.754,15.857-15.754,41.57,0,57.431l237.632,238.937   c8.395,8.451,19.562,12.254,30.553,11.698c10.993,0.556,22.159-3.247,30.555-11.698l237.631-238.937   c15.756-15.86,15.756-41.571,0-57.431s-41.299-15.859-57.051,0L480,344.181z" />
+                </g>
+              </svg>
+            </div>
             <ul class="chat-messages__list">
-			<li class="chat-messages__chat-message chat-message">
+              <li class="chat-messages__chat-message chat-message">
                 <div class="chat-message__wrapper">
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
-                      <span class="chat-message__text">Здравствуйте, это системное сообщение. Если вы готовы оплачивать консультацию, можете сформулировать свой вопрос, врач его изучит и предоставит ответ после оплаты.
+                      <span class="chat-message__text">Здравствуйте, это системное сообщение. Если вы готовы оплачивать
+                        консультацию, можете сформулировать свой вопрос, врач его изучит и предоставит ответ после
+                        оплаты.
                       </span>
                     </div>
                   </div>
@@ -108,9 +120,9 @@
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
                       <span class="chat-message__text">{{ $message->message }}
-                        <!--<a href="/" class="chat-message__link">Ссылка</a>-->
-                      </span>
-                     <!-- <span class="chat-message__time">
+              <!--<a href="/" class="chat-message__link">Ссылка</a>-->
+              </span>
+              <!-- <span class="chat-message__time">
                         <div class="chat-message__time-icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path
@@ -120,21 +132,21 @@
                         </div>
                         <!--<div class="chat-message__time-text">{{ $message->created_at }}</div>
                       </span>-->
-                    </div>
-                    <!--<span class="chat-message__author"> </span>-->
-                  </div>
-                </div>
-              </li>
-			  @else
-				<li class="chat-messages__chat-message chat-message">
-                <div class="chat-message__wrapper chat-message--own">
-                  <div class="chat-message__main">
-                    <div class="chat-message__message-block">
-                      <span class="chat-message__text">{{ $message->message }}
-					  
-                        <!--<a href="/" class="chat-message__link">Ссылка</a>-->
-                      </span>
-                      <!--<span class="chat-message__time">
+          </div>
+          <!--<span class="chat-message__author"> </span>-->
+        </div>
+      </div>
+      </li>
+      @else
+      <li class="chat-messages__chat-message chat-message">
+        <div class="chat-message__wrapper chat-message--own">
+          <div class="chat-message__main">
+            <div class="chat-message__message-block">
+              <span class="chat-message__text">{{ $message->message }}
+
+                <!--<a href="/" class="chat-message__link">Ссылка</a>-->
+              </span>
+              <!--<span class="chat-message__time">
                         <div class="chat-message__time-icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path
@@ -144,34 +156,35 @@
                         </div>
                         <div class="chat-message__time-text">{{ $message->created_at }}</div>
                       </span>-->
-                    </div>
-                    <!--<span class="chat-message__author"> </span>-->
-                  </div>
-                </div>
-              </li>
-			  @endif
-			@endforeach
-			--}}
-            </ul>
+            </div>
+            <!--<span class="chat-message__author"> </span>-->
           </div>
         </div>
-        <div class="full-chat__chat-bottom chat-bottom">
-          <form action="{{ route('chat.message.create') }}" method="POST" class="chat-bottom__wrapper">
-			@csrf
-			<input type="hidden" name="chat_id" value="{{ $chat->id }}">
-			<input type="hidden" name="user_id" value="{{ $user_id }}">
-            <textarea name="message" id="message" class="chat-bottom__textarea" required placeholder="Введите сообщение..."></textarea>
-            <button type="submit" class="chat-bottom__button">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
-                <path
-                  d="M3 12.9999H9V10.9999H3V1.84558C3 1.56944 3.22386 1.34558 3.5 1.34558C3.58425 1.34558 3.66714 1.36687 3.74096 1.40747L22.2034 11.5618C22.4454 11.6949 22.5337 11.9989 22.4006 12.2409C22.3549 12.324 22.2865 12.3924 22.2034 12.4381L3.74096 22.5924C3.499 22.7255 3.19497 22.6372 3.06189 22.3953C3.02129 22.3214 3 22.2386 3 22.1543V12.9999Z">
-                </path>
-              </svg>
-            </button>
-          </form>
-        </div>
-      </div>
+      </li>
+      @endif
+      @endforeach
+      --}}
+      </ul>
     </div>
   </div>
+  <div class="full-chat__chat-bottom chat-bottom">
+    <form action="{{ route('chat.message.create') }}" method="POST" class="chat-bottom__wrapper">
+      @csrf
+      <input type="hidden" name="chat_id" value="{{ $chat->id }}">
+      <input type="hidden" name="user_id" value="{{ $user_id }}">
+      <textarea name="message" id="message" class="chat-bottom__textarea" required
+        placeholder="Введите сообщение..."></textarea>
+      <button type="submit" class="chat-bottom__button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
+          <path
+            d="M3 12.9999H9V10.9999H3V1.84558C3 1.56944 3.22386 1.34558 3.5 1.34558C3.58425 1.34558 3.66714 1.36687 3.74096 1.40747L22.2034 11.5618C22.4454 11.6949 22.5337 11.9989 22.4006 12.2409C22.3549 12.324 22.2865 12.3924 22.2034 12.4381L3.74096 22.5924C3.499 22.7255 3.19497 22.6372 3.06189 22.3953C3.02129 22.3214 3 22.2386 3 22.1543V12.9999Z">
+          </path>
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+</div>
+</div>
 </div>
 @endsection
