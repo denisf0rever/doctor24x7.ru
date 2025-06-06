@@ -71,6 +71,27 @@ class ChatController extends Controller
 			$user->remember_token = Str::random(60);
 			$user->save();
 					
+			$consultant_email = $chat->consultant->email_addressS ?? config('config.admin_mail');
+			$user_email = $user->email;
+			
+			$subject = 'Создан новый чат';
+			$message = 'Чтобы пройти в чат, нажмите на ссылку' . PHP_EOL;
+			$message .= 'https://doctor24x7.ru/chat/room/' . $chat->uuid;
+
+			Mail::raw($message, function ($mail) use ($consultant_email, $subject) {
+				$mail->to($consultant_email)
+					->subject($subject);
+			});
+			
+			$subject = 'Создан новый чат с врачом';
+			$message = 'Чтобы пройти в чат, нажмите на ссылку' . PHP_EOL;
+			$message .= 'https://doctor24x7.ru/chat/room/' . $chat->uuid;
+			
+			Mail::raw($message, function ($mail) use ($user_email, $subject) {
+				$mail->to($user_email)
+					->subject($subject);
+			});
+			
 			Auth::login($user);
 			
 			return $chat->uuid;
@@ -85,7 +106,7 @@ class ChatController extends Controller
 			return response()->json(['error' => 'Message can\'t be null'], 400);
 		}
 	
-		$toEmail = 'predlozhi@bk.ru';
+		$toEmail = config('config.admin_email');
         $subject = 'Новое сообщение';
 		
 		$message = ChatMessage::create([
@@ -97,10 +118,10 @@ class ChatController extends Controller
 		$message1 = 'Новое сообщение в чате' . PHP_EOL;
         $message1 .= 'https://doctor24x7.ru/chat/room/' . $message->chat->uuid;
 
-		Mail::raw($message1, function ($mail) use ($toEmail, $subject) {
+		/*Mail::raw($message1, function ($mail) use ($toEmail, $subject) {
             $mail->to([$toEmail, $toEmail])
                  ->subject($subject);
-        });
+        });*/
 		
 		return redirect()->back();
 	}
