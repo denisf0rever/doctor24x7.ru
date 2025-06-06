@@ -100,7 +100,7 @@
               </svg>
             </div>
             <ul class="chat-messages__list">
-              <li class="chat-messages__chat-message chat-message">
+              <li class="chat-messages__chat-message chat-message chat-message--first">
                 <div class="chat-message__wrapper">
                   <div class="chat-message__main">
                     <div class="chat-message__message-block">
