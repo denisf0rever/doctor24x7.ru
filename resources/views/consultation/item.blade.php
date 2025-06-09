@@ -188,8 +188,8 @@ use App\Helpers\LinkHelper
               <img src="{{ Storage::url('common/question/messenger.svg') }}" alt="" class="comment-menu__contact-img">
             </a>
           </li>
-          <li class="comment-menu__contact-item">
-            <a href="/consultation/chat/dialog/300331/redirect"
+          <li class="comment-menu__contact-item comment-menu__contact-item-chat">
+            <a href="/chat/consultant/" target="_blank"
               class="comment-menu__contact-link comment-menu__contact-list-last">
               <span class="comment-menu__contact-text">В чате</span>
               <img src="{{ Storage::url('common/question/chat.svg') }}" alt="" class="comment-menu__contact-img">
