@@ -41,7 +41,7 @@ class ChatController extends Controller
 			->select('id', 'first_name', 'middle_name', 'avatar')
 			->firstOrFail();
 				
-		//TelegramNotifier::notify('Форма создания чата', 'event');
+		TelegramNotifier::notify('Форма создания чата', 'event');
 			
 		return view('consultation.chat.newchat', compact('consultant'));
 	}

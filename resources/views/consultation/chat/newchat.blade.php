@@ -34,5 +34,5 @@
     </form>
   </div>
 </section>
-
+@include('parts.metrika')
 @endsection

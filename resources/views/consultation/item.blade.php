@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', $consultation->title .' — консультируют врачи на форуме')
+@section('title', $consultation->title .' — консультации врачей')
 @section('description', 'Консультация врача, вопрос: ' . $consultation->title)
 @section('keywords', '')
 @section('canonical', 'consultation/detail/'. $consultation->id)
