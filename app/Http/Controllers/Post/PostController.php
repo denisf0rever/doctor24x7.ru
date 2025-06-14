@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Post;
-use App\Models\PostViews;
-use App\Models\PostCategory;
+use App\Models\Post\Post;
+use App\Models\Post\PostViews;
+use App\Models\Post\PostCategory;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -18,8 +18,8 @@ class PostController extends Controller
 {
     public function list()
     {
-        $articles = Post::query()
-			->orderBy('created_at')
+        $articles = Post::select('id', 'title')
+			->orderBy('created_at', 'desc')
             ->take(10)
             ->get();
 		
@@ -119,21 +119,27 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-		Carbon::setLocale('ru');
-		
         $article = Post::query()
+			->with('comments')
             ->where('id', $id)
             ->firstOrFail();
-			
-		$created_at = $article->created_at;
-		$carbonDate = Carbon::parse($created_at);
 		
-		$date = $carbonDate->translatedFormat('j F Y') . ' года';
+		$article->increment('hits');
 		
-		$this->incrementView($id);
+		$date = $this->getDate($article->created_at);
 		
 		return view('articles.item', compact('article', 'date'));
     }
+	
+	public function getDate($date)
+	{
+		Carbon::setLocale('ru');
+		$created_at = $date;
+		$carbonDate = Carbon::parse($created_at);
+		$date = $carbonDate->translatedFormat('j F Y') . ' года';
+		
+		return $date;
+	}
 
     public function edit(string $id)
     {

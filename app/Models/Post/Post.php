@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Post;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Post extends Model
 {
@@ -29,6 +28,11 @@ class Post extends Model
         'thumb',
 		'hits',
 	];
+	
+	public function comments()
+	{
+		return $this->hasMany(PostComments::class, 'post_id');
+	}
 
 	public function category()
     {

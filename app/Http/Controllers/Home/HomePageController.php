@@ -13,7 +13,8 @@ class HomePageController extends Controller
     public function index()
 	{
 		$articles = Post::query()
-			->orderBy('created_at')
+			->select('id', 'hits', 'title')
+			->orderBy('created_at', 'desc')
             ->take(10)
             ->get();
 				

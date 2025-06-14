@@ -53,9 +53,9 @@ Route::post('/register', [RegistrationController::class, 'register'])->name('reg
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	
 	// Статьи
-	Route::get('/articles', [PostController::class, 'list'])->name('articles.list');
-	Route::get('/article/{id}', [PostController::class, 'show'])->name('articles.item');
-	Route::get('/category/{id}', [CatergoryController::class, 'show'])->name('category.item');
+	Route::get('/content/new', [PostController::class, 'list'])->name('articles.list.items');
+	Route::get('/content/{id}', [PostController::class, 'show'])->name('articles.item');
+	//Route::get('/category/{id}', [CatergoryController::class, 'show'])->name('category.item');
 	
 	// Консультации
 	Route::get('/consultation', [ConsultationController::class, 'index'])->name('consult.list');

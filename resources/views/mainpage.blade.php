@@ -4,12 +4,9 @@
 найдет совет, благодаря которому Вы благополучно родите и воспитаете своего наследника')
 @section('keywords', 'воспитание детей, сайт для родителей, советы родителям, портал для детей и родителей, карапуз,
 беременность, роды')
-@section('canonical', '')
+@section('canonical', '/')
 
 @section('content')
-
-
-
 <div class="main__content">
   <section class="main__description description">
     <div class="description__wrapper section-wrapper">
@@ -183,10 +180,6 @@
         </ul>
       </div>
     </div>
-
   </section>
 </div>
-
-
-
 @endsection

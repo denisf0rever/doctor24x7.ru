@@ -44,38 +44,16 @@
   </section>
   <section class="main__blog-sidebar blog-sidebar">
     <div class="blog-sidebar__wrapper section-wrapper">
-      <a href="" class="blog-sidebar__title">Блог</a>
+      <a href="{{ route('articles.list.items') }}" class="blog-sidebar__title">Свежее</a>
       <ul class="blog-sidebar__list">
+	  @foreach($articles as $article)
         <li class="blog-sidebar__item">
-          <a href="/" class="blog-sidebar__link">
+          <a href="{{ route('articles.item', $article->id ) }}" class="blog-sidebar__link">
             <img src="/" alt="" class="blog-sidebar__img">
-            <span class="blog-sidebar__item-title">Угроза прерывания беременности</span>
+            <span class="blog-sidebar__item-title">{{ $article->title }}</span>
           </a>
         </li>
-        <li class="blog-sidebar__item">
-          <a href="/" class="blog-sidebar__link">
-            <img src="/" alt="" class="blog-sidebar__img">
-            <span class="blog-sidebar__item-title">Угроза прерывания беременности</span>
-          </a>
-        </li>
-        <li class="blog-sidebar__item">
-          <a href="/" class="blog-sidebar__link">
-            <img src="/" alt="" class="blog-sidebar__img">
-            <span class="blog-sidebar__item-title">Угроза прерывания беременности</span>
-          </a>
-        </li>
-        <li class="blog-sidebar__item">
-          <a href="/" class="blog-sidebar__link">
-            <img src="/" alt="" class="blog-sidebar__img">
-            <span class="blog-sidebar__item-title">Угроза прерывания беременности</span>
-          </a>
-        </li>
-        <li class="blog-sidebar__item">
-          <a href="/" class="blog-sidebar__link">
-            <img src="/" alt="" class="blog-sidebar__img">
-            <span class="blog-sidebar__item-title">Угроза прерывания беременности</span>
-          </a>
-        </li>
+		@endforeach
       </ul>
     </div>
   </section>

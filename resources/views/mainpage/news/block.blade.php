@@ -20,7 +20,7 @@
         <div class="news-item__wrapper">
           <div class="news-item__time">{{ $article->id }}</div>
           <span class="news-item__text"><a
-              href="{{ route('articles.item', $article->id) }}">{{ $article->h1 }}</a></a><span
+              href="{{ route('articles.item', $article->id) }}">{{ $article->title }}</a></a><span
               class="news-item__comment">
               <img src="images/bubble.svg" alt="" class="news-item__comment-img">
               <span class="news-item__comment-number">{{ $article->hits }}</span>

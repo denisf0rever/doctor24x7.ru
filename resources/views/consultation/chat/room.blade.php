@@ -100,18 +100,6 @@
               </svg>
             </div>
             <ul class="chat-messages__list">
-              <li class="chat-messages__chat-message chat-message chat-message--first">
-                <div class="chat-message__wrapper">
-                  <div class="chat-message__main">
-                    <div class="chat-message__message-block">
-                      <span class="chat-message__text">Здравствуйте, это системное сообщение. Если вы готовы оплачивать
-                        консультацию, можете сформулировать свой вопрос, врач его изучит и предоставит ответ после
-                        оплаты.
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </li>
               {{--
 			@foreach ($messages as $message)
 				@if ($message->user_id === $user_id)

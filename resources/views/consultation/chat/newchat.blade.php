@@ -9,7 +9,7 @@
       <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $consultant->avatar }}"
         alt="" class="payment-method__avatar">
       <span class="payment-method__big-name">{{ $consultant->first_name .' '. $consultant->middle_name }}</span>
-      <span class="payment-method__subtitle">Стоимость консультации: 1000 рублей, изучение анализов 1500 рублей</span>
+      <span class="payment-method__subtitle">Консультация в чате 800 рублей, изучение анализов 1500 рублей</span>
       <!--<div class="payment-method__table">
         <div class="payment-method__table-row">
           <span class="payment-method__table-cell">Тип</span>
