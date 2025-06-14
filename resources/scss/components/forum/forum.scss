@@ -1,0 +1,26 @@
+.forum {
+    &__wrapper {
+        display: flex;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        gap: 20px;
+    }
+    &__left-sidebar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__main {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__right-sidebar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
