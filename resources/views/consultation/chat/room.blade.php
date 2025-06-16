@@ -85,6 +85,20 @@
             <div class="chat-header__fullname-wrapper">
               <span class="chat-header__fullname">{{ $consultant->first_name .' '. $consultant->middle_name }}</span>
             </div>
+            <div class="small-menu small-menu__menu-btn custom-select" data-id="300330">
+              <svg class="small-menu__menu-btn-svg">
+                <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+                <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+                <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+              </svg>
+              <div class="custom-select__wrapper custom-select__hide small-menu__menu">
+                <ul class="small-menu__menu-list">
+                  <li class="small-menu__menu-item"><a class="small-menu__menu-item-link close-chat-link"
+                      href="/">Закрыть
+                      чат</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
         <div class="full-chat__chat-messages chat-messages">

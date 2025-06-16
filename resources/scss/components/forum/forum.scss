@@ -37,12 +37,7 @@
 
 @media (max-width: 992px) {
     .forum {
-        &__inner {
-            flex-direction: column;
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-        &__themes-sidebar {
+        &__left-sidebar {
             display: none;
         }
     }

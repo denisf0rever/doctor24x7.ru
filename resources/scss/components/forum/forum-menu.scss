@@ -49,18 +49,3 @@
         }
     }
 }
-
-@media (max-width: 992px) {
-    .forum-menu {
-        &__list {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        &__icon {
-            display: none;
-        }
-        &__item--new {
-            padding-right: 20px;
-        }
-    }
-}
