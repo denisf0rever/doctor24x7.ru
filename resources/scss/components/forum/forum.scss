@@ -1,10 +1,10 @@
 .forum {
-    &__wrapper {
+    &__inner {
         display: flex;
         padding-top: 40px;
         padding-bottom: 40px;
         gap: 20px;
-        max-width: 1950px;
+        max-width: 1196px;
         margin: 0 auto;
     }
     &__left-sidebar {
@@ -24,5 +24,26 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .forum {
+        &__right-sidebar {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .forum {
+        &__inner {
+            flex-direction: column;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        &__themes-sidebar {
+            display: none;
+        }
     }
 }

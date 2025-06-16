@@ -6,6 +6,10 @@
     &__item {
         max-width: 200px;
         position: relative;
+        border-radius: 8px;
+        &:hover {
+            background-color: var(--main-bg);
+        }
         &--active {
             .forum-menu {
                 &__icon {
@@ -34,11 +38,7 @@
         align-items: center;
         gap: 10px;
         padding: 10px;
-        border-radius: 8px;
         font-weight: 500;
-        &:hover {
-            background-color: var(--main-bg);
-        }
     }
     &__icon {
         width: 24px;
@@ -46,6 +46,21 @@
         svg {
             width: 100%;
             height: 100%;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .forum-menu {
+        &__list {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        &__icon {
+            display: none;
+        }
+        &__item--new {
+            padding-right: 20px;
         }
     }
 }
