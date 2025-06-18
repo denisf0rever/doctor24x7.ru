@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="forum">
+<section class="forum">
   <div class="forum__wrapper section-wrapper">
     <div class="forum__inner">
       <div class="forum__left-sidebar">
@@ -340,6 +340,6 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 @endsection

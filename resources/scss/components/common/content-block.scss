@@ -1,0 +1,89 @@
+.content-block {
+    &__wrapper {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 25px;
+        line-height: 1.5;
+    }
+    &__header {
+        margin-bottom: 20px;
+    }
+    &__img {
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+    }
+    &__subtitle-wrapper {
+        text-align: center;
+        padding: 15px 0;
+        margin: 20px 0 30px;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 100px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #6e757f;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 100px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #6e757f;
+        }
+    }
+    &__subtitle {
+        display: inline-block;
+        max-width: 80%;
+    }
+    &__content-header {
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+    &__content-list {
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 20px;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: 1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #6e757f;
+            opacity: 0.5;
+        }
+    }
+    &__content-item {
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1px;
+            width: 10px;
+            background-color: #000;
+        }
+    }
+    &__main-text-header {
+        font-size: 22px;
+    }
+}
