@@ -78,19 +78,19 @@ class ChatController extends Controller
       $message = 'Чтобы пройти в чат, нажмите на ссылку' . PHP_EOL;
       $message .= 'https://doctor24x7.ru/chat/room/' . $chat->uuid;
 
-      // Mail::raw($message, function ($mail) use ($consultant_email, $subject) {
-      // 	$mail->to($consultant_email)
-      // 		->subject($subject);
-      // });
+      Mail::raw($message, function ($mail) use ($consultant_email, $subject) {
+        $mail->to($consultant_email)
+          ->subject($subject);
+      });
 
       $subject = 'Создан новый чат с врачом';
       $message = 'Чтобы пройти в чат, нажмите на ссылку' . PHP_EOL;
       $message .= 'https://doctor24x7.ru/chat/room/' . $chat->uuid;
 
-      // Mail::raw($message, function ($mail) use ($user_email, $subject) {
-      // 	$mail->to($user_email)
-      // 		->subject($subject);
-      // });
+      Mail::raw($message, function ($mail) use ($user_email, $subject) {
+        $mail->to($user_email)
+          ->subject($subject);
+      });
 
       Auth::login($user);
 
