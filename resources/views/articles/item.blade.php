@@ -1,4 +1,4 @@
-@extends('appwide')
+@extends('app')
 @section('title', $article->meta_title)
 @section('description', $article->metadescription)
 @section('keywords', $article->metakey)
