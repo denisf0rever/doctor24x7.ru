@@ -10,7 +10,7 @@ final class TelegramNotifier
 {
 	public const HOST = 'https://api.telegram.org/bot';
 
-	public static function notify(string $message, string $channel = null)
+	public static function notify(string $message, string $channel = null, array $array = null)
 	{
 		$token = match ($channel) {
 			'payment' => config('config.rublitaken_token'),
@@ -20,10 +20,25 @@ final class TelegramNotifier
 		
 		$telegram_admin_id = config('config.telegram_admin_id');
 		
+		if (is_array($array)) {
+			$keyboard = [
+						'inline_keyboard' => [
+							[
+								[
+									'text' => $array['type'], 
+									'url' => $array['url']
+								]
+							]
+						]
+					];
+		}
+			
 		try {
+		
 			Http::get(self::HOST . $token . '/sendMessage', [
 				'chat_id' => $telegram_admin_id,
-				'text' => $message
+				'text' => $message,
+				'reply_markup' => json_encode($keyboard) ?? null
 			]);
 		} catch (Exception $e) {
 			Log::channel('telegram')->error('Ошибка при отправке в телеграм: ' . __CLASS__ . $e->getMessage());

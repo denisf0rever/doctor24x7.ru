@@ -105,6 +105,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	
 	Route::get('/forum', [\App\Http\Controllers\Forum\ForumController::class, 'index'])->name('forum.index');
 	Route::get('/forum/top', [\App\Http\Controllers\Forum\ForumController::class, 'top'])->name('forum.top');
+	Route::get('/forum/consultation', [\App\Http\Controllers\Forum\ForumController::class, 'consultation'])->name('forum.consultation');
+	Route::get('/forum/{slug}', [\App\Http\Controllers\Forum\ForumController::class, 'category'])->name('forum.category');
 	
 	
 	// JSON

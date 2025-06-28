@@ -13,6 +13,13 @@
 		<a href="{{ route('consultation.category', $category->slug) }}" class="sitemap__item">{{ $category->short_title }}</a>
 	@endforeach
     </div>
+	
+	<h1 class="sitemap__title">Форум</h1>
+    <div class="sitemap__list">
+      @foreach ($forums as $forum)
+		<a href="{{ route('forum.category', $forum->slug) }}" class="sitemap__item">{{ $forum->short_title }}</a>
+	@endforeach
+    </div>
   </div>
 </section>
 

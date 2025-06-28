@@ -3,17 +3,14 @@
     <div class="footer__wrapper container">
       <div class="footer__left">
         <ul class="footer__links">
-          <li class="footer__links-item">
-            <a href="/" class="footer__link">О нас</a>
-          </li>
-		  Кто консультирует на сайте О нас Контакты Отзывы о нас Пользовательское соглашение Правила сайта 
-		  <li class="footer__links-item">
-            <a href="/page/sitemap" class="footer__link">Карта сайта</a>
-          </li> Комментарии Форум Спросить юриста Архив
-		  
-          <li class="footer__links-item">
-            <a href="{{ route('login') }}" class="footer__link">Войти</a>
-          </li>
+          <li class="footer__links-item"><a href="/" class="footer__link">О нас</a></li>
+		  Кто консультирует на сайте О нас Контакты Отзывы о нас Пользовательское соглашение Правила сайта  
+		  <li class="footer__links-item"><a href="/page/sitemap" class="footer__link">Карта сайта</a></li> 
+		  Комментарии 
+		  <li class="footer__links-item"><a href="{{ route('forum.index') }}" class="footer__link">Форум</a></li>
+		  <li class="footer__links-item"><a href="https://consjurist.ru/" class="footer__link" target="_blank">Спросить юриста</a></li>
+		  <li class="footer__links-item"><a href=" " class="footer__link" target="_blank">Архив</a></li>		  
+		  <li class="footer__links-item"><a href="{{ route('login') }}" class="footer__link">Войти</a></li>
         </ul>
         <div class="footer__desc">
           <span class="footer__small-text">
