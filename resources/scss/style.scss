@@ -61,6 +61,23 @@ ul {
     border-radius: 7px;
 }
 
+.new-red-button {
+    display: block;
+    color: #fff;
+    background-color: var(--button-red);
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: fit-content;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 .grey-button {
     color: var(--main-text);
     cursor: pointer;

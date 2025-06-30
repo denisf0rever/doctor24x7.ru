@@ -52,7 +52,6 @@
           <div class="ask-question-form__separator"></div>
           <div class="ask-question-form__text-wrapper">
             <span class="ask-question-form__block-title">Спросите врача онлайн</span>
-            <span class="ask-question-form__block-subtitle">Напишите свой вопрос</span>
           </div>
         </li>
         <li class="ask-question-form__block">
@@ -60,14 +59,12 @@
           <div class="ask-question-form__separator"></div>
           <div class="ask-question-form__text-wrapper">
             <span class="ask-question-form__block-title">Укажите данные для связи</span>
-            <span class="ask-question-form__block-subtitle">Телефон или почта</span>
           </div>
         </li>
         <li class="ask-question-form__block">
           <img src="{{ Storage::url('common/category/third-step.svg') }}" class="ask-question-form__block-img">
           <div class="ask-question-form__text-wrapper">
             <span class="ask-question-form__block-title">Ожидайте ответ</span>
-            <span class="ask-question-form__block-subtitle">Максимальное ожидание ~25 минут</span>
           </div>
         </li>
       </ul>
@@ -76,7 +73,7 @@
           @csrf
           <textarea name="description" id="description" class="ask-question-form__textarea"></textarea>
           <input type="hidden" name="rubric_id" value="{{ $subCategory->category->id }}">
-          <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
+          <button type="submit" class="ask-question-form__submit new-red-button"> Продолжить →</button>
         </form>
       </div>
     </div>

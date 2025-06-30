@@ -28,7 +28,7 @@
         font-size: 17px;
         line-height: 24px;
     }
-	p {
+    p {
         font-size: 17px;
         line-height: 24px;
     }
@@ -37,24 +37,7 @@
         background-color: var(--button-background);
         border-radius: 8px;
         margin-bottom: 40px;
-		align-items: center;
-    }
-    &__button-link {
-        background-color: var(--button-red);
-        color: #fff;
-        border-radius: 8px;
-        min-height: 56px;
-        min-width: 128px;
-        padding: 0 27px;
-        display: flex;
-        font-weight: 700;
-        justify-content: center;
-        text-align: center;
         align-items: center;
-        font-size: 16px;
-        &:hover {
-            background-color: var(--button-red-hover);
-        }
     }
     &__button-text {
         margin-left: 16px;
@@ -69,16 +52,16 @@
 
 @media (max-width: 767px) {
     .category-intro {
-        &__wrapper{
-          padding: 15px;
+        &__wrapper {
+            padding: 15px;
         }
         &__top {
             background: none;
         }
         &__title {
-          font-size: 1.7rem;
-          text-align: center;
-          line-height: 35.36px;
+            font-size: 1.7rem;
+            text-align: center;
+            line-height: 35.36px;
         }
     }
 }

@@ -24,7 +24,8 @@
           </div>
         </div>
         <div class="category-intro__button-block">
-          <a href="/consultation/comment?rubric_id={{ $category->id }}" class="category-intro__button-link">Задать
+          <a href="/consultation/comment?rubric_id={{ $category->id }}"
+            class="category-intro__button-link new-red-button">Задать
             вопрос
             →</a>
           <div class="category-intro__button-text">Ответ в течение 25 минут</div>
@@ -56,7 +57,6 @@
           <div class="ask-question-form__separator"></div>
           <div class="ask-question-form__text-wrapper">
             <span class="ask-question-form__block-title">Спросите врача онлайн </span>
-            <span class="ask-question-form__block-subtitle">Напишите свой вопрос </span>
           </div>
         </li>
         <li class="ask-question-form__block">
@@ -64,14 +64,12 @@
           <div class="ask-question-form__separator"></div>
           <div class="ask-question-form__text-wrapper">
             <span class="ask-question-form__block-title">Укажите данные для связи </span>
-            <span class="ask-question-form__block-subtitle">Телефон или почта </span>
           </div>
         </li>
         <li class="ask-question-form__block">
           <img src="{{ Storage::url('common/category/third-step.svg') }}" class="ask-question-form__block-img">
           <div class="ask-question-form__text-wrapper">
             <span class="ask-question-form__block-title">Ожидайте ответ </span>
-            <span class="ask-question-form__block-subtitle">Максимальное ожидание ~25 минут</span>
           </div>
         </li>
       </ul>
@@ -80,7 +78,7 @@
           @csrf
           <textarea name="description" id="description" class="ask-question-form__textarea"></textarea>
           <input type="hidden" name="rubric_id" value="{{ $category->id }}">
-          <button type="submit" class="ask-question-form__submit"> Продолжить →</button>
+          <button type="submit" class="ask-question-form__submit new-red-button"> Продолжить →</button>
         </form>
       </div>
     </div>
@@ -202,7 +200,7 @@
                       </div>
                       <span class="category-card__passport-text">Диплом проверен</span>
                     </div>
-                    <a href="#" class="category-card__msg category-card__msg--mobile red-button">Написать
+                    <a href="#" class="category-card__msg category-card__msg--mobile new-red-button">Написать
                       сообщение</a>
                     <div class="category-card__text-wrapper">
                       <span class="category-card__text">{{ $text->description }}</span>
@@ -230,7 +228,7 @@
                     </div>*/@endphp
                   </div>
                   <div class="category-card__right">
-                    <a href="/" class="category-card__msg red-button">Написать сообщение</a>
+                    <a href="/" class="category-card__msg new-red-button">Написать сообщение</a>
                     <span class="category-card__small-title--sidebar">Работает дистанционно</span>
                     <span class="category-card__text">Специалист из Москвы</span>
 
