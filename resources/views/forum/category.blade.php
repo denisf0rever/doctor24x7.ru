@@ -1,9 +1,8 @@
 ﻿@extends('appwide')
-@section('title', 'Форум врачей')
-@section('description', 'Форум')
-@section('keywords', 'Медицинский форум создан для обсуждения медицинских вопросов в формате онлайн консультации,
-связанных со здоровьем, расшифровкой анализа, медицинских документов')
-@section('canonical', 'forum/consultation')
+@section('title', $category->title)
+@section('description', $category->metadesc)
+@section('keywords', $category->metakey)
+@section('canonical', 'forum/' . $category->slug)
 
 @section('content')
 <section class="forum">
@@ -19,7 +18,7 @@
 				@foreach($consultations as $consultation)
               <li class="forum-news-catalog__item">
                 <span class="forum-news-catalog__link">
-                  <a href="{{ route('consultation.item', $consultation->id) }}" class="forum-news-catalog__text">{{ $consultation->title }}</a>
+                 <a href="{{ route('consultation.item', $consultation->id) }}" class="forum-news-catalog__text">{{ $consultation->title }}</a>
                   <a href="#" class="forum-news-catalog__comments">
                     <div class="forum-news-catalog__icon">
                       <svg class="icon icon--comment" viewBox="0 0 24 24" width="16" height="16">
@@ -34,16 +33,6 @@
               </li>
 			  @endforeach
             </ul>
-            <div class="forum-news-catalog__show-more">
-              <span class="forum-news-catalog__show-more-text">Показать еще</span>
-              <div class="forum-news-catalog__show-more-icon">
-                <svg class="icon" width="20" height="20">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M17.707 8.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-5-5a1 1 0 1 1 1.414-1.414L12 13.086l4.293-4.293a1 1 0 0 1 1.414 0Z"
-                    fill="currentColor"></path>
-                </svg>
-              </div>
-            </div>
           </div>
         </div>
       </div>

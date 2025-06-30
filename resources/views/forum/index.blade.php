@@ -50,61 +50,23 @@
         <div class="forum__topics forum-topics">
           <div class="forum-topics__wrapper section-wrapper">
             <div class="forum-topics__header">
-              <h3 class="forum-topics__title">Топ блогов</h3>
+              <h3 class="forum-topics__title">Разделы</h3>
             </div>
             <ul class="forum-topics__list">
+			@foreach ($categories as $category)
               <li class="forum-topics__item">
-                <span class="forum-topics__number">1</span>
                 <div class="forum-topics__small-blog small-blog">
-                  <a href="" class="small-blog__wrapper">
+                  <a href="{{ route('forum.category', $category->slug) }}" class="small-blog__wrapper">
                     <img
                       src="https://leonardo.osnova.io/77b81b4d-da8b-5bf8-b53a-8747d5290785/-/scale_crop/72x72/-/format/webp/"
                       alt="" class="small-blog__img">
-                    <span class="small-blog__title">Lorem ipsum</span>
+                    <span class="small-blog__title">{{ $category->short_title }}</span>
                     <span class="small-blog__subs">202 подписчика</span>
                   </a>
                 </div>
                 <a href="#" class="forum-topics__button">Подписаться</a>
               </li>
-              <li class="forum-topics__item">
-                <span class="forum-topics__number">1</span>
-                <div class="forum-topics__small-blog small-blog">
-                  <a href="" class="small-blog__wrapper">
-                    <img
-                      src="https://leonardo.osnova.io/77b81b4d-da8b-5bf8-b53a-8747d5290785/-/scale_crop/72x72/-/format/webp/"
-                      alt="" class="small-blog__img">
-                    <span class="small-blog__title">Lorem ipsum</span>
-                    <span class="small-blog__subs">202 подписчика</span>
-                  </a>
-                </div>
-                <a href="#" class="forum-topics__button">Подписаться</a>
-              </li>
-              <li class="forum-topics__item">
-                <span class="forum-topics__number">1</span>
-                <div class="forum-topics__small-blog small-blog">
-                  <a href="" class="small-blog__wrapper">
-                    <img
-                      src="https://leonardo.osnova.io/77b81b4d-da8b-5bf8-b53a-8747d5290785/-/scale_crop/72x72/-/format/webp/"
-                      alt="" class="small-blog__img">
-                    <span class="small-blog__title">Lorem ipsum</span>
-                    <span class="small-blog__subs">202 подписчика</span>
-                  </a>
-                </div>
-                <a href="#" class="forum-topics__button">Подписаться</a>
-              </li>
-              <li class="forum-topics__item">
-                <span class="forum-topics__number">1</span>
-                <div class="forum-topics__small-blog small-blog">
-                  <a href="" class="small-blog__wrapper">
-                    <img
-                      src="https://leonardo.osnova.io/77b81b4d-da8b-5bf8-b53a-8747d5290785/-/scale_crop/72x72/-/format/webp/"
-                      alt="" class="small-blog__img">
-                    <span class="small-blog__title">Lorem ipsum</span>
-                    <span class="small-blog__subs">202 подписчика</span>
-                  </a>
-                </div>
-                <a href="#" class="forum-topics__button">Подписаться</a>
-              </li>
+			  @endforeach
             </ul>
           </div>
         </div>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\View\Composer\CategoriesComposer;
 use App\Http\View\Composer\ConsultationComposer;
 use App\Http\View\Composer\ArticleComposer;
+use App\Http\View\Composer\ForumComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,5 +20,6 @@ class AppServiceProvider extends ServiceProvider
 		View::composer('app', CategoriesComposer::class);
 		View::composer('app', ConsultationComposer::class);
 		View::composer('app', ArticleComposer::class);
+		View::composer('forum.sidebar', ForumComposer::class);
     }
 }

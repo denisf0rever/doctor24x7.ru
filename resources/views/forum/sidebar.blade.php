@@ -2,24 +2,26 @@
           <div class="sidebar-top-blogs__wrapper">
             <span class="sidebar-top-blogs__title">Топ блогов</span>
             <ul class="sidebar-top-blogs__list">
+			@foreach ($doctors as $doctor)
               <li class="sidebar-top-blogs__item">
                 <a href="#" class="sidebar-top-blogs__link">
                   <div class="sidebar-top-blogs__small-blog small-blog">
                     <div class="small-blog__wrapper">
                       <img
-                        src="https://leonardo.osnova.io/77b81b4d-da8b-5bf8-b53a-8747d5290785/-/scale_crop/72x72/-/format/webp/"
+                        src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $doctor->avatar }}"
                         alt="" class="small-blog__img">
-                      <span class="small-blog__title">Lorem ipsum</span>
-                      <span class="small-blog__subs">202 подписчика</span>
+                      <span class="small-blog__title">{{ $doctor->first_name }} {{ $doctor->last_name }}</span>
+                      <span class="small-blog__subs">{{ $doctor->answers_count }} консультаций</span>
                     </div>
                   </div>
                 </a>
               </li>
+			@endforeach
             </ul>
             <a href="{{ route('forum.top') }}" class="sidebar-top-blogs__show-more">Посмотреть весь топ</a>
           </div>
         </div>
-        <div class="forum__sidebar-popular-comments sidebar-popular-comments">
+        {{--<div class="forum__sidebar-popular-comments sidebar-popular-comments">
           <div class="sidebar-popular-comments__wrapper">
             <span class="sidebar-popular-comments__title">Популярные комментарии</span>
             <ul class="sidebar-popular-comments__list">
@@ -61,4 +63,4 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div>--}}
