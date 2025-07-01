@@ -13,7 +13,7 @@
 		@include('forum.menu')
       </div>
       <div class="forum__main">
-        <div class="forum__news-catalog forum-news-catalog">
+        <!--<div class="forum__news-catalog forum-news-catalog">
           <div class="forum-news-catalog__wrapper section-wrapper">
             <ul class="forum-news-catalog__list">
               <li class="forum-news-catalog__item">
@@ -46,7 +46,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
         <div class="forum__topics forum-topics">
           <div class="forum-topics__wrapper section-wrapper">
             <div class="forum-topics__header">
@@ -58,7 +58,7 @@
                 <div class="forum-topics__small-blog small-blog">
                   <a href="{{ route('forum.category', $category->slug) }}" class="small-blog__wrapper">
                     <img
-                      src="https://leonardo.osnova.io/77b81b4d-da8b-5bf8-b53a-8747d5290785/-/scale_crop/72x72/-/format/webp/"
+                      src="https://puzkarapuz.ru/images/svg/forum/{{ $category->image_name }}.svg"
                       alt="" class="small-blog__img">
                     <span class="small-blog__title">{{ $category->short_title }}</span>
                     <span class="small-blog__subs">202 подписчика</span>

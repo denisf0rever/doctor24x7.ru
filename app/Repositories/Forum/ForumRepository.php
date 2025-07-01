@@ -17,7 +17,7 @@ class ForumRepository
 	
 	public static function categories()
 	{
-		$forums = Forum::select('id', 'short_title', 'slug',)
+		$forums = Forum::select('id', 'short_title', 'slug', 'image_name')
 			->orderBy('short_title')
 			->get();
 			
