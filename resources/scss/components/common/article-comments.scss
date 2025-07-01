@@ -1,0 +1,115 @@
+.article-comments {
+    &__wrapper {
+        width: 100%;
+        max-width: 800px;
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 30px 30px;
+    }
+    &__amount {
+        font-weight: bold;
+        font-size: 18px;
+    }
+    &__form {
+        margin-top: 30px;
+        position: relative;
+    }
+    &__textarea {
+        width: 100%;
+        min-height: 100px;
+        background-color: #f7f7f7;
+        border: none;
+        border-radius: 10px;
+        padding: 15px;
+        outline: none;
+        border: 1px solid #efefef;
+        resize: none;
+        &::placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 15px;
+        }
+    }
+    &__button {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        background-color: #a1bceb;
+        color: #fff;
+        border: none;
+        padding: 9px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    &__list {
+        margin-top: 25px;
+    }
+}
+
+.article-comment {
+    &__user-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+    &__avatar {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+    }
+    &__time {
+        font-size: 14px;
+        color: var(--secondary-text);
+    }
+    &__text {
+        display: block;
+        margin: 5px 0 10px;
+    }
+    &__text-more {
+        color: var(--secondary-text);
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &__sub-section {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: var(--secondary-text);
+        gap: 10px;
+    }
+    &__ansver {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &__likes,
+    &__dislikes {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
+    &__dislikes {
+        transform: rotate(180deg);
+    }
+    &__sub-comments {
+        position: relative;
+        margin-top: 10px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+    &__sub-comments:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 1px;
+        background-color: var(--secondary-text);
+        top: 0;
+        left: 0;
+    }
+    &__sub-comment {
+        padding-top: 20px;
+    }
+}
