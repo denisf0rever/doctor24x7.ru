@@ -3,11 +3,14 @@
         max-width: 500px;
         width: 100%;
         margin: 0 auto;
-        margin-top: 20px;
         background-color: #fff;
         border-radius: 32px;
         padding: 20px;
         box-shadow: 0 24px 48px #adadade0;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
     &__title {
         font-weight: 500;
@@ -138,6 +141,19 @@
         vertical-align: middle;
         font-size: inherit;
         line-height: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .receipt {
+        &__label {
+            font-size: 42px;
+        }
+        &__wrapper {
+            position: relative;
+            margin-right: 20px;
+            transform: translate(0);
+        }
     }
 }
 
