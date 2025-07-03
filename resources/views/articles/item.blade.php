@@ -6,7 +6,6 @@
 
 @section('content')
 
-
 <!-- <section>
   <div class="content-block__wrapper">
     @foreach($article->comments as $comment)

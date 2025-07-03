@@ -1,0 +1,148 @@
+.content-block {
+    .articles-list {
+        background: linear-gradient(258.56deg, #325de9 31.66%, #548cf6 80.67%);
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -o-border-radius: 10px;
+        border-radius: 18px;
+        overflow: hidden;
+        margin-bottom: 25px;
+    }
+    .header {
+        color: #fff;
+        padding: 38px;
+        text-align: center;
+        font-size: 20px;
+        line-height: 1em;
+        font-weight: 700;
+    }
+    .articles-list .body {
+        padding: 20px;
+        color: #fff;
+    }
+
+    .articles-list ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .articles-list ul li {
+        position: relative;
+        padding-bottom: 12px;
+        border-bottom: 1px dotted #fff;
+        margin-bottom: 12px;
+        overflow: hidden;
+        font-size: 18px;
+    }
+
+    .articles-list ul li:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .articles-list ul li span {
+        float: left;
+        font-size: 30px;
+        background: #fff;
+        padding: 8px;
+        color: #001f31;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-radius: 4px;
+        line-height: normal;
+    }
+
+    .articles-list ul li strong {
+        font-size: 20px;
+        display: block;
+        margin-bottom: 3px;
+    }
+
+    .articles-list ul li .text {
+        margin-left: 60px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 15px;
+        word-wrap: break-word;
+    }
+    .BlockAccordion {
+        margin-bottom: 25px;
+        background: rgba(38, 55, 88, 0.06);
+        padding: 15px;
+        border-radius: 0.5em;
+    }
+    .ul-ul,
+    .science,
+    .comment.doctor-opinion {
+        padding: 20px;
+        border-radius: 18px;
+        background: #f2f3f4;
+        margin-bottom: 20px;
+    }
+    .Accordion {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 600px;
+        li {
+            background-color: #fff;
+            border-radius: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 2px #0000001a;
+            &.opened {
+                .accordion {
+                    &::after {
+                        transform: translateY(-50%) rotate(135deg);
+                    }
+                }
+            }
+            .accordion {
+                display: flex;
+                align-items: center;
+                position: relative;
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                height: 60px;
+                cursor: pointer;
+                padding: 10px 15px;
+                &::before {
+                    content: "";
+                    min-height: 40px;
+                    min-width: 40px;
+                    background: #f7f7f7;
+                    position: absolute;
+                    right: 18px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border-radius: 50%;
+                }
+                &::after {
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    border-color: #000;
+                    border-style: solid;
+                    border-width: 0 0 2px 2px;
+                    position: absolute;
+                    right: 33px;
+                    top: 50%;
+                    transform: translateY(-50%) rotate(-45deg);
+                    transition: all 0.3s ease-in;
+                }
+            }
+            .panel {
+                max-height: 0;
+                padding: 0 15px;
+                overflow: hidden;
+                transition: all 0.3s ease-in;
+            }
+        }
+    }
+}
