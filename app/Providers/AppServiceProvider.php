@@ -11,15 +11,13 @@ use App\Http\View\Composer\ForumComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function register(): void
-    {
-    }
-	
-    public function boot(): void
-    {
-		View::composer('app', CategoriesComposer::class);
-		View::composer('app', ConsultationComposer::class);
-		View::composer('app', ArticleComposer::class);
-		View::composer('forum.sidebar', ForumComposer::class);
-    }
+  public function register(): void {}
+
+  public function boot(): void
+  {
+    View::composer(['app', 'articleSidebars'], CategoriesComposer::class);
+    View::composer(['app', 'articleSidebars'], ConsultationComposer::class);
+    View::composer(['app', 'articleSidebars'], ArticleComposer::class);
+    View::composer('forum.sidebar', ForumComposer::class);
+  }
 }
