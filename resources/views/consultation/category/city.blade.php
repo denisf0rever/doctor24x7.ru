@@ -70,7 +70,7 @@
       @foreach ($doctors as $doctor)
       <a href="{{ route('profile.user.item', $doctor->username) }}" class="doc-list__link">
         <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $doctor->avatar }}" alt="" class="doc-list__img">
-        <span class="doc-list__fullname">{{ $doctor->id }} {{ $doctor->first_name }} {{ $doctor->middle_name }}</span>
+        <span class="doc-list__fullname">{{ $doctor->first_name }} {{ $doctor->middle_name }}</span>
         <span class="doc-list__specialization">{{ $doctor->icq }}</span>
       </a>
       @endforeach

@@ -3,8 +3,8 @@
     <div class="footer__wrapper container">
       <div class="footer__left">
         <ul class="footer__links">
-          <li class="footer__links-item"><a href="/" class="footer__link">О нас</a></li>
-		  Кто консультирует на сайте О нас Контакты Отзывы о нас Пользовательское соглашение Правила сайта  
+          <li class="footer__links-item"><a href="{{ route('page.team') }}" class="footer__link">Кто консультирует на сайте</a></li>
+		  О нас Контакты Отзывы о нас Пользовательское соглашение Правила сайта  
 		  <li class="footer__links-item"><a href="/page/sitemap" class="footer__link">Карта сайта</a></li> 
 		  Комментарии 
 		  <li class="footer__links-item"><a href="{{ route('forum.index') }}" class="footer__link">Форум</a></li>

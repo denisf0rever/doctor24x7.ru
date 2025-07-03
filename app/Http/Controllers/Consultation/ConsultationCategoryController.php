@@ -12,7 +12,6 @@ use App\Models\Consultation\CategoryShowcase as Showcase;
 use App\Models\Consultation\SubCategories;
 use App\Models\User\CategoryText as Text;
 use App\Models\City\City;
-use App\Models\Doctors\Doctors;
 use App\Models\Consultation\Discussion;
 use App\Repositories\Category\CategoryRepository;
 
@@ -84,7 +83,7 @@ class ConsultationCategoryController extends Controller
         $city = City::where('slug', $city)
 			->firstOrFail();
 		
-		$doctors = $this->getCachedDoctor();
+		$doctors = CachedData::getCachedDoctor();
 		
         return view('consultation.category.city', compact('city', 'doctors'));
     }
@@ -98,7 +97,7 @@ class ConsultationCategoryController extends Controller
         $city = City::where('slug', $city)
 			->firstOrFail();
 		
-		$doctors = $this->getCachedDoctor();
+		$doctors = CachedData::getCachedDoctor();
 		
         return view('consultation.category.citycategory', compact('category', 'city', 'doctors'));
     }
@@ -122,13 +121,6 @@ class ConsultationCategoryController extends Controller
 		$showcase = Showcase::create($validatedData);
 		
 		return redirect()->back()->with('success', 'Элемент успешно добавлен в showcase!');
-	}
-	
-	public function getCachedDoctor()
-	{		
-		$showcase = Cache::remember('cached_all_doctors', 2592000, fn () => Doctors::getDoctors());
-		
-		return $showcase;
 	}
 	
 	public function getCachedShowCase()

@@ -6,6 +6,7 @@ use App\Models\Consultation\ConsultationComment as Comment;
 use App\Models\Consultation\Consultation;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Consultation\Discussion;
+use App\Models\Doctors\Doctors;
 
 final class CachedData
 {
@@ -17,5 +18,12 @@ final class CachedData
 			);
 			
 		return $discussions;
+	}
+	
+	public static function getCachedDoctor()
+	{	
+		$doctors = Cache::remember('cached_all_doctors', 2592000, fn () => Doctors::getDoctors());
+		
+		return $doctors;
 	}
 }

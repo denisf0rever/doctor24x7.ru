@@ -11,6 +11,7 @@ class Doctors extends Model
 	public static function getDoctors()
 	{
 		return self::where('is_consultant_request', 1)
+			->orderBy('created_at', 'desc')
 			->get();
 	}
 	

@@ -7,7 +7,7 @@
 @section('content')
 <section class="main__text-service text-service">
   <div class="text-service__wrapper section-wrapper">
-    <h1 class="text-service__title">Консультация врача онлайн</h1>
+    <h1 class="text-service__title"></h1>
     <ul class="text-service__list">
       <li class="text-service__item"><b>Через сколько ответит врач?</b> Готовим ответ в среднем 25 минут. Наш сервис
         работает круглосуточно.</li>
@@ -202,7 +202,7 @@
 
 <section class="main__consultation-form consultation-form">
   <div class="consultation-form__wrapper small-container">
-    <h2 class="consultation-form__title">Форма для вопроса</h2>
+    <h1 class="consultation-form__title">Консультация врача онлайн</h1>
     <div class="consultation-form__timeline-wrapper">
       <span class="consultation-form__timeline-text">Шаг <span id="step">1</span> из 4</span>
       <div class="consultation-form__timeline">
@@ -396,6 +396,10 @@
     </form>
   </div>
 </section>
+
+<div style="max-width:600px;height:800px;overflow:hidden;position:relative;margin: 0 auto 40px auto;"><iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/240239415319?comments"></iframe></div>
+
+
 <section class="main__questions questions">
   <div class="questions__wrapper">
     <div class="questions__inner container">

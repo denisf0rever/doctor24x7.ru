@@ -44,6 +44,7 @@ Route::get('/about-us', [RedirectController::class, 'aboutus']);
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 Route::get('/page/sitemap', [PageController::class, 'sitemap'])->name('page.about-sitemap');
 Route::get('/page/about-us', [PageController::class, 'about'])->name('page.about-us');
+Route::get('/page/team', [PageController::class, 'team'])->name('page.team');
 
 // Авторизирация
 Route::get('/login', [AuthController::class, 'index'])->name('login');
