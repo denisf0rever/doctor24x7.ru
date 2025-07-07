@@ -3,69 +3,68 @@
 <body>
   <header class="header">
     <div class="header__wrapper container">
-      <div class="header__top">
-        <a href="/" class="header__logo">
-          <img src="{{ Storage::url('common/logo.svg') }}" alt="" class="header__logo-img">
-           <!-- <h1 class="header__logo-text">Консультации врачей</h1>
-          <div class="header__title">КРУГЛОСУТОЧНО ОНЛАЙН</div> -->
-        </a>
-        <nav class="header__nav">
-          <ul class="header__nav-list">
-            <li class="header__nav-item">
-              <a href="/" class="header__nav-link">Консультации</a>
-            </li>
-          </ul>
-        </nav>
-        <a href="/" class="header__experts">
-          <ul class="header__experts-imgs">
-            <li class="header__expert">
-              <img src="/" alt="" class="header__expert-img">
-            </li>
-            <li class="header__expert">
-              <img src="/" alt="" class="header__expert-img">
-            </li>
-            <li class="header__expert">
-              <img src="/" alt="" class="header__expert-img">
-            </li>
-            <li class="header__expert">
-              <img src="/" alt="" class="header__expert-img">
-            </li>
-          </ul>
-          <div class="header__experts-titles">
-            <span class="header__experts-title">более 30 врачей</span>
-            <span class="header__experts-subtitle">работает на сайте</span>
+      <a href="/" class="header__logo">
+        <img src="{{ Storage::url('common/logo.svg') }}" alt="" class="header__logo-img">
+      </a>
+      <div class="header__speedbar">
+        <a href="/" class="header__speedbar-item header__speedbar-item--main">ПузКарапуз</a>
+        <a href="/" class="header__speedbar-item header__speedbar-item--page">puzkarapuz.ru/</a>
+      </div>
+      <a href="/" class="header__ask-doctor" target="_blank">
+        <svg class="header__pencil-img" width="20px" height="20px" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+              d="M15.728 9.686l-1.414-1.414L5 17.586V19h1.414l9.314-9.314zm1.414-1.414l1.414-1.414-1.414-1.414-1.414 1.414 1.414 1.414zM7.242 21H3v-4.243L16.435 3.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 21z" />
+          </g>
+        </svg>
+        <span class="header__ask-doctor-text">Спросить врача</span>
+      </a>
+      <div class="header__burger">
+        <svg class="header__burger-img" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px"
+          viewBox="0 0 24 24" fill="none">
+          <path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+    <div class="header__mobile-menu header-mobile-menu">
+      <div class="header-mobile-menu__wrapper">
+        <div class="header-mobile-menu__inner">
+          <div class="header-mobile-menu__close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" class="loaded">
+              <g fill="none" fill-rule="evenodd">
+                <path fill="#515151" d="M.04 21.753L21.253.54l.707.707L.747 22.46z"></path>
+                <path fill="#525252" d="M21.96 21.753L.747.54l-.707.707L21.253 22.46z"></path>
+              </g>
+            </svg>
           </div>
-        </a>
-        <div class="header__burger">
-          <img src="" alt="" class="header__burger-img">
+          <div class="header__speedbar-wrapper">
+            <div class="header__speedbar header__speedbar--mobile">
+              <a href="/" class="header__speedbar-item header__speedbar-item--main">ПузКарапуз</a>
+              <a href="/" class="header__speedbar-item header__speedbar-item--page">puzkarapuz.ru/</a>
+            </div>
+          </div>
+          <ul class="header-mobile-menu__list">
+            <li class="header-mobile-menu__item">
+              <a href="/" class="header-mobile-menu__link">Главная</a>
+            </li>
+          </ul>
+          <a href="/" class="header__ask-doctor header__ask-doctor--mobile" target="_blank">
+            <svg class="header__pencil-img" width="20px" height="20px" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M15.728 9.686l-1.414-1.414L5 17.586V19h1.414l9.314-9.314zm1.414-1.414l1.414-1.414-1.414-1.414-1.414 1.414 1.414 1.414zM7.242 21H3v-4.243L16.435 3.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 21z">
+                </path>
+              </g>
+            </svg>
+            <span class="header__ask-doctor-text">Спросить врача</span>
+          </a>
         </div>
       </div>
-      <!-- <div class="header__bottom">
-        <nav class="header__bottom-nav">
-          <ul class="header__bottom-nav-list">
-            <li class="header__bottom-nav-item header__bottom-nav-item-active">
-              <a href="{{ route('consult.form') }}" class="header__bottom-nav-item-link">Задать вопрос</a>
-            </li>
-            <li class="header__bottom-nav-item">
-              <a href="/" class="header__bottom-nav-item-link">Завершенные консультации</a>
-            </li>
-            <li class="header__bottom-nav-item">
-              <a href="/" class="header__bottom-nav-item-link">Врачи</a>
-            </li>
-          </ul>
-        </nav>
-      </div> -->
     </div>
   </header>
-
-  <div class="mobile-header-nav">
-    <div class="mobile-header-nav__wrapper">
-      <ul class="mobile-header-nav__list">
-        <li class="mobile-header-nav__item">
-          <a href="" class="mobile-header-nav__link">
-            Консультации
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
