@@ -13,22 +13,8 @@
         <div class="category-intro__top">
           <h1 class="category-intro__title">{{ $category->h1 }}</h1>
           <div class="category-intro__text">
-            <p class="category-intro__p">Консультацию {{ $category->name_v }} можно получить в онлайн чате, задайте
-              вопрос
-              {{ $category->button_name }} и получите ответ в режиме реального времени прямо сейчас, а по телефону —
-              можете обсудить свои проблемы более подробно.
-            </p>
-            <p class="category-intro__p">Видеоконсультация позволяет врачам видеть пациента и проводить более полное
-              обследование, в то время как мессенджеры обеспечивают удобство общения в любое время, позволяя делиться
-              медицинскими документами и фото.</p>
+            {!! $category->banner_image !!}
           </div>
-        </div>
-        <div class="category-intro__button-block">
-          <a href="/consultation/comment?rubric_id={{ $category->id }}"
-            class="category-intro__button-link new-red-button">Задать
-            вопрос
-            →</a>
-          <div class="category-intro__button-text">Ответ в течение 25 минут</div>
         </div>
         @if ($showcase->IsNotEmpty())
         <div class="category-intro__experts-cards expert-cards">
@@ -44,32 +30,39 @@
           @endforeach
         </div>
         @endif
+        <div class="category-intro__button-block">
+          <a href="/consultation/comment?rubric_id={{ $category->id }}"
+            class="category-intro__button-link new-red-button">Задать
+            вопрос
+            →</a>
+          <div class="category-intro__button-text">Ответ в течение 25 минут</div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="main__ask-question-form ask-question-form">
     <div class="ask-question-form__wrapper">
-      <h2 class="ask-question-form__title">Задать вопрос {{ $category->button_name }}</h2>
+      <h2 class="ask-question-form__title">Спросить врача</h2>
       <ul class="ask-question-form__blocks">
         <li class="ask-question-form__block">
           <img src="{{ Storage::url('common/category/first-step.svg') }}" class="ask-question-form__block-img">
           <div class="ask-question-form__separator"></div>
           <div class="ask-question-form__text-wrapper">
-            <span class="ask-question-form__block-title">Спросите врача онлайн </span>
+            <span class="ask-question-form__block-title">Сформулируйте вопрос</span>
           </div>
         </li>
         <li class="ask-question-form__block">
           <img src="{{ Storage::url('common/category/second-step.svg') }}" class="ask-question-form__block-img">
           <div class="ask-question-form__separator"></div>
           <div class="ask-question-form__text-wrapper">
-            <span class="ask-question-form__block-title">Укажите данные для связи </span>
+            <span class="ask-question-form__block-title">Укажите данные для связи</span>
           </div>
         </li>
         <li class="ask-question-form__block">
           <img src="{{ Storage::url('common/category/third-step.svg') }}" class="ask-question-form__block-img">
           <div class="ask-question-form__text-wrapper">
-            <span class="ask-question-form__block-title">Ожидайте ответ </span>
+            <span class="ask-question-form__block-title">Ожидайте ответ</span>
           </div>
         </li>
       </ul>
