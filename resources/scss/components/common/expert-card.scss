@@ -22,14 +22,24 @@
         line-height: 20px;
         color: #001f31;
     }
+    &__img-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 16px;
+    }
+    &__player-button {
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+    }
     &__img {
         width: 48px;
         height: 48px;
         border-radius: 50%;
         object-fit: cover;
-        margin-left: auto;
         display: block;
-        margin-top: 16px;
     }
 }
 
@@ -46,9 +56,9 @@
         &__text {
             order: 2;
         }
-        &__img {
-            order: 1;
+        &__img-wrapper {
             margin: 0;
+            order: 1;
         }
     }
 }
