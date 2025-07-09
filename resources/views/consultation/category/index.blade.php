@@ -24,8 +24,10 @@
               <span class="expert-card__title">{{ $item->user->first_name .' '. $item->user->middle_name }}</span>
               <div class="expert-card__subtitle">{{ $item->category->short_title }}</div>
             </div>
-            <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $item->user->avatar }}"
-              alt="{{ $item->category->h1 }}" class="expert-card__img">
+            <div class="expert-card__img-wrapper">
+              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $item->user->avatar }}"
+                alt="{{ $item->category->h1 }}" class="expert-card__img">
+            </div>
           </div>
           @endforeach
         </div>
