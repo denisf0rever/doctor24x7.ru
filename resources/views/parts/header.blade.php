@@ -1,5 +1,4 @@
 </head>
-
 <body>
   <header class="header">
     <div class="header__wrapper container">
@@ -7,10 +6,20 @@
         <img src="{{ Storage::url('common/logo.svg') }}" alt="" class="header__logo-img">
       </a>
       <div class="header__speedbar">
-        <a href="/" class="header__speedbar-item header__speedbar-item--main">ПузКарапуз</a>
-        <a href="/" class="header__speedbar-item header__speedbar-item--page">puzkarapuz.ru/</a>
+        <a href="/" class="header__speedbar-item header__speedbar-item--main">Главная</a>
+        @if (isset($breadcrumbs))
+		@foreach ($breadcrumbs as $crumb)
+	
+	@if ($crumb['url'])
+                        <a href="{{ $crumb['url'] }}" class="header__speedbar-item header__speedbar-item--page">{{ $crumb['title'] }}</a>
+                    @else
+                        {{ $crumb['title'] }}
+                    @endif
+                    
+            @endforeach
+		@endif
       </div>
-      <a href="/" class="header__ask-doctor" target="_blank">
+      <a href="{{ route('consult.form') }}" class="header__ask-doctor" target="_blank">
         <svg class="header__pencil-img" width="20px" height="20px" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg">
           <g>

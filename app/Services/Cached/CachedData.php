@@ -26,4 +26,20 @@ final class CachedData
 		
 		return $doctors;
 	}
+	
+	public static function getCachedBreadCrumbs(array $breadcrumbs)
+{
+    if (empty($breadcrumbs)) {
+        return []; // Возвращаем пустой массив, если $breadcrumbs пустой
+    }
+
+    $cachedBreadCrumbs = Cache::get('cached_breadcrumbs_' . $breadcrumbs);
+
+    if (!$cachedBreadCrumbs) {
+        Cache::put('cached_breadcrumbs_' . $breadcrumbs, $breadcrumbs, 2592000);
+        return $breadcrumbs; // Возвращаем закэшированные хлебные крошки сразу после их создания
+    }
+
+    return $cachedBreadCrumbs;
+}
 }

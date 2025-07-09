@@ -19,11 +19,18 @@ use App\Models\UserMain;
 use App\Models\Settings\UserSettings as Settings;
 use App\Http\Requests\ConsultationUpdateRequest;
 use App\Services\BookingService;
+use App\Services\BreadcrumbService;
 use App\Helpers\LinkHelper;
 use Carbon\Carbon;
+use App\Services\Cached\CachedData;
 
 class ConsultationController extends Controller
 {
+	public function __construct(BreadcrumbService $breadcrumbService)
+	{
+		$this->breadcrumbService = $breadcrumbService;
+	}
+
 	// Вывод консультаций
 	public function dashboard()
 	{
@@ -171,7 +178,12 @@ class ConsultationController extends Controller
 		//@endif
 		//$this->incrementView($id);
 		
-		return view('consultation.item', compact('consultation', 'executionTime', 'discussion', 'consultantsArray', 'photos'));
+		$this->breadcrumbService->add('consultation', 'Консультации', route('consult.form'));
+		$this->breadcrumbService->add('consultation', $consultation->category->short_title, route('consultation.category', $consultation->category->slug));
+		
+		$breadcrumbs = $this->breadcrumbService->getAll('consultation');
+		
+		return view('consultation.item', compact('consultation', 'executionTime', 'discussion', 'consultantsArray', 'photos', 'breadcrumbs'));
     }
 	
 	// Редактирование консультации
