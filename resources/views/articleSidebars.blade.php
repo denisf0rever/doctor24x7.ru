@@ -149,14 +149,32 @@
                   </div>
                   <span class="content-block__content-header">Содержание статьи:</span>
                   {!! $article->full_story !!}
-                  <div class="content-block__main-text">
-                    <span class="content-block__main-text-header">Время прочтения: {{ $article->reading_time }}</span>
-                    {!! $article->full_text !!}
-
-                    <p> Views: {{ $article->hits }}</p>
-                    <p>Врач офтальмолог <a href="/profile/article->author->id"> </a></p>
-                    <p>{{ $date }}</p>
-
+                  <div class="content-block__footer">
+                    <div class="content-block__footer-left">
+                      <span class="content-block__footer-text">Время прочтения: {{ $article->reading_time }}</span>
+                      <!-- <span class="content-block__footer-text">{!! $article->full_text !!}</span> -->
+                      <span class="content-block__footer-text">Views: {{ $article->hits }}</span>
+                      <span class="content-block__footer-text">Врач офтальмолог <a href="/profile/article->author->id">
+                        </a></span>
+                      <span class="content-block__footer-text"> {{ $date }}</span>
+                    </div>
+                    <div class="content-block__footer-right">
+                      <div class="content-block__rating content-block-rating">
+                        <div class="content-block-rating__wrapper">
+                          <div class="content-block-rating__top">
+                            <span class="content-block-rating__text">Рейтинг: 5;</span>
+                            <span class="content-block-rating__text">Голосов: 1</span>
+                          </div>
+                          <div class="content-block-rating__stars">
+                            <img src="/storage/common/star-off.png" alt="" class="content-block-rating__star">
+                            <img src="/storage/common/star-off.png" alt="" class="content-block-rating__star">
+                            <img src="/storage/common/star-off.png" alt="" class="content-block-rating__star">
+                            <img src="/storage/common/star-off.png" alt="" class="content-block-rating__star">
+                            <img src="/storage/common/star-off.png" alt="" class="content-block-rating__star">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="main__comments comments">
