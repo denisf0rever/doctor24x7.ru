@@ -308,11 +308,11 @@ use App\Helpers\LinkHelper
               </div>
             </div>
           </div>
+		  @if ($comment->children)
           <div class="comment__sub-comments" id="answer{{ $comment->id }}">
-            @if ($comment->children)
             @include('consultation.childcomment', ['comments' => $comment->children])
-            @endif
-          </div>
+          </div> 
+		  @endif
         </li>
         @endif
         @endforeach

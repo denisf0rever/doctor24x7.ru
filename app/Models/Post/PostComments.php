@@ -15,4 +15,9 @@ class PostComments extends Model
 	{
 		return $this->belongsTo(Post::class);
 	}
+	
+	public function children()
+    {
+        return $this->hasMany(self::class, 'root_id', 'id')->orderBy('created_at', 'asc');
+    }
 }

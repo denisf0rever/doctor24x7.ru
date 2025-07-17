@@ -9,14 +9,13 @@
         line-height: 1.5;
     }
     &__header {
-        margin-bottom: 20px;
     }
     &__img {
         width: 100%;
         height: auto;
         max-width: 600px;
     }
-    &__subtitle-wrapper {
+    &__intro-wrapper {
         text-align: center;
         padding: 15px 0;
         margin: 20px 0 30px;
@@ -45,6 +44,9 @@
     &__subtitle {
         display: inline-block;
         max-width: 80%;
+		color: var(--secondary-text);
+    }
+    &__intro {
     }
     &__content-header {
         display: inline-block;
