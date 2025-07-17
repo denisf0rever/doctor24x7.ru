@@ -24,6 +24,7 @@ use App\Http\Controllers\Tariff\TariffController;
 use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Testimonials\TestimonialController;
 use App\Http\Controllers\Invoice\InvoiceController;
+use App\Http\Controllers\Account\AccountController;
 
 use App\Http\Controllers\Forum\ForumController;
 
@@ -91,6 +92,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	// Профиль
 	Route::get('/profile/{slug}', [\App\Http\Controllers\User\UserController::class, 'show'])->name('profile.user.item');
 	
+	// Аккаунт
+	Route::get('/account/balance', [\App\Http\Controllers\Account\AccountController::class, 'balance'])->name('account.balance');
+
 	// Чат
 	Route::post('/set-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'setCookie'])->name('set-cookie');
 	Route::get('/get-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'getCookie'])->name('get-cookie');
