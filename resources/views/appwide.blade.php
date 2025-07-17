@@ -11,7 +11,7 @@
   <meta name="description" content="@yield('description')">
   <meta name="keywords" content="@yield('keywords')">
 
-  <link rel="canonical" href="{{ config('app.url') }}@yield('canonical')">
+  <link rel="canonical" href="@yield('canonical')">
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -19,7 +19,7 @@
   <meta property="og:description" content="@yield('description')">
   <meta property="og:image" content="{{ Storage::url('common/logoimage.jpg') }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ config('app.url') }}@yield('canonical')">
+  <meta property="og:url" content="@yield('canonical')">
   <meta property="og:site_name" content="Телемедицина. Платформа медицинских консультаций онлайн">
 
   <meta name="theme-color" content="#fff">
