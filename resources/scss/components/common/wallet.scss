@@ -1,0 +1,14 @@
+.wallet {
+    &__wrapper {
+        background-color: var(--chat-item-background);
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+    &__amount {
+        font-weight: 500;
+        font-size: 16px;
+    }
+}

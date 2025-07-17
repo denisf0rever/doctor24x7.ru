@@ -17,13 +17,13 @@
           <span class="payment__small-title">Количество консультантов</span>
           <div class="payment__amount-list">
 
-@if ($errors->any())
-	<ul>
-@foreach ($errors->all() as $error)
-               <li>{{ $error }}</li>
-           @endforeach
-</ul>
-@endif
+            @if ($errors->any())
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+            @endif
 
             @foreach($tariffArray as $key => $tariff)
             <label class="payment__amount-item" for="amount_{{ $key + 1 }}">

@@ -1,58 +1,64 @@
 .chat-header {
-  &__wrapper {
-    padding: 24px;
-    background-color: var(--chat-main-background);
-    display: flex;
-    gap: 16px;
-    height: 100%;
-    align-items: center;
-    border-bottom: 1px solid var(--chat-border);
-  }
-  &__avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-  }
-  &__avatar-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  &__fullname-wrapper {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  &__fullname {
-    color: var(--chat-text);
-    font-size: 16px;
-    font-weight: 500;
-  }
-  &__fullname-circle {
-    svg {
-      width: 10px;
-      height: 10px;
-      fill: rgb(6, 214, 160);
+    &__wrapper {
+        padding: 24px;
+        background-color: var(--chat-main-background);
+        display: flex;
+        gap: 16px;
+        height: 100%;
+        align-items: center;
+        border-bottom: 1px solid var(--chat-border);
     }
-  }
-  &__back-btn {
-    display: none;
-    width: 16px;
-    height: 16px;
-    svg {
-      fill: var(--chat-secondary-text);
+    &__right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
-  }
+    &__avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+    &__avatar-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    &__fullname-wrapper {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    &__fullname {
+        color: var(--chat-text);
+        font-size: 16px;
+        font-weight: 500;
+    }
+    &__fullname-circle {
+        svg {
+            width: 10px;
+            height: 10px;
+            fill: rgb(6, 214, 160);
+        }
+    }
+    &__back-btn {
+        display: none;
+        width: 16px;
+        height: 16px;
+        svg {
+            fill: var(--chat-secondary-text);
+        }
+    }
 }
 
 @media (max-width: 990px) {
-  .chat-header {
-    &__wrapper {
-      padding: 16px;
+    .chat-header {
+        &__wrapper {
+            padding: 16px;
+        }
+        &__back-btn {
+            display: block;
+        }
     }
-    &__back-btn {
-      display: block;
-    }
-  }
 }
