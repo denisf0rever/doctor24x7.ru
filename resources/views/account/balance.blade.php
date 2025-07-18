@@ -11,8 +11,8 @@
     <div class="balance__wrapper">
       <div class="balance__inner">
         <h1 class="balance__title">Финансы</h1>
-        <span class="balance__subtitle">Сводобдных стредств</span>
-        <span class="balance__amount">0 $</span>
+        <span class="balance__subtitle">Свободных стредств</span>
+        <span class="balance__amount">0 ₽</span>
         <form action="/" class="balance__add-balance-form">
           <div class="balance__add-balance-label">
             <span class="balance__amount-span">Сумма пополнения</span>
