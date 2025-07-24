@@ -5,10 +5,14 @@
         margin: 0 auto;
         background-color: #fff;
         border-radius: 15px;
-        padding: 25px;
+        padding: 15px;
         line-height: 1.5;
     }
     &__header {
+		font-weight: 500;
+		font-size: 23px;
+		line-height: 30px;
+		margin-bottom: 10px;
     }
     &__img {
         width: 100%;
@@ -44,7 +48,6 @@
     &__subtitle {
         display: inline-block;
         max-width: 80%;
-		color: var(--secondary-text);
     }
     &__intro {
     }

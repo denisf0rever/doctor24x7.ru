@@ -33,7 +33,7 @@ class Post extends Model
 	
 	public function comments()
 	{
-		return $this->hasMany(PostComments::class, 'post_id');
+		return $this->hasMany(PostComments::class, 'post_id')->orderBy('id', 'asc');
 	}
 
 	public function category()

@@ -126,7 +126,7 @@ class PostController extends Controller
     public function show(string $id)
     {
         $article = Post::query()
-			->with(['comments:id,comment,post_id'])
+			->with(['comments:id,comment,post_id,name,likes_count'])
             ->where('id', $id)
             ->firstOrFail();		
 		

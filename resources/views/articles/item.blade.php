@@ -7,8 +7,8 @@
 @section('content')
 <div class="content-block__wrapper">
                   <h1 class="content-block__header">{{ $article->title }}</h1>
-                  <p><span class="content-block__subtitle">{{ $article->question_after }}</span></p>
                   <div class="content-block__intro-wrapper">
+					<p><span class="content-block__subtitle">{{ $article->question_after }}</span></p>
                     <p class="content-block__intro">{{ $article->introduction }}</p>
                   </div>
                   <span class="content-block__content-header">Содержание статьи:</span>
