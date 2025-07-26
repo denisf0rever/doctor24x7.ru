@@ -9,14 +9,12 @@
         <a href="/" class="header__speedbar-item header__speedbar-item--main">Главная</a>
         @if (isset($breadcrumbs))
 		@foreach ($breadcrumbs as $crumb)
-	
-	@if ($crumb['url'])
-                        <a href="{{ $crumb['url'] }}" class="header__speedbar-item header__speedbar-item--page">{{ $crumb['title'] }}</a>
-                    @else
-                        {{ $crumb['title'] }}
-                    @endif
-                    
-            @endforeach
+			@if ($crumb['url'])
+				<a href="{{ $crumb['url'] }}" class="header__speedbar-item header__speedbar-item--page">{{ $crumb['title'] }}</a>
+			@else
+				{{ $crumb['title'] }}
+			@endif
+		@endforeach
 		@endif
       </div>
       <a href="{{ route('consult.form') }}" class="header__ask-doctor" target="_blank">

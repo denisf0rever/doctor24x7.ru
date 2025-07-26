@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
+use App\Services\BreadcrumbService;
+
 use App\Models\Consultation\Consultation;
 use App\Models\Consultation\ConsultationCategory as Category;
 
@@ -23,6 +25,11 @@ use App\Classes\Payment\TBankClass;
 
 class PaymentController extends Controller
 {
+	public function __construct(BreadcrumbService $breadcrumbService)
+	{
+		$this->breadcrumbService = $breadcrumbService;
+	}
+	
     public function index()
     {
         $payments = Payment::query()
@@ -80,7 +87,11 @@ class PaymentController extends Controller
 			->select('consultations.id')
 			->get();
 			
-		return view('dashboard.payment.index', compact('payments', 'totalPaymentsToday', 'paidConsultationsCount', 'consultationsWithPhotos', 'consultationsCount', 'consultationsWithPhotosYesterday', 'categories', 'consultationsWithPhotosPaid', 'consultationsWithPhotosYesterdayPaid'));
+		$this->breadcrumbService->add('payment_consultation', 'Оплата консультации', route('payment.consultation', '1'));
+			
+		$breadcrumbs = $this->breadcrumbService->getAll('payment_consultation');
+					
+		return view('dashboard.payment.index', compact('payments', 'totalPaymentsToday', 'paidConsultationsCount', 'consultationsWithPhotos', 'consultationsCount', 'consultationsWithPhotosYesterday', 'categories', 'consultationsWithPhotosPaid', 'consultationsWithPhotosYesterdayPaid', 'breadcrumbs'));
     }
 
     /**
@@ -141,7 +152,7 @@ class PaymentController extends Controller
             }
         }
 		
-		return view('payment.index', compact('consultation', 'tariffArray'));
+		return view('payment.consultation', compact('consultation', 'tariffArray'));
     }
 
     /**

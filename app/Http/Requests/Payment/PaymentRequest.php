@@ -15,7 +15,7 @@ class PaymentRequest extends FormRequest
     {
         return [
 			'payment_method' => 'required|string|in:t_bank,u_kassa,',
-			'payment_purpose' => 'required|string|in:chat,consultation'
+			'payment_purpose' => 'required|string|in:chat,consultation,balance_account'
         ];
     }
 }

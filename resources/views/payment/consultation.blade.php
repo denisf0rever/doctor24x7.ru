@@ -5,7 +5,7 @@
 <section class="main__payment-form payment-form big-container new-section-wrapper">
   <div class="payment-form__inner container">
     <div class="payment-form__wrapper">
-      <form action="{{ route('payment.consultation.init') }}" method="POST" class="payment-form__form">
+      <form action="{{ route('payment.init') }}" method="POST" class="payment-form__form">
         @csrf
         <input type="hidden" name="OrderId" value="{{ $consultation->id }}">
         <input type="hidden" id="tariff_id" name="tariff_id" value="14">
