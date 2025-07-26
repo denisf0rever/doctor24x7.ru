@@ -4,7 +4,7 @@
 @section('content')
 <section class="main__receipt receipt">
   <div class="receipt__wrapper">
-    <form action="{{ route('payment.consultation.init') }}" method="post" class="receipt__form">
+    <form action="{{ route('payment.init') }}" method="post" class="receipt__form">
       @csrf
       <input type="hidden" name="Sum" class="receipt__total-price">
       <input type="hidden" name="payment_purpose" id="payment_purpose" value="chat">

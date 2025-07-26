@@ -85,14 +85,16 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	Route::get('/payment/chat/success', [PaymentController::class, 'success'])->name('payment.success');
 	Route::get('/payment/consultation/{id}', [PaymentController::class, 'consultation'])->name('payment.consultation');
 	Route::get('/payment/chat/{id}', [PaymentController::class, 'chat'])->name('payment.chat');
+	Route::get('/payment/balance/{id}', [PaymentController::class, 'balanceAccount'])->name('payment.balance');
 	Route::get('/payment/answer/{id}', [PaymentController::class, 'payAnswer'])->name('payment.answer');
 	Route::post('/payment/consultation', [PaymentController::class, 'create'])->name('payment.consultation.create');
-	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.consultation.init');	
+	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.init');	
 	
 	// Профиль
 	Route::get('/profile/{slug}', [\App\Http\Controllers\User\UserController::class, 'show'])->name('profile.user.item');
 	
 	// Аккаунт
+	Route::get('/account', [\App\Http\Controllers\Account\AccountController::class, 'index'])->name('account.index');
 	Route::get('/account/balance', [\App\Http\Controllers\Account\AccountController::class, 'balance'])->name('account.balance');
 
 	// Чат

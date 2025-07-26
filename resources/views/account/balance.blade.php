@@ -12,61 +12,47 @@
       <div class="balance__inner">
         <h1 class="balance__title">Финансы</h1>
         <span class="balance__subtitle">Свободных стредств</span>
-        <span class="balance__amount">0 ₽</span>
-        <form action="/" class="balance__add-balance-form">
+        <span class="balance__amount">{{ $account->balance }} ₽</span>
+        <form action="{{ route('payment.init') }}" class="balance__add-balance-form" method="post">
+		@csrf
+		
+		@if ($errors->any())
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+            @endif
+			<input type="hidden" name="payment_purpose" value="balance_account">
+			<input type="hidden" name="OrderId" value="{{ auth()->id() }}">
           <div class="balance__add-balance-label">
             <span class="balance__amount-span">Сумма пополнения</span>
-            <input type="text" name="amount" class="balance__amount-input" placeholder="1 000 ₽" inputmode="numeric">
+            <input type="text" name="Sum" class="balance__amount-input" placeholder="1 000 ₽" value="">
           </div>
-          <button type="submit" class="balance__add-balance-button new-red-button">Пополнить</button>
-        </form>
+          <!--<button type="submit" class="balance__add-balance-button new-red-button">Пополнить</button>-->
+       
         <div class="balance__method payment-method">
-          <h1 class="payment__normal-title">Выберите способ оплаты</h1>
+          <h1 class="payment__normal-title">Способ оплаты</h1>
           <div class="payment-method__list">
 
             <div class="payment-method__item">
-              <input type="radio" name="paymentType" class="payment-method__input" value="any_card" id="any_card">
-              <label for="any_card" class="payment-method__label">
-                <div class="payment-method__icon">
-                  <img src="{{ Storage::url('payment/card.svg') }}">
-                </div>
-                <div class="payment-method__body">
-                  <span class="payment-method__title">Банковская карта</span>
-                  <span class="payment-method__text">Любой банк</span>
-                </div>
-              </label>
-            </div>
-            <div class="payment-method__item">
-              <input type="radio" name="paymentType" class="payment-method__input" value="TPay" id="TPay">
-              <label for="TPay" class="payment-method__label">
+              <input type="radio" name="payment_method" class="payment-method__input" value="t_bank" id="payment_method" checked>
+              <label for="payment_method" class="payment-method__label">
                 <div class="payment-method__icon">
                   <img src="{{ Storage::url('payment/TPay.svg') }}">
                 </div>
                 <div class="payment-method__body">
-                  <span class="payment-method__title">TPay</span>
-                  <span class="payment-method__text">Оплата TPay</span>
-                </div>
-              </label>
-            </div>
-            <div class="payment-method__item">
-              <input type="radio" name="paymentType" class="payment-method__input" value="SBPay" id="SBPay">
-              <label for="SBPay" class="payment-method__label">
-                <div class="payment-method__icon">
-                  <img src="{{ Storage::url('payment/SB.svg') }}">
-                </div>
-                <div class="payment-method__body">
-                  <span class="payment-method__title">SberPay</span>
-                  <span class="payment-method__text">Оплата SberPay</span>
+                  <span class="payment-method__title">Т-банк касса</span>
+                  <span class="payment-method__text">Карта любого банка, SBpay</span>
                 </div>
               </label>
             </div>
           </div>
-          <input type="submit" value="Оплатить консультацию" class="payment-method__submit">
+          <input type="submit" value="Пополнить баланс" class="payment-method__submit">
         </div>
+		</form>
       </div>
     </div>
   </section>
-
 </div>
-
 @endsection
