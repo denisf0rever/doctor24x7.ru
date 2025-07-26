@@ -1,36 +1,135 @@
 @if($article->comments->isNotEmpty())
-	<div class="main__comments comments">
-                  <div class="article-comments__wrapper">
-                    <span class="article-comments__amount">{{ $article->comments->count() }} комментариев</span>
-                    <form action="" class="article-comments__form">
-                      <textarea class="article-comments__textarea" name="comment"
-                        placeholder="Написать комментарий..."></textarea>
-                      <button class="article-comments__button">Отправить</button>
-                    </form>
-                    <ul class="article-comments__list">
-                      @foreach($article->comments as $comment)
-					  <li class="article-comments__item comment">
-                        <div class="article-comment__main-comment">
-                          <a href="" class="article-comment__user-link">
-                            <img src="images/avatar.jpg" alt="" class="article-comment__avatar">
-                            <span class="article-comment__user-name">{{ Str::substr($comment->name, 0, 1) }} {{ $comment->name }}</span>
-                            <span class="article-comment__time">7 м</span>
-                          </a>
-                          <span class="article-comment__text">{{ $comment->comment }}</span>
-                          <div class="article-comment__sub-section">
-                            <a href="" class="article-comment__ansver">Ответить</a>
-                            <img class="article-comment__likes" src="images/like.svg" alt="">
-                            <span class="article-comment__likes-amount">97</span>
-                            <img class="article-comment__dislikes" src="images/like.svg" alt="">
-                          </div>
-                        </div>
-						
-						<!--if ($comment->children)
+<div class="main__comments comments">
+  <div class="article-comments__wrapper">
+    <span class="article-comments__amount">{{ $article->comments->count() }} комментариев</span>
+    <form action="" class="article-comments__form">
+      <textarea class="article-comments__textarea" name="comment" placeholder="Написать комментарий..."></textarea>
+      <button class="article-comments__button">Отправить</button>
+    </form>
+    <ul class="article-comments__list">
+      @foreach($article->comments as $comment)
+      <li class="article-comments__item comment">
+        <div class="article-comment__main-comment">
+          <a href="" class="article-comment__user-link">
+            <img src="images/avatar.jpg" alt="" class="article-comment__avatar">
+            <span class="article-comment__user-name">{{ Str::substr($comment->name, 0, 1) }} {{ $comment->name }}</span>
+            <span class="article-comment__time">7 м</span>
+          </a>
+          <span class="article-comment__text">{{ $comment->comment }}</span>
+          <div class="article-comment__sub-section">
+            <a href="" class="article-comment__ansver">Ответить</a>
+            <img class="article-comment__likes" src="images/like.svg" alt="">
+            <span class="article-comment__likes-amount">97</span>
+            <img class="article-comment__dislikes" src="images/like.svg" alt="">
+          </div>
+        </div>
+
+        <!--if ($comment->children)
 						include('articles.subcomments', ['comments' => $comment->children])
 						endif -->
-                      </li>
-					  @endforeach
-                    </ul>
-                  </div>
-                </div>
+      </li>
+      @endforeach
+    </ul>
+  </div>
+</div>
 @endif
+
+<div class="comments">
+  <div class="comments__wrapper">
+    <div class="comment__answer-field-fake">
+      <div class="comments__form-fake">
+        <textarea class="comments__textarea-fake hide" name="description" placeholder="Написать сообщение"
+          disabled=""></textarea>
+        <div class="comments__full-form full-form">
+          <form action="{{ route('consultation.answer') }}" method="post" class="comments__form">
+            @csrf
+            <input type="hidden" disabled name="to_answer_id" id="to_answer_id" value="">
+
+            <div class="full-form__first-screen">
+              <textarea placeholder="Написать комментарий..." name="description" id="description"
+                class="full-form__question-input" style="height: 0px;"></textarea>
+              <div class="full-form__progress" style="--pseudo-element-width: 0;"></div>
+
+              <div class="full-form__zoom-text full-form__hide">В форму</div>
+              <div class="full-form__next-btn full-form__next-btn-unactive">Далее</div>
+              <input type="submit"
+                class="full-form__confirm-btn-authenticated full-form__confirm-btn-authenticated-unactive hide"
+                value="Отправить">
+            </div>
+            <div class="full-form__second-screen hide">
+              <div class="full-form__input-wrapper full-form__input-wrapper-name">
+                <img src="{{ Storage::url('common/question/user.svg') }}" alt="" class="full-form__input-img">
+                <input type="name" name="username" id="username" class="full-form__name" placeholder="Ваше имя">
+              </div>
+              <div class="full-form__input-wrapper full-form__input-wrapper-email">
+                <img src="{{ Storage::url('common/question/email.svg') }}" alt="" class="full-form__input-img">
+                <input type="email" name="email" id="email" class="full-form__email" placeholder="Ваша почта">
+              </div>
+              <div class="full-form__buttons">
+                <input type="submit" class="full-form__confirm-btn full-form__confirm-btn-unactive" value="Отправить">
+                <div class="full-form__back-btn">Назад</div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <ul class="comments__list">
+      @foreach($article->comments as $comment)
+      <li class="comments__item comment">
+        <div class="comment__main-comment" id="answer{{ $comment->id }}" @if($comment->user)
+          user-id="{{ $comment->user->id }}"@endif>
+          <div class="comment__user-link-wrapper">
+            <a @if($comment->user) href="/profile/{{ $comment->user->username }}"
+              id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif
+              class="comment__user-link">
+              {!! $comment->user && $comment->user->avatar ?
+              '<img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/'.$comment->user->avatar.'"
+                class="comment__avatar-main">' :
+              '<div class="comment__avatar-main">' . Str::substr($comment->username, 0, 1) . '</div>'
+              !!}
+              <span class="comment__user-name">{{ Str::substr($comment->name, 0, 1) }} {{ $comment->name }}</span>
+              <span class="comment__user-subtitle">7м</span>
+            </a>
+            <div class="comment__menu-btn" data-id="{{ $comment->id }}">
+              <svg class="comment__menu-btn-svg">
+                <circle r="2" fill="#000" cx="50%" cy="50%"></circle>
+                <circle r="2" fill="#000" cx="50%" cy="25%"></circle>
+                <circle r="2" fill="#000" cx="50%" cy="75%"></circle>
+              </svg>
+            </div>
+          </div>
+          <span class="comment__text" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+            <p itemprop="text">{{ $comment->comment }}</p>
+          </span>
+          <div class="comment__answer-field-fake">
+            <div class="comments__form-fake" data-id="{{ $comment->id }}">
+              <span class="comment__answ">Ответить</span>
+              <div class="comment__likes-wrapper">
+                <a href="{{ route('consultation.like', $comment->id) }}" class="comment__like-link">
+                  <div class="comment__like-img">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <use xlink:href="#like_filled_2ff7--react"></use>
+                    </svg>
+                  </div>
+                </a>
+                <div class="comment__like-amount">1</div>
+                <a href="{{ route('consultation.dislike', $comment->id) }}" class="comment__dislike-link">
+                  <div class="comment__dislike-img">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <use xlink:href="#dislike_5d1d--react"></use>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      @endforeach
+
+
+    </ul>
+  </div>
+</div>

@@ -256,7 +256,8 @@ use App\Helpers\LinkHelper
         </div>
         @else
         <li class="comments__item comment">
-          <div class="comment__main-comment" id="answer{{ $comment->id }}"@if($comment->user) user-id="{{ $comment->user->id }}"@endif>
+          <div class="comment__main-comment" id="answer{{ $comment->id }}" @if($comment->user)
+            user-id="{{ $comment->user->id }}"@endif>
             <div class="comment__user-link-wrapper">
               <a @if($comment->user) href="/profile/{{ $comment->user->username }}"
                 id="{{ $comment->user->username }}"@else href="#answer{{ $comment->id }}"@endif
@@ -308,11 +309,11 @@ use App\Helpers\LinkHelper
               </div>
             </div>
           </div>
-		  @if ($comment->children)
+          @if ($comment->children)
           <div class="comment__sub-comments" id="answer{{ $comment->id }}">
             @include('consultation.childcomment', ['comments' => $comment->children])
-          </div> 
-		  @endif
+          </div>
+          @endif
         </li>
         @endif
         @endforeach
