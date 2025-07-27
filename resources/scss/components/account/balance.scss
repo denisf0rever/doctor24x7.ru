@@ -35,6 +35,9 @@
         display: flex;
         align-items: flex-end;
         max-width: 250px;
+        @media (max-width: 440px) {
+            max-width: 100%;
+        }
     }
     &__amount-span {
         position: absolute;
