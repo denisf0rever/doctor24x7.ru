@@ -50,29 +50,31 @@
         display: flex;
     }
     &__btn {
-        display: block;
-        max-width: 310px;
-        white-space: nowrap;
-        min-width: 128px;
+        border-radius: 12px;
         min-height: 56px;
-        font-size: 16px;
-        width: 100%;
-        cursor: pointer;
-        border: 1px solid rgba(11, 31, 53, 0.1);
-        border-radius: 0.25rem;
+        min-width: 128px;
+        padding: 0 27px;
         display: flex;
         justify-content: center;
+        text-align: center;
         align-items: center;
+        border: none;
+        font-size: 17px;
         cursor: pointer;
-        background-color: var(--button-default);
+        flex-shrink: 0;
+		font-weight: 500;
         &:hover {
             opacity: 0.8;
         }
     }
     &__btn-next {
-        margin-left: auto;
-        background-color: var(--button-red);
         color: #fff;
+        margin-left: auto;
+        background-color: var(--button-green);
+    }
+    &__btn-prev {
+        color: #000;
+		box-shadow: 0 1px #d7d8db, 0 0 0 2px #e3e4e8;
     }
     &__tubs {
         margin-bottom: 15px;

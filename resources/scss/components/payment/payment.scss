@@ -124,8 +124,8 @@
     &__normal-title {
         margin-bottom: 30px;
         display: block;
-        font-weight: 1000;
-        font-size: 24px;
+        font-weight: 500;
+        font-size: 22px;
     }
 
     &__bottom {
@@ -443,7 +443,7 @@
         }
     }
     &__submit {
-        background-color: #07c160;
+        background-color: var(--button-green);;
         color: #fff;
         border-radius: 12px;
         min-height: 56px;
@@ -454,9 +454,10 @@
         text-align: center;
         align-items: center;
         border: none;
-        font-size: 16px;
+        font-size: 17px;
         cursor: pointer;
         flex-shrink: 0;
+		font-weight: 500;
     }
     &__submit-wrapper{
       display: flex;
