@@ -9,6 +9,7 @@
       <input type="hidden" name="Sum" class="receipt__total-price">
       <input type="hidden" name="payment_purpose" id="payment_purpose" value="chat">
       <input type="hidden" name="OrderId" value="{{ $invoice->comment_id }}">
+      <input type="hidden" name="tariff_id" value="100">
       <input type="hidden" class="receipt__minimal-price" value="{{ $invoice->cost }}">
       <input type="hidden" class="receipt__basic-price" value="0">
       <div class="receipt__main-field">
@@ -106,7 +107,7 @@
           </div>
         </div>
         <div class="payment-method__submit-wrapper">
-          <span class="payment-method__submit-text">Мы гарантируем безопасность и сохранность ваших данных </span>
+          <span class="payment-method__submit-text">Данные надежно защищены банком</span>
           <input type="submit" value="Оплатить консультацию" class="payment-method__submit">
         </div>
       </div>
