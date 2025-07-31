@@ -10,7 +10,7 @@
   <div class="forum__wrapper">
     <div class="forum__inner">
       <div class="forum__left-sidebar">
-		@include('forum.menu')
+        @include('forum.menu')
       </div>
       <div class="forum__main">
         <!--<div class="forum__news-catalog forum-news-catalog">
@@ -53,26 +53,25 @@
               <h3 class="forum-topics__title">Разделы</h3>
             </div>
             <ul class="forum-topics__list">
-			@foreach ($categories as $category)
+              @foreach ($categories as $category)
               <li class="forum-topics__item">
                 <div class="forum-topics__small-blog small-blog">
                   <a href="{{ route('forum.category', $category->slug) }}" class="small-blog__wrapper">
-                    <img
-                      src="https://puzkarapuz.ru/images/svg/forum/{{ $category->image_name }}.svg"
-                      alt="" class="small-blog__img">
+                    <img src="https://puzkarapuz.ru/images/svg/forum/{{ $category->image_name }}.svg" alt=""
+                      class="small-blog__img">
                     <span class="small-blog__title">{{ $category->short_title }}</span>
                     <span class="small-blog__subs">202 подписчика</span>
                   </a>
                 </div>
                 <a href="#" class="forum-topics__button">Подписаться</a>
               </li>
-			  @endforeach
+              @endforeach
             </ul>
           </div>
         </div>
       </div>
-	  <div class="forum__right-sidebar">
-      @include('forum.sidebar')
+      <div class="forum__right-sidebar">
+        @include('forum.sidebar')
       </div>
     </div>
   </div>

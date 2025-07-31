@@ -9,16 +9,17 @@
   <div class="forum__wrapper">
     <div class="forum__inner">
       <div class="forum__left-sidebar">
-		@include('forum.menu')
+        @include('forum.menu')
       </div>
       <div class="forum__main">
         <div class="forum__news-catalog forum-news-catalog">
           <div class="forum-news-catalog__wrapper section-wrapper">
             <ul class="forum-news-catalog__list">
-				@foreach($consultations as $consultation)
+              @foreach($consultations as $consultation)
               <li class="forum-news-catalog__item">
                 <span class="forum-news-catalog__link">
-                 <a href="{{ route('consultation.item', $consultation->id) }}" class="forum-news-catalog__text">{{ $consultation->title }}</a>
+                  <a href="{{ route('consultation.item', $consultation->id) }}"
+                    class="forum-news-catalog__text">{{ $consultation->title }}</a>
                   <a href="#" class="forum-news-catalog__comments">
                     <div class="forum-news-catalog__icon">
                       <svg class="icon icon--comment" viewBox="0 0 24 24" width="16" height="16">
@@ -31,13 +32,13 @@
                   </a>
                 </span>
               </li>
-			  @endforeach
+              @endforeach
             </ul>
           </div>
         </div>
       </div>
-       <div class="forum__right-sidebar">
-      @include('forum.sidebar')
+      <div class="forum__right-sidebar">
+        @include('forum.sidebar')
       </div>
     </div>
   </div>
