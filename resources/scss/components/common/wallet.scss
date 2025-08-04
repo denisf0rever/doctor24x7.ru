@@ -11,5 +11,11 @@
         font-weight: 500;
         font-size: 16px;
         white-space: nowrap;
+        color: var(--chat-text);
+    }
+    &__icon {
+        path {
+            stroke: var(--chat-text);
+        }
     }
 }

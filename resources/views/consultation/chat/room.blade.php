@@ -140,6 +140,18 @@
               </svg>
             </div>
             <ul class="chat-messages__list">
+
+              <!-- <li class="chat-messages__low-balance low-balance">
+                <div class="low-balance__wrapper">
+                  <span class="low-balance__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut eum,
+                    suscipit accusamus ad minus nisi ipsam possimus dicta praesentium dignissimos</span>
+                  <div class="low-balance__buttons">
+                    <a href="/" target="_blank" class="low-balance__button low-balance__button--first">Тест 1</a>
+                    <a href="/" target="_blank" class="low-balance__button low-balance__button--second">Тест 2</a>
+                  </div>
+                </div>
+              </li> -->
+
               {{--
 			@foreach ($messages as $message)
 				@if ($message->user_id === $user_id)
