@@ -17,19 +17,10 @@ final class BalanceService
     {
         $balance = Account::findByUserId($id);
 
-        $balance->balance += 1;
+        $balance->balance = 1;
         $balance->save();
 		
-		$message = 'Оплачено ' . $data['Amount'] / 100 . PHP_EOL;
-		//$message .= 'Тариф ' . $data['Data']['tariff_id'] . PHP_EOL;
-		//$message .= 'Сумма на кассе ' . $data['Data']['total_sum'] . PHP_EOL;
-		//$message .= 'Метод ' . $data['Data']['payment_method'] . PHP_EOL;
-		//$message .= 'Цель ' . $data['Data']['payment_purpose'] . PHP_EOL;
-		//$message .= 'Чат ' . $data['Data']['chat'] . PHP_EOL;
-		//$message .= 'Фармацевт ' . $data['Data']['pharma'] . PHP_EOL;
-		//$message .= 'ID ' . $data['Data']['order_id'] . PHP_EOL;
-		//$message .= 'Телефон ' . $data['Data']['option_phone'] . PHP_EOL;
-		//$message .= 'Видео ' . $data['Data']['video_consultation'] . PHP_EOL;
+		$message = 'Оплачено';
 
 		$token = config('config.rublitaken_token');
 		$telegram_admin_id = config('config.telegram_admin_id');

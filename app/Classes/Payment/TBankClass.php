@@ -29,11 +29,17 @@ class TBankClass
 			'option_phone' => $request->option_phone ?? 0,
 			'video_consultation' => $request->video_consultation ?? 0,
 		];
-
+		
+		$url = match($request->payment_purpose) {
+			'balance_account' => route('api.payment.account.balance'),
+			'chat' => route('api.payment.status'),
+			default => redirect()->back()->with('error', 'Недопустимый тип платежа.')
+		};
+		
 		$data = [
 			'Amount' => $request->Sum * 100,
 			'Description' => 'Оплата консультации с врачом',
-			'NotificationURL' => 'https://doctor24x7.ru/api/payment/status',
+			'NotificationURL' => $url,
 			'OrderId' => Str::uuid()->toString(),
 			'Password' => self::$password,
 			'SuccessURL' => 'https://doctor24x7.ru/payment/chat/success',

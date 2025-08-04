@@ -6,7 +6,8 @@ use Illuminate\Http\Response;
 use App\Services\TelegramBot\TelegramNotifier;
 use App\Services\CallBack\Services;
 use App\Http\Controllers\Reviews\ReviewsController;
-use App\Http\Controllers\Payment\PaymentStatusController;
+use App\Http\Controllers\Payment\Status\ChatPaymentStatusController;
+use App\Http\Controllers\Payment\Status\BalancePaymentStatusController;
 use Illuminate\Support\Facades\Log;
 
 /*
@@ -24,7 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/payment/status', [PaymentStatusController::class, 'status'])->name('api.payment.status');
+Route::post('/payment/status', [ChatPaymentStatusController::class, 'status'])->name('api.payment.status');
+Route::post('/payment/account/balance/status', [BalancePaymentStatusController::class, 'status'])->name('api.payment.account.balance');
 Route::post('/callback/services', [Services::class, 'sendMessage'])->name('callback.services');
 Route::post('/reviews/doctor', [ReviewsController::class, 'create'])->name('reviews.doctor.create');
 
