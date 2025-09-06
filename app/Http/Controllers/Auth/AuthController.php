@@ -11,6 +11,10 @@ class AuthController extends Controller
 {
 	public function index()
     {
+		if (Auth::check()) {
+			return redirect()->back();
+		}
+		
         return view('user.login');
     }
 	

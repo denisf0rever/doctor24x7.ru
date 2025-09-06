@@ -1,28 +1,25 @@
 @extends('appsidebarfree')
-@section('title', $user->full_name)
-@section('description', '2')
-@section('keywords', '3')
-@section('canonical', 'profile/'. '4')
+@section('title',  $user->full_name . ' — ' . $user->icq .', персональная страница')
+@section('description', $user->full_name . ' — ' . $user->icq .', персональная страница')
+@section('keywords',  $user->full_name . ' — ' . $user->icq .', персональная страница')
+@section('canonical', route('profile.user.item', $user->username))
 
 @section('chat')
 @vite(['resources/views/user/profile/src/main.jsx'])
 @endsection
 
 @section('content')
-
-
-<div>
   <section class="user-block main__user-block">
     <div class="section-wrapper user-block__wrapper">
       <div class="user-block__header-info">
         <div class="user-block__avatar-link">
           <picture>
-            <source type="image/webp" srcset="/storage/avatar/webp/{{ $user->webp_avatar }}" class="user-block__avatar">
-            <img src="/storage/avatar/{{ $user->avatar }}" alt="" class="user-block__avatar">
+            <source type="image/webp" srcset="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $user->avatar }}" class="user-block__avatar">
+            <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $user->avatar }}" alt="" class="user-block__avatar">
           </picture>
         </div>
         <h1 class="user-block__fullname">{{ $user->full_name }}</h1>
-        <span class="user-block__online">{{ $user->city }} На сайте с <strong>{{ $date }}</strong></span>
+        <span class="user-block__online">{{ $user->city }} На сайте с </span>
         <div class="user-block__passports">
           <div class="user-block__passport">
             <div class="user-block__passport-img">
@@ -66,7 +63,7 @@
                   fill="currentColor"></path>
               </svg>
             </div>
-            <a href="#reviews" class="icon-text">Отзывы: 8</a>
+            <a href="#reviews" class="icon-text">Отзывы: {{ $user->reviews->count() }}</a>
           </div>
         </div>
       </div>
@@ -90,7 +87,7 @@
                     </path>
                   </svg>
                 </div>
-                <div class="profile-stat__likes-text">8</div>
+                <div class="profile-stat__likes-text">{{ $user->reviews->count() }}</div>
               </div>
               <div class="profile-stat__likes-item">
                 <div class="profile-stat__likes-img profile-stat__dislike">
@@ -106,17 +103,15 @@
           </li>
           <li class="profile-stat__item">
             <div class="profile-stat__title">Проведено консультаций: </div>
-            <div class="profile-stat__text"><span class="profile-stat__main-text">2688</span></div>
+            <div class="profile-stat__text"><span class="profile-stat__main-text">{{ $user->answers_count }}</span></div>
           </li>
           <li class="profile-stat__item">
             <div class="profile-stat__title">На сайте с</div>
-            <div class="profile-stat__text"> <span class="profile-stat__main-text">09 февраля 2022</span>
-              г.</div>
+            <div class="profile-stat__text"> <span class="profile-stat__main-text">{{ $date }}</span></div>
           </li>
           <li class="profile-stat__item">
             <div class="profile-stat__title">ID:</div>
-            <div class="profile-stat__text"> <span class="profile-stat__main-text">5191</span>
-            </div>
+            <div class="profile-stat__text"> <span class="profile-stat__main-text">{{ $user->id }}</span></div>
           </li>
         </ul>
       </div>
@@ -134,37 +129,8 @@
       </div>
       <div class="tabs-wrapper">
         <div class="user-description tab-content" content-id="1">
-          <p>Врач-педиатр, к.м.н., соавтор научных статей и методических пособий. Стаж работы 12 лет. В работе опираюсь
-            на
-            российские клинические рекомендации. Ежедневно прослушиваю медицинские онлайн конференции. Считаю, что
-            главное
-            в профессии врача – слушать и слышать, смотреть и видеть, руководствоваться современными медицинскими
-            знаниями
-            в профилактике, диагностике и лечении. А ещё, принимая решения, давать рекомендации, помня простую истину –
-            «поступай с другими так, как хочешь, чтобы поступали с тобой».</p>
-          <p>С 2003 по 2009 год обучалась в ГОУ ВПО «Российский государственный медицинский университет Федерального
-            агентства по здравоохранению и социальному развитию» в г. Москве по специальности педиатрия.</p>
-          <p>С 2009 по 2014 год обучалась в ординатуре и аспирантуре в ГОУ ДПО «Российская медицинская академия
-            последипломного образования Росздрава» в г. Москве по специальности педиатрия.</p>
-          <p>С 2010 по 2014 год работала в медицинском пункте кадетского корпуса в должности врача - педиатра.</p>
-          <p>В 2015 году защитила кандидатскую диссертацию на тему: «Обеспеченность витамином D девочек-подростков
-            города
-            Москвы в зимнее время года».</p>
-          <p>С 2014 по 2022 год работала в частной поликлинике семейной медицины в должности врача - педиатра.</p>
-          <p>Онлайн консультация, Расшифровка анализов, Оценка физического развития, Оценка группы риска по
-            заболеваниям,
-            Советы по профилактике и ЗОЖ, Помощь с вскармливанием грудничка, Помощь в составлении рациона питания
-            ребенка,
-            Подбор детской смеси, Помощь детям с избыточной массой тела, Составление графика вакцинопрофилактики</p>
-          <p><b>Диплом</b></p>
-          <p><a href="/uploads/sfGuard/doc/2022/doctorsvet/1.jpg"><img
-                data-src="/uploads/sfGuard/doc/2022/doctorsvet/1.jpg" style="max-width:400px" alt="Диплом"
-                class="lazyloaded" src="/uploads/sfGuard/doc/2022/doctorsvet/1.jpg"></a></p>
-
-          <p><b>Сертификат</b></p>
-          <p><a href="/uploads/sfGuard/doc/2022/doctorsvet/2.jpg"><img
-                data-src="/uploads/sfGuard/doc/2022/doctorsvet/2.jpg" style="max-width:400px" alt="Сертификат"
-                class="lazyloaded" src="/uploads/sfGuard/doc/2022/doctorsvet/2.jpg"></a></p>
+		{!! $user->additional_interest !!}
+		{!! $user->science_interest !!}
         </div>
         <div class="user-description-reviews tab-content hide" content-id="2">
           <span class="user-description-reviews__text">Текущий высокий рейтинг 100%</span>
@@ -373,7 +339,6 @@
       </div>
     </div>
   </section>
-</div>
 
 <div class="main__chat chat">
   <form action="/" id="chat-form" class="chat__form">

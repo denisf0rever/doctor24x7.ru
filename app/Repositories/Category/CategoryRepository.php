@@ -8,7 +8,7 @@ class CategoryRepository
 {
 	public static function category($slug): Category
 	{
-		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name', 'description', 'slug', 'position', 'meta_description', 'meta_keywords', 'banner_image')
+		$category = Category::select('id', 'h1', 'title', 'name_v', 'button_name', 'description', 'slug', 'position', 'meta_description', 'meta_keywords', 'banner_image', 'short_title')
 			->where('slug', $slug)
 			->first();
 			

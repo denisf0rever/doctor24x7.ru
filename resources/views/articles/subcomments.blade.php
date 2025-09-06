@@ -6,7 +6,7 @@
                               <span class="article-comment__user-name">{{ $comment->name }}</span>
                               <span class="article-comment__time">7 м</span>
                             </a>
-                            <span class="article-comment__text">{{ $comment->comment }}</span>
+                            <span class="article-comment__text">@parseLinks($comment->comment)</span>
                             <div class="article-comment__sub-section">
                               <a href="" class="article-comment__ansver">Ответить</a>
                               <img class="article-comment__likes" src="images/like.svg" alt="">

@@ -110,25 +110,29 @@ class PostController extends Controller
 		}
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
 		$categories = PostCategory::all();
 		
 		return view('dashboard.articles.add-article', ['categories' => $categories]);
     }
-
-    /**
-     * Display the specified resource.
-     */
+	
     public function show(string $id)
     {
         $article = Post::query()
 			->with(['comments:id,comment,post_id,name,likes_count'])
             ->where('id', $id)
-            ->firstOrFail();		
+            ->firstOrFail();
+		
+		if ($article->votes > 0) {
+			$likes = $article->likes_count;
+			$votes = $article->votes;
+			
+			$rating = round($article->rate / $article->votes, 2);
+		} else {
+			$votes = 0;
+			$rating = 0;
+		}
 		
 		$article->increment('hits');
 		
@@ -138,7 +142,7 @@ class PostController extends Controller
 		
 		$breadcrumbs = $this->breadcrumbService->getAll('articles');
 		
-		return view('articles.item', compact('article', 'date', 'breadcrumbs'));
+		return view('articles.item', compact('article', 'date', 'breadcrumbs', 'rating', 'votes'));
     }
 	
 	public function getDate($date)

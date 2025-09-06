@@ -2,7 +2,7 @@
 @section('title', 'Консультация врача онлайн — задать вопрос и получить ответ в течение часа')
 @section('description', 'Консультируют практикующие врачи, документы об образовании проверены администрацией сайта')
 @section('keywords', 'Задать вопрос врачу онлайн, консультация врача онлайн')
-@section('canonical', 'consultation/comment')
+@section('canonical', route('consult.form'))
 
 @section('content')
 <section class="main__text-service text-service">

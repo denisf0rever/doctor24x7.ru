@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Consultation\Booking;
 use App\Models\Consultation\ConsultationComment;
 use App\Models\User\CategoryText;
+use App\Models\Reviews\Reviews;
 
 class UserMain extends Authenticatable
 {
@@ -63,12 +64,12 @@ class UserMain extends Authenticatable
 	  
 	public function getFullNameAttribute(): string
     {
-        return $this->last_name. ' ' . $this->name . ' ' . $this->middle_name;
+        return $this->last_name. ' ' . $this->first_name . ' ' . $this->middle_name;
     }
 	
 	public function getFirstMiddleNameAttribute(): string
     {
-        return $this->name . ' ' . $this->middle_name;
+        return $this->first_name . ' ' . $this->middle_name;
     }
 
 	public function isAdmin(): bool
@@ -94,6 +95,11 @@ class UserMain extends Authenticatable
 	public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+	
+	public function reviews()
+    {
+        return $this->hasMany(Reviews::class, 'user_id');
     }
 	
 	public function articles()

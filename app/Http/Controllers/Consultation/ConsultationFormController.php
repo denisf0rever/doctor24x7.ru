@@ -10,14 +10,24 @@ use App\Models\Consultation\ConsultationCategory as Category;
 use App\Services\ConsultationService;
 use App\Http\Requests\ConsultationRequest;
 use App\Events\ConsultationCreated;
+use App\Services\BreadcrumbService;
 
 class ConsultationFormController extends Controller
 {
+	public function __construct(BreadcrumbService $breadcrumbService)
+	{
+		$this->breadcrumbService = $breadcrumbService;
+	}
+	
     public function form()
     {
 		$categories = Category::select('id', 'short_title')->get();
 		
-		return view('consultation.form', compact('categories'));
+		$this->breadcrumbService->add('form_consultation', 'Задать вопрос', route('consult.form'));
+		
+		$breadcrumbs = $this->breadcrumbService->getAll('form_consultation');
+
+		return view('consultation.form', compact('categories', 'breadcrumbs'));
     }
 	
 	// Создание консультации

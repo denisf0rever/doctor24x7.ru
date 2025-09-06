@@ -16,7 +16,7 @@
         <span class="article-comment__user-name">{{ Str::substr($comment->name, 0, 1) }} {{ $comment->name }}</span>
         <span class="article-comment__time">7 м</span>
       </a>
-      <span class="article-comment__text">{{ $comment->comment }}</span>
+      <span class="article-comment__text">@parseLinks({{ $comment->comment }})</span>
       <div class="article-comment__sub-section">
         <a href="" class="article-comment__ansver">Ответить</a>
         <img class="article-comment__likes" src="images/like.svg" alt="">
@@ -160,7 +160,7 @@
             </div>
           </div>
           <span class="comment__text" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
-            <p itemprop="text">{{ $comment->comment }}</p>
+            <p itemprop="text">@parseLinks($comment->comment)</p>
           </span>
           <div class="comment__answer-field-fake">
             <div class="comments__form-fake" data-id="{{ $comment->id }}">
@@ -173,7 +173,7 @@
                     </svg>
                   </div>
                 </a>
-                <div class="comment__like-amount">1</div>
+                <div class="comment__like-amount">{{ $comment->likes_count }}</div>
                 <a href="{{ route('consultation.dislike', $comment->id) }}" class="comment__dislike-link">
                   <div class="comment__dislike-img">
                     <svg viewBox="0 0 24 24" width="16" height="16">

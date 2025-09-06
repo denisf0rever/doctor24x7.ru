@@ -13,6 +13,7 @@ use App\Models\UserMain as User;
 use App\Models\Chat\Chat;
 use App\Models\Chat\ChatMessage;
 use App\Models\Chat\ChatUser;
+use App\Models\Account\BalanceAccount;
 use Illuminate\Support\Str;
 
 use App\Services\Telegram\Notifier\TelegramNotifier;
@@ -50,14 +51,11 @@ class ChatController extends Controller
 		  'consultant_id' => $request->consultant_id,
 		  'email' => $request->email,
 		  'password' => '15respect15',
-		  'ip' => $request->ip()
 		];
 
 		$chatId = DB::transaction(function () use ($userData) {
 		  $chat = Chat::create([
 			'consultant_id' => $userData['consultant_id'],
-			'ip' => $userData['ip'],
-			'chat_key' => Str::random(8),
 			'uuid' => Str::uuid()->toString()
 		  ]);
 
@@ -65,10 +63,8 @@ class ChatController extends Controller
 			'email' => $userData['email'],
 			'password' => Hash::make($userData['password'])
 		  ]);
-
-		  $user->remember_token = Str::random(60);
-		  $user->save();
-
+		  
+		  // Отправка почты врачу
 		  $consultant_email = $chat->consultant->email_addressS ?? config('config.admin_mail');
 		  $user_email = $user->email;
 
@@ -89,8 +85,8 @@ class ChatController extends Controller
 			$mail->to($user_email)
 			  ->subject($subject);
 		  });
-
-		  Auth::login($user);
+		  
+		  Auth::guard('client')->login($user, true);
 
 		  return $chat->uuid;
 		});
@@ -133,12 +129,20 @@ class ChatController extends Controller
 
 	  public function room(string $uuid)
 	  {
-		$user_id = Auth::id();
-
+		$user_id = Auth::guard('client')->id();
+		
 		if (!$user_id) {
 		  return abort(403);
 		}
-
+		
+		$balance_account = BalanceAccount::findByUserId($user_id);
+		
+		if ($balance_account) {
+			$balance = $balance_account->balance;
+		} else {
+			$balance = 0;
+		}
+		
 		$chat = Chat::query()
 		  ->where('uuid', $uuid)
 		  ->firstOrFail();
@@ -147,7 +151,7 @@ class ChatController extends Controller
 		  ->where('id', $chat->consultant_id)
 		  ->select('first_name', 'middle_name', 'avatar')
 		  ->first();
-
+		  
 		$messages = ChatMessage::query()
 		  ->where('chat_id', $chat->id)
 		  ->get();
@@ -156,7 +160,7 @@ class ChatController extends Controller
 		  ->where('consultant_id', 1)
 		  ->get();
 
-		return view('consultation.chat.room', compact('chat', 'chats', 'messages', 'user_id', 'consultant'));
+		return view('consultation.chat.room', compact('chat', 'chats', 'messages', 'user_id', 'consultant', 'balance'));
 	  }
 
 	  public function messages(int $chat_id): JsonResponse

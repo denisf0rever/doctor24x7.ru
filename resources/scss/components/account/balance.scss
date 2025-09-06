@@ -28,9 +28,9 @@
     }
     &__add-balance-label {
         position: relative;
-        border: 1px solid var(--grey-line);
-        height: 48px;
-        padding: 8px 10px;
+        border: 2px solid var(--grey-line);
+        height: 55px;
+        padding: 10px;
         border-radius: 10px;
         display: flex;
         align-items: flex-end;
@@ -49,7 +49,8 @@
     &__amount-input {
         border: none;
         outline: none;
-        font-size: 13px;
+        font-size: 17px;
+		font-weight: 700;
         padding: 0;
         width: 100%;
     }

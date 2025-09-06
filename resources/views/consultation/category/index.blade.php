@@ -2,7 +2,7 @@
 @section('title', $category->title)
 @section('description', $category->meta_description)
 @section('keywords', $category->meta_keywords)
-@section('canonical', 'consultation/'. $category->slug)
+@section('canonical', route('consultation.category', $category->slug))
 
 @section('content')
 

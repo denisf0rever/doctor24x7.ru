@@ -1,6 +1,6 @@
 ﻿@extends('chat')
 @section('title', 'Чат')
-@section('description', 'Консультация врача')
+@section('description', 'Чат с врачом')
 
 @section('content')
 <div class="full-chat">
@@ -46,7 +46,7 @@
               src="https://puzkarapuz.ru/uploads/sfGuard/avatars/8cca0ee9479ddb6e2395ba50364815d4f789d42e.jpg">
           </li>
           <li class="chat-side-menu__item chat-side-menu__item-wallet">
-            <a href="/" class="chat-side-menu__wallet wallet">
+            <a href="{{ route('account.balance') }}" class="chat-side-menu__wallet wallet">
               <div class="wallet__wrapper">
                 <svg class="wallet__icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                   viewBox="0 0 24 24" fill="none">
@@ -54,7 +54,7 @@
                     d="M16.5008 14.1502H16.5098M19 4.00098H6.2C5.0799 4.00098 4.51984 4.00098 4.09202 4.21896C3.71569 4.41071 3.40973 4.71667 3.21799 5.093C3 5.52082 3 6.08087 3 7.20098V16.801C3 17.9211 3 18.4811 3.21799 18.909C3.40973 19.2853 3.71569 19.5912 4.09202 19.783C4.51984 20.001 5.07989 20.001 6.2 20.001H17.8C18.9201 20.001 19.4802 20.001 19.908 19.783C20.2843 19.5912 20.5903 19.2853 20.782 18.909C21 18.4811 21 17.9211 21 16.801V11.201C21 10.0809 21 9.52082 20.782 9.093C20.5903 8.71667 20.2843 8.41071 19.908 8.21896C19.4802 8.00098 18.9201 8.00098 17.8 8.00098H7M16.9508 14.1502C16.9508 14.3987 16.7493 14.6002 16.5008 14.6002C16.2523 14.6002 16.0508 14.3987 16.0508 14.1502C16.0508 13.9017 16.2523 13.7002 16.5008 13.7002C16.7493 13.7002 16.9508 13.9017 16.9508 14.1502Z"
                     stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                <span class="wallet__amount">0 ₽</span>
+                <span class="wallet__amount">{{ $balance }} ₽</span>
               </div>
             </a>
           </li>
@@ -99,7 +99,7 @@
               <span class="chat-header__fullname">{{ $consultant->first_name .' '. $consultant->middle_name }}</span>
             </div>
             <div class="chat-header__right">
-              <a href="/" class="chat-header__wallet wallet">
+              <a href="{{ route('account.balance') }}" class="chat-header__wallet wallet">
                 <div class="wallet__wrapper">
                   <svg class="wallet__icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                     viewBox="0 0 24 24" fill="none">
@@ -107,7 +107,7 @@
                       d="M16.5008 14.1502H16.5098M19 4.00098H6.2C5.0799 4.00098 4.51984 4.00098 4.09202 4.21896C3.71569 4.41071 3.40973 4.71667 3.21799 5.093C3 5.52082 3 6.08087 3 7.20098V16.801C3 17.9211 3 18.4811 3.21799 18.909C3.40973 19.2853 3.71569 19.5912 4.09202 19.783C4.51984 20.001 5.07989 20.001 6.2 20.001H17.8C18.9201 20.001 19.4802 20.001 19.908 19.783C20.2843 19.5912 20.5903 19.2853 20.782 18.909C21 18.4811 21 17.9211 21 16.801V11.201C21 10.0809 21 9.52082 20.782 9.093C20.5903 8.71667 20.2843 8.41071 19.908 8.21896C19.4802 8.00098 18.9201 8.00098 17.8 8.00098H7M16.9508 14.1502C16.9508 14.3987 16.7493 14.6002 16.5008 14.6002C16.2523 14.6002 16.0508 14.3987 16.0508 14.1502C16.0508 13.9017 16.2523 13.7002 16.5008 13.7002C16.7493 13.7002 16.9508 13.9017 16.9508 14.1502Z"
                       stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
-                  <span class="wallet__amount">0 ₽</span>
+                  <span class="wallet__amount">{{ $balance }} ₽</span>
                 </div>
               </a>
               <div class="small-menu small-menu__menu-btn custom-select" data-id="300330">
@@ -118,9 +118,8 @@
                 </svg>
                 <div class="custom-select__wrapper custom-select__hide small-menu__menu">
                   <ul class="small-menu__menu-list">
-                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link close-chat-link"
-                        href="/">Закрыть
-                        чат</a></li>
+                    <li class="small-menu__menu-item"><a class="small-menu__menu-item-link close-chat-link" href="">Закрыть чат</a></li>
+					<li class="small-menu__menu-item"><a class="small-menu__menu-item-link close-chat-link" href="{{ route('account.logout') }}">Выйти</a></li>
                   </ul>
                 </div>
               </div>
@@ -140,19 +139,18 @@
               </svg>
             </div>
             <ul class="chat-messages__list">
-
-              <!-- <li class="chat-messages__low-balance low-balance">
+			@if ($balance <= 0)
+			<li class="chat-messages__low-balance low-balance">
                 <div class="low-balance__wrapper">
-                  <span class="low-balance__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut eum,
-                    suscipit accusamus ad minus nisi ipsam possimus dicta praesentium dignissimos</span>
+                  <span class="low-balance__text">На вашем балансе недостаточно средств. Стоимость консультации 500 рублей. Пополните баланс чтобы продолжить консультацию.</span>
                   <div class="low-balance__buttons">
-                    <a href="/" target="_blank" class="low-balance__button low-balance__button--first">Тест 1</a>
-                    <a href="/" target="_blank" class="low-balance__button low-balance__button--second">Тест 2</a>
+                    <a href="{{ route('account.balance') }}" target="_blank" class="low-balance__button low-balance__button--first">Пополнить баланс</a>
+                    <a href="/" target="_blank" class="low-balance__button low-balance__button--second">Закрыть чат</a>
                   </div>
                 </div>
-              </li> -->
+              </li>
+			@endif
 
-              {{--
 			@foreach ($messages as $message)
 				@if ($message->user_id === $user_id)
 				<li class="chat-messages__chat-message chat-message">
@@ -203,10 +201,10 @@
       </li>
       @endif
       @endforeach
-      --}}
       </ul>
     </div>
   </div>
+  @if ($balance > 0)
   <div class="full-chat__chat-bottom chat-bottom">
     <form action="{{ route('chat.message.create') }}" method="POST" class="chat-bottom__wrapper">
       @csrf
@@ -222,6 +220,7 @@
         </svg>
       </button>
     </form>
+	@endif
   </div>
 </div>
 </div>

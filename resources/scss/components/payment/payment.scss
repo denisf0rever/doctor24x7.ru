@@ -355,7 +355,7 @@
     &__input {
         display: none;
         &:checked + label {
-            border-color: #fc0;
+            border-color: #0fa113;
         }
         &:checked + label::after {
             opacity: 1;
@@ -363,7 +363,7 @@
         }
     }
     &__label {
-        background-color: #e6e9ea;
+        background-color: var(--grey-line);
         -webkit-flex-direction: column;
         flex-direction: column;
         width: 150px;
@@ -373,7 +373,6 @@
         align-items: start;
         gap: 10px;
         display: flex;
-        box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 2px #e3e4e8;
         border-radius: 16px;
         position: relative;
         border: 2px solid transparent;

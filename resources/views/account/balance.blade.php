@@ -12,7 +12,7 @@
       <div class="balance__inner">
         <h1 class="balance__title">Финансы</h1>
         <span class="balance__subtitle">Свободных стредств</span>
-        <span class="balance__amount">{{ $account->balance }} ₽</span>
+        <span class="balance__amount">{{ $balance }} ₽</span>
         <form action="{{ route('payment.init') }}" class="balance__add-balance-form" method="post">
           @csrf
 
@@ -24,8 +24,8 @@
           </ul>
           @endif
           <input type="hidden" name="payment_purpose" value="balance_account">
-          <input type="hidden" name="OrderId" value="{{ auth()->id() }}">
-          <input type="hidden" name="Sum" value="{{ auth()->id() }}" id="balance__amount-hidden">
+          <input type="hidden" name="OrderId" value="{{ Auth::guard('client')->id() }}">
+          <input type="hidden" name="Sum" value="1000" id="balance__amount-hidden">
           <div class="balance__add-balance-label">
             <span class="balance__amount-span">Сумма пополнения</span>
             <input type="text" name="inputSum" class="balance__amount-input" placeholder="1 000 ₽" value="">

@@ -6,8 +6,10 @@ use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\Analytics\AnalyticsController;
 use App\Http\Controllers\Post\CatergoryController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\User\UserCategoryTextController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\AuthClientController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Consultation\ConsultationFormController;
@@ -90,22 +92,22 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	Route::post('/payment/consultation', [PaymentController::class, 'create'])->name('payment.consultation.create');
 	Route::post('/payment/init', [PaymentController::class, 'init'])->name('payment.init');	
 	
-	// Профиль
-	Route::get('/profile/{slug}', [\App\Http\Controllers\User\UserController::class, 'show'])->name('profile.user.item');
-	
-	// Аккаунт
+	// Врач, профиль
+	Route::get('/profile/{slug}', [ProfileController::class, 'show'])->name('profile.user.item');
+
 	Route::get('/account', [\App\Http\Controllers\Account\AccountController::class, 'index'])->name('account.index');
 	Route::get('/account/balance', [\App\Http\Controllers\Account\AccountController::class, 'balance'])->name('account.balance');
-
+	Route::get('/account/login', [\App\Http\Controllers\Auth\AuthClientController::class, 'login'])->name('account.login');
+	Route::get('/account/logout', [\App\Http\Controllers\Auth\AuthClientController::class, 'logout'])->name('account.logout');
+		
 	// Чат
 	Route::post('/set-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'setCookie'])->name('set-cookie');
 	Route::get('/get-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'getCookie'])->name('get-cookie');
 	Route::post('/delete-cookie', [\App\Http\Controllers\User\UserCookiesController::class, 'removeCookie'])->name('delete-cookie');
 	
-	
+	Route::get('/chat/room/{uuid}', [\App\Http\Controllers\Chat\ChatController::class, 'room'])->name('chat.room');
 	Route::get('/chat/{id}', [\App\Http\Controllers\Chat\ChatController::class, 'show'])->name('chat.item');
 	Route::get('/chat/consultant/{id}', [\App\Http\Controllers\Chat\ChatController::class, 'form'])->name('chat.form');
-	Route::get('/chat/room/{uuid}', [\App\Http\Controllers\Chat\ChatController::class, 'room'])->name('chat.room');
 	Route::get('/admin/chat/room/{uuid}', [\App\Http\Controllers\Chat\ChatController::class, 'room'])->name('chat.admin.room');
 	Route::post('/chat/create', [\App\Http\Controllers\Chat\ChatController::class, 'create'])->name('chat.create');
 	Route::post('/chat/message/create', [\App\Http\Controllers\Chat\ChatController::class, 'message'])->name('chat.message.create');

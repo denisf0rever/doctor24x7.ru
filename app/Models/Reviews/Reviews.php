@@ -4,6 +4,7 @@ namespace App\Models\Reviews;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\UserMain;
 
 class Reviews extends Model
 {
@@ -20,4 +21,9 @@ class Reviews extends Model
 			'consultation_answer_id',
 			'description',
 	];
+	
+	public function user()
+	{
+		return $this->belongsTo(UserMain::class);
+	}
 }

@@ -1,7 +1,40 @@
 .user-description {
-  padding: 25px 15px;
-  &__wrapper{
+  &__wrapper	{
     padding: 0;
+	
+	.user-description {
+		padding: 25px 15px;
+	}
+	
+	.user-description p {
+		font-size: 15px;
+		line-height: 1.4;
+		margin-bottom: 15px;
+	}
+	
+	.user-description ul {
+		padding: 15px 15px 3px 40px;
+		border-radius: 18px;
+		background: #f2f3f4;
+		margin-bottom: 20px;
+	}
+	
+	.user-description ul li {
+		margin-bottom: 15px;
+		list-style: none;
+		position: relative;
+		font-size: 15px;
+		line-height: 1.3;
+	}
+	
+	.user-description ul li:before {
+		position: absolute;
+		left: -25px;
+		top: 50%;
+		transform: translateY(-50%);
+		content: "●";
+		color: #c8ccd1;
+	}
   }
   &__header {
     display: flex;
@@ -21,6 +54,8 @@
       }
     }
   }
+  
+  
 
   &-reviews {
     padding: 25px 15px;

@@ -2,7 +2,7 @@
 @section('title', $subCategory->title . ' — спросить врача онлайн консультация')
 @section('description', $subCategory->meta_description)
 @section('keywords', $subCategory->meta_keywords)
-@section('canonical', 'consultation/rubric/'. $subCategory->category->slug .'/'. $subCategory->slug)
+@section('canonical', route('consultation.subrubric', [$subCategory->category->slug, $subCategory->slug]))
 
 @section('content')
 

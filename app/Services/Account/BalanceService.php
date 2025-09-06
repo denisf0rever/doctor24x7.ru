@@ -7,20 +7,27 @@ use App\Mail\Payment\PaymentStatus;
 use Illuminate\Support\Facades\Http;
 use App\Services\Telegram\Notifier\TelegramNotifier;
 
-use App\Models\Account\Account;
+use App\Models\Account\BalanceAccount;
 
 use Log;
 
 final class BalanceService
 {
-	public static function update(int $id, array $data): Account
+	public static function update(int $id, array $data): BalanceAccount
     {
-        $balance = Account::findByUserId($id);
+        $balance = BalanceAccount::findByUserId($id);
 
-        $balance->balance = 1;
-        $balance->save();
+		if ($balance) {
+			$balance->balance += $data['Amount'] / 100;
+			$balance->save();
+		} else {
+			$balance = BalanceAccount::create([
+				'user_id' => $id,
+				'balance' => $data['Amount'] / 100
+			]);
+		}
 		
-		$message = 'Оплачено';
+		$message = 'Пополен баланс аккаунта: ' . $id;
 
 		$token = config('config.rublitaken_token');
 		$telegram_admin_id = config('config.telegram_admin_id');

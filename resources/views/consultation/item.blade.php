@@ -1,8 +1,8 @@
 @extends('app')
-@section('title', $consultation->title .' — консультации врачей')
+@section('title', $consultation->title .' консультация врача')
 @section('description', 'Консультация врача, вопрос: ' . $consultation->title)
 @section('keywords', '')
-@section('canonical', 'consultation/detail/'. $consultation->id)
+@section('canonical', route('consultation.item', $consultation->id))
 @php
 use App\Helpers\LinkHelper
 @endphp

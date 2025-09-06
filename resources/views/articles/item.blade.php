@@ -12,7 +12,7 @@
     <p class="content-block__intro">{{ $article->introduction }}</p>
   </div>
   <span class="content-block__content-header">Содержание статьи:</span>
-  {!! $article->full_story !!}
+  @parseLinks($article->full_story)
   <div class="content-block__footer">
     <div class="content-block__footer-left">
       <span class="content-block__footer-text">Время прочтения: {{ $article->reading_time }}</span>
@@ -27,8 +27,8 @@
       <div class="content-block__rating content-block-rating">
         <div class="content-block-rating__wrapper">
           <div class="content-block-rating__top">
-            <span class="content-block-rating__text">Рейтинг: 5;</span>
-            <span class="content-block-rating__text">Голосов: 1</span>
+            <span class="content-block-rating__text">Рейтинг: {{ $rating }};</span>
+            <span class="content-block-rating__text">Голосов: {{ $votes }}</span>
           </div>
           <div class="content-block-rating__stars">
             <img src="/storage/common/star-off.png" alt="" class="content-block-rating__star">

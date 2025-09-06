@@ -26,7 +26,7 @@ class BalancePaymentStatusController extends Controller
 			if ($result) {
 				return response('OK', 200);
 			} else {
-				return response()->json(['error' => 'Обновление инвойса не успешно'], 500);
+				return response()->json(['error' => 'Пополнение баланса не успешно'], 500);
 			}
 			
 		} catch (Exception $e) {

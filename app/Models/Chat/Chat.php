@@ -11,7 +11,6 @@ class Chat extends Model
 	
 	protected $fillable = [
 		'consultant_id',
-		'ip',
 		'chat_key',
 		'uuid'
 	];
