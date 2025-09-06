@@ -16,7 +16,15 @@
             {!! $category->banner_image !!}
           </div>
         </div>
+        <div class="category-intro__button-block">
+          <a href="/consultation/comment?rubric_id={{ $category->id }}"
+            class="category-intro__button-link new-red-button">Задать
+            вопрос
+            →</a>
+          <div class="category-intro__button-text">Ответ в течение 25 минут</div>
+        </div>
         @if ($showcase->IsNotEmpty())
+        <div class="category-intro__cards-title">Консультанты онлайн </div>
         <div class="category-intro__experts-cards expert-cards">
           @foreach($showcase as $item)
           <div class="expert-card js-lawyer-popup-open">
@@ -32,13 +40,7 @@
           @endforeach
         </div>
         @endif
-        <div class="category-intro__button-block">
-          <a href="/consultation/comment?rubric_id={{ $category->id }}"
-            class="category-intro__button-link new-red-button">Задать
-            вопрос
-            →</a>
-          <div class="category-intro__button-text">Ответ в течение 25 минут</div>
-        </div>
+
       </div>
     </div>
   </section>
