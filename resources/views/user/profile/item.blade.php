@@ -94,6 +94,16 @@
   </div>
 </section>
 
+<div class="profile-buttons">
+  <div class="profile-buttons__wrapper">
+    <a href="/" class="profile-buttons__button profile-buttons__button--white">
+
+      Данные подтверждены
+    </a>
+    <a href="/" class="profile-buttons__button profile-buttons__button--white">Как выглядит профиль</a>
+  </div>
+</div>
+
 <section class="main__rating-stars rating-stars">
   <div class="rating-stars__wrapper section-wrapper">
     <h3 class="rating-stars__title">Отзывы клиентов</h3>
