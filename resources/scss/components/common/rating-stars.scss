@@ -2,6 +2,9 @@
     &__wrapper {
         padding-bottom: 32px;
         border-bottom: 1px solid hsla(0, 0%, 5%, 0.1);
+        &--mt {
+            margin-top: 24px;
+        }
     }
     &__rating-wrapper {
         display: flex;

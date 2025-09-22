@@ -37,7 +37,7 @@
     </div>
   </section>
   <section class="main__rating-stars rating-stars container">
-    <div class="rating-stars__wrapper">
+    <div class="rating-stars__wrapper rating-stars__wrapper--mt">
       <h3 class="rating-stars__title">Отзывы клиентов</h3>
       <ul class="rating-stars__tabs">
         <li class="rating-stars__tab rating-stars__tab--active" data-value="All">Все</li>
