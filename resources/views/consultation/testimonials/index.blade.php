@@ -36,135 +36,149 @@
       </div>
     </div>
   </section>
-  <section class="main__reviews-header reviews-header container">
-    <div class="reviews-header__wrapper">
-      <h3 class="reviews-header__title">Отзывы клиентов</h3>
-      <ul class="reviews-header__tabs">
-        <li class="reviews-header__tab reviews-header__tab--active" data-value="All">Все</li>
-        <li class="reviews-header__tab" data-value="test1">Инвестиции</li>
-        <li class="reviews-header__tab" data-value="test2">Дебетовые карты</li>
-        <li class="reviews-header__tab" data-value="test3">Кредитные карты</li>
-        <li class="reviews-header__tab">Все</li>
-        <li class="reviews-header__tab">Инвестиции</li>
-        <li class="reviews-header__tab">Дебетовые карты</li>
-        <li class="reviews-header__tab">Кредитные карты</li>
-        <li class="reviews-header__tab">Все</li>
+  <section class="main__rating-stars rating-stars container">
+    <div class="rating-stars__wrapper">
+      <h3 class="rating-stars__title">Отзывы клиентов</h3>
+      <ul class="rating-stars__tabs">
+        <li class="rating-stars__tab rating-stars__tab--active" data-value="All">Все</li>
+        <li class="rating-stars__tab" data-value="test1">Инвестиции</li>
+        <li class="rating-stars__tab" data-value="test2">Дебетовые карты</li>
+        <li class="rating-stars__tab" data-value="test3">Кредитные карты</li>
+        <li class="rating-stars__tab">Все</li>
+        <li class="rating-stars__tab">Инвестиции</li>
+        <li class="rating-stars__tab">Дебетовые карты</li>
+        <li class="rating-stars__tab">Кредитные карты</li>
+        <li class="rating-stars__tab">Все</li>
       </ul>
-      <div class="reviews-header__header">
-        <div class="reviews-header__radios">
-          <label for="5_star_radio" class="reviews-header__label">
-            <input type="radio" hidden class="reviews-header__input" value="5" name="review-stars" id="5_star_radio" />
-            <div class="reviews-header__radio">
-              <svg class="reviews-header__radio-svg" fill="none" height="10" width="10"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
-                </path>
-              </svg>
+      <div class="rating-stars__header rating-stars">
+        <div class="rating-stars__rating-wrapper">
+          <div class="rating-stars__total">
+            <div class="rating-stars__total-wrapper">
+              <span class="rating-stars__total-value">4.8 </span>
+              <div class="rating-stars__total-right">
+                <div class="rating-stars__stars">
+                  <span class="r-star"></span>
+                  <span class="r-star"></span>
+                  <span class="r-star"></span>
+                  <span class="r-star"></span>
+                  <span class="r-star-hollow"></span>
+                </div>
+                <div class="rating-stars__total-text">на основании 847 оценок </div>
+              </div>
+
             </div>
-            <div class="reviews-header__stars">
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-            </div>
-            <div class="reviews-header__line">
-              <span class="reviews-header__line-value" style="width: 100%"></span>
-            </div>
-            <span class="reviews-header__value">761</span>
-          </label>
-          <label for="4_star_radio" class="reviews-header__label">
-            <input type="radio" hidden class="reviews-header__input" value="4" name="review-stars" id="4_star_radio" />
-            <div class="reviews-header__radio">
-              <svg class="reviews-header__radio-svg" fill="none" height="10" width="10"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
-                </path>
-              </svg>
-            </div>
-            <div class="reviews-header__stars">
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star-hollow"></span>
-            </div>
-            <div class="reviews-header__line">
-              <span class="reviews-header__line-value" style="width: 50%"></span>
-            </div>
-            <span class="reviews-header__value">761</span>
-          </label>
-          <label for="3_star_radio" class="reviews-header__label">
-            <input type="radio" hidden class="reviews-header__input" value="3" name="review-stars" id="3_star_radio" />
-            <div class="reviews-header__radio">
-              <svg class="reviews-header__radio-svg" fill="none" height="10" width="10"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
-                </path>
-              </svg>
-            </div>
-            <div class="reviews-header__stars">
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star-hollow"></span>
-              <span class="r-star-hollow"></span>
-            </div>
-            <div class="reviews-header__line">
-              <span class="reviews-header__line-value" style="width: 20%"></span>
-            </div>
-            <span class="reviews-header__value">761</span>
-          </label>
-          <label for="2_star_radio" class="reviews-header__label">
-            <input type="radio" hidden class="reviews-header__input" value="2" name="review-stars" id="2_star_radio" />
-            <div class="reviews-header__radio">
-              <svg class="reviews-header__radio-svg" fill="none" height="10" width="10"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
-                </path>
-              </svg>
-            </div>
-            <div class="reviews-header__stars">
-              <span class="r-star"></span>
-              <span class="r-star"></span>
-              <span class="r-star-hollow"></span>
-              <span class="r-star-hollow"></span>
-              <span class="r-star-hollow"></span>
-            </div>
-            <div class="reviews-header__line">
-              <span class="reviews-header__line-value" style="width: 10%"></span>
-            </div>
-            <span class="reviews-header__value">761</span>
-          </label>
-          <label for="1_star_radio" class="reviews-header__label">
-            <input type="radio" hidden class="reviews-header__input" value="1" name="review-stars" id="1_star_radio" />
-            <div class="reviews-header__radio">
-              <svg class="reviews-header__radio-svg" fill="none" height="10" width="10"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
-                </path>
-              </svg>
-            </div>
-            <div class="reviews-header__stars">
-              <span class="r-star"></span>
-              <span class="r-star-hollow"></span>
-              <span class="r-star-hollow"></span>
-              <span class="r-star-hollow"></span>
-              <span class="r-star-hollow"></span>
-            </div>
-            <div class="reviews-header__line">
-              <span class="reviews-header__line-value" style="width: 5%"></span>
-            </div>
-            <span class="reviews-header__value">761</span>
-          </label>
-        </div>
-        <div class="reviews-header__total">
-          <div class="reviews-header__total-wrapper">
-            <span class="reviews-header__total-value">4.8 </span>
-            <span class="r-star"></span>
+
           </div>
-          <span class="reviews-header__total-text">на основании 847 оценок </span>
+          <div class="rating-stars__radios">
+            <label for="5_star_radio" class="rating-stars__label">
+              <input type="radio" hidden class="rating-stars__input" value="5" name="review-stars" id="5_star_radio" />
+              <div class="rating-stars__radio">
+                <svg class="rating-stars__radio-svg" fill="none" height="10" width="10"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
+                  </path>
+                </svg>
+              </div>
+              <div class="rating-stars__stars">
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+              </div>
+              <div class="rating-stars__line">
+                <span class="rating-stars__line-value" style="width: 100%"></span>
+              </div>
+              <span class="rating-stars__value">761</span>
+            </label>
+            <label for="4_star_radio" class="rating-stars__label">
+              <input type="radio" hidden class="rating-stars__input" value="4" name="review-stars" id="4_star_radio" />
+              <div class="rating-stars__radio">
+                <svg class="rating-stars__radio-svg" fill="none" height="10" width="10"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
+                  </path>
+                </svg>
+              </div>
+              <div class="rating-stars__stars">
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star-hollow"></span>
+              </div>
+              <div class="rating-stars__line">
+                <span class="rating-stars__line-value" style="width: 50%"></span>
+              </div>
+              <span class="rating-stars__value">761</span>
+            </label>
+            <label for="3_star_radio" class="rating-stars__label">
+              <input type="radio" hidden class="rating-stars__input" value="3" name="review-stars" id="3_star_radio" />
+              <div class="rating-stars__radio">
+                <svg class="rating-stars__radio-svg" fill="none" height="10" width="10"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
+                  </path>
+                </svg>
+              </div>
+              <div class="rating-stars__stars">
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star-hollow"></span>
+                <span class="r-star-hollow"></span>
+              </div>
+              <div class="rating-stars__line">
+                <span class="rating-stars__line-value" style="width: 20%"></span>
+              </div>
+              <span class="rating-stars__value">761</span>
+            </label>
+            <label for="2_star_radio" class="rating-stars__label">
+              <input type="radio" hidden class="rating-stars__input" value="2" name="review-stars" id="2_star_radio" />
+              <div class="rating-stars__radio">
+                <svg class="rating-stars__radio-svg" fill="none" height="10" width="10"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
+                  </path>
+                </svg>
+              </div>
+              <div class="rating-stars__stars">
+                <span class="r-star"></span>
+                <span class="r-star"></span>
+                <span class="r-star-hollow"></span>
+                <span class="r-star-hollow"></span>
+                <span class="r-star-hollow"></span>
+              </div>
+              <div class="rating-stars__line">
+                <span class="rating-stars__line-value" style="width: 10%"></span>
+              </div>
+              <span class="rating-stars__value">761</span>
+            </label>
+            <label for="1_star_radio" class="rating-stars__label">
+              <input type="radio" hidden class="rating-stars__input" value="1" name="review-stars" id="1_star_radio" />
+              <div class="rating-stars__radio">
+                <svg class="rating-stars__radio-svg" fill="none" height="10" width="10"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.066 6.333L1.5 3.908l-.825.742 3.391 3.392 5.259-5.267-.892-.817-4.367 4.375z" fill="#fff">
+                  </path>
+                </svg>
+              </div>
+              <div class="rating-stars__stars">
+                <span class="r-star"></span>
+                <span class="r-star-hollow"></span>
+                <span class="r-star-hollow"></span>
+                <span class="r-star-hollow"></span>
+                <span class="r-star-hollow"></span>
+              </div>
+              <div class="rating-stars__line">
+                <span class="rating-stars__line-value" style="width: 5%"></span>
+              </div>
+              <span class="rating-stars__value">761</span>
+            </label>
+          </div>
+
         </div>
+
       </div>
     </div>
   </section>
