@@ -25,4 +25,29 @@ class PageController extends Controller
 		
         return view('page.team', compact('doctors'));
 	}
+	
+	public function contact()
+	{
+        return view('page.contact');
+	}
+	
+	public function rules()
+	{
+        return view('page.rules');
+	}
+	
+	public function terms()
+	{
+        return view('page.terms');
+	}
+	
+	public function faq()
+	{
+        return view('page.faq');
+	}
+	
+	public function about()
+	{
+        return view('page.about');
+	}
 }

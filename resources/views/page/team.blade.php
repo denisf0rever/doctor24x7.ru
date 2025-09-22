@@ -2,7 +2,7 @@
 @section('title', 'Специалисты сервиса')
 @section('description', 'Специалисты сервиса')
 @section('keywords', 'Специалисты сервиса')
-@section('canonical', 'page/team')
+@section('canonical', route('page.team'))
 
 @section('content')
 @if ($doctors->isNotEmpty())

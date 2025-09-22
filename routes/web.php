@@ -19,6 +19,7 @@ use App\Http\Controllers\Consultation\ConsultationCategoryController;
 use App\Http\Controllers\Consultation\SubCategoryController;
 use App\Http\Controllers\Consultation\CategoryShowcaseController;
 use App\Http\Controllers\Consultation\BookingController;
+use App\Http\Controllers\Consultation\Archive\ArchiveController;
 use App\Http\Controllers\Setting\User\UserSettingController;
 use App\Http\Controllers\Reviews\ReviewsController;
 use App\Http\Controllers\Payment\PaymentController;
@@ -45,9 +46,13 @@ Route::get('/about-us', [RedirectController::class, 'aboutus']);
 
 // Статичные страницы
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
-Route::get('/page/sitemap', [PageController::class, 'sitemap'])->name('page.about-sitemap');
+Route::get('/page/sitemap', [PageController::class, 'sitemap'])->name('page.sitemap');
 Route::get('/page/about-us', [PageController::class, 'about'])->name('page.about-us');
 Route::get('/page/team', [PageController::class, 'team'])->name('page.team');
+Route::get('/page/contact', [PageController::class, 'contact'])->name('page.contact');
+Route::get('/page/terms-of-use', [PageController::class, 'terms'])->name('page.terms-of-use');
+Route::get('/page/rules', [PageController::class, 'rules'])->name('page.rules');
+Route::get('/page/faq', [PageController::class, 'faq'])->name('page.faq');
 
 // Авторизирация
 Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -56,25 +61,26 @@ Route::get('/register', [RegistrationController::class, 'show'])->name('registra
 Route::post('/register', [RegistrationController::class, 'register'])->name('register.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 	
-	// Статьи
-	Route::get('/content/new', [PostController::class, 'list'])->name('articles.list.items');
-	Route::get('/content/{id}', [PostController::class, 'show'])->name('articles.item');
-	//Route::get('/category/{id}', [CatergoryController::class, 'show'])->name('category.item');
-	
-	// Консультации
-	Route::get('/consultation', [ConsultationController::class, 'index'])->name('consult.list');
-	Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'consultation'])->name('consultation.item');
-	Route::post('/consultation/answer', [ConsultationAnswerController::class, 'createPublicAnswer'])->name('consultation.answer');
-	Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
-	Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
-	Route::get('/consultation/online', [ConsultationAnswerController::class, 'online'])->name('consultation.online');
+// Статьи
+Route::get('/content/new', [PostController::class, 'list'])->name('articles.list.items');
+Route::get('/content/{id}', [PostController::class, 'show'])->name('articles.item');
+//Route::get('/category/{id}', [CatergoryController::class, 'show'])->name('category.item');
 
-	// Отзывы о консультациях
-	Route::get('/consultation/testimonials', [TestimonialController::class, 'index'])->name('consultation.testimonials');
+// Консультации
+Route::get('/consultation', [ConsultationController::class, 'index'])->name('consult.list');
+Route::get('/consultation/detail/{slug}', [ConsultationController::class, 'consultation'])->name('consultation.item');
+Route::post('/consultation/answer', [ConsultationAnswerController::class, 'createPublicAnswer'])->name('consultation.answer');
+Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::class, 'like'])->name('consultation.like');
+Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
+Route::get('/consultation/online', [ConsultationAnswerController::class, 'online'])->name('consultation.online');
+Route::get('/consultation/archive', [ArchiveController::class, 'show'])->name('consultation.archive');
+
+// Консультации: Отзывы
+Route::get('/consultation/testimonials', [TestimonialController::class, 'index'])->name('consultation.testimonials');
 	
-	// Консультации: Форма, Создание
-	Route::get('/consultation/comment', [ConsultationFormController::class, 'form'])->name('consult.form');
-	Route::post('/consultation/create', [ConsultationFormController::class, 'create'])->name('consultation.create');
+// Консультации: Форма, Создание
+Route::get('/consultation/comment', [ConsultationFormController::class, 'form'])->name('consult.form');
+Route::post('/consultation/create', [ConsultationFormController::class, 'create'])->name('consultation.create');
 	
 	// Категории консультаций
 	Route::get('/consultation/{categorySlug}', [ConsultationCategoryController::class, 'category'])->name('consultation.category');

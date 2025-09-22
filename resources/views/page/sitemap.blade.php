@@ -2,7 +2,7 @@
 @section('title', 'Карта сайта')
 @section('description', 'Карта сайта')
 @section('keywords', 'Карта сайта')
-@section('canonical', 'page/sitemap')
+@section('canonical', route('page.sitemap'))
 
 @section('content')
 <section class="sitemap">

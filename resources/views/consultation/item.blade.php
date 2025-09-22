@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', $consultation->title .' консультация врача')
+@section('title', $consultation->title .' ответы на вопросы')
 @section('description', 'Консультация врача, вопрос: ' . $consultation->title)
 @section('keywords', '')
 @section('canonical', route('consultation.item', $consultation->id))
