@@ -10,7 +10,7 @@
 
 @section('content')
 <section class="user-block main__user-block">
-  <div class="section-wrapper  section-wrapper">
+  <div class="section-wrapper ">
     <div class="user-block__header-info">
       <div class="user-block__avatar-link">
         <picture>
