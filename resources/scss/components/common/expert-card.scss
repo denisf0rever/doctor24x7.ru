@@ -40,10 +40,13 @@
         border-radius: 50%;
         object-fit: cover;
         display: block;
+        &--square {
+            border-radius: 0;
+        }
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .expert-cards {
         flex-direction: column;
     }

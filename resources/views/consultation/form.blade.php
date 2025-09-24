@@ -5,7 +5,7 @@
 @section('canonical', route('consult.form'))
 
 @section('content')
-<section class="main__text-service text-service">
+<!-- <section class="main__text-service text-service">
   <div class="text-service__wrapper section-wrapper">
     <h1 class="text-service__title"></h1>
     <ul class="text-service__list">
@@ -21,6 +21,433 @@
       <li class="text-service__item"><b>Как задать вопрос врачу?</b> Чтобы получить консультацию врача, заполните форму
         и ожидайте ответ в течение часа.</li>
     </ul>
+  </div>
+</section> -->
+
+<section class="main__intro category-intro">
+  <div class="category-intro__wrapper new-section-wrapper">
+    <div class="category-intro__inner">
+      <div class="category-intro__top">
+        <h1 class="category-intro__title">
+          Консультация врача онлайн
+        </h1>
+
+        <div class="category-intro__text">
+          Предоставляем полные и информативные ответы, работаем на совесть.
+
+        </div>
+
+      </div>
+      <div class="category-intro__experts-cards expert-cards">
+        <div class="expert-card">
+          <div class="expert-card__text">
+            <span class="expert-card__title">Онлайн консультация</span>
+            <div class="expert-card__subtitle">Чат, либо уведомление на почту </div>
+          </div>
+          <div class="expert-card__img-wrapper">
+            <img src="http://puzkarapuz.ru/images/svg/forms/comment/chat.svg" alt="img" class="expert-card__img">
+          </div>
+        </div>
+        <div class="expert-card">
+          <div class="expert-card__text">
+            <span class="expert-card__title">Быстрые ответы </span>
+            <div class="expert-card__subtitle">Стараемся отвечать не дольше одного часа
+            </div>
+          </div>
+          <div class="expert-card__img-wrapper">
+            <img src="http://puzkarapuz.ru/images/svg/forms/comment/chat.svg" alt="img" class="expert-card__img">
+          </div>
+        </div>
+        <div class="expert-card">
+          <div class="expert-card__text">
+            <span class="expert-card__title">Проверенные врачи
+            </span>
+            <div class="expert-card__subtitle">Все документы проверены: паспорт, диплом об образовании
+            </div>
+          </div>
+          <div class="expert-card__img-wrapper">
+            <img src="http://puzkarapuz.ru/images/svg/forms/comment/chat.svg" alt="img" class="expert-card__img">
+          </div>
+        </div>
+        <div class="expert-card">
+          <div class="expert-card__text">
+            <span class="expert-card__title">Нам доверяют
+            </span>
+            <div class="expert-card__subtitle">Более 7000 положительных отзывов
+            </div>
+          </div>
+          <div class="expert-card__img-wrapper">
+            <img src="http://puzkarapuz.ru/images/svg/forms/comment/chat.svg" alt="img" class="expert-card__img">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="main__consultation-form consultation-form">
+  <div class="consultation-form__wrapper small-container">
+    <h1 class="consultation-form__title">Консультация врача онлайн</h1>
+    <div class="consultation-form__timeline-wrapper">
+      <span class="consultation-form__timeline-text">Шаг <span id="step">1</span> из 4</span>
+      <div class="consultation-form__timeline">
+        <div class="consultation-form__timeline-active">
+
+        </div>
+      </div>
+    </div>
+    <form id="consultation-form" method="POST" action="{{ route('consultation.create') }}" enctype="multipart/form-data"
+      class="consultation-form__form">
+      @csrf
+      <div class="consultation-form__tubs">
+        <div class="consultation-form__tub consultation-form__tub-active" data-step="1">
+          <div class="consultation-form__tub-wrapper">
+            <div class="consultation-form__tub-item">
+              <div class="consultation-form__select-wrapper custom-select">
+                <span class="consultation-form__rubric-input-span" for="rubric_id">Сомневаюсь с выбором</span>
+                <input type="hidden" name="rubric_id" id="rubric_id" class="consultation-form__rubric-input" value="28">
+                <img src="/images/svg/elements/selector/expand-more.svg" alt=""
+                  class="consultation-form__status-arrow custom-select__arrow">
+                <div class="consultation-form__status-select-wrapper custom-select__wrapper custom-select__hide">
+                  <ul class="custom-select__list consultation-form__list">
+                    @foreach($categories as $category)
+                    <li class="consultation-form__option" value="{{ $category->id ? $category->id : old('category') }}">
+                      {{ $category->short_title }}
+                    </li>
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+              <div class="consultation-form__subtitle">Выберите категорию </div>
+            </div>
+            <!-- <div class="consultation-form__tub-item consultation-form__radio-slider">
+              <div class="consultation-form__radio-list swiper-wrapper">
+                <div class="consultation-form__radio-wrapper swiper-slide">
+                  <input checked class="consultation-form__radio" hidden id="radio-first" type="radio" name="radio"
+                    value="1">
+                  <label for="radio-first" class="consultation-form__radio-label">
+                    <div class="consultation-form__radio-text">
+                      Срочный непополняемый с досрочным возвратом
+                    </div>
+                    <div class="  consultation-form__radio-big-number">
+                      21.14%
+                    </div>
+                    <div class="consultation-form__radio-small-number">
+                      + 2661 ₽
+                    </div>
+                    <div class="consultation-form__radio-circle">
+
+                    </div>
+                  </label>
+                </div>
+                <div class="consultation-form__radio-wrapper swiper-slide">
+                  <input class="consultation-form__radio" hidden id="radio-second" type="radio" name="radio" value="2">
+                  <label for="radio-second" class="consultation-form__radio-label">
+                    <div class="consultation-form__radio-text">
+                      Срочный непополняемый с досрочным возвратом
+                    </div>
+                    <div class="  consultation-form__radio-big-number">
+                      21.14%
+                    </div>
+                    <div class="consultation-form__radio-small-number">
+                      + 2661 ₽
+                    </div>
+                    <div class="consultation-form__radio-circle">
+
+                    </div>
+                  </label>
+                </div>
+                <div class="consultation-form__radio-wrapper swiper-slide">
+                  <input class="consultation-form__radio" hidden id="radio-third" type="radio" name="radio" value="3">
+                  <label for="radio-third" class="consultation-form__radio-label">
+                    <div class="consultation-form__radio-text">
+                      Срочный
+                    </div>
+                    <div class="  consultation-form__radio-big-number">
+                      21.14%
+                    </div>
+                    <div class="consultation-form__radio-small-number">
+                      + 2661 ₽
+                    </div>
+                    <div class="consultation-form__radio-circle">
+
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="consultation-form__tub" data-step="2">
+          <div class="consultation-form__tub-wrapper">
+            <div class="consultation-form__tub-item">
+              <label class="consultation-form__tub-title" for="title">Заголовок вопроса</label>
+              <div class="consultation-form__validation-wrapper">
+                <input class="consultation-form__standart-input" type="text" id="title" name="title"
+                  value="{{ old('title') }}">
+              </div>
+              <ul class="consultation-form__title-list">
+                <li class="consultation-form__title-item">
+                  Вы получите подробный <strong>ответ</strong> от содержательного заголовка
+                </li>
+                <li class="consultation-form__title-item">Опишите вопрос подробно. Например, «Вопрос врачу по поводу
+                  противозачаточных и цикла», «Бросил курить, набрал вес, как быстро похудеть?»
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="consultation-form__tub" data-step="3">
+          <div class="consultation-form__tub-wrapper">
+            <div class="consultation-form__tub-item">
+              <label class="consultation-form__tub-title" for="description">Текст вашего вопроса
+              </label>
+              <div class="consultation-form__validation-wrapper">
+                <textarea class="consultation-form__description-textarea" id="description"
+                  name="description">{{ old('description') }}</textarea>
+              </div>
+            </div>
+            <div class="consultation-form__tub-item">
+              <label class="consultation-form__tub-title" for="age">Возраст пациента</label>
+              <div class="consultation-form__validation-wrapper consultation-form__age-flex">
+                <div class="consultation-form__age-type-select-wrapper custom-select">
+                  <span class="consultation-form__age-type-input-span" for="age_type">Год/Лет</span>
+                  <input type="hidden" name="age_type" id="age_type" class="consultation-form__age-type-input"
+                    value="Год/Лет">
+                  <img src="/images/svg/elements/selector/expand-more.svg" alt=""
+                    class="consultation-form__status-arrow custom-select__arrow">
+                  <div
+                    class="consultation-form__age-type-select-list-wrapper custom-select__wrapper custom-select__hide">
+                    <ul class="custom-select__list consultation-form__age-type-list">
+                      <li class="consultation-form__age-type-option" value="Год/Лет">
+                        Год/Лет
+                      </li>
+                      <li class="consultation-form__age-type-option" value="Месяцев">
+                        Месяцев
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <input class="consultation-form__age-input" type="number" id="age" name="age" value="{{ old('age') }}">
+
+              </div>
+            </div>
+            <div class="consultation-form__tub-item">
+              <label class="consultation-form__tub-title">Снимки, анализы (необязательно)
+              </label>
+              <div class="consultation-form__photos">
+                <div class="consultation-form__photo-item">
+                  <label class="consultation-form__photo-wrapper" for="file-upload">
+                    <img src="/images/dashboard/#.svg" alt="" class="consultation-form__input-photo-img">
+                    <span class="consultation-form__input-photo-text">Загрузить фото</span>
+                  </label>
+                  <input class="consultation-form__input-photo @error('image')input-error @enderror" type="file"
+                    id="file-upload" name="images[]">
+                </div>
+              </div>
+              <span class="consultation-form__add-photo">Добавить изображение</span>
+            </div>
+          </div>
+        </div>
+        <div class="consultation-form__tub " data-step="4">
+          <div class="consultation-form__tub-wrapper">
+            <div class="consultation-form__tub-item">
+              <label class="consultation-form__tub-title" for="city">Ваш город</label>
+              <input class="consultation-form__standart-input" type="text" id="city" name="city_id" value="5633">
+            </div>
+            <div class="consultation-form__tub-item-double">
+              <div class="consultation-form__tub-item">
+                <label class="consultation-form__tub-title" for="username">Как к вам обращаться?</label>
+                <div class="consultation-form__validation-wrapper">
+                  <input class="consultation-form__standart-input" type="text" id="username" name="username"
+                    value="{{ old('username') }}">
+                </div>
+              </div>
+              <div class="consultation-form__tub-item">
+                <label class="consultation-form__tub-title" for="email">Ваш email</label>
+                <div class="consultation-form__validation-wrapper">
+                  <input class="consultation-form__standart-input" type="email" id="email" name="email"
+                    value="{{ old('email') }}">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="consultation-form__buttons">
+        <div class="consultation-form__btn consultation-form__btn-prev" id="consultation-form-prev">Назад</div>
+        <div class="consultation-form__btn consultation-form__btn-next" id="consultation-form-next">Продолжить</div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div style="max-width:600px;height:800px;overflow:hidden;position:relative;margin: 0 auto 40px auto;"><iframe
+    style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
+    src="https://yandex.ru/maps-reviews-widget/240239415319?comments"></iframe></div>
+
+
+<section class="main__questions questions">
+  <div class="questions__wrapper">
+    <div class="questions__inner container">
+      <ul class="questions__list">
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Чем занимается наш сервис?</span>
+              <div class="question__button">
+                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="Accordion__icon">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
+                    fill="#000"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Наш сервис позволяет пациентам получать медицинскую помощь
+                онлайн, не выходя из дома. Врачи разных специальностей консультируют по видео, аудио или в чате,
+                помогают с расшифровкой анализов, назначением лечения и вторым мнением. Это удобно для занятых людей,
+                жителей удалённых регионов и тех, кому нужна срочная консультация. Доступ к квалифицированной медицине
+                становится проще и быстрее.</span>
+            </div>
+          </div>
+        </li>
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">В каких случаях можно проконсультироваться с врачом онлайн?</span>
+              <div class="question__button">
+                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="Accordion__icon">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
+                    fill="#000"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Проконсультироваться с врачом онлайн можно при появлении
+                тревожных симптомов, для расшифровки анализов, подбора лечения или уточнения диагноза. Это удобно при
+                хронических заболеваниях, ОРВИ, кожных высыпаниях, аллергии, нарушениях сна и пищеварения. Врач онлайн
+                поможет с профилактикой, даст рекомендации по лекарствам и направит на очный приём, если потребуется.
+                Консультация доктора онлайн экономит время и делает медицину доступнее.</span>
+            </div>
+          </div>
+        </li>
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Как задать вопрос врачу?</span>
+              <div class="question__button">
+                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="Accordion__icon">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
+                    fill="#000"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Чтобы получить консультацию врача, напишите свой вопрос как
+                можно подробнее, укажите пол и возраст пациента. Если есть результаты обследования, прикрепите их или
+                перепишите результаты. Чем больше информации получит врач, тем более эффективной будет консультация.
+                Задать вопрос можно анонимно. Полностью заполните форму, оплатите консультацию и ожидайте ответ. Вопрос
+                можно задать бесплатно, но в этом случае гарантии ответа нет.</span>
+            </div>
+          </div>
+        </li>
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Через сколько ответит врач?</span>
+              <div class="question__button">
+                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="Accordion__icon">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
+                    fill="#000"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Наш сервис работает круглосуточно. В среднем ответ готовится
+                в течение 25 минут. Но нужно учитывать занятость врача на момент получения вопроса, а также
+                необходимость изучения результатов обследования и заключений, которые вы прислали. Максимум в течение
+                часа вы гарантированно получите ответ.</span>
+            </div>
+          </div>
+        </li>
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Как проходит консультация онлайн?</span>
+              <div class="question__button">
+                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="Accordion__icon">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
+                    fill="#000"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Врач изучает ваш вопрос и результаты обследования (если они
+                есть) и после этого предоставляет ответ на сайте. Мы оповестим вас по почте, для этого пришлём письмо с
+                ссылкой на ответ врача. Вы сможете задать дополнительные вопросы в онлайн чате, для этого нужно либо
+                сразу оплатить диалог с врачом, либо сделать это после того как задали дополнительный вопрос. Врачи
+                объясняют все подробно и понятно, чтобы консультация была максимально полезной для вас.</span>
+            </div>
+          </div>
+        </li>
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Гарантии</span>
+              <div class="question__button">
+                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="Accordion__icon">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
+                    fill="#000"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Мы юридическое лицо и несем ответственность согласно
+                законодательству РФ. Наш сервис гарантирует безопасность личных данных, конфиденциальность медицинской
+                информации и высокое качество оказанных услуг. Все специалисты имеют действующие лицензии и опыт работы
+                в профильной области, что позволяет доверять их рекомендациям. Минимальный стаж врачей - от 8
+                лет.</span>
+            </div>
+          </div>
+        </li>
+        <li class="questions__item question">
+          <div class="question__wrapper">
+            <div class="question__inner">
+              <span class="question__title">Почему выбирают наш сервис?</span>
+              <div class="question__button">
+                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
+                  class="Accordion__icon">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
+                    fill="#000"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
+              <span class="question__answer-text">Наш сервис — это удобство, скорость и профессионализм. Мы
+                отбираем только квалифицированных специалистов, гарантируем конфиденциальность данных и обеспечиваем
+                поддержку 24/7. Консультации проходят в удобном формате — чат, аудио или видео-консультации. Вы
+                получаете точные рекомендации, расшифровку анализов и помощь в выборе лечения без очередей и долгого
+                ожидания. Нашим сервисом уже воспользовались более 700.000 пользователей. Более 95% пациентов остались
+                полностью довольны ответами врачей и рекомендуют нас своим друзьям и родственникам.</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -199,367 +626,4 @@
   </ul>
 </div>
 @endif
-
-<section class="main__consultation-form consultation-form">
-  <div class="consultation-form__wrapper small-container">
-    <h1 class="consultation-form__title">Консультация врача онлайн</h1>
-    <div class="consultation-form__timeline-wrapper">
-      <span class="consultation-form__timeline-text">Шаг <span id="step">1</span> из 4</span>
-      <div class="consultation-form__timeline">
-        <div class="consultation-form__timeline-active">
-
-        </div>
-      </div>
-    </div>
-    <form id="consultation-form" method="POST" action="{{ route('consultation.create') }}" enctype="multipart/form-data"
-      class="consultation-form__form">
-      @csrf
-      <div class="consultation-form__tubs">
-        <div class="consultation-form__tub consultation-form__tub-active" data-step="1">
-          <div class="consultation-form__tub-wrapper">
-            <div class="consultation-form__tub-item">
-              <div class="consultation-form__select-wrapper custom-select">
-                <span class="consultation-form__rubric-input-span" for="rubric_id">Сомневаюсь с выбором</span>
-                <input type="hidden" name="rubric_id" id="rubric_id" class="consultation-form__rubric-input" value="28">
-                <img src="/images/svg/elements/selector/expand-more.svg" alt=""
-                  class="consultation-form__status-arrow custom-select__arrow">
-                <div class="consultation-form__status-select-wrapper custom-select__wrapper custom-select__hide">
-                  <ul class="custom-select__list consultation-form__list">
-                    @foreach($categories as $category)
-                    <li class="consultation-form__option" value="{{ $category->id ? $category->id : old('category') }}">
-                      {{ $category->short_title }}
-                    </li>
-                    @endforeach
-                  </ul>
-                </div>
-              </div>
-              <div class="consultation-form__subtitle">Выберите категорию </div>
-            </div>
-            <div class="consultation-form__tub-item consultation-form__radio-slider">
-              <div class="consultation-form__radio-list swiper-wrapper">
-                <div class="consultation-form__radio-wrapper swiper-slide">
-                  <input checked class="consultation-form__radio" hidden id="radio-first" type="radio" name="radio"
-                    value="1">
-                  <label for="radio-first" class="consultation-form__radio-label">
-                    <div class="consultation-form__radio-text">
-                      Срочный непополняемый с досрочным возвратом
-                    </div>
-                    <div class="  consultation-form__radio-big-number">
-                      21.14%
-                    </div>
-                    <div class="consultation-form__radio-small-number">
-                      + 2661 ₽
-                    </div>
-                    <div class="consultation-form__radio-circle">
-
-                    </div>
-                  </label>
-                </div>
-                <div class="consultation-form__radio-wrapper swiper-slide">
-                  <input class="consultation-form__radio" hidden id="radio-second" type="radio" name="radio" value="2">
-                  <label for="radio-second" class="consultation-form__radio-label">
-                    <div class="consultation-form__radio-text">
-                      Срочный непополняемый с досрочным возвратом
-                    </div>
-                    <div class="  consultation-form__radio-big-number">
-                      21.14%
-                    </div>
-                    <div class="consultation-form__radio-small-number">
-                      + 2661 ₽
-                    </div>
-                    <div class="consultation-form__radio-circle">
-
-                    </div>
-                  </label>
-                </div>
-                <div class="consultation-form__radio-wrapper swiper-slide">
-                  <input class="consultation-form__radio" hidden id="radio-third" type="radio" name="radio" value="3">
-                  <label for="radio-third" class="consultation-form__radio-label">
-                    <div class="consultation-form__radio-text">
-                      Срочный
-                    </div>
-                    <div class="  consultation-form__radio-big-number">
-                      21.14%
-                    </div>
-                    <div class="consultation-form__radio-small-number">
-                      + 2661 ₽
-                    </div>
-                    <div class="consultation-form__radio-circle">
-
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="consultation-form__tub" data-step="2">
-          <div class="consultation-form__tub-wrapper">
-            <div class="consultation-form__tub-item">
-              <label class="consultation-form__tub-title" for="title">Заголовок вопроса</label>
-              <div class="consultation-form__validation-wrapper">
-                <input class="consultation-form__standart-input" type="text" id="title" name="title"
-                  value="{{ old('title') }}">
-              </div>
-              <ul class="consultation-form__title-list">
-                <li class="consultation-form__title-item">
-                  Вы получите подробный <strong>ответ</strong> от содержательного заголовка
-                </li>
-                <li class="consultation-form__title-item">Опишите вопрос подробно. Например, «Вопрос врачу по поводу
-                  противозачаточных и цикла», «Бросил курить, набрал вес, как быстро похудеть?»
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="consultation-form__tub" data-step="3">
-          <div class="consultation-form__tub-wrapper">
-            <div class="consultation-form__tub-item">
-              <label class="consultation-form__tub-title" for="description">Текст вашего вопроса
-              </label>
-              <div class="consultation-form__validation-wrapper">
-                <textarea class="consultation-form__description-textarea" id="description"
-                  name="description">{{ old('description') }}</textarea>
-              </div>
-            </div>
-            <div class="consultation-form__tub-item">
-              <label class="consultation-form__tub-title" for="age">Возраст пациента</label>
-              <div class="consultation-form__validation-wrapper consultation-form__age-flex">
-                <div class="consultation-form__age-type-select-wrapper custom-select">
-                  <span class="consultation-form__age-type-input-span" for="age_type">Год/Лет</span>
-                  <input type="hidden" name="age_type" id="age_type" class="consultation-form__age-type-input"
-                    value="Год/Лет">
-                  <img src="/images/svg/elements/selector/expand-more.svg" alt=""
-                    class="consultation-form__status-arrow custom-select__arrow">
-                  <div
-                    class="consultation-form__age-type-select-list-wrapper custom-select__wrapper custom-select__hide">
-                    <ul class="custom-select__list consultation-form__age-type-list">
-                      <li class="consultation-form__age-type-option" value="Год/Лет">
-                        Год/Лет
-                      </li>
-                      <li class="consultation-form__age-type-option" value="Месяцев">
-                        Месяцев
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <input class="consultation-form__age-input" type="number" id="age" name="age" value="{{ old('age') }}">
-
-              </div>
-            </div>
-            <div class="consultation-form__tub-item">
-              <label class="consultation-form__tub-title">Снимки, анализы (необязательно)
-              </label>
-              <div class="consultation-form__photos">
-                <div class="consultation-form__photo-item">
-                  <label class="consultation-form__photo-wrapper" for="file-upload">
-                    <img src="/images/dashboard/#.svg" alt="" class="consultation-form__input-photo-img">
-                    <span class="consultation-form__input-photo-text">Загрузить фото</span>
-                  </label>
-                  <input class="consultation-form__input-photo @error('image')input-error @enderror" type="file"
-                    id="file-upload" name="images[]">
-                </div>
-              </div>
-              <span class="consultation-form__add-photo">Добавить изображение</span>
-            </div>
-          </div>
-        </div>
-        <div class="consultation-form__tub " data-step="4">
-          <div class="consultation-form__tub-wrapper">
-            <div class="consultation-form__tub-item">
-              <label class="consultation-form__tub-title" for="city">Ваш город</label>
-              <input class="consultation-form__standart-input" type="text" id="city" name="city_id" value="5633">
-            </div>
-            <div class="consultation-form__tub-item-double">
-              <div class="consultation-form__tub-item">
-                <label class="consultation-form__tub-title" for="username">Как к вам обращаться?</label>
-                <div class="consultation-form__validation-wrapper">
-                  <input class="consultation-form__standart-input" type="text" id="username" name="username"
-                    value="{{ old('username') }}">
-                </div>
-              </div>
-              <div class="consultation-form__tub-item">
-                <label class="consultation-form__tub-title" for="email">Ваш email</label>
-                <div class="consultation-form__validation-wrapper">
-                  <input class="consultation-form__standart-input" type="email" id="email" name="email"
-                    value="{{ old('email') }}">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="consultation-form__buttons">
-        <div class="consultation-form__btn consultation-form__btn-prev" id="consultation-form-prev">Назад</div>
-        <div class="consultation-form__btn consultation-form__btn-next" id="consultation-form-next">Продолжить</div>
-      </div>
-    </form>
-  </div>
-</section>
-
-<div style="max-width:600px;height:800px;overflow:hidden;position:relative;margin: 0 auto 40px auto;"><iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/240239415319?comments"></iframe></div>
-
-
-<section class="main__questions questions">
-  <div class="questions__wrapper">
-    <div class="questions__inner container">
-      <ul class="questions__list">
-        <li class="questions__item question">
-          <div class="question__wrapper">
-            <div class="question__inner">
-              <span class="question__title">Чем занимается наш сервис?</span>
-              <div class="question__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question__answer-text">Наш сервис позволяет пациентам получать медицинскую помощь
-                онлайн, не выходя из дома. Врачи разных специальностей консультируют по видео, аудио или в чате,
-                помогают с расшифровкой анализов, назначением лечения и вторым мнением. Это удобно для занятых людей,
-                жителей удалённых регионов и тех, кому нужна срочная консультация. Доступ к квалифицированной медицине
-                становится проще и быстрее.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions__item question">
-          <div class="question__wrapper">
-            <div class="question__inner">
-              <span class="question__title">В каких случаях можно проконсультироваться с врачом онлайн?</span>
-              <div class="question__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question__answer-text">Проконсультироваться с врачом онлайн можно при появлении
-                тревожных симптомов, для расшифровки анализов, подбора лечения или уточнения диагноза. Это удобно при
-                хронических заболеваниях, ОРВИ, кожных высыпаниях, аллергии, нарушениях сна и пищеварения. Врач онлайн
-                поможет с профилактикой, даст рекомендации по лекарствам и направит на очный приём, если потребуется.
-                Консультация доктора онлайн экономит время и делает медицину доступнее.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions__item question">
-          <div class="question__wrapper">
-            <div class="question__inner">
-              <span class="question__title">Как задать вопрос врачу?</span>
-              <div class="question__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question__answer-text">Чтобы получить консультацию врача, напишите свой вопрос как
-                можно подробнее, укажите пол и возраст пациента. Если есть результаты обследования, прикрепите их или
-                перепишите результаты. Чем больше информации получит врач, тем более эффективной будет консультация.
-                Задать вопрос можно анонимно. Полностью заполните форму, оплатите консультацию и ожидайте ответ. Вопрос
-                можно задать бесплатно, но в этом случае гарантии ответа нет.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions__item question">
-          <div class="question__wrapper">
-            <div class="question__inner">
-              <span class="question__title">Через сколько ответит врач?</span>
-              <div class="question__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question__answer-text">Наш сервис работает круглосуточно. В среднем ответ готовится
-                в течение 25 минут. Но нужно учитывать занятость врача на момент получения вопроса, а также
-                необходимость изучения результатов обследования и заключений, которые вы прислали. Максимум в течение
-                часа вы гарантированно получите ответ.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions__item question">
-          <div class="question__wrapper">
-            <div class="question__inner">
-              <span class="question__title">Как проходит консультация онлайн?</span>
-              <div class="question__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question__answer-text">Врач изучает ваш вопрос и результаты обследования (если они
-                есть) и после этого предоставляет ответ на сайте. Мы оповестим вас по почте, для этого пришлём письмо с
-                ссылкой на ответ врача. Вы сможете задать дополнительные вопросы в онлайн чате, для этого нужно либо
-                сразу оплатить диалог с врачом, либо сделать это после того как задали дополнительный вопрос. Врачи
-                объясняют все подробно и понятно, чтобы консультация была максимально полезной для вас.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions__item question">
-          <div class="question__wrapper">
-            <div class="question__inner">
-              <span class="question__title">Гарантии</span>
-              <div class="question__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question__answer-text">Мы юридическое лицо и несем ответственность согласно
-                законодательству РФ. Наш сервис гарантирует безопасность личных данных, конфиденциальность медицинской
-                информации и высокое качество оказанных услуг. Все специалисты имеют действующие лицензии и опыт работы
-                в профильной области, что позволяет доверять их рекомендациям. Минимальный стаж врачей - от 8
-                лет.</span>
-            </div>
-          </div>
-        </li>
-        <li class="questions__item question">
-          <div class="question__wrapper">
-            <div class="question__inner">
-              <span class="question__title">Почему выбирают наш сервис?</span>
-              <div class="question__button">
-                <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"
-                  class="Accordion__icon">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071L1.29289 6.70711C0.902368 6.31658 0.902369 5.68342 1.29289 5.29289C1.68342 4.90237 2.31658 4.90237 2.70711 5.29289L8 10.5858L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z"
-                    fill="#000"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="question__answer-wrapper" style="max-height: 0px; padding-top: 0px;">
-              <span class="question__answer-text">Наш сервис — это удобство, скорость и профессионализм. Мы
-                отбираем только квалифицированных специалистов, гарантируем конфиденциальность данных и обеспечиваем
-                поддержку 24/7. Консультации проходят в удобном формате — чат, аудио или видео-консультации. Вы
-                получаете точные рекомендации, расшифровку анализов и помощь в выборе лечения без очередей и долгого
-                ожидания. Нашим сервисом уже воспользовались более 700.000 пользователей. Более 95% пациентов остались
-                полностью довольны ответами врачей и рекомендуют нас своим друзьям и родственникам.</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
 @endsection
