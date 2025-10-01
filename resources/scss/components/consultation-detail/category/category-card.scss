@@ -2,6 +2,7 @@
     &__wrapper {
         display: flex;
         padding-bottom: 15px;
+        gap: 6px;
         &:not(:last-of-type) {
             border-bottom: 1px solid #ebebeb;
         }

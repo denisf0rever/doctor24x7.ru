@@ -26,36 +26,52 @@
   </section>
   <section class="main__ask-question-form ask-question-form">
     <div class="ask-question-form__wrapper">
-      <h2 class="ask-question-form__title">Задать вопрос врачу онлайн</h2>
-      <ul class="ask-question-form__blocks">
-        <li class="ask-question-form__block">
-          <img src="{{ Storage::url('common/category/first-step.svg') }}" class="ask-question-form__block-img">
-          <div class="ask-question-form__separator"></div>
-          <div class="ask-question-form__text-wrapper">
-            <span class="ask-question-form__block-title">Спросите врача онлайн</span>
-          </div>
-        </li>
-        <li class="ask-question-form__block">
-          <img src="{{ Storage::url('common/category/second-step.svg') }}" class="ask-question-form__block-img">
-          <div class="ask-question-form__separator"></div>
-          <div class="ask-question-form__text-wrapper">
-            <span class="ask-question-form__block-title">Укажите данные для связи</span>
-          </div>
-        </li>
-        <li class="ask-question-form__block">
-          <img src="{{ Storage::url('common/category/third-step.svg') }}" class="ask-question-form__block-img">
-          <div class="ask-question-form__text-wrapper">
-            <span class="ask-question-form__block-title">Ожидайте ответ</span>
-          </div>
-        </li>
-      </ul>
-      <div class="ask-question-form__form-wrapper">
-        <form action="{{ route('consult.form') }}" method="get" class="ask-question-form__form">
-          @csrf
-          <textarea name="description" id="description" class="ask-question-form__textarea"></textarea>
-          <button type="submit" class="ask-question-form__submit new-red-button"> Продолжить →</button>
-        </form>
+      <div class="ask-question-form__inner">
+        <h2 class="ask-question-form__title">Как это работает </h2>
+        <ul class="ask-question-form__blocks">
+          <li class="ask-question-form__block">
+            <div class="ask-question-form__text-wrapper">
+              <span class="ask-question-form__block-title">Опишите ситуацию
+              </span>
+              <span class="ask-question-form__block-text">Заполните простую форму, опишите вашу проблему и добавьте при
+                необходимости файлы
+
+              </span>
+            </div>
+          </li>
+          <li class="ask-question-form__block">
+            <div class="ask-question-form__text-wrapper">
+              <span class="ask-question-form__block-title">Выберите консультанта
+              </span>
+              <span class="ask-question-form__block-text">Подберем специалистов под вашу задачу. Вы можете выбрать сами
+                или довериться системе
+
+              </span>
+            </div>
+          </li>
+          <li class="ask-question-form__block">
+            <div class="ask-question-form__text-wrapper">
+              <span class="ask-question-form__block-title">Оплата консультации
+              </span>
+              <span class="ask-question-form__block-text">Оплатите удобным способом. Возврат при некачественной услуге
+              </span>
+            </div>
+          </li>
+          <li class="ask-question-form__block">
+            <div class="ask-question-form__text-wrapper">
+              <span class="ask-question-form__block-title">Получите решение
+              </span>
+              <span class="ask-question-form__block-text">Общайтесь в чате, по телефону или видео. Получите план
+                действий
+                и необходимые документы
+              </span>
+
+            </div>
+          </li>
+        </ul>
+        <a href="/consultation/comment" class="ask-question-form__submit new-red-button">Начать консультацию</a>
       </div>
+
     </div>
   </section>
 </div>
