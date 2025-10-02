@@ -136,29 +136,3 @@
         height: 18px;
     }
 }
-
-@media (max-width: 768px) {
-    .user-block__header-info {
-        order: 1;
-    }
-
-    .profile-buttons {
-        order: 3;
-    }
-
-    .profile-stat {
-        order: 2;
-    }
-}
-
-@media (max-width: 998px) {
-    .profile-stat__list {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 565px) {
-    .profile-stat__item {
-        width: 150px;
-    }
-}
