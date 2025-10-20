@@ -2,9 +2,7 @@
 <body>
   <header class="header">
     <div class="header__wrapper container">
-      <a href="/" class="header__logo">
-        <img src="{{ Storage::url('common/logo.svg') }}" alt="" class="header__logo-img">
-      </a>
+      <a href="/" class="header__logo"><span class="header__logo-text">Доктор24/7</span></a>
       <div class="header__speedbar">
         <a href="/" class="header__speedbar-item header__speedbar-item--main">Главная</a>
         @if (isset($breadcrumbs))

@@ -446,7 +446,7 @@
         color: #fff;
         border-radius: 12px;
         min-height: 56px;
-        min-width: 128px;
+        min-width: 250px;
         padding: 0 27px;
         display: flex;
         justify-content: center;
@@ -460,18 +460,10 @@
     }
     &__submit-wrapper {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        place-content: center;
         gap: 10px;
         border-radius: 24px;
-        background-color: #f2f3f5;
         padding: 16px;
-    }
-
-    &__submit-text {
-        line-height: 16px;
-        font-size: 12px;
-        color: rgba(4, 4, 19, 0.55);
     }
     &__avatar {
         width: 122px;
@@ -487,8 +479,16 @@
         margin-top: 15px;
         margin-bottom: 15px;
         font-size: 26px;
+		font-weight: 500;
     }
     &__subtitle {
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+    &__description {
         text-align: center;
         display: block;
         margin-top: 15px;
@@ -553,14 +553,6 @@
                 background-color: inherit;
                 padding: 16px 0;
             }
-            &__submit-text {
-                order: 2;
-                border-radius: 24px;
-                padding: 16px;
-                font-size: 14px;
-                line-height: 16px;
-                text-align: center;
-            }
             &__submit {
                 order: 1;
                 width: 100%;
@@ -573,14 +565,6 @@
                 gap: 10px;
                 background-color: inherit;
                 padding: 16px 0;
-            }
-            &__submit-text {
-                order: 2;
-                border-radius: 24px;
-                padding: 16px;
-                font-size: 12px;
-                line-height: 16px;
-                text-align: center;
             }
             &__submit {
                 order: 1;

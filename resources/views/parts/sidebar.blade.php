@@ -1,7 +1,4 @@
 <aside class="main__sidebar">
-  <a href="{{ route('consult.form') }}" class="main__ask-question-sidebar">
-    Задать вопрос врачу
-  </a>
   <section class="main__consultation-sidebar consultation-sidebar">
     <div class="consultation-sidebar__wrapper section-wrapper">
       <div class="consultation-sidebar__top">
@@ -23,7 +20,7 @@
         </li>
         @endforeach
       </ul>
-      <a href="{{ route('consultation.online') }}" class="consultation-sidebar__button">Все консультации</a>
+      <a href="{{ route('consult.form') }}" class="consultation-sidebar__button">Задать вопрос врачу</a>
       <div class="form-select">
         <div class="form-select__select-wrapper custom-select">
           <span class="form-select__status-title" for="status">Выбрать врача</span>
@@ -40,21 +37,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="main__blog-sidebar blog-sidebar">
-    <div class="blog-sidebar__wrapper section-wrapper">
-      <a href="{{ route('articles.list.items') }}" class="blog-sidebar__title">Свежее</a>
-      <ul class="blog-sidebar__list">
-	  @foreach($articles as $article)
-        <li class="blog-sidebar__item">
-          <a href="{{ route('articles.item', $article->id ) }}" class="blog-sidebar__link">
-            <img src="/" alt="" class="blog-sidebar__img">
-            <span class="blog-sidebar__item-title">{{ $article->title }}</span>
-          </a>
-        </li>
-		@endforeach
-      </ul>
     </div>
   </section>
 </aside>

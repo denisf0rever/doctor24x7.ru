@@ -96,23 +96,28 @@ class ConsultationCategoryController extends Controller
         $city = City::where('slug', $city)
 			->firstOrFail();
 		
-		$doctors = CachedData::getCachedDoctor();
+		$this->breadcrumbService->add('consultation.city', 'Врачи в  ' . $city->name_p, route('consultation.city', $city->slug));
 		
-        return view('consultation.category.city', compact('city', 'doctors'));
+		$breadcrumbs = $this->breadcrumbService->getAll('consultation.city');
+		
+        return view('consultation.category.city', compact('city', 'breadcrumbs'));
     }
 	
 	public function categoryCity($categorySlug, $city)
 	{
 		$category = Category::where('slug', $categorySlug)
-			->select('id', 'name_v', 'name_v_m', 'amount_doctors', 'font_color', 'button_name')
+			->select('id', 'name_v', 'name_v_m', 'amount_doctors', 'font_color', 'button_name', 'short_title')
 			->firstOrFail();
 
         $city = City::where('slug', $city)
 			->firstOrFail();
 		
-		$doctors = CachedData::getCachedDoctor();
+		$this->breadcrumbService->add('category_city', $category->short_title, route('consultation.category', $categorySlug));
+		$this->breadcrumbService->add('category_city', $city->name, route('consultation.categorycity', [$categorySlug, $city->slug]));
 		
-        return view('consultation.category.citycategory', compact('category', 'city', 'doctors'));
+		$breadcrumbs = $this->breadcrumbService->getAll('category_city');
+		
+        return view('consultation.category.citycategory', compact('category', 'city', 'breadcrumbs'));
     }
 	
 	public function addDoctor()
@@ -134,10 +139,5 @@ class ConsultationCategoryController extends Controller
 		$showcase = Showcase::create($validatedData);
 		
 		return redirect()->back()->with('success', 'Элемент успешно добавлен в showcase!');
-	}
-	
-	public function getCachedShowCase()
-	{
-		
 	}
 }

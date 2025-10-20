@@ -95,17 +95,22 @@
 }
 
 @font-face {
-  font-family: 'Gbfont';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Gbfont'), url('../fonts/GBFont-Regular.woff2') format('woff2');
+	font-family: Gilroy;
+	src: url("../fonts/Gilroy/gilroy_regular.ttf") format("truetype");
+	font-weight: 400;
 }
-
 @font-face {
-  font-family: 'Gbfont';
-  font-style: italic;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Gbfont'), url('../fonts/GBFont-Bold.woff2') format('woff2');
+	font-family: Gilroy;
+	src: url("../fonts/Gilroy/gilroy_medium.ttf") format("truetype");
+	font-weight: 500;
+}
+@font-face {
+	font-family: Gilroy;
+	src: url("../fonts/Gilroy/gilroy_semibold.ttf") format("truetype");
+	font-weight: 600;
+}
+@font-face {
+	font-family: Gilroy;
+	src: url("../fonts/Gilroy/gilroy_bold.ttf") format("truetype");
+	font-weight: 700;
 }

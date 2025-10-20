@@ -236,4 +236,13 @@ class ConsultationController extends Controller
 		cache()->forget($cacheKey);
 	}
 	
+	public function messenger()
+	{
+		$this->breadcrumbService->add('consultation.messenger', 'Консультация в мессенджере', route('consultation.messenger'));
+		
+		$breadcrumbs = $this->breadcrumbService->getAll('consultation.messenger');
+		
+		return view('consultation.messenger', compact('breadcrumbs'));
+	}
+	
 }

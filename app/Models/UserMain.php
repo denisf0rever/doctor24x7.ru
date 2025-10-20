@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Consultation\Booking;
 use App\Models\Consultation\ConsultationComment;
+use App\Models\Consultation\Consultation;
 use App\Models\User\CategoryText;
 use App\Models\Reviews\Reviews;
 

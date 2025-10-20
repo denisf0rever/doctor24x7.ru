@@ -39,7 +39,7 @@ class ChatController extends Controller
 	{
 		$consultant = User::query()
 			->where('id', $id)
-			->select('id', 'first_name', 'middle_name', 'avatar')
+			->select('id', 'first_name', 'middle_name', 'avatar', 'experience')
 			->firstOrFail();
 
 		return view('consultation.chat.newchat', compact('consultant'));

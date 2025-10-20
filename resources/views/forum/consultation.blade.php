@@ -3,7 +3,7 @@
 @section('description', 'Форум')
 @section('keywords', 'Медицинский форум создан для обсуждения медицинских вопросов в формате онлайн консультации,
 связанных со здоровьем, расшифровкой анализа, медицинских документов')
-@section('canonical', 'forum/consultation')
+@section('canonical', route('forum.consultation'))
 
 @section('content')
 <section class="forum">

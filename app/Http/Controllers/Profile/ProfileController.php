@@ -19,9 +19,11 @@ class ProfileController extends Controller
     {
 		Carbon::setLocale('ru');
 
-		$user = UserMain::query()
-			->where('username', $slug)
+		$user = UserMain::where('username', $slug)
 			->firstOrFail();
+		
+		$latestConsultations = $user->comments()->orderBy('created_at', 'desc')->take(5)->get();
+		$latestReviews = $user->reviews()->orderBy('created_at', 'desc')->take(5)->get();
 		
 		$user->increment('views');
 		
@@ -34,6 +36,6 @@ class ProfileController extends Controller
 		
 		$breadcrumbs = $this->breadcrumbService->getAll('profile_doctor');
 		
-		return view('user.profile.item', compact('user', 'date', 'breadcrumbs'));
+		return view('user.profile.item', compact('user', 'date', 'breadcrumbs', 'latestConsultations', 'latestReviews'));
     }
 }

@@ -2,7 +2,7 @@
 @section('title', 'Рейтинг врачей')
 @section('description', 'Рейтинг врачей')
 @section('keywords', 'Рейтинг врачей')
-@section('canonical', 'forum/top')
+@section('canonical', route('forum.top'))
 
 @section('content')
 <section class="forum">

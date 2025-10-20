@@ -48,8 +48,8 @@
   }
   &__button {
     font-weight: bold;
-    background-color: rgba(30, 43, 68, 0.08);
-    color: #000;
+    background-color: var(--blue-img-bg);
+    color: #fff;
     border-radius: 8px;
     min-height: 50px;
     min-width: 128px;
@@ -62,8 +62,6 @@
     margin-top: 20px;
   }
   &__button:hover {
-    background-color: #005ff9;
-    color: #fff;
-    opacity: 1;
+    opacity: .8;
   }
 }

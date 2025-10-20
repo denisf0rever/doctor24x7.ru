@@ -28,17 +28,15 @@ use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Testimonials\TestimonialController;
 use App\Http\Controllers\Invoice\InvoiceController;
 use App\Http\Controllers\Account\AccountController;
-
 use App\Http\Controllers\Forum\ForumController;
-
 use App\Http\Controllers\Page\PageController;
-
 use App\Http\Controllers\Redirect\RedirectController;
 use App\Http\Controllers\Test\TestController;
 
 // Тесты
 Route::get('/test', [TestController::class, 'index']);
 Route::get('/test/invoice', [TestController::class, 'invoice']);
+Route::get('/service', fn() => view('service.index'));
 
 // Старые адреса, убрать через месяц
 Route::get('/sitemap', [RedirectController::class, 'sitemap']);
@@ -74,6 +72,7 @@ Route::post('/consultation/answer/like/{id}', [ConsultationAnswerController::cla
 Route::post('/consultation/answer/dislike/{id}', [ConsultationAnswerController::class, 'dislike'])->name('consultation.dislike');
 Route::get('/consultation/online', [ConsultationAnswerController::class, 'online'])->name('consultation.online');
 Route::get('/consultation/archive', [ArchiveController::class, 'show'])->name('consultation.archive');
+Route::get('/consultation/messenger', [ConsultationController::class, 'messenger'])->name('consultation.messenger');
 
 // Консультации: Отзывы
 Route::get('/consultation/testimonials', [TestimonialController::class, 'index'])->name('consultation.testimonials');

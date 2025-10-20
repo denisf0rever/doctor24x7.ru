@@ -5,50 +5,53 @@
 @section('canonical', route('consultation.category', $category->slug))
 
 @section('content')
-
-<div class="new-section-wrapper">
-  <section class="main__intro category-intro">
-    <div class="category-intro__wrapper">
-      <div class="category-intro__inner">
-        <div class="category-intro__top">
-          <h1 class="category-intro__title">{{ $category->h1 }}</h1>
-          <div class="category-intro__text">
-            {!! $category->banner_image !!}
-          </div>
-        </div>
-        <div class="category-intro__button-block">
-          <a href="/consultation/comment?rubric_id={{ $category->id }}"
-            class="category-intro__button-link new-red-button">Задать
-            вопрос
-            →</a>
-          <div class="category-intro__button-text">Ответ в течение 25 минут</div>
-        </div>
-        @if ($showcase->IsNotEmpty())
-        <div class="category-intro__cards-title">Консультанты онлайн </div>
-        <div class="category-intro__experts-cards expert-cards">
-          @foreach($showcase as $item)
-          <div class="expert-card js-lawyer-popup-open">
-            <div class="expert-card__text">
-              <span class="expert-card__title">{{ $item->user->first_name .' '. $item->user->middle_name }}</span>
-              <div class="expert-card__subtitle">{{ $item->category->short_title }}</div>
+<section class="main__intro category-intro">
+	<div class="category-intro__wrapper">
+		<div class="category-intro__inner">
+			<div class="category-intro__top">
+				<h1 class="category-intro__title">{{ $category->h1 }}</h1>
+					<div class="category-intro__description">
+					{{ $category->name_d }}
+					</div>
+					<div class="category-intro__text">
+					{!! $category->banner_image !!}
+					</div>
+					<div class="category-intro__consultation-buttons">
+						<a href="/consultation/comment?rubric_id={{ $category->id }}"" class="category-intro__consultation-btn category-intro__consultation-btn--online">Онлайн консультация</a>
+						<a href="{{ route('consultation.messenger') }}" class="category-intro__consultation-btn category-intro__consultation-btn--whatsapp">WhatsApp</a>
+						<a href="{{ route('consultation.messenger') }}" class="category-intro__consultation-btn category-intro__consultation-btn--telegram">Telegram</a>
+					</div>
+			</div>
+		</div>
+	</div>
+</section>
+  
+@if ($showcase->IsNotEmpty())
+<section class="main__top-consultants">
+    <div class="expert-cards__wrapper">
+        <div class="expert-cards__top-title">Топ консультантов</div>
+        <div class="expert-cards">
+            @foreach($showcase as $item)
+            <div class="expert-cards__item expert-cards__item--card">
+                <div class="expert-cards__item-text">
+                    <span class="expert-cards__item-title">{{ $item->user->first_name .' '. $item->user->middle_name }}</span>
+                    <div class="expert-cards__item-subtitle">{{ $item->category->short_title }}</div>
+                </div>
+                <div class="expert-cards__item-img-wrapper">
+                    <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $item->user->avatar }}"
+                        alt="{{ $item->category->h1 }}" class="expert-cards__item-img">
+                </div>
             </div>
-            <div class="expert-card__img-wrapper">
-              <img src="https://puzkarapuz.ru/uploads/sfGuard/avatars/{{ $item->user->avatar }}"
-                alt="{{ $item->category->h1 }}" class="expert-card__img">
-            </div>
-          </div>
-          @endforeach
+            @endforeach
         </div>
-        @endif
-
-      </div>
     </div>
-  </section>
-
-  <section class="main__ask-question-form ask-question-form">
+</section>
+@endif
+		
+<section class="main__ask-question-form ask-question-form">
     <div class="ask-question-form__wrapper">
       <div class="ask-question-form__inner">
-        <h2 class="ask-question-form__title">Как это работает </h2>
+        <h2 class="ask-question-form__title">Как это работает</h2>
         <ul class="ask-question-form__blocks">
           <li class="ask-question-form__block">
             <div class="ask-question-form__text-wrapper">
@@ -262,8 +265,6 @@
       </div>
     </div>
   </section>
-</div>
-
 
 @if ($category->subcategories->isNotEmpty())
 <section class="main__themes themes">

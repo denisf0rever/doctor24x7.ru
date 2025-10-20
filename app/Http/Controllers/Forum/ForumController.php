@@ -8,14 +8,24 @@ use Illuminate\Support\Facades\Cache;
 use App\Models\Consultation\Consultation;
 use App\Models\UserMain;
 use App\Repositories\Forum\ForumRepository;
+use App\Services\BreadcrumbService;
 
 class ForumController extends Controller
 {
+	public function __construct(BreadcrumbService $breadcrumbService)
+	{
+		$this->breadcrumbService = $breadcrumbService;
+	}
+	
 	public function index()
 	{
 		$categories = ForumRepository::categories();
 		
-		return view('forum.index', compact('categories'));
+		$this->breadcrumbService->add('forum_index', 'Форум', route('forum.index'));
+		
+		$breadcrumbs = $this->breadcrumbService->getAll('forum_index');
+		
+		return view('forum.index', compact('categories', 'breadcrumbs'));
 	}
 	
 	public function top()
@@ -27,7 +37,12 @@ class ForumController extends Controller
 			->get()
 			);
 		
-		return view('forum.top', compact('doctors'));
+		$this->breadcrumbService->add('forum_index', 'Форум', route('forum.index'));
+		$this->breadcrumbService->add('forum_index', 'Рейтинг врачей', route('forum.top'));
+		
+		$breadcrumbs = $this->breadcrumbService->getAll('forum_index');
+		
+		return view('forum.top', compact('doctors', 'breadcrumbs'));
 	}
 	
 	public function consultation()
@@ -38,13 +53,19 @@ class ForumController extends Controller
 			->orderBy('created_at', 'desc')
 			->limit(5)
 			->get();
+		
+		$this->breadcrumbService->add('forum_index', 'Форум', route('forum.index'));
+		$this->breadcrumbService->add('forum_index', 'Консультации', route('forum.consultation'));
+		
+		$breadcrumbs = $this->breadcrumbService->getAll('forum_index');
 			
-		return view('forum.consultation', compact('consultations'));
+		return view('forum.consultation', compact('consultations', 'breadcrumbs'));
 	}
 	
 	public function category($slug)
 	{
 		$category = ForumRepository::category($slug);
+		
 		
 		$consultations = Consultation::query()
 			->where('rubric_id', $category->rubric_id)
@@ -52,7 +73,12 @@ class ForumController extends Controller
 			->orderBy('created_at', 'desc')
 			->limit(20)
 			->get();
+			
+		$this->breadcrumbService->add('forum_index', 'Форум', route('forum.index'));
+		$this->breadcrumbService->add('forum_index', $category->h1, route('forum.category', $category->slug));
 		
-		return view('forum.category', compact('category', 'consultations'));
+		$breadcrumbs = $this->breadcrumbService->getAll('forum_index');
+		
+		return view('forum.category', compact('category', 'consultations', 'breadcrumbs'));
 	}
 }

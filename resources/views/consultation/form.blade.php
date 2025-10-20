@@ -5,90 +5,20 @@
 @section('canonical', route('consult.form'))
 
 @section('content')
-<!-- <section class="main__text-service text-service">
-  <div class="text-service__wrapper section-wrapper">
-    <h1 class="text-service__title"></h1>
-    <ul class="text-service__list">
-      <li class="text-service__item"><b>Через сколько ответит врач?</b> Готовим ответ в среднем 25 минут. Наш сервис
-        работает круглосуточно.</li>
-      <li class="text-service__item"><b>Гарантии.</b> Мы юридическое лицо и несем ответственность перед
-        законодательством РФ. Нашим сервисом уже воспользовались более 700.000 пользователей. Юридическая информация и
-        отзывы <a href="/about-us" target="_blank">тут</a>. Документы врачей проверены. Минимальный стаж врачей 8 лет.
-      </li>
-      <li class="text-service__item"><b>Как проходит консультация?</b> Врач предоставит ответ и мы оповестим вас по
-        почте, вы сможете задать дополнительные вопросы в онлайн чате. Ответ максимально подробный, чтобы консультация
-        была полезной для вас.</li>
-      <li class="text-service__item"><b>Как задать вопрос врачу?</b> Чтобы получить консультацию врача, заполните форму
-        и ожидайте ответ в течение часа.</li>
-    </ul>
-  </div>
-</section> -->
-
 <section class="main__intro category-intro">
   <div class="category-intro__wrapper new-section-wrapper">
     <div class="category-intro__inner">
       <div class="category-intro__top">
-        <h1 class="category-intro__title">
-          Консультация врача онлайн
-        </h1>
-
-        <div class="category-intro__text">
-          Предоставляем полные и информативные ответы, работаем на совесть.
-
-        </div>
-
+        <h1 class="category-intro__title">Консультация врача онлайн</h1>
+        <div class="category-intro__text">Подробные ответы с возможностью продолжить диалог, ответ предоставляется в течение одного часа.</div>
       </div>
-      <div class="category-intro__experts-cards expert-cards">
-        <div class="expert-card">
-          <div class="expert-card__text">
-            <span class="expert-card__title">Онлайн консультация</span>
-            <div class="expert-card__subtitle">Чат, либо уведомление на почту </div>
-          </div>
-          <div class="expert-card__img-wrapper">
-            <img src="http://puzkarapuz.ru/images/svg/forms/comment/chat.svg" alt="img" class="expert-card__img">
-          </div>
-        </div>
-        <div class="expert-card">
-          <div class="expert-card__text">
-            <span class="expert-card__title">Быстрые ответы </span>
-            <div class="expert-card__subtitle">Стараемся отвечать не дольше одного часа
-            </div>
-          </div>
-          <div class="expert-card__img-wrapper">
-            <img src="http://puzkarapuz.ru/images/svg/forms/comment/chat.svg" alt="img" class="expert-card__img">
-          </div>
-        </div>
-        <div class="expert-card">
-          <div class="expert-card__text">
-            <span class="expert-card__title">Проверенные врачи
-            </span>
-            <div class="expert-card__subtitle">Все документы проверены: паспорт, диплом об образовании
-            </div>
-          </div>
-          <div class="expert-card__img-wrapper">
-            <img src="http://puzkarapuz.ru/images/svg/forms/comment/chat.svg" alt="img" class="expert-card__img">
-          </div>
-        </div>
-        <div class="expert-card">
-          <div class="expert-card__text">
-            <span class="expert-card__title">Нам доверяют
-            </span>
-            <div class="expert-card__subtitle">Более 7000 положительных отзывов
-            </div>
-          </div>
-          <div class="expert-card__img-wrapper">
-            <img src="http://puzkarapuz.ru/images/svg/forms/comment/chat.svg" alt="img" class="expert-card__img">
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
 <section class="main__consultation-form consultation-form">
   <div class="consultation-form__wrapper small-container">
-    <h1 class="consultation-form__title">Консультация врача онлайн</h1>
+    <h2 class="consultation-form__title">Задать вопрос</h2>
     <div class="consultation-form__timeline-wrapper">
       <span class="consultation-form__timeline-text">Шаг <span id="step">1</span> из 4</span>
       <div class="consultation-form__timeline">

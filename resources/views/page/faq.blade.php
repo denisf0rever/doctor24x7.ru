@@ -1,7 +1,7 @@
 @extends('appwide')
-@section('title', 'Контакты')
-@section('description', 'Контакты')
-@section('keywords', 'Контакты')
+@section('title', 'Вопросы и ответы')
+@section('description', 'Вопросы и ответы')
+@section('keywords', 'Вопросы и ответы')
 @section('canonical', route('page.faq'))
 
 @section('content')

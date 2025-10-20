@@ -90,7 +90,7 @@ ul {
     margin: 0 auto;
     position: relative;
     max-width: 1196px;
-    padding: 0 10px;
+    padding: 0 15px;
     width: 100%;
 }
 
@@ -179,25 +179,6 @@ p {
         display: flex;
         flex-direction: column;
         gap: 20px;
-    }
-    &__ask-question-sidebar {
-        background-color: rgba(30, 43, 68, 0.08);
-        color: #000;
-        border-radius: 8px;
-        min-height: 50px;
-        min-width: 128px;
-        padding: 0 25px;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        font-weight: bold;
-        font-size: 15px;
-    }
-    &__ask-question-sidebar:hover {
-        background-color: #005ff9;
-        color: #fff;
-        opacity: 1;
     }
     &__online-waiting {
         margin-top: 20px;
@@ -313,8 +294,6 @@ p {
 @import "components/main-page/news.scss";
 @import "components/main-page/cards.scss";
 @import "components/main-page/form-select.scss";
-@import "components/main-page/blog-sidebar.scss";
-@import "components/consultation-comments/text-service.scss";
 @import "components/consultation-comments/consultation-form.scss";
 @import "components/consultation-detail/consultation-question.scss";
 @import "components/consultation-detail/ask-question.scss";
@@ -330,7 +309,6 @@ p {
 @import "components/consultation-detail/online-list.scss";
 @import "components/consultation-detail/consultation.scss";
 @import "components/profile/user-block.scss";
-@import "components/profile/user-description.scss";
 @import "components/payment/specialists.scss";
 @import "components/payment/payment-reviews.scss";
 @import "components/payment/payment.scss";
